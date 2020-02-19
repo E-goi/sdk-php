@@ -13,7 +13,7 @@
 /**
  * APIv3 (Beta)
  *
- * # Introduction Just a quick pick!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # HTTP Methods for RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  <security-definitions/>
+ * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0-beta
  * 
@@ -58,10 +58,12 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'mode' => 'string',
         'compare_field' => 'string',
-        'replace_existing_contacts' => 'bool',
-        'send_autoresponder' => 'bool',
-        'contacts' => '\EgoiClient\EgoiModel\Contact[]'
+        'contacts' => '\EgoiClient\EgoiModel\ContactBulk[]',
+        'force_empty' => 'bool',
+        'notify' => 'int[]',
+        'callback_url' => 'string'
     ];
 
     /**
@@ -70,10 +72,12 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'mode' => null,
         'compare_field' => null,
-        'replace_existing_contacts' => null,
-        'send_autoresponder' => null,
-        'contacts' => null
+        'contacts' => null,
+        'force_empty' => null,
+        'notify' => null,
+        'callback_url' => null
     ];
 
     /**
@@ -103,10 +107,12 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'mode' => 'mode',
         'compare_field' => 'compare_field',
-        'replace_existing_contacts' => 'replace_existing_contacts',
-        'send_autoresponder' => 'send_autoresponder',
-        'contacts' => 'contacts'
+        'contacts' => 'contacts',
+        'force_empty' => 'force_empty',
+        'notify' => 'notify',
+        'callback_url' => 'callback_url'
     ];
 
     /**
@@ -115,10 +121,12 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'mode' => 'setMode',
         'compare_field' => 'setCompareField',
-        'replace_existing_contacts' => 'setReplaceExistingContacts',
-        'send_autoresponder' => 'setSendAutoresponder',
-        'contacts' => 'setContacts'
+        'contacts' => 'setContacts',
+        'force_empty' => 'setForceEmpty',
+        'notify' => 'setNotify',
+        'callback_url' => 'setCallbackUrl'
     ];
 
     /**
@@ -127,10 +135,12 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'mode' => 'getMode',
         'compare_field' => 'getCompareField',
-        'replace_existing_contacts' => 'getReplaceExistingContacts',
-        'send_autoresponder' => 'getSendAutoresponder',
-        'contacts' => 'getContacts'
+        'contacts' => 'getContacts',
+        'force_empty' => 'getForceEmpty',
+        'notify' => 'getNotify',
+        'callback_url' => 'getCallbackUrl'
     ];
 
     /**
@@ -174,13 +184,8 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const COMPARE_FIELD_EMAIL = 'email';
-    const COMPARE_FIELD_CELLPHONE = 'cellphone';
-    const COMPARE_FIELD_PHONE = 'phone';
-    const COMPARE_FIELD_FIRST_NAME = 'first_name';
-    const COMPARE_FIELD_LAST_NAME = 'last_name';
-    const COMPARE_FIELD_BIRTH_DATE = 'birth_date';
-    const COMPARE_FIELD_EXTRA_X = 'extra_X';
+    const MODE_ADD = 'add';
+    const MODE_UPDATE = 'update';
     
 
     
@@ -189,16 +194,11 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getCompareFieldAllowableValues()
+    public function getModeAllowableValues()
     {
         return [
-            self::COMPARE_FIELD_EMAIL,
-            self::COMPARE_FIELD_CELLPHONE,
-            self::COMPARE_FIELD_PHONE,
-            self::COMPARE_FIELD_FIRST_NAME,
-            self::COMPARE_FIELD_LAST_NAME,
-            self::COMPARE_FIELD_BIRTH_DATE,
-            self::COMPARE_FIELD_EXTRA_X,
+            self::MODE_ADD,
+            self::MODE_UPDATE,
         ];
     }
     
@@ -218,10 +218,12 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['compare_field'] = isset($data['compare_field']) ? $data['compare_field'] : null;
-        $this->container['replace_existing_contacts'] = isset($data['replace_existing_contacts']) ? $data['replace_existing_contacts'] : false;
-        $this->container['send_autoresponder'] = isset($data['send_autoresponder']) ? $data['send_autoresponder'] : false;
         $this->container['contacts'] = isset($data['contacts']) ? $data['contacts'] : null;
+        $this->container['force_empty'] = isset($data['force_empty']) ? $data['force_empty'] : false;
+        $this->container['notify'] = isset($data['notify']) ? $data['notify'] : null;
+        $this->container['callback_url'] = isset($data['callback_url']) ? $data['callback_url'] : null;
     }
 
     /**
@@ -233,17 +235,20 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['compare_field'] === null) {
-            $invalidProperties[] = "'compare_field' can't be null";
+        if ($this->container['mode'] === null) {
+            $invalidProperties[] = "'mode' can't be null";
         }
-        $allowedValues = $this->getCompareFieldAllowableValues();
-        if (!is_null($this->container['compare_field']) && !in_array($this->container['compare_field'], $allowedValues, true)) {
+        $allowedValues = $this->getModeAllowableValues();
+        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'compare_field', must be one of '%s'",
+                "invalid value for 'mode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
+        if ($this->container['compare_field'] === null) {
+            $invalidProperties[] = "'compare_field' can't be null";
+        }
         if ($this->container['contacts'] === null) {
             $invalidProperties[] = "'contacts' can't be null";
         }
@@ -263,6 +268,39 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets mode
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string $mode Add new contacts only ('add') or add and replace existing ones ('update')
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $allowedValues = $this->getModeAllowableValues();
+        if (!in_array($mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
      * Gets compare_field
      *
      * @return string
@@ -275,70 +313,13 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
     /**
      * Sets compare_field
      *
-     * @param string $compare_field Field ID which will be mapped for comparison to prevent duplicates. If it is an extra field,                         append the prefix 'extra_' to it (e. g. 'extra_1')
+     * @param string $compare_field Field ID which will be mapped for comparison to prevent duplicates)
      *
      * @return $this
      */
     public function setCompareField($compare_field)
     {
-        $allowedValues = $this->getCompareFieldAllowableValues();
-        if (!in_array($compare_field, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'compare_field', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['compare_field'] = $compare_field;
-
-        return $this;
-    }
-
-    /**
-     * Gets replace_existing_contacts
-     *
-     * @return bool|null
-     */
-    public function getReplaceExistingContacts()
-    {
-        return $this->container['replace_existing_contacts'];
-    }
-
-    /**
-     * Sets replace_existing_contacts
-     *
-     * @param bool|null $replace_existing_contacts False to add new contacts only, true to replace existing contacts
-     *
-     * @return $this
-     */
-    public function setReplaceExistingContacts($replace_existing_contacts)
-    {
-        $this->container['replace_existing_contacts'] = $replace_existing_contacts;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_autoresponder
-     *
-     * @return bool|null
-     */
-    public function getSendAutoresponder()
-    {
-        return $this->container['send_autoresponder'];
-    }
-
-    /**
-     * Sets send_autoresponder
-     *
-     * @param bool|null $send_autoresponder True to send each imported contact the autoresponder sequence you have previously set up for                         sign-ups in this mailing list
-     *
-     * @return $this
-     */
-    public function setSendAutoresponder($send_autoresponder)
-    {
-        $this->container['send_autoresponder'] = $send_autoresponder;
 
         return $this;
     }
@@ -346,7 +327,7 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \EgoiClient\EgoiModel\Contact[]
+     * @return \EgoiClient\EgoiModel\ContactBulk[]
      */
     public function getContacts()
     {
@@ -356,13 +337,85 @@ class ImportBulkRequest implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \EgoiClient\EgoiModel\Contact[] $contacts Array of contacts to import
+     * @param \EgoiClient\EgoiModel\ContactBulk[] $contacts Array of contacts to import
      *
      * @return $this
      */
     public function setContacts($contacts)
     {
         $this->container['contacts'] = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * Gets force_empty
+     *
+     * @return bool|null
+     */
+    public function getForceEmpty()
+    {
+        return $this->container['force_empty'];
+    }
+
+    /**
+     * Sets force_empty
+     *
+     * @param bool|null $force_empty If 'true' accepts empty values and erases those fields
+     *
+     * @return $this
+     */
+    public function setForceEmpty($force_empty)
+    {
+        $this->container['force_empty'] = $force_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify
+     *
+     * @return int[]|null
+     */
+    public function getNotify()
+    {
+        return $this->container['notify'];
+    }
+
+    /**
+     * Sets notify
+     *
+     * @param int[]|null $notify Array of IDs of the users to notify
+     *
+     * @return $this
+     */
+    public function setNotify($notify)
+    {
+        $this->container['notify'] = $notify;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_url
+     *
+     * @return string|null
+     */
+    public function getCallbackUrl()
+    {
+        return $this->container['callback_url'];
+    }
+
+    /**
+     * Sets callback_url
+     *
+     * @param string|null $callback_url Url to receive the report
+     *
+     * @return $this
+     */
+    public function setCallbackUrl($callback_url)
+    {
+        $this->container['callback_url'] = $callback_url;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * APIv3 (Beta)
  *
- * # Introduction Just a quick pick!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # HTTP Methods for RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  <security-definitions/>
+ * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0-beta
  * 
@@ -59,8 +59,8 @@ class CName implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'cname_id' => 'int',
-        'cname' => 'string',
-        'created' => '\DateTime'
+        'value' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class CName implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'cname_id' => null,
-        'cname' => null,
-        'created' => null
+        'value' => null,
+        'status' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class CName implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'cname_id' => 'cname_id',
-        'cname' => 'cname',
-        'created' => 'created'
+        'value' => 'value',
+        'status' => 'status'
     ];
 
     /**
@@ -113,8 +113,8 @@ class CName implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'cname_id' => 'setCnameId',
-        'cname' => 'setCname',
-        'created' => 'setCreated'
+        'value' => 'setValue',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -124,8 +124,8 @@ class CName implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'cname_id' => 'getCnameId',
-        'cname' => 'getCname',
-        'created' => 'getCreated'
+        'value' => 'getValue',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -169,8 +169,29 @@ class CName implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_VERIFIED = 'verified';
+    const STATUS_UNVERIFIED = 'unverified';
+    const STATUS_RECENT = 'recent';
+    const STATUS_INVALID = 'invalid';
+    const STATUS__PRIVATE = 'private';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_VERIFIED,
+            self::STATUS_UNVERIFIED,
+            self::STATUS_RECENT,
+            self::STATUS_INVALID,
+            self::STATUS__PRIVATE,
+        ];
+    }
     
 
     /**
@@ -189,8 +210,8 @@ class CName implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['cname_id'] = isset($data['cname_id']) ? $data['cname_id'] : null;
-        $this->container['cname'] = isset($data['cname']) ? $data['cname'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -206,9 +227,14 @@ class CName implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'cname_id', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['cname'] === null) {
-            $invalidProperties[] = "'cname' can't be null";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -254,49 +280,58 @@ class CName implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cname
+     * Gets value
      *
-     * @return string
+     * @return string|null
      */
-    public function getCname()
+    public function getValue()
     {
-        return $this->container['cname'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets cname
+     * Sets value
      *
-     * @param string $cname CName value
+     * @param string|null $value CName value
      *
      * @return $this
      */
-    public function setCname($cname)
+    public function setValue($value)
     {
-        $this->container['cname'] = $cname;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets created
+     * Gets status
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getCreated()
+    public function getStatus()
     {
-        return $this->container['created'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets created
+     * Sets status
      *
-     * @param \DateTime|null $created created
+     * @param string|null $status CName status
      *
      * @return $this
      */
-    public function setCreated($created)
+    public function setStatus($status)
     {
-        $this->container['created'] = $created;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

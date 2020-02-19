@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**compare_field** | **string** | Field ID which will be mapped for comparison to prevent duplicates. If it is an extra field,                         append the prefix &#39;extra_&#39; to it (e. g. &#39;extra_1&#39;) | 
-**replace_existing_contacts** | **bool** | False to add new contacts only, true to replace existing contacts | [optional] [default to false]
-**send_autoresponder** | **bool** | True to send each imported contact the autoresponder sequence you have previously set up for                         sign-ups in this mailing list | [optional] [default to false]
-**contacts** | [**\EgoiClient\EgoiModel\Contact[]**](Contact.md) | Array of contacts to import | 
+**mode** | **string** | Add new contacts only (&#39;add&#39;) or add and replace existing ones (&#39;update&#39;) | 
+**compare_field** | **string** | Field ID which will be mapped for comparison to prevent duplicates) | 
+**contacts** | [**\EgoiClient\EgoiModel\ContactBulk[]**](ContactBulk.md) | Array of contacts to import | 
+**force_empty** | **bool** | If &#39;true&#39; accepts empty values and erases those fields | [optional] [default to false]
+**notify** | **int[]** | Array of IDs of the users to notify | [optional] 
+**callback_url** | **string** | Url to receive the report | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.0.0RC
+#### 1.0.0RC1
 ## Requirements
 
 PHP 5.5 and later
@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *AdvancedReportsApi* | [**getAllAdvancedReports**](docs/Api/AdvancedReportsApi.md#getalladvancedreports) | **GET** /reports/advanced | Get all advanced reports
 *AutomationsApi* | [**deleteAutomation**](docs/Api/AutomationsApi.md#deleteautomation) | **DELETE** /automations/{automation_id} | Remove automation
 *AutomationsApi* | [**getAllAutomations**](docs/Api/AutomationsApi.md#getallautomations) | **GET** /automations | Get all automations
+*CNamesApi* | [**getAllCNames**](docs/Api/CNamesApi.md#getallcnames) | **GET** /cnames | Get All CNames
 *CampaignGroupsApi* | [**createCampaignGroup**](docs/Api/CampaignGroupsApi.md#createcampaigngroup) | **POST** /campaign-groups | Create new campaign group
 *CampaignGroupsApi* | [**deleteCampaignGroup**](docs/Api/CampaignGroupsApi.md#deletecampaigngroup) | **DELETE** /campaign-groups/{group_id} | Remove Campaign Group
 *CampaignGroupsApi* | [**getAllCampaignGroups**](docs/Api/CampaignGroupsApi.md#getallcampaigngroups) | **GET** /campaign-groups | Get all campaign groups
@@ -115,6 +116,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**actionAttachTag**](docs/Api/ContactsApi.md#actionattachtag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
 *ContactsApi* | [**actionDetachTag**](docs/Api/ContactsApi.md#actiondetachtag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
 *ContactsApi* | [**actionExportContacts**](docs/Api/ContactsApi.md#actionexportcontacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+*ContactsApi* | [**actionImportBulk**](docs/Api/ContactsApi.md#actionimportbulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
 *ContactsApi* | [**actionStartAutomation**](docs/Api/ContactsApi.md#actionstartautomation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
 *ContactsApi* | [**actionUnsubscribeContact**](docs/Api/ContactsApi.md#actionunsubscribecontact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
 *ContactsApi* | [**createContact**](docs/Api/ContactsApi.md#createcontact) | **POST** /lists/{list_id}/contacts | Create new contact
@@ -175,6 +177,9 @@ Class | Method | HTTP request | Description
 *SendersApi* | [**getAllEmailSenders**](docs/Api/SendersApi.md#getallemailsenders) | **GET** /senders/email | Get all email senders
 *SendersApi* | [**getAllPhoneSenders**](docs/Api/SendersApi.md#getallphonesenders) | **GET** /senders/phone | Get all phone senders
 *SendersApi* | [**putEmailSender**](docs/Api/SendersApi.md#putemailsender) | **PUT** /senders/email/{sender_id} | Update email sender
+*SmartSmsApi* | [**actionSendSmartSms**](docs/Api/SmartSmsApi.md#actionsendsmartsms) | **POST** /campaigns/smart-sms/{campaign_hash}/actions/send | Send smart sms message
+*SmartSmsApi* | [**createSmartSmsCampaign**](docs/Api/SmartSmsApi.md#createsmartsmscampaign) | **POST** /campaigns/smart-sms | Create new smart sms campaign
+*SmartSmsApi* | [**patchSmartSmsCampaign**](docs/Api/SmartSmsApi.md#patchsmartsmscampaign) | **PATCH** /campaigns/smart-sms/{campaign_hash} | Update a specific smart sms campaign
 *SmsApi* | [**actionSendSms**](docs/Api/SmsApi.md#actionsendsms) | **POST** /campaigns/sms/{campaign_hash}/actions/send | Send sms message
 *SmsApi* | [**createSmsCampaign**](docs/Api/SmsApi.md#createsmscampaign) | **POST** /campaigns/sms | Create new sms campaign
 *SmsApi* | [**patchSmsCampaign**](docs/Api/SmsApi.md#patchsmscampaign) | **PATCH** /campaigns/sms/{campaign_hash} | Update a specific sms campaign
@@ -255,6 +260,7 @@ Class | Method | HTTP request | Description
  - [BillingInfoAllOfBillingInfoCountry](docs/Model/BillingInfoAllOfBillingInfoCountry.md)
  - [BulkActionResponse](docs/Model/BulkActionResponse.md)
  - [CName](docs/Model/CName.md)
+ - [CNamesCollection](docs/Model/CNamesCollection.md)
  - [Campaign](docs/Model/Campaign.md)
  - [CampaignEmailBaseContent](docs/Model/CampaignEmailBaseContent.md)
  - [CampaignEmailContent](docs/Model/CampaignEmailContent.md)
@@ -287,6 +293,13 @@ Class | Method | HTTP request | Description
  - [CampaignScheduleDate](docs/Model/CampaignScheduleDate.md)
  - [CampaignSentLast30Days](docs/Model/CampaignSentLast30Days.md)
  - [CampaignSentLast30DaysErrors](docs/Model/CampaignSentLast30DaysErrors.md)
+ - [CampaignSmartSmsHtml](docs/Model/CampaignSmartSmsHtml.md)
+ - [CampaignSmartSmsImport](docs/Model/CampaignSmartSmsImport.md)
+ - [CampaignSmartSmsOptions](docs/Model/CampaignSmartSmsOptions.md)
+ - [CampaignSmartSmsPageContent](docs/Model/CampaignSmartSmsPageContent.md)
+ - [CampaignSmartSmsRedirect](docs/Model/CampaignSmartSmsRedirect.md)
+ - [CampaignSmartSmsScheduleRequest](docs/Model/CampaignSmartSmsScheduleRequest.md)
+ - [CampaignSmartSmsSendRequest](docs/Model/CampaignSmartSmsSendRequest.md)
  - [CampaignSmsContent](docs/Model/CampaignSmsContent.md)
  - [CampaignSmsContentTemplate](docs/Model/CampaignSmsContentTemplate.md)
  - [CampaignSmsContentText](docs/Model/CampaignSmsContentText.md)
@@ -326,27 +339,40 @@ Class | Method | HTTP request | Description
  - [ContactActivityClickAllOf](docs/Model/ContactActivityClickAllOf.md)
  - [ContactActivityClickAllOfActionData](docs/Model/ContactActivityClickAllOfActionData.md)
  - [ContactBaseExtra](docs/Model/ContactBaseExtra.md)
+ - [ContactBaseExtraBulk](docs/Model/ContactBaseExtraBulk.md)
+ - [ContactBaseFieldsBulkSchema](docs/Model/ContactBaseFieldsBulkSchema.md)
  - [ContactBaseFieldsSchema](docs/Model/ContactBaseFieldsSchema.md)
  - [ContactBaseStatusExtra](docs/Model/ContactBaseStatusExtra.md)
+ - [ContactBaseStatusExtraBulk](docs/Model/ContactBaseStatusExtraBulk.md)
+ - [ContactBaseWithStatusFieldsBulkSchema](docs/Model/ContactBaseWithStatusFieldsBulkSchema.md)
  - [ContactBaseWithStatusFieldsSchema](docs/Model/ContactBaseWithStatusFieldsSchema.md)
  - [ContactBaseWithStatusFieldsSchemaBase](docs/Model/ContactBaseWithStatusFieldsSchemaBase.md)
  - [ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid](docs/Model/ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid.md)
  - [ContactBaseWithStatusFieldsSchemaBasePushTokenIos](docs/Model/ContactBaseWithStatusFieldsSchemaBasePushTokenIos.md)
+ - [ContactBulk](docs/Model/ContactBulk.md)
  - [ContactCollection](docs/Model/ContactCollection.md)
  - [ContactExportRequest](docs/Model/ContactExportRequest.md)
  - [ContactExtraFieldCellphone](docs/Model/ContactExtraFieldCellphone.md)
+ - [ContactExtraFieldCellphoneBulk](docs/Model/ContactExtraFieldCellphoneBulk.md)
  - [ContactExtraFieldDate](docs/Model/ContactExtraFieldDate.md)
  - [ContactExtraFieldEmail](docs/Model/ContactExtraFieldEmail.md)
+ - [ContactExtraFieldEmailBulk](docs/Model/ContactExtraFieldEmailBulk.md)
  - [ContactExtraFieldNumber](docs/Model/ContactExtraFieldNumber.md)
  - [ContactExtraFieldOptions](docs/Model/ContactExtraFieldOptions.md)
  - [ContactExtraFieldPhone](docs/Model/ContactExtraFieldPhone.md)
+ - [ContactExtraFieldPhoneBulk](docs/Model/ContactExtraFieldPhoneBulk.md)
  - [ContactExtraFieldText](docs/Model/ContactExtraFieldText.md)
  - [ContactExtraFields](docs/Model/ContactExtraFields.md)
+ - [ContactExtraFieldsBulk](docs/Model/ContactExtraFieldsBulk.md)
+ - [ContactExtraFieldsBulkSchema](docs/Model/ContactExtraFieldsBulkSchema.md)
  - [ContactExtraFieldsSchema](docs/Model/ContactExtraFieldsSchema.md)
  - [ContactInsideBase](docs/Model/ContactInsideBase.md)
+ - [ContactInsideBaseBulk](docs/Model/ContactInsideBaseBulk.md)
  - [ContactOtherActivity](docs/Model/ContactOtherActivity.md)
+ - [ContactStatusFieldsBulkSchema](docs/Model/ContactStatusFieldsBulkSchema.md)
  - [ContactStatusFieldsSchema](docs/Model/ContactStatusFieldsSchema.md)
  - [ContactTags](docs/Model/ContactTags.md)
+ - [ContactTagsBulk](docs/Model/ContactTagsBulk.md)
  - [ContentVoice](docs/Model/ContentVoice.md)
  - [ContentVoiceAudio](docs/Model/ContentVoiceAudio.md)
  - [ContentVoicePatch](docs/Model/ContentVoicePatch.md)
@@ -428,7 +454,6 @@ Class | Method | HTTP request | Description
  - [HeaderFooterHeaderLinks](docs/Model/HeaderFooterHeaderLinks.md)
  - [HeaderFooterTemplate](docs/Model/HeaderFooterTemplate.md)
  - [ImportBulkRequest](docs/Model/ImportBulkRequest.md)
- - [ImportBulkResponse](docs/Model/ImportBulkResponse.md)
  - [InlineObject](docs/Model/InlineObject.md)
  - [InternalServerError](docs/Model/InternalServerError.md)
  - [InvalidSegmentType](docs/Model/InvalidSegmentType.md)
@@ -534,13 +559,22 @@ Class | Method | HTTP request | Description
  - [SendPush](docs/Model/SendPush.md)
  - [SendPushAllOf](docs/Model/SendPushAllOf.md)
  - [SendSegment](docs/Model/SendSegment.md)
+ - [SendSmartSms](docs/Model/SendSmartSms.md)
+ - [SendSmartSmsAllOf](docs/Model/SendSmartSmsAllOf.md)
+ - [SendSmartSmsAllOf1](docs/Model/SendSmartSmsAllOf1.md)
+ - [SendSmartSmsAllOf2](docs/Model/SendSmartSmsAllOf2.md)
  - [SendSms](docs/Model/SendSms.md)
  - [SendSmsAllOf](docs/Model/SendSmsAllOf.md)
  - [SendSmsAllOf1](docs/Model/SendSmsAllOf1.md)
- - [SendSmsAllOf2](docs/Model/SendSmsAllOf2.md)
  - [SendWebPush](docs/Model/SendWebPush.md)
  - [SendWebPushAllOf](docs/Model/SendWebPushAllOf.md)
  - [SendsCampaignFields](docs/Model/SendsCampaignFields.md)
+ - [SmartSmsCampaign](docs/Model/SmartSmsCampaign.md)
+ - [SmartSmsCampaignCampaignContent](docs/Model/SmartSmsCampaignCampaignContent.md)
+ - [SmartSmsCampaignPatchRequest](docs/Model/SmartSmsCampaignPatchRequest.md)
+ - [SmartSmsCampaignPatchRequestCampaignContent](docs/Model/SmartSmsCampaignPatchRequestCampaignContent.md)
+ - [SmartSmsCampaignPatchRequestPageContent](docs/Model/SmartSmsCampaignPatchRequestPageContent.md)
+ - [SmartSmsSegmentsActionSend](docs/Model/SmartSmsSegmentsActionSend.md)
  - [SmsBouncesCampaignFields](docs/Model/SmsBouncesCampaignFields.md)
  - [SmsBouncesListStatsFields](docs/Model/SmsBouncesListStatsFields.md)
  - [SmsCampaign](docs/Model/SmsCampaign.md)
