@@ -13,7 +13,7 @@
 /**
  * APIv3 (Beta)
  *
- * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>
+ * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0-beta
  * 
@@ -28,6 +28,8 @@
  */
 
 namespace EgoiClient\EgoiModel;
+
+use \ArrayAccess;
 use \EgoiClient\ObjectSerializer;
 
 /**
@@ -39,7 +41,7 @@ use \EgoiClient\ObjectSerializer;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CampaignEmailSendNowRequest extends AbstractSendEmail 
+class CampaignEmailSendNowRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -56,7 +58,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'list_id' => 'int',
+        'segments' => '\EgoiClient\EgoiModel\EmailSendSegment',
+        'notify' => 'int[]',
+        'destination_field' => 'string',
+        'unique_contacts_only' => 'bool',
+        'limit_hour' => '\EgoiClient\EgoiModel\LimitHourActionSendLimitHour'
     ];
 
     /**
@@ -65,7 +72,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
       * @var string[]
       */
     protected static $openAPIFormats = [
-        
+        'list_id' => null,
+        'segments' => null,
+        'notify' => null,
+        'destination_field' => null,
+        'unique_contacts_only' => null,
+        'limit_hour' => null
     ];
 
     /**
@@ -75,7 +87,7 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes + parent::openAPITypes();
+        return self::$openAPITypes;
     }
 
     /**
@@ -85,7 +97,7 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats + parent::openAPIFormats();
+        return self::$openAPIFormats;
     }
 
     /**
@@ -95,7 +107,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'list_id' => 'list_id',
+        'segments' => 'segments',
+        'notify' => 'notify',
+        'destination_field' => 'destination_field',
+        'unique_contacts_only' => 'unique_contacts_only',
+        'limit_hour' => 'limit_hour'
     ];
 
     /**
@@ -104,7 +121,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      * @var string[]
      */
     protected static $setters = [
-        
+        'list_id' => 'setListId',
+        'segments' => 'setSegments',
+        'notify' => 'setNotify',
+        'destination_field' => 'setDestinationField',
+        'unique_contacts_only' => 'setUniqueContactsOnly',
+        'limit_hour' => 'setLimitHour'
     ];
 
     /**
@@ -113,7 +135,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      * @var string[]
      */
     protected static $getters = [
-        
+        'list_id' => 'getListId',
+        'segments' => 'getSegments',
+        'notify' => 'getNotify',
+        'destination_field' => 'getDestinationField',
+        'unique_contacts_only' => 'getUniqueContactsOnly',
+        'limit_hour' => 'getLimitHour'
     ];
 
     /**
@@ -124,7 +151,7 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -134,7 +161,7 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -144,7 +171,7 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -161,6 +188,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
 
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -170,8 +203,12 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
+        $this->container['list_id'] = isset($data['list_id']) ? $data['list_id'] : null;
+        $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;
+        $this->container['notify'] = isset($data['notify']) ? $data['notify'] : null;
+        $this->container['destination_field'] = isset($data['destination_field']) ? $data['destination_field'] : null;
+        $this->container['unique_contacts_only'] = isset($data['unique_contacts_only']) ? $data['unique_contacts_only'] : false;
+        $this->container['limit_hour'] = isset($data['limit_hour']) ? $data['limit_hour'] : null;
     }
 
     /**
@@ -181,8 +218,18 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
+        if ($this->container['list_id'] === null) {
+            $invalidProperties[] = "'list_id' can't be null";
+        }
+        if (($this->container['list_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'list_id', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['segments'] === null) {
+            $invalidProperties[] = "'segments' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -197,6 +244,155 @@ class CampaignEmailSendNowRequest extends AbstractSendEmail
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets list_id
+     *
+     * @return int
+     */
+    public function getListId()
+    {
+        return $this->container['list_id'];
+    }
+
+    /**
+     * Sets list_id
+     *
+     * @param int $list_id list_id
+     *
+     * @return $this
+     */
+    public function setListId($list_id)
+    {
+
+        if (($list_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $list_id when calling CampaignEmailSendNowRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['list_id'] = $list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets segments
+     *
+     * @return \EgoiClient\EgoiModel\EmailSendSegment
+     */
+    public function getSegments()
+    {
+        return $this->container['segments'];
+    }
+
+    /**
+     * Sets segments
+     *
+     * @param \EgoiClient\EgoiModel\EmailSendSegment $segments segments
+     *
+     * @return $this
+     */
+    public function setSegments($segments)
+    {
+        $this->container['segments'] = $segments;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify
+     *
+     * @return int[]|null
+     */
+    public function getNotify()
+    {
+        return $this->container['notify'];
+    }
+
+    /**
+     * Sets notify
+     *
+     * @param int[]|null $notify Array of IDs of the users to notify
+     *
+     * @return $this
+     */
+    public function setNotify($notify)
+    {
+        $this->container['notify'] = $notify;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_field
+     *
+     * @return string|null
+     */
+    public function getDestinationField()
+    {
+        return $this->container['destination_field'];
+    }
+
+    /**
+     * Sets destination_field
+     *
+     * @param string|null $destination_field Destination field of this campaign, which must be an email field (email or extra field id).                         If not sent, defaults to the general email field
+     *
+     * @return $this
+     */
+    public function setDestinationField($destination_field)
+    {
+        $this->container['destination_field'] = $destination_field;
+
+        return $this;
+    }
+
+    /**
+     * Gets unique_contacts_only
+     *
+     * @return bool|null
+     */
+    public function getUniqueContactsOnly()
+    {
+        return $this->container['unique_contacts_only'];
+    }
+
+    /**
+     * Sets unique_contacts_only
+     *
+     * @param bool|null $unique_contacts_only True to send the campaign only to unique contacts
+     *
+     * @return $this
+     */
+    public function setUniqueContactsOnly($unique_contacts_only)
+    {
+        $this->container['unique_contacts_only'] = $unique_contacts_only;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit_hour
+     *
+     * @return \EgoiClient\EgoiModel\LimitHourActionSendLimitHour|null
+     */
+    public function getLimitHour()
+    {
+        return $this->container['limit_hour'];
+    }
+
+    /**
+     * Sets limit_hour
+     *
+     * @param \EgoiClient\EgoiModel\LimitHourActionSendLimitHour|null $limit_hour limit_hour
+     *
+     * @return $this
+     */
+    public function setLimitHour($limit_hour)
+    {
+        $this->container['limit_hour'] = $limit_hour;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

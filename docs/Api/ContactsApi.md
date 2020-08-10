@@ -4,9 +4,12 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**actionActivateContacts**](ContactsApi.md#actionActivateContacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts
 [**actionAttachTag**](ContactsApi.md#actionAttachTag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
+[**actionDeactivateContacts**](ContactsApi.md#actionDeactivateContacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts
 [**actionDetachTag**](ContactsApi.md#actionDetachTag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
 [**actionExportContacts**](ContactsApi.md#actionExportContacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+[**actionForgetContacts**](ContactsApi.md#actionForgetContacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts
 [**actionImportBulk**](ContactsApi.md#actionImportBulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
 [**actionStartAutomation**](ContactsApi.md#actionStartAutomation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
 [**actionUnsubscribeContact**](ContactsApi.md#actionUnsubscribeContact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
@@ -15,7 +18,73 @@ Method | HTTP request | Description
 [**getAllContacts**](ContactsApi.md#getAllContacts) | **GET** /lists/{list_id}/contacts | Get all contacts
 [**getContact**](ContactsApi.md#getContact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**patchContact**](ContactsApi.md#patchContact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
+[**searchContacts**](ContactsApi.md#searchContacts) | **GET** /contacts/search | Search contact
 
+
+
+## actionActivateContacts
+
+> \EgoiClient\EgoiModel\AcceptedResponse actionActivateContacts($list_id, $activate_contacts_request)
+
+Activate contacts
+
+Activates a collection of contacts (does not apply to removed contacts)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$activate_contacts_request = new \EgoiClient\EgoiModel\ActivateContactsRequest(); // \EgoiClient\EgoiModel\ActivateContactsRequest | Parameters for the request
+
+try {
+    $result = $apiInstance->actionActivateContacts($list_id, $activate_contacts_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->actionActivateContacts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **activate_contacts_request** | [**\EgoiClient\EgoiModel\ActivateContactsRequest**](../Model/ActivateContactsRequest.md)| Parameters for the request |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
 
 ## actionAttachTag
@@ -68,6 +137,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\EgoiClient\EgoiModel\AttachTagResponse**](../Model/AttachTagResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## actionDeactivateContacts
+
+> \EgoiClient\EgoiModel\AcceptedResponse actionDeactivateContacts($list_id, $deactivate_contacts_request)
+
+Deactivate contacts
+
+Deactivates a collection of contacts (does not apply to removed contacts)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$deactivate_contacts_request = new \EgoiClient\EgoiModel\DeactivateContactsRequest(); // \EgoiClient\EgoiModel\DeactivateContactsRequest | Parameters for the request
+
+try {
+    $result = $apiInstance->actionDeactivateContacts($list_id, $deactivate_contacts_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->actionDeactivateContacts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **deactivate_contacts_request** | [**\EgoiClient\EgoiModel\DeactivateContactsRequest**](../Model/DeactivateContactsRequest.md)| Parameters for the request |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
 
 ### Authorization
 
@@ -213,13 +347,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## actionForgetContacts
+
+> \EgoiClient\EgoiModel\AcceptedResponse actionForgetContacts($list_id, $contact_forget_request)
+
+Forget contacts
+
+Forgets a list of contacts to the desired callback url
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$contact_forget_request = new \EgoiClient\EgoiModel\ContactForgetRequest(); // \EgoiClient\EgoiModel\ContactForgetRequest | Parameters for the action
+
+try {
+    $result = $apiInstance->actionForgetContacts($list_id, $contact_forget_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->actionForgetContacts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **contact_forget_request** | [**\EgoiClient\EgoiModel\ContactForgetRequest**](../Model/ContactForgetRequest.md)| Parameters for the action |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## actionImportBulk
 
 > \EgoiClient\EgoiModel\AcceptedResponse actionImportBulk($list_id, $import_bulk_request)
 
 Import collection of contacts
 
-Imports a collection of contacts
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
 
 ### Example
 
@@ -548,7 +747,7 @@ Name | Type | Description  | Notes
 
 ## getAllContacts
 
-> \EgoiClient\EgoiModel\ContactCollection getAllContacts($list_id, $offset, $limit)
+> \EgoiClient\EgoiModel\ContactCollection getAllContacts($list_id, $offset, $limit, $email)
 
 Get all contacts
 
@@ -576,9 +775,10 @@ $apiInstance = new EgoiClient\Api\ContactsApi(
 $list_id = 56; // int | ID of the List
 $offset = 56; // int | Element offset (starting at zero for the first element)
 $limit = 10; // int | Number of items to return
+$email = 'email_example'; // string | Email of the contacts to return
 
 try {
-    $result = $apiInstance->getAllContacts($list_id, $offset, $limit);
+    $result = $apiInstance->getAllContacts($list_id, $offset, $limit, $email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getAllContacts: ', $e->getMessage(), PHP_EOL;
@@ -594,6 +794,7 @@ Name | Type | Description  | Notes
  **list_id** | **int**| ID of the List |
  **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
  **limit** | **int**| Number of items to return | [optional] [default to 10]
+ **email** | **string**| Email of the contacts to return | [optional]
 
 ### Return type
 
@@ -738,6 +939,71 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## searchContacts
+
+> \EgoiClient\EgoiModel\InlineResponse200 searchContacts($contact, $type)
+
+Search contact
+
+Searches a contact across all lists and returns a collection of contacts found
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$contact = 'contact_example'; // string | Contact to search
+$type = 'email'; // string | Type of contact to search (defaults to 'email')
+
+try {
+    $result = $apiInstance->searchContacts($contact, $type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->searchContacts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contact** | **string**| Contact to search |
+ **type** | **string**| Type of contact to search (defaults to &#39;email&#39;) | [optional] [default to &#39;email&#39;]
+
+### Return type
+
+[**\EgoiClient\EgoiModel\InlineResponse200**](../Model/InlineResponse200.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

@@ -13,7 +13,7 @@
 /**
  * APIv3 (Beta)
  *
- * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>
+ * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0-beta
  * 
@@ -59,8 +59,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'site_id' => 'int',
-        'list_id' => 'string',
-        'app_code' => 'string'
+        'site' => 'string',
+        'list_id' => 'int',
+        'app_code' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -70,8 +72,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'site_id' => null,
+        'site' => null,
         'list_id' => null,
-        'app_code' => null
+        'app_code' => null,
+        'name' => null
     ];
 
     /**
@@ -102,8 +106,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'site_id' => 'site_id',
+        'site' => 'site',
         'list_id' => 'list_id',
-        'app_code' => 'app_code'
+        'app_code' => 'app_code',
+        'name' => 'name'
     ];
 
     /**
@@ -113,8 +119,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'site_id' => 'setSiteId',
+        'site' => 'setSite',
         'list_id' => 'setListId',
-        'app_code' => 'setAppCode'
+        'app_code' => 'setAppCode',
+        'name' => 'setName'
     ];
 
     /**
@@ -124,8 +132,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'site_id' => 'getSiteId',
+        'site' => 'getSite',
         'list_id' => 'getListId',
-        'app_code' => 'getAppCode'
+        'app_code' => 'getAppCode',
+        'name' => 'getName'
     ];
 
     /**
@@ -189,8 +199,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['site_id'] = isset($data['site_id']) ? $data['site_id'] : null;
+        $this->container['site'] = isset($data['site']) ? $data['site'] : null;
         $this->container['list_id'] = isset($data['list_id']) ? $data['list_id'] : null;
         $this->container['app_code'] = isset($data['app_code']) ? $data['app_code'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -204,6 +216,10 @@ class WebPushSite implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['site_id']) && ($this->container['site_id'] < 1)) {
             $invalidProperties[] = "invalid value for 'site_id', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['list_id']) && ($this->container['list_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'list_id', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -251,9 +267,33 @@ class WebPushSite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets list_id
+     * Gets site
      *
      * @return string|null
+     */
+    public function getSite()
+    {
+        return $this->container['site'];
+    }
+
+    /**
+     * Sets site
+     *
+     * @param string|null $site Webpush site
+     *
+     * @return $this
+     */
+    public function setSite($site)
+    {
+        $this->container['site'] = $site;
+
+        return $this;
+    }
+
+    /**
+     * Gets list_id
+     *
+     * @return int|null
      */
     public function getListId()
     {
@@ -263,12 +303,17 @@ class WebPushSite implements ModelInterface, ArrayAccess
     /**
      * Sets list_id
      *
-     * @param string|null $list_id Name of the tag
+     * @param int|null $list_id list_id
      *
      * @return $this
      */
     public function setListId($list_id)
     {
+
+        if (!is_null($list_id) && ($list_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $list_id when calling WebPushSite., must be bigger than or equal to 1.');
+        }
+
         $this->container['list_id'] = $list_id;
 
         return $this;
@@ -294,6 +339,30 @@ class WebPushSite implements ModelInterface, ArrayAccess
     public function setAppCode($app_code)
     {
         $this->container['app_code'] = $app_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Webpush name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

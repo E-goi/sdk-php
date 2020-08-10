@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**actionSendWebPush**](WebpushApi.md#actionSendWebPush) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
 [**createWebPushCampaign**](WebpushApi.md#createWebPushCampaign) | **POST** /campaigns/web-push | Create new webpush campaign
 [**createWebPushRssCampaign**](WebpushApi.md#createWebPushRssCampaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
-[**getAllWebPushSites**](WebpushApi.md#getAllWebPushSites) | **GET** /webpush/site | Get all webpush sites
+[**createWebpushSite**](WebpushApi.md#createWebpushSite) | **POST** /webpush/sites | Creates a webpush site
+[**getAllWebPushSites**](WebpushApi.md#getAllWebPushSites) | **GET** /webpush/sites | Get all webpush sites
 [**patchWebPushCampaign**](WebpushApi.md#patchWebPushCampaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
 
 
@@ -252,6 +253,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\EgoiClient\EgoiModel\HashcodeCampaign**](../Model/HashcodeCampaign.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createWebpushSite
+
+> \EgoiClient\EgoiModel\WebPushSite createWebpushSite($web_push_site)
+
+Creates a webpush site
+
+Create a new webpush site
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\WebpushApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$web_push_site = new \EgoiClient\EgoiModel\WebPushSite(); // \EgoiClient\EgoiModel\WebPushSite | Parameters for the webpush site
+
+try {
+    $result = $apiInstance->createWebpushSite($web_push_site);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebpushApi->createWebpushSite: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **web_push_site** | [**\EgoiClient\EgoiModel\WebPushSite**](../Model/WebPushSite.md)| Parameters for the webpush site |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\WebPushSite**](../Model/WebPushSite.md)
 
 ### Authorization
 
