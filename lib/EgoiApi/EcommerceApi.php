@@ -10,11 +10,11 @@
  */
 
 /**
- * APIv3 (Beta)
+ * APIv3 (New)
  *
- * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * The version of the OpenAPI document: 3.0.0-beta
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://openapi-generator.tech
  * OpenAPI Generator version: 4.2.3-SNAPSHOT
@@ -116,6 +116,457 @@ class EcommerceApi
     }
 
     /**
+     * Operation createCart
+     *
+     * Create cart
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\Cart $cart Parameters for the Carts (required)
+     *
+     * @throws \EgoiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     */
+    public function createCart($domain, $cart)
+    {
+        list($response) = $this->createCartWithHttpInfo($domain, $cart);
+        return $response;
+    }
+
+    /**
+     * Operation createCartWithHttpInfo
+     *
+     * Create cart
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\Cart $cart Parameters for the Carts (required)
+     *
+     * @throws \EgoiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createCartWithHttpInfo($domain, $cart)
+    {
+        $request = $this->createCartRequest($domain, $cart);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 202:
+                    if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AcceptedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\BadRequest', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Unauthorized', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Forbidden', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\NotFound', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\UnprocessableEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\AcceptedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\BadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Unauthorized',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Forbidden',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\NotFound',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\UnprocessableEntity',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createCartAsync
+     *
+     * Create cart
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\Cart $cart Parameters for the Carts (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createCartAsync($domain, $cart)
+    {
+        return $this->createCartAsyncWithHttpInfo($domain, $cart)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createCartAsyncWithHttpInfo
+     *
+     * Create cart
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\Cart $cart Parameters for the Carts (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createCartAsyncWithHttpInfo($domain, $cart)
+    {
+        $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+        $request = $this->createCartRequest($domain, $cart);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createCart'
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\Cart $cart Parameters for the Carts (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createCartRequest($domain, $cart)
+    {
+        // verify the required parameter 'domain' is set
+        if ($domain === null || (is_array($domain) && count($domain) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain when calling createCart'
+            );
+        }
+        // verify the required parameter 'cart' is set
+        if ($cart === null || (is_array($cart) && count($cart) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cart when calling createCart'
+            );
+        }
+
+        $resourcePath = '/{domain}/carts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($domain !== null) {
+            $resourcePath = str_replace(
+                '{' . 'domain' . '}',
+                ObjectSerializer::toPathValue($domain),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($cart)) {
+            $_tempBody = $cart;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createCatalog
      *
      * Create new catalog
@@ -124,7 +575,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\Catalog|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\Catalog|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function createCatalog($catalog_post_request)
     {
@@ -141,7 +592,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\Catalog|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\Catalog|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCatalogWithHttpInfo($catalog_post_request)
     {
@@ -225,6 +676,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -237,6 +700,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -246,6 +721,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -299,6 +786,14 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -307,10 +802,26 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -488,6 +999,477 @@ class EcommerceApi
     }
 
     /**
+     * Operation createOrder
+     *
+     * Create order
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\CreateOrder $create_order Parameters for the Orders (required)
+     *
+     * @throws \EgoiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     */
+    public function createOrder($domain, $create_order)
+    {
+        list($response) = $this->createOrderWithHttpInfo($domain, $create_order);
+        return $response;
+    }
+
+    /**
+     * Operation createOrderWithHttpInfo
+     *
+     * Create order
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\CreateOrder $create_order Parameters for the Orders (required)
+     *
+     * @throws \EgoiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createOrderWithHttpInfo($domain, $create_order)
+    {
+        $request = $this->createOrderRequest($domain, $create_order);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 202:
+                    if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AcceptedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\BadRequest', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Unauthorized', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Forbidden', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\NotFound', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\UnprocessableEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\AcceptedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\BadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Unauthorized',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Forbidden',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\NotFound',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\UnprocessableEntity',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createOrderAsync
+     *
+     * Create order
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\CreateOrder $create_order Parameters for the Orders (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createOrderAsync($domain, $create_order)
+    {
+        return $this->createOrderAsyncWithHttpInfo($domain, $create_order)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createOrderAsyncWithHttpInfo
+     *
+     * Create order
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\CreateOrder $create_order Parameters for the Orders (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createOrderAsyncWithHttpInfo($domain, $create_order)
+    {
+        $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+        $request = $this->createOrderRequest($domain, $create_order);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createOrder'
+     *
+     * @param  string $domain Domain (required)
+     * @param  \EgoiClient\EgoiModel\CreateOrder $create_order Parameters for the Orders (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createOrderRequest($domain, $create_order)
+    {
+        // verify the required parameter 'domain' is set
+        if ($domain === null || (is_array($domain) && count($domain) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain when calling createOrder'
+            );
+        }
+        // verify the required parameter 'create_order' is set
+        if ($create_order === null || (is_array($create_order) && count($create_order) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_order when calling createOrder'
+            );
+        }
+
+        $resourcePath = '/{domain}/orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($domain !== null) {
+            $resourcePath = str_replace(
+                '{' . 'domain' . '}',
+                ObjectSerializer::toPathValue($domain),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($create_order)) {
+            $_tempBody = $create_order;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createProduct
      *
      * Create new product
@@ -497,7 +1479,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\PostProductsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\PostProductsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function createProduct($catalog_id, $product_post_request)
     {
@@ -515,7 +1497,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\PostProductsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\PostProductsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function createProductWithHttpInfo($catalog_id, $product_post_request)
     {
@@ -611,6 +1593,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 409:
                     if ('\EgoiClient\EgoiModel\PostProductsConflict' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -635,6 +1629,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -644,6 +1650,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -705,6 +1723,14 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -721,10 +1747,26 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1009,10 +2051,34 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1276,10 +2342,34 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1479,7 +2569,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\CatalogCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\CatalogCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function getAllCatalogs()
     {
@@ -1495,7 +2585,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\CatalogCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\CatalogCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllCatalogsWithHttpInfo()
     {
@@ -1567,6 +2657,30 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -1576,6 +2690,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1621,10 +2747,34 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1801,7 +2951,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\ProductCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\ProductCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function getAllProducts($catalog_id, $product_identifier = null, $offset = null, $limit = 10)
     {
@@ -1821,7 +2971,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\ProductCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\ProductCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllProductsWithHttpInfo($catalog_id, $product_identifier = null, $offset = null, $limit = 10)
     {
@@ -1905,6 +3055,30 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -1914,6 +3088,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1967,10 +3153,34 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2198,7 +3408,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function getProduct($catalog_id, $product_identifier)
     {
@@ -2216,7 +3426,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductWithHttpInfo($catalog_id, $product_identifier)
     {
@@ -2300,6 +3510,30 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -2309,6 +3543,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2362,10 +3608,34 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2569,421 +3839,6 @@ class EcommerceApi
     }
 
     /**
-     * Operation importOrdersBulk
-     *
-     * Orders import bulk request
-     *
-     * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[] $import_orders_bulk_bulk_request Parameters for the Orders (required)
-     *
-     * @throws \EgoiClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError
-     */
-    public function importOrdersBulk($list_id, $import_orders_bulk_bulk_request)
-    {
-        list($response) = $this->importOrdersBulkWithHttpInfo($list_id, $import_orders_bulk_bulk_request);
-        return $response;
-    }
-
-    /**
-     * Operation importOrdersBulkWithHttpInfo
-     *
-     * Orders import bulk request
-     *
-     * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[] $import_orders_bulk_bulk_request Parameters for the Orders (required)
-     *
-     * @throws \EgoiClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function importOrdersBulkWithHttpInfo($list_id, $import_orders_bulk_bulk_request)
-    {
-        $request = $this->importOrdersBulkRequest($list_id, $import_orders_bulk_bulk_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 202:
-                    if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AcceptedResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\BadRequest', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Unauthorized', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Forbidden', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\NotFound', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\UnprocessableEntity', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\AcceptedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\BadRequest',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\Unauthorized',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\Forbidden',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\NotFound',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\UnprocessableEntity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\InternalServerError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation importOrdersBulkAsync
-     *
-     * Orders import bulk request
-     *
-     * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[] $import_orders_bulk_bulk_request Parameters for the Orders (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function importOrdersBulkAsync($list_id, $import_orders_bulk_bulk_request)
-    {
-        return $this->importOrdersBulkAsyncWithHttpInfo($list_id, $import_orders_bulk_bulk_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation importOrdersBulkAsyncWithHttpInfo
-     *
-     * Orders import bulk request
-     *
-     * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[] $import_orders_bulk_bulk_request Parameters for the Orders (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function importOrdersBulkAsyncWithHttpInfo($list_id, $import_orders_bulk_bulk_request)
-    {
-        $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->importOrdersBulkRequest($list_id, $import_orders_bulk_bulk_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'importOrdersBulk'
-     *
-     * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[] $import_orders_bulk_bulk_request Parameters for the Orders (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function importOrdersBulkRequest($list_id, $import_orders_bulk_bulk_request)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $list_id when calling importOrdersBulk'
-            );
-        }
-        if ($list_id < 1) {
-            throw new \InvalidArgumentException('invalid value for "$list_id" when calling EcommerceApi.importOrdersBulk, must be bigger than or equal to 1.');
-        }
-
-        // verify the required parameter 'import_orders_bulk_bulk_request' is set
-        if ($import_orders_bulk_bulk_request === null || (is_array($import_orders_bulk_bulk_request) && count($import_orders_bulk_bulk_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $import_orders_bulk_bulk_request when calling importOrdersBulk'
-            );
-        }
-
-        $resourcePath = '/lists/{list_id}/orders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'list_id' . '}',
-                ObjectSerializer::toPathValue($list_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($import_orders_bulk_bulk_request)) {
-            $_tempBody = $import_orders_bulk_bulk_request;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
-        if ($apiKey !== null) {
-            $headers['Apikey'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation importProducts
      *
      * Import products
@@ -2993,7 +3848,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function importProducts($catalog_id, $product_bulk_request)
     {
@@ -3011,7 +3866,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function importProductsWithHttpInfo($catalog_id, $product_bulk_request)
     {
@@ -3107,6 +3962,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -3119,6 +3986,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -3128,6 +4007,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3189,6 +4080,14 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -3197,10 +4096,26 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3409,7 +4324,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError
+     * @return \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function updateProduct($catalog_id, $product_identifier, $product_patch_request)
     {
@@ -3428,7 +4343,7 @@ class EcommerceApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\Product|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateProductWithHttpInfo($catalog_id, $product_identifier, $product_patch_request)
     {
@@ -3524,6 +4439,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -3536,6 +4463,18 @@ class EcommerceApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -3545,6 +4484,18 @@ class EcommerceApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3606,6 +4557,14 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -3614,10 +4573,26 @@ class EcommerceApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

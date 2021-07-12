@@ -11,11 +11,11 @@
  */
 
 /**
- * APIv3 (Beta)
+ * APIv3 (New)
  *
- * # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * The version of the OpenAPI document: 3.0.0-beta
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://openapi-generator.tech
  * OpenAPI Generator version: 4.2.3-SNAPSHOT
@@ -71,7 +71,8 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
         'sale_price' => 'double',
         'brand' => 'string',
         'categories' => 'string[]',
-        'related_products' => '\EgoiClient\EgoiModel\ProductPatchRequestRelatedProducts'
+        'related_products' => '\EgoiClient\EgoiModel\ProductPatchRequestRelatedProducts',
+        'custom_attributes' => '\EgoiClient\EgoiModel\ProductCustomAttributes[]'
     ];
 
     /**
@@ -89,11 +90,12 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
         'mpn' => null,
         'link' => null,
         'image_link' => null,
-        'price' => null,
-        'sale_price' => null,
+        'price' => 'double',
+        'sale_price' => 'double',
         'brand' => null,
         'categories' => null,
-        'related_products' => null
+        'related_products' => null,
+        'custom_attributes' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
         'sale_price' => 'sale_price',
         'brand' => 'brand',
         'categories' => 'categories',
-        'related_products' => 'related_products'
+        'related_products' => 'related_products',
+        'custom_attributes' => 'custom_attributes'
     ];
 
     /**
@@ -158,7 +161,8 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
         'sale_price' => 'setSalePrice',
         'brand' => 'setBrand',
         'categories' => 'setCategories',
-        'related_products' => 'setRelatedProducts'
+        'related_products' => 'setRelatedProducts',
+        'custom_attributes' => 'setCustomAttributes'
     ];
 
     /**
@@ -180,7 +184,8 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
         'sale_price' => 'getSalePrice',
         'brand' => 'getBrand',
         'categories' => 'getCategories',
-        'related_products' => 'getRelatedProducts'
+        'related_products' => 'getRelatedProducts',
+        'custom_attributes' => 'getCustomAttributes'
     ];
 
     /**
@@ -252,11 +257,12 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
         $this->container['mpn'] = isset($data['mpn']) ? $data['mpn'] : null;
         $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['image_link'] = isset($data['image_link']) ? $data['image_link'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['sale_price'] = isset($data['sale_price']) ? $data['sale_price'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : 0;
+        $this->container['sale_price'] = isset($data['sale_price']) ? $data['sale_price'] : 0;
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
         $this->container['related_products'] = isset($data['related_products']) ? $data['related_products'] : null;
+        $this->container['custom_attributes'] = isset($data['custom_attributes']) ? $data['custom_attributes'] : null;
     }
 
     /**
@@ -615,6 +621,30 @@ class ProductPatchRequest implements ModelInterface, ArrayAccess
     public function setRelatedProducts($related_products)
     {
         $this->container['related_products'] = $related_products;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_attributes
+     *
+     * @return \EgoiClient\EgoiModel\ProductCustomAttributes[]|null
+     */
+    public function getCustomAttributes()
+    {
+        return $this->container['custom_attributes'];
+    }
+
+    /**
+     * Sets custom_attributes
+     *
+     * @param \EgoiClient\EgoiModel\ProductCustomAttributes[]|null $custom_attributes Custom attributes
+     *
+     * @return $this
+     */
+    public function setCustomAttributes($custom_attributes)
+    {
+        $this->container['custom_attributes'] = $custom_attributes;
 
         return $this;
     }

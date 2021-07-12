@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**errors** | [**\EgoiClient\EgoiModel\DomainListRequiredErrors**](DomainListRequiredErrors.md) |  | [optional] 
 **type** | **string** | RFC for status code definitions | [optional] 
 **title** | **string** | Error title | [optional] 
 **status** | **int** | Status code | [optional] 

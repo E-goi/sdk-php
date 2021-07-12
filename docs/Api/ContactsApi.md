@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**createContact**](ContactsApi.md#createContact) | **POST** /lists/{list_id}/contacts | Create new contact
 [**getAllContactActivities**](ContactsApi.md#getAllContactActivities) | **GET** /lists/{list_id}/contacts/{contact_id}/activities | Get all contact activities
 [**getAllContacts**](ContactsApi.md#getAllContacts) | **GET** /lists/{list_id}/contacts | Get all contacts
+[**getAllContactsBySegment**](ContactsApi.md#getAllContactsBySegment) | **GET** /lists/{list_id}/contacts/segment/{segment_id} | Get all contacts by Segment Id
 [**getContact**](ContactsApi.md#getContact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**patchContact**](ContactsApi.md#patchContact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
 [**searchContacts**](ContactsApi.md#searchContacts) | **GET** /contacts/search | Search contact
@@ -93,7 +94,7 @@ Name | Type | Description  | Notes
 
 Attach tag to contact
 
-Attaches a tag to the provided contacts
+Attaches a tag to the provided contacts. <br>***Note:***<br> If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
 
 ### Example
 
@@ -418,7 +419,7 @@ Name | Type | Description  | Notes
 
 Import collection of contacts
 
-Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact 'Create new contact')
 
 ### Example
 
@@ -747,7 +748,7 @@ Name | Type | Description  | Notes
 
 ## getAllContacts
 
-> \EgoiClient\EgoiModel\ContactCollection getAllContacts($list_id, $offset, $limit, $email)
+> \EgoiClient\EgoiModel\ContactCollection getAllContacts($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id)
 
 Get all contacts
 
@@ -775,10 +776,20 @@ $apiInstance = new EgoiClient\Api\ContactsApi(
 $list_id = 56; // int | ID of the List
 $offset = 56; // int | Element offset (starting at zero for the first element)
 $limit = 10; // int | Number of items to return
+$first_name = 'first_name_example'; // string | First name of the contacts to return
+$last_name = 'last_name_example'; // string | Last name of the contacts to return
 $email = 'email_example'; // string | Email of the contacts to return
+$email_status = True; // bool | EmailStatus of the contacts to return
+$cellphone = 'cellphone_example'; // string | Cellphone of the contacts to return
+$cellphone_status = True; // bool | CellphoneStatus of the contacts to return
+$phone = 'phone_example'; // string | Phone of the contacts to return
+$phone_status = True; // bool | PhoneStatus of the contacts to return
+$birth_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Birth date of the contacts to return
+$language = 'language_example'; // string | Language date of the contacts to return
+$extra_field_id = array('extra_field_id_example'); // string[] | Extra field of contacts, extra_field_id[field_id]=value
 
 try {
-    $result = $apiInstance->getAllContacts($list_id, $offset, $limit, $email);
+    $result = $apiInstance->getAllContacts($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getAllContacts: ', $e->getMessage(), PHP_EOL;
@@ -794,7 +805,88 @@ Name | Type | Description  | Notes
  **list_id** | **int**| ID of the List |
  **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
  **limit** | **int**| Number of items to return | [optional] [default to 10]
+ **first_name** | **string**| First name of the contacts to return | [optional]
+ **last_name** | **string**| Last name of the contacts to return | [optional]
  **email** | **string**| Email of the contacts to return | [optional]
+ **email_status** | **bool**| EmailStatus of the contacts to return | [optional]
+ **cellphone** | **string**| Cellphone of the contacts to return | [optional]
+ **cellphone_status** | **bool**| CellphoneStatus of the contacts to return | [optional]
+ **phone** | **string**| Phone of the contacts to return | [optional]
+ **phone_status** | **bool**| PhoneStatus of the contacts to return | [optional]
+ **birth_date** | [**\DateTime**](../Model/.md)| Birth date of the contacts to return | [optional]
+ **language** | **string**| Language date of the contacts to return | [optional]
+ **extra_field_id** | [**string[]**](../Model/string.md)| Extra field of contacts, extra_field_id[field_id]&#x3D;value | [optional]
+
+### Return type
+
+[**\EgoiClient\EgoiModel\ContactCollection**](../Model/ContactCollection.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getAllContactsBySegment
+
+> \EgoiClient\EgoiModel\ContactCollection getAllContactsBySegment($list_id, $segment_id, $offset, $limit, $show_removed)
+
+Get all contacts by Segment Id
+
+Returns all contacts filtered by Segment Id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$segment_id = 'segment_id_example'; // string | ID of the Segment
+$offset = 56; // int | Element offset (starting at zero for the first element)
+$limit = 10; // int | Number of items to return
+$show_removed = false; // bool | Show removed contacts
+
+try {
+    $result = $apiInstance->getAllContactsBySegment($list_id, $segment_id, $offset, $limit, $show_removed);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->getAllContactsBySegment: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **segment_id** | **string**| ID of the Segment |
+ **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
+ **limit** | **int**| Number of items to return | [optional] [default to 10]
+ **show_removed** | **bool**| Show removed contacts | [optional] [default to false]
 
 ### Return type
 
