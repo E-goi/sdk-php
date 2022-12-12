@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**\EgoiClient\EgoiModel\ContactActivity[]**](ContactActivity.md) | Returned contact activities | [optional] 
+**items** | [**\EgoiClient\EgoiModel\ContactActivity[]**](ContactActivity.md) | Returned contact activities | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

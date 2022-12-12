@@ -2,7 +2,7 @@
 /**
  * AlphanumericCellphoneSender
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
+class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -58,25 +58,47 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sender_id' => 'int',
-        'status' => 'string',
-        'type' => 'string',
         'cellphone' => 'string',
-        'file' => 'string'
+        'file' => 'string',
+        'type' => 'string',
+        'sender_id' => 'int',
+        'status' => 'string'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sender_id' => null,
-        'status' => null,
-        'type' => null,
         'cellphone' => null,
-        'file' => 'byte'
+        'file' => 'byte',
+        'type' => null,
+        'sender_id' => null,
+        'status' => null
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'cellphone' => false,
+		'file' => false,
+		'type' => false,
+		'sender_id' => false,
+		'status' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,17 +121,69 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
      * @var string[]
      */
     protected static $attributeMap = [
-        'sender_id' => 'sender_id',
-        'status' => 'status',
-        'type' => 'type',
         'cellphone' => 'cellphone',
-        'file' => 'file'
+        'file' => 'file',
+        'type' => 'type',
+        'sender_id' => 'sender_id',
+        'status' => 'status'
     ];
 
     /**
@@ -118,11 +192,11 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sender_id' => 'setSenderId',
-        'status' => 'setStatus',
-        'type' => 'setType',
         'cellphone' => 'setCellphone',
-        'file' => 'setFile'
+        'file' => 'setFile',
+        'type' => 'setType',
+        'sender_id' => 'setSenderId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -131,11 +205,11 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sender_id' => 'getSenderId',
-        'status' => 'getStatus',
-        'type' => 'getType',
         'cellphone' => 'getCellphone',
-        'file' => 'getFile'
+        'file' => 'getFile',
+        'type' => 'getType',
+        'sender_id' => 'getSenderId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -179,14 +253,25 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_ACTIVE = 'active';
-    const STATUS_MODERATION = 'moderation';
-    const STATUS_REJECTED = 'rejected';
-    const TYPE_ALPHA_NUMERIC = 'alpha_numeric';
-    const TYPE_NUMERIC = 'numeric';
-    
+    public const TYPE_ALPHA_NUMERIC = 'alpha_numeric';
+    public const TYPE_NUMERIC = 'numeric';
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_MODERATION = 'moderation';
+    public const STATUS_REJECTED = 'rejected';
 
-    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ALPHA_NUMERIC,
+            self::TYPE_NUMERIC,
+        ];
+    }
+
     /**
      * Gets allowable values of the enum
      *
@@ -200,20 +285,6 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
             self::STATUS_REJECTED,
         ];
     }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ALPHA_NUMERIC,
-            self::TYPE_NUMERIC,
-        ];
-    }
-    
 
     /**
      * Associative array for storing property values
@@ -230,11 +301,29 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sender_id'] = isset($data['sender_id']) ? $data['sender_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['cellphone'] = isset($data['cellphone']) ? $data['cellphone'] : null;
-        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
+        $this->setIfExists('cellphone', $data ?? [], null);
+        $this->setIfExists('file', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('sender_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -246,6 +335,24 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['cellphone'] === null) {
+            $invalidProperties[] = "'cellphone' can't be null";
+        }
+        if ($this->container['file'] === null) {
+            $invalidProperties[] = "'file' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['sender_id'] === null) {
             $invalidProperties[] = "'sender_id' can't be null";
         }
@@ -256,28 +363,12 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['cellphone'] === null) {
-            $invalidProperties[] = "'cellphone' can't be null";
-        }
-        if ($this->container['file'] === null) {
-            $invalidProperties[] = "'file' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -294,6 +385,103 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets cellphone
+     *
+     * @return string
+     */
+    public function getCellphone()
+    {
+        return $this->container['cellphone'];
+    }
+
+    /**
+     * Sets cellphone
+     *
+     * @param string $cellphone Sender cellphone name
+     *
+     * @return self
+     */
+    public function setCellphone($cellphone)
+    {
+
+        if (is_null($cellphone)) {
+            throw new \InvalidArgumentException('non-nullable cellphone cannot be null');
+        }
+
+        $this->container['cellphone'] = $cellphone;
+
+        return $this;
+    }
+
+    /**
+     * Gets file
+     *
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->container['file'];
+    }
+
+    /**
+     * Sets file
+     *
+     * @param string $file Content of your sender file in base64
+     *
+     * @return self
+     */
+    public function setFile($file)
+    {
+
+        if (is_null($file)) {
+            throw new \InvalidArgumentException('non-nullable file cannot be null');
+        }
+
+        $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Sender code type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
      * Gets sender_id
      *
      * @return int
@@ -308,13 +496,18 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      *
      * @param int $sender_id sender_id
      *
-     * @return $this
+     * @return self
      */
     public function setSenderId($sender_id)
     {
 
         if (($sender_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $sender_id when calling AlphanumericCellphoneSender., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($sender_id)) {
+            throw new \InvalidArgumentException('non-nullable sender_id cannot be null');
         }
 
         $this->container['sender_id'] = $sender_id;
@@ -337,7 +530,7 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      *
      * @param string|null $status Status of the sender
      *
-     * @return $this
+     * @return self
      */
     public function setStatus($status)
     {
@@ -345,93 +538,18 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
         if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type Sender code type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets cellphone
-     *
-     * @return string
-     */
-    public function getCellphone()
-    {
-        return $this->container['cellphone'];
-    }
-
-    /**
-     * Sets cellphone
-     *
-     * @param string $cellphone Sender cellphone name
-     *
-     * @return $this
-     */
-    public function setCellphone($cellphone)
-    {
-        $this->container['cellphone'] = $cellphone;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return string
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param string $file Content of your sender file in base64
-     *
-     * @return $this
-     */
-    public function setFile($file)
-    {
-        $this->container['file'] = $file;
 
         return $this;
     }
@@ -442,7 +560,7 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -452,22 +570,23 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -483,9 +602,22 @@ class AlphanumericCellphoneSender implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -2,7 +2,7 @@
 /**
  * ContactActivity
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class ContactActivity implements ModelInterface, ArrayAccess
+class ContactActivity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -58,21 +58,41 @@ class ContactActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'action_data' => '\EgoiClient\EgoiModel\ContactActivityClickAllOfActionData',
         'date' => '\DateTime',
-        'action_name' => 'string',
-        'action_data' => '\EgoiClient\EgoiModel\ContactActivityClickAllOfActionData'
+        'action_name' => 'string'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'action_data' => null,
         'date' => 'date-time',
-        'action_name' => null,
-        'action_data' => null
+        'action_name' => null
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'action_data' => false,
+		'date' => false,
+		'action_name' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,15 +115,67 @@ class ContactActivity implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
      * @var string[]
      */
     protected static $attributeMap = [
+        'action_data' => 'action_data',
         'date' => 'date',
-        'action_name' => 'action_name',
-        'action_data' => 'action_data'
+        'action_name' => 'action_name'
     ];
 
     /**
@@ -112,9 +184,9 @@ class ContactActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'action_data' => 'setActionData',
         'date' => 'setDate',
-        'action_name' => 'setActionName',
-        'action_data' => 'setActionData'
+        'action_name' => 'setActionName'
     ];
 
     /**
@@ -123,9 +195,9 @@ class ContactActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'action_data' => 'getActionData',
         'date' => 'getDate',
-        'action_name' => 'getActionName',
-        'action_data' => 'getActionData'
+        'action_name' => 'getActionName'
     ];
 
     /**
@@ -169,60 +241,58 @@ class ContactActivity implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ACTION_NAME_EMAIL_OPEN = 'email_open';
-    const ACTION_NAME_FORWARD = 'forward';
-    const ACTION_NAME_CONVERSION = 'conversion';
-    const ACTION_NAME_EMAIL_SEND = 'email_send';
-    const ACTION_NAME_SMS_SEND = 'sms_send';
-    const ACTION_NAME_VOICE_SEND = 'voice_send';
-    const ACTION_NAME_MMS_SEND = 'mms_send';
-    const ACTION_NAME_SMS_REPORT = 'sms_report';
-    const ACTION_NAME_VOICE_REPORT = 'voice_report';
-    const ACTION_NAME_INVITATION_SEND = 'invitation_send';
-    const ACTION_NAME_INVITATION_OPEN = 'invitation_open';
-    const ACTION_NAME_MMS_OPEN = 'mms_open';
-    const ACTION_NAME_UNSUBSCRIBE = 'unsubscribe';
-    const ACTION_NAME_EMAIL_SOFT_BOUNCE = 'email_soft_bounce';
-    const ACTION_NAME_EMAIL_HARD_BOUNCE = 'email_hard_bounce';
-    const ACTION_NAME_SUBSCRIPTION = 'subscription';
-    const ACTION_NAME_RESUBSCRIPTION = 'resubscription';
-    const ACTION_NAME_UNSUBSCRIBE_REASON = 'unsubscribe_reason';
-    const ACTION_NAME_FACEBOOK_LIKE = 'facebook_like';
-    const ACTION_NAME_SOCIAL_SHARE = 'social_share';
-    const ACTION_NAME_UNSUBSCRIBE_MANUAL = 'unsubscribe_manual';
-    const ACTION_NAME_DOUBLE_OPTIN = 'double_optin';
-    const ACTION_NAME_DOUBLE_OPTIN_RESEND = 'double_optin_resend';
-    const ACTION_NAME_EMAIL_SPAM_COMPLAINT = 'email_spam_complaint';
-    const ACTION_NAME_EMAIL_FIELD_DISABLE = 'email_field_disable';
-    const ACTION_NAME_CELLPHONE_FIELD_DISABLE = 'cellphone_field_disable';
-    const ACTION_NAME_PHONE_FIELD_DISABLE = 'phone_field_disable';
-    const ACTION_NAME_UNSUBSCRIBE_API = 'unsubscribe_api';
-    const ACTION_NAME_EMAIL_FIELD_ENABLE = 'email_field_enable';
-    const ACTION_NAME_CELLPHONE_FIELD_ENABLE = 'cellphone_field_enable';
-    const ACTION_NAME_PHONE_FIELD_ENABLE = 'phone_field_enable';
-    const ACTION_NAME_EDIT_SUBSCRIPTION = 'edit_subscription';
-    const ACTION_NAME_DOUBLE_OPTEDIT = 'double_optedit';
-    const ACTION_NAME_AUTOMATION_EVENT = 'automation_event';
-    const ACTION_NAME_PUSH_SEND = 'push_send';
-    const ACTION_NAME_PUSH_OPEN = 'push_open';
-    const ACTION_NAME_PUSH_RECEIVED = 'push_received';
-    const ACTION_NAME_PUSH_ERROR = 'push_error';
-    const ACTION_NAME_PUSH_CANCELED = 'push_canceled';
-    const ACTION_NAME_REPLY_TO_EMAIL = 'reply_to_email';
-    const ACTION_NAME_WEB_PUSH_SEND = 'web_push_send';
-    const ACTION_NAME_WEB_PUSH_DELIVERED = 'web_push_delivered';
-    const ACTION_NAME_WEB_PUSH_OPEN = 'web_push_open';
-    const ACTION_NAME_WEB_PUSH_BOUNCE = 'web_push_bounce';
-    const ACTION_NAME_WEB_PUSH_SUBSCRIPTION = 'web_push_subscription';
-    const ACTION_NAME_WEB_PUSH_UNSUBSCRIPTION = 'web_push_unsubscription';
-    const ACTION_NAME_ADD_PUSH_CONTACT = 'add_push_contact';
-    const ACTION_NAME_REMOVE_PUSH_CONTACT = 'remove_push_contact';
-    const ACTION_NAME_FORGET_SUBSCRIPTION = 'forget_subscription';
-    const ACTION_NAME_CHANGE_CONSENT = 'change_consent';
-    const ACTION_NAME_PUSH_UNSUBSCRIPTION = 'push_unsubscription';
-    
+    public const ACTION_NAME_EMAIL_OPEN = 'email_open';
+    public const ACTION_NAME_FORWARD = 'forward';
+    public const ACTION_NAME_CONVERSION = 'conversion';
+    public const ACTION_NAME_EMAIL_SEND = 'email_send';
+    public const ACTION_NAME_SMS_SEND = 'sms_send';
+    public const ACTION_NAME_VOICE_SEND = 'voice_send';
+    public const ACTION_NAME_MMS_SEND = 'mms_send';
+    public const ACTION_NAME_SMS_REPORT = 'sms_report';
+    public const ACTION_NAME_VOICE_REPORT = 'voice_report';
+    public const ACTION_NAME_INVITATION_SEND = 'invitation_send';
+    public const ACTION_NAME_INVITATION_OPEN = 'invitation_open';
+    public const ACTION_NAME_MMS_OPEN = 'mms_open';
+    public const ACTION_NAME_UNSUBSCRIBE = 'unsubscribe';
+    public const ACTION_NAME_EMAIL_SOFT_BOUNCE = 'email_soft_bounce';
+    public const ACTION_NAME_EMAIL_HARD_BOUNCE = 'email_hard_bounce';
+    public const ACTION_NAME_SUBSCRIPTION = 'subscription';
+    public const ACTION_NAME_RESUBSCRIPTION = 'resubscription';
+    public const ACTION_NAME_UNSUBSCRIBE_REASON = 'unsubscribe_reason';
+    public const ACTION_NAME_FACEBOOK_LIKE = 'facebook_like';
+    public const ACTION_NAME_SOCIAL_SHARE = 'social_share';
+    public const ACTION_NAME_UNSUBSCRIBE_MANUAL = 'unsubscribe_manual';
+    public const ACTION_NAME_DOUBLE_OPTIN = 'double_optin';
+    public const ACTION_NAME_DOUBLE_OPTIN_RESEND = 'double_optin_resend';
+    public const ACTION_NAME_EMAIL_SPAM_COMPLAINT = 'email_spam_complaint';
+    public const ACTION_NAME_EMAIL_FIELD_DISABLE = 'email_field_disable';
+    public const ACTION_NAME_CELLPHONE_FIELD_DISABLE = 'cellphone_field_disable';
+    public const ACTION_NAME_PHONE_FIELD_DISABLE = 'phone_field_disable';
+    public const ACTION_NAME_UNSUBSCRIBE_API = 'unsubscribe_api';
+    public const ACTION_NAME_EMAIL_FIELD_ENABLE = 'email_field_enable';
+    public const ACTION_NAME_CELLPHONE_FIELD_ENABLE = 'cellphone_field_enable';
+    public const ACTION_NAME_PHONE_FIELD_ENABLE = 'phone_field_enable';
+    public const ACTION_NAME_EDIT_SUBSCRIPTION = 'edit_subscription';
+    public const ACTION_NAME_DOUBLE_OPTEDIT = 'double_optedit';
+    public const ACTION_NAME_AUTOMATION_EVENT = 'automation_event';
+    public const ACTION_NAME_PUSH_SEND = 'push_send';
+    public const ACTION_NAME_PUSH_OPEN = 'push_open';
+    public const ACTION_NAME_PUSH_RECEIVED = 'push_received';
+    public const ACTION_NAME_PUSH_ERROR = 'push_error';
+    public const ACTION_NAME_PUSH_CANCELED = 'push_canceled';
+    public const ACTION_NAME_REPLY_TO_EMAIL = 'reply_to_email';
+    public const ACTION_NAME_WEB_PUSH_SEND = 'web_push_send';
+    public const ACTION_NAME_WEB_PUSH_DELIVERED = 'web_push_delivered';
+    public const ACTION_NAME_WEB_PUSH_OPEN = 'web_push_open';
+    public const ACTION_NAME_WEB_PUSH_BOUNCE = 'web_push_bounce';
+    public const ACTION_NAME_WEB_PUSH_SUBSCRIPTION = 'web_push_subscription';
+    public const ACTION_NAME_WEB_PUSH_UNSUBSCRIPTION = 'web_push_unsubscription';
+    public const ACTION_NAME_ADD_PUSH_CONTACT = 'add_push_contact';
+    public const ACTION_NAME_REMOVE_PUSH_CONTACT = 'remove_push_contact';
+    public const ACTION_NAME_FORGET_SUBSCRIPTION = 'forget_subscription';
+    public const ACTION_NAME_CHANGE_CONSENT = 'change_consent';
+    public const ACTION_NAME_PUSH_UNSUBSCRIPTION = 'push_unsubscription';
 
-    
     /**
      * Gets allowable values of the enum
      *
@@ -284,7 +354,6 @@ class ContactActivity implements ModelInterface, ArrayAccess
             self::ACTION_NAME_PUSH_UNSUBSCRIPTION,
         ];
     }
-    
 
     /**
      * Associative array for storing property values
@@ -301,9 +370,27 @@ class ContactActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
-        $this->container['action_name'] = isset($data['action_name']) ? $data['action_name'] : null;
-        $this->container['action_data'] = isset($data['action_data']) ? $data['action_data'] : null;
+        $this->setIfExists('action_data', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('action_name', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -318,7 +405,8 @@ class ContactActivity implements ModelInterface, ArrayAccess
         $allowedValues = $this->getActionNameAllowableValues();
         if (!is_null($this->container['action_name']) && !in_array($this->container['action_name'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'action_name', must be one of '%s'",
+                "invalid value '%s' for 'action_name', must be one of '%s'",
+                $this->container['action_name'],
                 implode("', '", $allowedValues)
             );
         }
@@ -339,6 +427,35 @@ class ContactActivity implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets action_data
+     *
+     * @return \EgoiClient\EgoiModel\ContactActivityClickAllOfActionData|null
+     */
+    public function getActionData()
+    {
+        return $this->container['action_data'];
+    }
+
+    /**
+     * Sets action_data
+     *
+     * @param \EgoiClient\EgoiModel\ContactActivityClickAllOfActionData|null $action_data action_data
+     *
+     * @return self
+     */
+    public function setActionData($action_data)
+    {
+
+        if (is_null($action_data)) {
+            throw new \InvalidArgumentException('non-nullable action_data cannot be null');
+        }
+
+        $this->container['action_data'] = $action_data;
+
+        return $this;
+    }
+
+    /**
      * Gets date
      *
      * @return \DateTime|null
@@ -353,10 +470,15 @@ class ContactActivity implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $date The date and time
      *
-     * @return $this
+     * @return self
      */
     public function setDate($date)
     {
+
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        }
+
         $this->container['date'] = $date;
 
         return $this;
@@ -377,7 +499,7 @@ class ContactActivity implements ModelInterface, ArrayAccess
      *
      * @param string|null $action_name Action name
      *
-     * @return $this
+     * @return self
      */
     public function setActionName($action_name)
     {
@@ -385,36 +507,18 @@ class ContactActivity implements ModelInterface, ArrayAccess
         if (!is_null($action_name) && !in_array($action_name, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'action_name', must be one of '%s'",
+                    "Invalid value '%s' for 'action_name', must be one of '%s'",
+                    $action_name,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($action_name)) {
+            throw new \InvalidArgumentException('non-nullable action_name cannot be null');
+        }
+
         $this->container['action_name'] = $action_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets action_data
-     *
-     * @return \EgoiClient\EgoiModel\ContactActivityClickAllOfActionData|null
-     */
-    public function getActionData()
-    {
-        return $this->container['action_data'];
-    }
-
-    /**
-     * Sets action_data
-     *
-     * @param \EgoiClient\EgoiModel\ContactActivityClickAllOfActionData|null $action_data action_data
-     *
-     * @return $this
-     */
-    public function setActionData($action_data)
-    {
-        $this->container['action_data'] = $action_data;
 
         return $this;
     }
@@ -425,7 +529,7 @@ class ContactActivity implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -435,22 +539,23 @@ class ContactActivity implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -466,9 +571,22 @@ class ContactActivity implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

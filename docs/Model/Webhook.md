@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**webhook_id** | **int** |  | [optional] [readonly] 
-**list_id** | **int** |  | 
-**url** | **string** | Url to send the webhook | 
-**actions** | [**\EgoiClient\EgoiModel\WebhookActionSchema[]**](WebhookActionSchema.md) | Action that will trigger the webhook | 
+**webhook_id** | **int** |  | [optional] [readonly]
+**list_id** | **int** |  |
+**url** | **string** | Url to send the webhook:  *       Note: Only &#39;http&#39; or &#39;https&#39; protocols are supported |
+**actions** | [**\EgoiClient\EgoiModel\WebhookActionSchema[]**](WebhookActionSchema.md) | Action that will trigger the webhook |
+**fields** | **string[]** | Array of contact field IDs to be displayed in the webhook | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

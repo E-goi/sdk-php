@@ -1,7 +1,7 @@
 <?php
 /**
  * VoiceApi
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -12,12 +12,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -30,6 +29,7 @@ namespace EgoiClient\EgoiApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -69,38 +69,51 @@ class VoiceApi
      */
     protected $hostIndex;
 
-    /**
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'actionSendVoice' => [
+            'application/json',
+        ],
+        'createVoiceCampaign' => [
+            'application/json',
+        ],
+        'patchVoiceCampaign' => [
+            'application/json',
+        ],
+    ];
+
+/**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
-     * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null,
-        $host_index = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex): void
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -122,14 +135,15 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignVoiceSendRequest $campaign_voice_send_request Parameters for the &#39;send voice&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendVoice'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionSendVoice($campaign_hash, $campaign_voice_send_request)
+    public function actionSendVoice($campaign_hash, $campaign_voice_send_request, string $contentType = self::contentTypes['actionSendVoice'][0])
     {
-        list($response) = $this->actionSendVoiceWithHttpInfo($campaign_hash, $campaign_voice_send_request);
+        list($response) = $this->actionSendVoiceWithHttpInfo($campaign_hash, $campaign_voice_send_request, $contentType);
         return $response;
     }
 
@@ -140,14 +154,15 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignVoiceSendRequest $campaign_voice_send_request Parameters for the &#39;send voice&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendVoice'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionSendVoiceWithHttpInfo($campaign_hash, $campaign_voice_send_request)
+    public function actionSendVoiceWithHttpInfo($campaign_hash, $campaign_voice_send_request, string $contentType = self::contentTypes['actionSendVoice'][0])
     {
-        $request = $this->actionSendVoiceRequest($campaign_hash, $campaign_voice_send_request);
+        $request = $this->actionSendVoiceRequest($campaign_hash, $campaign_voice_send_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -156,9 +171,16 @@ class VoiceApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -169,21 +191,23 @@ class VoiceApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -193,9 +217,12 @@ class VoiceApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -205,9 +232,12 @@ class VoiceApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -217,9 +247,12 @@ class VoiceApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -229,9 +262,12 @@ class VoiceApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -241,9 +277,12 @@ class VoiceApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -253,9 +292,12 @@ class VoiceApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -265,9 +307,12 @@ class VoiceApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -278,11 +323,13 @@ class VoiceApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -369,13 +416,14 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignVoiceSendRequest $campaign_voice_send_request Parameters for the &#39;send voice&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendVoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionSendVoiceAsync($campaign_hash, $campaign_voice_send_request)
+    public function actionSendVoiceAsync($campaign_hash, $campaign_voice_send_request, string $contentType = self::contentTypes['actionSendVoice'][0])
     {
-        return $this->actionSendVoiceAsyncWithHttpInfo($campaign_hash, $campaign_voice_send_request)
+        return $this->actionSendVoiceAsyncWithHttpInfo($campaign_hash, $campaign_voice_send_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -390,24 +438,27 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignVoiceSendRequest $campaign_voice_send_request Parameters for the &#39;send voice&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendVoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionSendVoiceAsyncWithHttpInfo($campaign_hash, $campaign_voice_send_request)
+    public function actionSendVoiceAsyncWithHttpInfo($campaign_hash, $campaign_voice_send_request, string $contentType = self::contentTypes['actionSendVoice'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionSendVoiceRequest($campaign_hash, $campaign_voice_send_request);
+        $request = $this->actionSendVoiceRequest($campaign_hash, $campaign_voice_send_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -427,7 +478,7 @@ class VoiceApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -438,12 +489,14 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignVoiceSendRequest $campaign_voice_send_request Parameters for the &#39;send voice&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendVoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionSendVoiceRequest($campaign_hash, $campaign_voice_send_request)
+    public function actionSendVoiceRequest($campaign_hash, $campaign_voice_send_request, string $contentType = self::contentTypes['actionSendVoice'][0])
     {
+
         // verify the required parameter 'campaign_hash' is set
         if ($campaign_hash === null || (is_array($campaign_hash) && count($campaign_hash) === 0)) {
             throw new \InvalidArgumentException(
@@ -453,7 +506,7 @@ class VoiceApi
         if (!preg_match("/[a-zA-Z0-9_-]*/", $campaign_hash)) {
             throw new \InvalidArgumentException("invalid value for \"campaign_hash\" when calling VoiceApi.actionSendVoice, must conform to the pattern /[a-zA-Z0-9_-]*/.");
         }
-
+        
         // verify the required parameter 'campaign_voice_send_request' is set
         if ($campaign_voice_send_request === null || (is_array($campaign_voice_send_request) && count($campaign_voice_send_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -461,12 +514,14 @@ class VoiceApi
             );
         }
 
+
         $resourcePath = '/campaigns/voice/{campaign_hash}/actions/send';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -478,49 +533,42 @@ class VoiceApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($campaign_voice_send_request)) {
-            $_tempBody = $campaign_voice_send_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($campaign_voice_send_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($campaign_voice_send_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $campaign_voice_send_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -541,10 +589,11 @@ class VoiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -556,14 +605,15 @@ class VoiceApi
      * Create new voice campaign
      *
      * @param  \EgoiClient\EgoiModel\VoiceCampaign $voice_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\CampaignHash|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function createVoiceCampaign($voice_campaign)
+    public function createVoiceCampaign($voice_campaign, string $contentType = self::contentTypes['createVoiceCampaign'][0])
     {
-        list($response) = $this->createVoiceCampaignWithHttpInfo($voice_campaign);
+        list($response) = $this->createVoiceCampaignWithHttpInfo($voice_campaign, $contentType);
         return $response;
     }
 
@@ -573,14 +623,15 @@ class VoiceApi
      * Create new voice campaign
      *
      * @param  \EgoiClient\EgoiModel\VoiceCampaign $voice_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\CampaignHash|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createVoiceCampaignWithHttpInfo($voice_campaign)
+    public function createVoiceCampaignWithHttpInfo($voice_campaign, string $contentType = self::contentTypes['createVoiceCampaign'][0])
     {
-        $request = $this->createVoiceCampaignRequest($voice_campaign);
+        $request = $this->createVoiceCampaignRequest($voice_campaign, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -589,9 +640,16 @@ class VoiceApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -602,21 +660,23 @@ class VoiceApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
                     if ('\EgoiClient\EgoiModel\CampaignHash' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\CampaignHash' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -626,9 +686,12 @@ class VoiceApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -638,9 +701,12 @@ class VoiceApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -650,9 +716,12 @@ class VoiceApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -662,9 +731,12 @@ class VoiceApi
                     ];
                 case 409:
                     if ('\EgoiClient\EgoiModel\Conflict' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Conflict' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -674,9 +746,12 @@ class VoiceApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -686,9 +761,12 @@ class VoiceApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -698,9 +776,12 @@ class VoiceApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -710,9 +791,12 @@ class VoiceApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -723,11 +807,13 @@ class VoiceApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\CampaignHash';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -821,13 +907,14 @@ class VoiceApi
      * Create new voice campaign
      *
      * @param  \EgoiClient\EgoiModel\VoiceCampaign $voice_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVoiceCampaignAsync($voice_campaign)
+    public function createVoiceCampaignAsync($voice_campaign, string $contentType = self::contentTypes['createVoiceCampaign'][0])
     {
-        return $this->createVoiceCampaignAsyncWithHttpInfo($voice_campaign)
+        return $this->createVoiceCampaignAsyncWithHttpInfo($voice_campaign, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -841,24 +928,27 @@ class VoiceApi
      * Create new voice campaign
      *
      * @param  \EgoiClient\EgoiModel\VoiceCampaign $voice_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVoiceCampaignAsyncWithHttpInfo($voice_campaign)
+    public function createVoiceCampaignAsyncWithHttpInfo($voice_campaign, string $contentType = self::contentTypes['createVoiceCampaign'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\CampaignHash';
-        $request = $this->createVoiceCampaignRequest($voice_campaign);
+        $request = $this->createVoiceCampaignRequest($voice_campaign, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -878,7 +968,7 @@ class VoiceApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -888,18 +978,21 @@ class VoiceApi
      * Create request for operation 'createVoiceCampaign'
      *
      * @param  \EgoiClient\EgoiModel\VoiceCampaign $voice_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createVoiceCampaignRequest($voice_campaign)
+    public function createVoiceCampaignRequest($voice_campaign, string $contentType = self::contentTypes['createVoiceCampaign'][0])
     {
+
         // verify the required parameter 'voice_campaign' is set
         if ($voice_campaign === null || (is_array($voice_campaign) && count($voice_campaign) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $voice_campaign when calling createVoiceCampaign'
             );
         }
+
 
         $resourcePath = '/campaigns/voice';
         $formParams = [];
@@ -910,49 +1003,43 @@ class VoiceApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($voice_campaign)) {
-            $_tempBody = $voice_campaign;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($voice_campaign)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($voice_campaign));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $voice_campaign;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -973,10 +1060,11 @@ class VoiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -989,14 +1077,15 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\VoicePatchCampaign $voice_patch_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\CampaignHash|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\PatchVoiceCampaign200Response|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function patchVoiceCampaign($campaign_hash, $voice_patch_campaign)
+    public function patchVoiceCampaign($campaign_hash, $voice_patch_campaign, string $contentType = self::contentTypes['patchVoiceCampaign'][0])
     {
-        list($response) = $this->patchVoiceCampaignWithHttpInfo($campaign_hash, $voice_patch_campaign);
+        list($response) = $this->patchVoiceCampaignWithHttpInfo($campaign_hash, $voice_patch_campaign, $contentType);
         return $response;
     }
 
@@ -1007,14 +1096,15 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\VoicePatchCampaign $voice_patch_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\CampaignHash|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\PatchVoiceCampaign200Response|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchVoiceCampaignWithHttpInfo($campaign_hash, $voice_patch_campaign)
+    public function patchVoiceCampaignWithHttpInfo($campaign_hash, $voice_patch_campaign, string $contentType = self::contentTypes['patchVoiceCampaign'][0])
     {
-        $request = $this->patchVoiceCampaignRequest($campaign_hash, $voice_patch_campaign);
+        $request = $this->patchVoiceCampaignRequest($campaign_hash, $voice_patch_campaign, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1023,9 +1113,16 @@ class VoiceApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1036,33 +1133,38 @@ class VoiceApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\EgoiClient\EgoiModel\CampaignHash' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                    if ('\EgoiClient\EgoiModel\PatchVoiceCampaign200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\PatchVoiceCampaign200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\CampaignHash', []),
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\PatchVoiceCampaign200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1072,9 +1174,12 @@ class VoiceApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1084,9 +1189,12 @@ class VoiceApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1096,9 +1204,12 @@ class VoiceApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1108,9 +1219,12 @@ class VoiceApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1120,9 +1234,12 @@ class VoiceApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1132,9 +1249,12 @@ class VoiceApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1144,9 +1264,12 @@ class VoiceApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1156,9 +1279,12 @@ class VoiceApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1168,12 +1294,14 @@ class VoiceApi
                     ];
             }
 
-            $returnType = '\EgoiClient\EgoiModel\CampaignHash';
-            $responseBody = $response->getBody();
+            $returnType = '\EgoiClient\EgoiModel\PatchVoiceCampaign200Response';
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1187,7 +1315,7 @@ class VoiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\CampaignHash',
+                        '\EgoiClient\EgoiModel\PatchVoiceCampaign200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1276,13 +1404,14 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\VoicePatchCampaign $voice_patch_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchVoiceCampaignAsync($campaign_hash, $voice_patch_campaign)
+    public function patchVoiceCampaignAsync($campaign_hash, $voice_patch_campaign, string $contentType = self::contentTypes['patchVoiceCampaign'][0])
     {
-        return $this->patchVoiceCampaignAsyncWithHttpInfo($campaign_hash, $voice_patch_campaign)
+        return $this->patchVoiceCampaignAsyncWithHttpInfo($campaign_hash, $voice_patch_campaign, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1297,24 +1426,27 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\VoicePatchCampaign $voice_patch_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchVoiceCampaignAsyncWithHttpInfo($campaign_hash, $voice_patch_campaign)
+    public function patchVoiceCampaignAsyncWithHttpInfo($campaign_hash, $voice_patch_campaign, string $contentType = self::contentTypes['patchVoiceCampaign'][0])
     {
-        $returnType = '\EgoiClient\EgoiModel\CampaignHash';
-        $request = $this->patchVoiceCampaignRequest($campaign_hash, $voice_patch_campaign);
+        $returnType = '\EgoiClient\EgoiModel\PatchVoiceCampaign200Response';
+        $request = $this->patchVoiceCampaignRequest($campaign_hash, $voice_patch_campaign, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1334,7 +1466,7 @@ class VoiceApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1345,12 +1477,14 @@ class VoiceApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\VoicePatchCampaign $voice_patch_campaign Parameters for the Voice Campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoiceCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function patchVoiceCampaignRequest($campaign_hash, $voice_patch_campaign)
+    public function patchVoiceCampaignRequest($campaign_hash, $voice_patch_campaign, string $contentType = self::contentTypes['patchVoiceCampaign'][0])
     {
+
         // verify the required parameter 'campaign_hash' is set
         if ($campaign_hash === null || (is_array($campaign_hash) && count($campaign_hash) === 0)) {
             throw new \InvalidArgumentException(
@@ -1360,7 +1494,7 @@ class VoiceApi
         if (!preg_match("/[a-zA-Z0-9_-]*/", $campaign_hash)) {
             throw new \InvalidArgumentException("invalid value for \"campaign_hash\" when calling VoiceApi.patchVoiceCampaign, must conform to the pattern /[a-zA-Z0-9_-]*/.");
         }
-
+        
         // verify the required parameter 'voice_patch_campaign' is set
         if ($voice_patch_campaign === null || (is_array($voice_patch_campaign) && count($voice_patch_campaign) === 0)) {
             throw new \InvalidArgumentException(
@@ -1368,12 +1502,14 @@ class VoiceApi
             );
         }
 
+
         $resourcePath = '/campaigns/voice/{campaign_hash}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -1385,49 +1521,42 @@ class VoiceApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($voice_patch_campaign)) {
-            $_tempBody = $voice_patch_campaign;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($voice_patch_campaign)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($voice_patch_campaign));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $voice_patch_campaign;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1448,10 +1577,11 @@ class VoiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

@@ -1,17 +1,18 @@
 # EgoiClient\TrackEngageApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAllDomains**](TrackEngageApi.md#getAllDomains) | **GET** /trackengage/domains | Get all domains
-[**getAllGoals**](TrackEngageApi.md#getAllGoals) | **GET** /trackengage/goals | Get all goals
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getAllDomains()**](TrackEngageApi.md#getAllDomains) | **GET** /trackengage/domains | Get all domains |
+| [**getAllGoals()**](TrackEngageApi.md#getAllGoals) | **GET** /trackengage/goals | Get all goals |
 
 
+## `getAllDomains()`
 
-## getAllDomains
-
-> \EgoiClient\EgoiModel\DomainCollection getAllDomains()
+```php
+getAllDomains(): \EgoiClient\EgoiModel\DomainCollection
+```
 
 Get all domains
 
@@ -43,7 +44,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TrackEngageApi->getAllDomains: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -61,16 +61,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllGoals()`
 
-## getAllGoals
-
-> \EgoiClient\EgoiModel\GoalCollection getAllGoals()
+```php
+getAllGoals(): \EgoiClient\EgoiModel\GoalCollection
+```
 
 Get all goals
 
@@ -102,7 +103,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TrackEngageApi->getAllGoals: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -120,9 +120,8 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

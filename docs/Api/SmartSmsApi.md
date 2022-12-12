@@ -1,18 +1,19 @@
 # EgoiClient\SmartSmsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionSendSmartSms**](SmartSmsApi.md#actionSendSmartSms) | **POST** /campaigns/smart-sms/{campaign_hash}/actions/send | Send smart sms message
-[**createSmartSmsCampaign**](SmartSmsApi.md#createSmartSmsCampaign) | **POST** /campaigns/smart-sms | Create new smart sms campaign
-[**patchSmartSmsCampaign**](SmartSmsApi.md#patchSmartSmsCampaign) | **PATCH** /campaigns/smart-sms/{campaign_hash} | Update a specific smart sms campaign
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionSendSmartSms()**](SmartSmsApi.md#actionSendSmartSms) | **POST** /campaigns/smart-sms/{campaign_hash}/actions/send | Send smart sms message |
+| [**createSmartSmsCampaign()**](SmartSmsApi.md#createSmartSmsCampaign) | **POST** /campaigns/smart-sms | Create new smart sms campaign |
+| [**patchSmartSmsCampaign()**](SmartSmsApi.md#patchSmartSmsCampaign) | **PATCH** /campaigns/smart-sms/{campaign_hash} | Update a specific smart sms campaign |
 
 
+## `actionSendSmartSms()`
 
-## actionSendSmartSms
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionSendSmartSms($campaign_hash, $campaign_sms_send_request)
+```php
+actionSendSmartSms($campaign_hash, $campaign_sms_send_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Send smart sms message
 
@@ -46,16 +47,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SmartSmsApi->actionSendSmartSms: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **campaign_sms_send_request** | [**\EgoiClient\EgoiModel\CampaignSmsSendRequest**](../Model/CampaignSmsSendRequest.md)| Parameters for the &#39;send sms&#39; action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_sms_send_request** | [**\EgoiClient\EgoiModel\CampaignSmsSendRequest**](../Model/CampaignSmsSendRequest.md)| Parameters for the &#39;send sms&#39; action | |
 
 ### Return type
 
@@ -67,17 +66,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createSmartSmsCampaign()`
 
-## createSmartSmsCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign createSmartSmsCampaign($smart_sms_campaign)
+```php
+createSmartSmsCampaign($smart_sms_campaign): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Create new smart sms campaign
 
@@ -110,15 +110,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SmartSmsApi->createSmartSmsCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **smart_sms_campaign** | [**\EgoiClient\EgoiModel\SmartSmsCampaign**](../Model/SmartSmsCampaign.md)| Parameters for the Smart Sms Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **smart_sms_campaign** | [**\EgoiClient\EgoiModel\SmartSmsCampaign**](../Model/SmartSmsCampaign.md)| Parameters for the Smart Sms Campaign | |
 
 ### Return type
 
@@ -130,17 +128,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchSmartSmsCampaign()`
 
-## patchSmartSmsCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign patchSmartSmsCampaign($campaign_hash, $smart_sms_campaign_patch_request)
+```php
+patchSmartSmsCampaign($campaign_hash, $smart_sms_campaign_patch_request): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Update a specific smart sms campaign
 
@@ -174,16 +173,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SmartSmsApi->patchSmartSmsCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **smart_sms_campaign_patch_request** | [**\EgoiClient\EgoiModel\SmartSmsCampaignPatchRequest**](../Model/SmartSmsCampaignPatchRequest.md)| Parameters for the Smart Sms Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **smart_sms_campaign_patch_request** | [**\EgoiClient\EgoiModel\SmartSmsCampaignPatchRequest**](../Model/SmartSmsCampaignPatchRequest.md)| Parameters for the Smart Sms Campaign | |
 
 ### Return type
 
@@ -195,10 +192,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

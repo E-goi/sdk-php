@@ -1,18 +1,19 @@
 # EgoiClient\WebHooksApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createWebhook**](WebHooksApi.md#createWebhook) | **POST** /webhooks | Create new webhook
-[**deleteWebhook**](WebHooksApi.md#deleteWebhook) | **DELETE** /webhooks/{webhook_id} | Remove webhook
-[**getAllWebhooks**](WebHooksApi.md#getAllWebhooks) | **GET** /webhooks | Get all webhooks
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createWebhook()**](WebHooksApi.md#createWebhook) | **POST** /webhooks | Create new webhook |
+| [**deleteWebhook()**](WebHooksApi.md#deleteWebhook) | **DELETE** /webhooks/{webhook_id} | Remove webhook |
+| [**getAllWebhooks()**](WebHooksApi.md#getAllWebhooks) | **GET** /webhooks | Get all webhooks |
 
 
+## `createWebhook()`
 
-## createWebhook
-
-> \EgoiClient\EgoiModel\Webhook createWebhook($webhook)
+```php
+createWebhook($webhook): \EgoiClient\EgoiModel\Webhook
+```
 
 Create new webhook
 
@@ -45,15 +46,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebHooksApi->createWebhook: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook** | [**\EgoiClient\EgoiModel\Webhook**](../Model/Webhook.md)| Parameters for the webhook |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **webhook** | [**\EgoiClient\EgoiModel\Webhook**](../Model/Webhook.md)| Parameters for the webhook | |
 
 ### Return type
 
@@ -65,17 +64,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteWebhook()`
 
-## deleteWebhook
-
-> deleteWebhook($webhook_id)
+```php
+deleteWebhook($webhook_id)
+```
 
 Remove webhook
 
@@ -107,15 +107,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebHooksApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_id** | **int**| ID of the Webhook |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **webhook_id** | **int**| ID of the Webhook | |
 
 ### Return type
 
@@ -128,16 +126,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllWebhooks()`
 
-## getAllWebhooks
-
-> \EgoiClient\EgoiModel\ListCollection1 getAllWebhooks($offset, $limit)
+```php
+getAllWebhooks($offset, $limit): \EgoiClient\EgoiModel\ListCollection1
+```
 
 Get all webhooks
 
@@ -171,16 +170,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebHooksApi->getAllWebhooks: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
 
 ### Return type
 
@@ -193,9 +190,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

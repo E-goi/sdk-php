@@ -1,7 +1,7 @@
 <?php
 /**
  * SegmentsApi
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -12,12 +12,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -30,6 +29,7 @@ namespace EgoiClient\EgoiApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -69,38 +69,48 @@ class SegmentsApi
      */
     protected $hostIndex;
 
-    /**
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'deleteSegment' => [
+            'application/json',
+        ],
+        'getAllSegments' => [
+            'application/json',
+        ],
+    ];
+
+/**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
-     * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null,
-        $host_index = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex): void
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -122,14 +132,15 @@ class SegmentsApi
      *
      * @param  string $segment_id ID of the Segment (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSegment'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteSegment($segment_id, $list_id)
+    public function deleteSegment($segment_id, $list_id, string $contentType = self::contentTypes['deleteSegment'][0])
     {
-        $this->deleteSegmentWithHttpInfo($segment_id, $list_id);
+        $this->deleteSegmentWithHttpInfo($segment_id, $list_id, $contentType);
     }
 
     /**
@@ -139,14 +150,15 @@ class SegmentsApi
      *
      * @param  string $segment_id ID of the Segment (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSegment'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSegmentWithHttpInfo($segment_id, $list_id)
+    public function deleteSegmentWithHttpInfo($segment_id, $list_id, string $contentType = self::contentTypes['deleteSegment'][0])
     {
-        $request = $this->deleteSegmentRequest($segment_id, $list_id);
+        $request = $this->deleteSegmentRequest($segment_id, $list_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -155,9 +167,16 @@ class SegmentsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -168,11 +187,11 @@ class SegmentsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -256,13 +275,14 @@ class SegmentsApi
      *
      * @param  string $segment_id ID of the Segment (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSegmentAsync($segment_id, $list_id)
+    public function deleteSegmentAsync($segment_id, $list_id, string $contentType = self::contentTypes['deleteSegment'][0])
     {
-        return $this->deleteSegmentAsyncWithHttpInfo($segment_id, $list_id)
+        return $this->deleteSegmentAsyncWithHttpInfo($segment_id, $list_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -277,14 +297,15 @@ class SegmentsApi
      *
      * @param  string $segment_id ID of the Segment (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSegmentAsyncWithHttpInfo($segment_id, $list_id)
+    public function deleteSegmentAsyncWithHttpInfo($segment_id, $list_id, string $contentType = self::contentTypes['deleteSegment'][0])
     {
         $returnType = '';
-        $request = $this->deleteSegmentRequest($segment_id, $list_id);
+        $request = $this->deleteSegmentRequest($segment_id, $list_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -303,7 +324,7 @@ class SegmentsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -314,18 +335,21 @@ class SegmentsApi
      *
      * @param  string $segment_id ID of the Segment (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSegmentRequest($segment_id, $list_id)
+    public function deleteSegmentRequest($segment_id, $list_id, string $contentType = self::contentTypes['deleteSegment'][0])
     {
+
         // verify the required parameter 'segment_id' is set
         if ($segment_id === null || (is_array($segment_id) && count($segment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $segment_id when calling deleteSegment'
             );
         }
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -335,7 +359,7 @@ class SegmentsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling SegmentsApi.deleteSegment, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/segments/{segment_id}';
         $formParams = [];
@@ -343,6 +367,7 @@ class SegmentsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -362,46 +387,35 @@ class SegmentsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -422,10 +436,11 @@ class SegmentsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -441,14 +456,15 @@ class SegmentsApi
      * @param  string $name Segment name (optional)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllSegments'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\SegmentCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllSegments($list_id, $type = null, $name = null, $offset = null, $limit = 10)
+    public function getAllSegments($list_id, $type = null, $name = null, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllSegments'][0])
     {
-        list($response) = $this->getAllSegmentsWithHttpInfo($list_id, $type, $name, $offset, $limit);
+        list($response) = $this->getAllSegmentsWithHttpInfo($list_id, $type, $name, $offset, $limit, $contentType);
         return $response;
     }
 
@@ -462,14 +478,15 @@ class SegmentsApi
      * @param  string $name Segment name (optional)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllSegments'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\SegmentCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllSegmentsWithHttpInfo($list_id, $type = null, $name = null, $offset = null, $limit = 10)
+    public function getAllSegmentsWithHttpInfo($list_id, $type = null, $name = null, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllSegments'][0])
     {
-        $request = $this->getAllSegmentsRequest($list_id, $type, $name, $offset, $limit);
+        $request = $this->getAllSegmentsRequest($list_id, $type, $name, $offset, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -478,9 +495,16 @@ class SegmentsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -491,21 +515,23 @@ class SegmentsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\SegmentCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\SegmentCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -515,9 +541,12 @@ class SegmentsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -527,9 +556,12 @@ class SegmentsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -539,9 +571,12 @@ class SegmentsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -551,9 +586,12 @@ class SegmentsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -563,9 +601,12 @@ class SegmentsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -575,9 +616,12 @@ class SegmentsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -587,9 +631,12 @@ class SegmentsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -600,11 +647,13 @@ class SegmentsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\SegmentCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -694,13 +743,14 @@ class SegmentsApi
      * @param  string $name Segment name (optional)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllSegments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllSegmentsAsync($list_id, $type = null, $name = null, $offset = null, $limit = 10)
+    public function getAllSegmentsAsync($list_id, $type = null, $name = null, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllSegments'][0])
     {
-        return $this->getAllSegmentsAsyncWithHttpInfo($list_id, $type, $name, $offset, $limit)
+        return $this->getAllSegmentsAsyncWithHttpInfo($list_id, $type, $name, $offset, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -718,24 +768,27 @@ class SegmentsApi
      * @param  string $name Segment name (optional)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllSegments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllSegmentsAsyncWithHttpInfo($list_id, $type = null, $name = null, $offset = null, $limit = 10)
+    public function getAllSegmentsAsyncWithHttpInfo($list_id, $type = null, $name = null, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllSegments'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\SegmentCollection';
-        $request = $this->getAllSegmentsRequest($list_id, $type, $name, $offset, $limit);
+        $request = $this->getAllSegmentsRequest($list_id, $type, $name, $offset, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -755,7 +808,7 @@ class SegmentsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -769,12 +822,14 @@ class SegmentsApi
      * @param  string $name Segment name (optional)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllSegments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllSegmentsRequest($list_id, $type = null, $name = null, $offset = null, $limit = 10)
+    public function getAllSegmentsRequest($list_id, $type = null, $name = null, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllSegments'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -784,18 +839,20 @@ class SegmentsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling SegmentsApi.getAllSegments, must be bigger than or equal to 1.');
         }
+        
+
 
         if ($offset !== null && $offset < 0) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling SegmentsApi.getAllSegments, must be bigger than or equal to 0.');
         }
-
+        
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SegmentsApi.getAllSegments, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SegmentsApi.getAllSegments, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/segments';
         $formParams = [];
@@ -805,21 +862,42 @@ class SegmentsApi
         $multipart = false;
 
         // query params
-        if ($type !== null) {
-            $queryParams['type'] = ObjectSerializer::toQueryValue($type);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($name !== null) {
-            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $name,
+            'name', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
 
         // path params
         if ($list_id !== null) {
@@ -830,46 +908,35 @@ class SegmentsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -890,10 +957,11 @@ class SegmentsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

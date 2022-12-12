@@ -1,20 +1,21 @@
 # EgoiClient\EcommerceActivityApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**importOrdersBulk**](EcommerceActivityApi.md#importOrdersBulk) | **POST** /lists/{list_id}/orders | Orders import bulk request
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**importOrdersBulk()**](EcommerceActivityApi.md#importOrdersBulk) | **POST** /lists/{list_id}/orders | Orders import bulk request |
 
 
+## `importOrdersBulk()`
 
-## importOrdersBulk
-
-> \EgoiClient\EgoiModel\AcceptedResponse importOrdersBulk($list_id, $import_orders_bulk_bulk_request)
+```php
+importOrdersBulk($list_id, $import_orders_bulk_bulk_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Orders import bulk request
 
-Creates new bulk orders syncronization
+Creates new bulk orders syncronization </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
 
 ### Example
 
@@ -44,16 +45,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceActivityApi->importOrdersBulk: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **import_orders_bulk_bulk_request** | [**\EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[]**](../Model/ImportOrdersBulkBulkRequest.md)| Parameters for the Orders |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **import_orders_bulk_bulk_request** | [**\EgoiClient\EgoiModel\ImportOrdersBulkBulkRequest[]**](../Model/ImportOrdersBulkBulkRequest.md)| Parameters for the Orders | |
 
 ### Return type
 
@@ -65,10 +64,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

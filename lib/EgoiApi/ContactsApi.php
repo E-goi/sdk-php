@@ -1,7 +1,7 @@
 <?php
 /**
  * ContactsApi
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -12,12 +12,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -30,6 +29,7 @@ namespace EgoiClient\EgoiApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -69,38 +69,93 @@ class ContactsApi
      */
     protected $hostIndex;
 
-    /**
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'actionActivateContacts' => [
+            'application/json',
+        ],
+        'actionAttachTag' => [
+            'application/json',
+        ],
+        'actionDeactivateContacts' => [
+            'application/json',
+        ],
+        'actionDetachTag' => [
+            'application/json',
+        ],
+        'actionExportContacts' => [
+            'application/json',
+        ],
+        'actionForgetContacts' => [
+            'application/json',
+        ],
+        'actionImportBulk' => [
+            'application/json',
+        ],
+        'actionStartAutomation' => [
+            'application/json',
+        ],
+        'actionUnsubscribeContact' => [
+            'application/json',
+        ],
+        'actionUpdateContacts' => [
+            'application/json',
+        ],
+        'createContact' => [
+            'application/json',
+        ],
+        'getAllContactActivities' => [
+            'application/json',
+        ],
+        'getAllContacts' => [
+            'application/json',
+        ],
+        'getAllContactsBySegment' => [
+            'application/json',
+        ],
+        'getContact' => [
+            'application/json',
+        ],
+        'patchContact' => [
+            'application/json',
+        ],
+        'searchContacts' => [
+            'application/json',
+        ],
+    ];
+
+/**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
-     * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null,
-        $host_index = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex): void
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -122,14 +177,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ActivateContactsRequest $activate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionActivateContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionActivateContacts($list_id, $activate_contacts_request)
+    public function actionActivateContacts($list_id, $activate_contacts_request, string $contentType = self::contentTypes['actionActivateContacts'][0])
     {
-        list($response) = $this->actionActivateContactsWithHttpInfo($list_id, $activate_contacts_request);
+        list($response) = $this->actionActivateContactsWithHttpInfo($list_id, $activate_contacts_request, $contentType);
         return $response;
     }
 
@@ -140,14 +196,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ActivateContactsRequest $activate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionActivateContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionActivateContactsWithHttpInfo($list_id, $activate_contacts_request)
+    public function actionActivateContactsWithHttpInfo($list_id, $activate_contacts_request, string $contentType = self::contentTypes['actionActivateContacts'][0])
     {
-        $request = $this->actionActivateContactsRequest($list_id, $activate_contacts_request);
+        $request = $this->actionActivateContactsRequest($list_id, $activate_contacts_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -156,9 +213,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -169,21 +233,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -193,9 +259,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -205,9 +274,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -217,9 +289,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -229,9 +304,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -241,9 +319,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -253,9 +334,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -265,9 +349,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -277,9 +364,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -289,9 +379,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -302,11 +395,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -409,13 +504,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ActivateContactsRequest $activate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionActivateContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionActivateContactsAsync($list_id, $activate_contacts_request)
+    public function actionActivateContactsAsync($list_id, $activate_contacts_request, string $contentType = self::contentTypes['actionActivateContacts'][0])
     {
-        return $this->actionActivateContactsAsyncWithHttpInfo($list_id, $activate_contacts_request)
+        return $this->actionActivateContactsAsyncWithHttpInfo($list_id, $activate_contacts_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -430,24 +526,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ActivateContactsRequest $activate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionActivateContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionActivateContactsAsyncWithHttpInfo($list_id, $activate_contacts_request)
+    public function actionActivateContactsAsyncWithHttpInfo($list_id, $activate_contacts_request, string $contentType = self::contentTypes['actionActivateContacts'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionActivateContactsRequest($list_id, $activate_contacts_request);
+        $request = $this->actionActivateContactsRequest($list_id, $activate_contacts_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -467,7 +566,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -478,12 +577,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ActivateContactsRequest $activate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionActivateContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionActivateContactsRequest($list_id, $activate_contacts_request)
+    public function actionActivateContactsRequest($list_id, $activate_contacts_request, string $contentType = self::contentTypes['actionActivateContacts'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -493,7 +594,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionActivateContacts, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'activate_contacts_request' is set
         if ($activate_contacts_request === null || (is_array($activate_contacts_request) && count($activate_contacts_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -501,12 +602,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/activate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -518,49 +621,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($activate_contacts_request)) {
-            $_tempBody = $activate_contacts_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($activate_contacts_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($activate_contacts_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $activate_contacts_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -581,10 +677,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -597,14 +694,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionAttachTag'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\AttachTagResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionAttachTag($list_id, $attach_tag_request)
+    public function actionAttachTag($list_id, $attach_tag_request, string $contentType = self::contentTypes['actionAttachTag'][0])
     {
-        list($response) = $this->actionAttachTagWithHttpInfo($list_id, $attach_tag_request);
+        list($response) = $this->actionAttachTagWithHttpInfo($list_id, $attach_tag_request, $contentType);
         return $response;
     }
 
@@ -615,14 +713,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionAttachTag'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\AttachTagResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionAttachTagWithHttpInfo($list_id, $attach_tag_request)
+    public function actionAttachTagWithHttpInfo($list_id, $attach_tag_request, string $contentType = self::contentTypes['actionAttachTag'][0])
     {
-        $request = $this->actionAttachTagRequest($list_id, $attach_tag_request);
+        $request = $this->actionAttachTagRequest($list_id, $attach_tag_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -631,9 +730,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -644,33 +750,38 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
-                case 200:
-                    if ('\EgoiClient\EgoiModel\AttachTagResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                case 202:
+                    if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AttachTagResponse', []),
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AcceptedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -680,9 +791,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -692,9 +806,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -704,9 +821,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -716,9 +836,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -728,9 +851,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -740,9 +866,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -752,9 +881,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -764,9 +896,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -776,12 +911,14 @@ class ContactsApi
                     ];
             }
 
-            $returnType = '\EgoiClient\EgoiModel\AttachTagResponse';
-            $responseBody = $response->getBody();
+            $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -792,10 +929,10 @@ class ContactsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\AttachTagResponse',
+                        '\EgoiClient\EgoiModel\AcceptedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -884,13 +1021,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionAttachTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionAttachTagAsync($list_id, $attach_tag_request)
+    public function actionAttachTagAsync($list_id, $attach_tag_request, string $contentType = self::contentTypes['actionAttachTag'][0])
     {
-        return $this->actionAttachTagAsyncWithHttpInfo($list_id, $attach_tag_request)
+        return $this->actionAttachTagAsyncWithHttpInfo($list_id, $attach_tag_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -905,24 +1043,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionAttachTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionAttachTagAsyncWithHttpInfo($list_id, $attach_tag_request)
+    public function actionAttachTagAsyncWithHttpInfo($list_id, $attach_tag_request, string $contentType = self::contentTypes['actionAttachTag'][0])
     {
-        $returnType = '\EgoiClient\EgoiModel\AttachTagResponse';
-        $request = $this->actionAttachTagRequest($list_id, $attach_tag_request);
+        $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+        $request = $this->actionAttachTagRequest($list_id, $attach_tag_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -942,7 +1083,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -953,12 +1094,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionAttachTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionAttachTagRequest($list_id, $attach_tag_request)
+    public function actionAttachTagRequest($list_id, $attach_tag_request, string $contentType = self::contentTypes['actionAttachTag'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -968,7 +1111,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionAttachTag, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'attach_tag_request' is set
         if ($attach_tag_request === null || (is_array($attach_tag_request) && count($attach_tag_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -976,12 +1119,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/attach-tag';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -993,49 +1138,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($attach_tag_request)) {
-            $_tempBody = $attach_tag_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($attach_tag_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($attach_tag_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $attach_tag_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1056,10 +1194,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1072,14 +1211,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\DeactivateContactsRequest $deactivate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDeactivateContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionDeactivateContacts($list_id, $deactivate_contacts_request)
+    public function actionDeactivateContacts($list_id, $deactivate_contacts_request, string $contentType = self::contentTypes['actionDeactivateContacts'][0])
     {
-        list($response) = $this->actionDeactivateContactsWithHttpInfo($list_id, $deactivate_contacts_request);
+        list($response) = $this->actionDeactivateContactsWithHttpInfo($list_id, $deactivate_contacts_request, $contentType);
         return $response;
     }
 
@@ -1090,14 +1230,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\DeactivateContactsRequest $deactivate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDeactivateContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionDeactivateContactsWithHttpInfo($list_id, $deactivate_contacts_request)
+    public function actionDeactivateContactsWithHttpInfo($list_id, $deactivate_contacts_request, string $contentType = self::contentTypes['actionDeactivateContacts'][0])
     {
-        $request = $this->actionDeactivateContactsRequest($list_id, $deactivate_contacts_request);
+        $request = $this->actionDeactivateContactsRequest($list_id, $deactivate_contacts_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1106,9 +1247,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1119,21 +1267,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1143,9 +1293,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1155,9 +1308,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1167,9 +1323,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1179,9 +1338,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1191,9 +1353,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1203,9 +1368,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1215,9 +1383,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1227,9 +1398,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1239,9 +1413,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1252,11 +1429,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1359,13 +1538,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\DeactivateContactsRequest $deactivate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDeactivateContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionDeactivateContactsAsync($list_id, $deactivate_contacts_request)
+    public function actionDeactivateContactsAsync($list_id, $deactivate_contacts_request, string $contentType = self::contentTypes['actionDeactivateContacts'][0])
     {
-        return $this->actionDeactivateContactsAsyncWithHttpInfo($list_id, $deactivate_contacts_request)
+        return $this->actionDeactivateContactsAsyncWithHttpInfo($list_id, $deactivate_contacts_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1380,24 +1560,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\DeactivateContactsRequest $deactivate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDeactivateContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionDeactivateContactsAsyncWithHttpInfo($list_id, $deactivate_contacts_request)
+    public function actionDeactivateContactsAsyncWithHttpInfo($list_id, $deactivate_contacts_request, string $contentType = self::contentTypes['actionDeactivateContacts'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionDeactivateContactsRequest($list_id, $deactivate_contacts_request);
+        $request = $this->actionDeactivateContactsRequest($list_id, $deactivate_contacts_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1417,7 +1600,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1428,12 +1611,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\DeactivateContactsRequest $deactivate_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDeactivateContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionDeactivateContactsRequest($list_id, $deactivate_contacts_request)
+    public function actionDeactivateContactsRequest($list_id, $deactivate_contacts_request, string $contentType = self::contentTypes['actionDeactivateContacts'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1443,7 +1628,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionDeactivateContacts, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'deactivate_contacts_request' is set
         if ($deactivate_contacts_request === null || (is_array($deactivate_contacts_request) && count($deactivate_contacts_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1451,12 +1636,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/deactivate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -1468,49 +1655,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($deactivate_contacts_request)) {
-            $_tempBody = $deactivate_contacts_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($deactivate_contacts_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($deactivate_contacts_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $deactivate_contacts_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1531,10 +1711,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1546,15 +1727,16 @@ class ContactsApi
      * Detach tag to contact
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  \EgoiClient\EgoiModel\DetachTagRequest $detach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDetachTag'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\AttachTagResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionDetachTag($list_id, $attach_tag_request)
+    public function actionDetachTag($list_id, $detach_tag_request, string $contentType = self::contentTypes['actionDetachTag'][0])
     {
-        list($response) = $this->actionDetachTagWithHttpInfo($list_id, $attach_tag_request);
+        list($response) = $this->actionDetachTagWithHttpInfo($list_id, $detach_tag_request, $contentType);
         return $response;
     }
 
@@ -1564,15 +1746,16 @@ class ContactsApi
      * Detach tag to contact
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  \EgoiClient\EgoiModel\DetachTagRequest $detach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDetachTag'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\AttachTagResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionDetachTagWithHttpInfo($list_id, $attach_tag_request)
+    public function actionDetachTagWithHttpInfo($list_id, $detach_tag_request, string $contentType = self::contentTypes['actionDetachTag'][0])
     {
-        $request = $this->actionDetachTagRequest($list_id, $attach_tag_request);
+        $request = $this->actionDetachTagRequest($list_id, $detach_tag_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1581,9 +1764,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1594,33 +1784,38 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
-                case 200:
-                    if ('\EgoiClient\EgoiModel\AttachTagResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                case 202:
+                    if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AttachTagResponse', []),
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AcceptedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1630,9 +1825,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1642,9 +1840,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1654,9 +1855,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1666,9 +1870,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1678,9 +1885,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1690,9 +1900,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1702,9 +1915,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1714,9 +1930,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1726,12 +1945,14 @@ class ContactsApi
                     ];
             }
 
-            $returnType = '\EgoiClient\EgoiModel\AttachTagResponse';
-            $responseBody = $response->getBody();
+            $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1742,10 +1963,10 @@ class ContactsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\AttachTagResponse',
+                        '\EgoiClient\EgoiModel\AcceptedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1833,14 +2054,15 @@ class ContactsApi
      * Detach tag to contact
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  \EgoiClient\EgoiModel\DetachTagRequest $detach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDetachTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionDetachTagAsync($list_id, $attach_tag_request)
+    public function actionDetachTagAsync($list_id, $detach_tag_request, string $contentType = self::contentTypes['actionDetachTag'][0])
     {
-        return $this->actionDetachTagAsyncWithHttpInfo($list_id, $attach_tag_request)
+        return $this->actionDetachTagAsyncWithHttpInfo($list_id, $detach_tag_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1854,25 +2076,28 @@ class ContactsApi
      * Detach tag to contact
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  \EgoiClient\EgoiModel\DetachTagRequest $detach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDetachTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionDetachTagAsyncWithHttpInfo($list_id, $attach_tag_request)
+    public function actionDetachTagAsyncWithHttpInfo($list_id, $detach_tag_request, string $contentType = self::contentTypes['actionDetachTag'][0])
     {
-        $returnType = '\EgoiClient\EgoiModel\AttachTagResponse';
-        $request = $this->actionDetachTagRequest($list_id, $attach_tag_request);
+        $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+        $request = $this->actionDetachTagRequest($list_id, $detach_tag_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1892,7 +2117,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1902,13 +2127,15 @@ class ContactsApi
      * Create request for operation 'actionDetachTag'
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\AttachTagRequest $attach_tag_request Parameters for the Tag (required)
+     * @param  \EgoiClient\EgoiModel\DetachTagRequest $detach_tag_request Parameters for the Tag (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionDetachTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionDetachTagRequest($list_id, $attach_tag_request)
+    public function actionDetachTagRequest($list_id, $detach_tag_request, string $contentType = self::contentTypes['actionDetachTag'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1918,13 +2145,14 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionDetachTag, must be bigger than or equal to 1.');
         }
-
-        // verify the required parameter 'attach_tag_request' is set
-        if ($attach_tag_request === null || (is_array($attach_tag_request) && count($attach_tag_request) === 0)) {
+        
+        // verify the required parameter 'detach_tag_request' is set
+        if ($detach_tag_request === null || (is_array($detach_tag_request) && count($detach_tag_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $attach_tag_request when calling actionDetachTag'
+                'Missing the required parameter $detach_tag_request when calling actionDetachTag'
             );
         }
+
 
         $resourcePath = '/lists/{list_id}/contacts/actions/detach-tag';
         $formParams = [];
@@ -1932,6 +2160,7 @@ class ContactsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -1943,49 +2172,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($attach_tag_request)) {
-            $_tempBody = $attach_tag_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($detach_tag_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($detach_tag_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $detach_tag_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2006,10 +2228,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2022,14 +2245,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactExportRequest $contact_export_request Parameters for export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionExportContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionExportContacts($list_id, $contact_export_request)
+    public function actionExportContacts($list_id, $contact_export_request, string $contentType = self::contentTypes['actionExportContacts'][0])
     {
-        list($response) = $this->actionExportContactsWithHttpInfo($list_id, $contact_export_request);
+        list($response) = $this->actionExportContactsWithHttpInfo($list_id, $contact_export_request, $contentType);
         return $response;
     }
 
@@ -2040,14 +2264,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactExportRequest $contact_export_request Parameters for export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionExportContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionExportContactsWithHttpInfo($list_id, $contact_export_request)
+    public function actionExportContactsWithHttpInfo($list_id, $contact_export_request, string $contentType = self::contentTypes['actionExportContacts'][0])
     {
-        $request = $this->actionExportContactsRequest($list_id, $contact_export_request);
+        $request = $this->actionExportContactsRequest($list_id, $contact_export_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2056,9 +2281,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2069,21 +2301,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2093,9 +2327,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2105,9 +2342,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2117,9 +2357,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2129,9 +2372,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2141,9 +2387,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2153,9 +2402,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2165,9 +2417,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2177,9 +2432,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2189,9 +2447,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2202,11 +2463,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2309,13 +2572,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactExportRequest $contact_export_request Parameters for export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionExportContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionExportContactsAsync($list_id, $contact_export_request)
+    public function actionExportContactsAsync($list_id, $contact_export_request, string $contentType = self::contentTypes['actionExportContacts'][0])
     {
-        return $this->actionExportContactsAsyncWithHttpInfo($list_id, $contact_export_request)
+        return $this->actionExportContactsAsyncWithHttpInfo($list_id, $contact_export_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2330,24 +2594,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactExportRequest $contact_export_request Parameters for export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionExportContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionExportContactsAsyncWithHttpInfo($list_id, $contact_export_request)
+    public function actionExportContactsAsyncWithHttpInfo($list_id, $contact_export_request, string $contentType = self::contentTypes['actionExportContacts'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionExportContactsRequest($list_id, $contact_export_request);
+        $request = $this->actionExportContactsRequest($list_id, $contact_export_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2367,7 +2634,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2378,12 +2645,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactExportRequest $contact_export_request Parameters for export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionExportContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionExportContactsRequest($list_id, $contact_export_request)
+    public function actionExportContactsRequest($list_id, $contact_export_request, string $contentType = self::contentTypes['actionExportContacts'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2393,7 +2662,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionExportContacts, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'contact_export_request' is set
         if ($contact_export_request === null || (is_array($contact_export_request) && count($contact_export_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -2401,12 +2670,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/export';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -2418,49 +2689,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($contact_export_request)) {
-            $_tempBody = $contact_export_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($contact_export_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($contact_export_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $contact_export_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2481,10 +2745,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2497,14 +2762,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactForgetRequest $contact_forget_request Parameters for the action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionForgetContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionForgetContacts($list_id, $contact_forget_request)
+    public function actionForgetContacts($list_id, $contact_forget_request, string $contentType = self::contentTypes['actionForgetContacts'][0])
     {
-        list($response) = $this->actionForgetContactsWithHttpInfo($list_id, $contact_forget_request);
+        list($response) = $this->actionForgetContactsWithHttpInfo($list_id, $contact_forget_request, $contentType);
         return $response;
     }
 
@@ -2515,14 +2781,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactForgetRequest $contact_forget_request Parameters for the action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionForgetContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionForgetContactsWithHttpInfo($list_id, $contact_forget_request)
+    public function actionForgetContactsWithHttpInfo($list_id, $contact_forget_request, string $contentType = self::contentTypes['actionForgetContacts'][0])
     {
-        $request = $this->actionForgetContactsRequest($list_id, $contact_forget_request);
+        $request = $this->actionForgetContactsRequest($list_id, $contact_forget_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2531,9 +2798,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2544,21 +2818,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2568,9 +2844,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2580,9 +2859,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2592,9 +2874,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2602,23 +2887,14 @@ class ContactsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
-                    if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\NotFound', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2628,9 +2904,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2640,9 +2919,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2652,9 +2934,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2664,9 +2949,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2677,11 +2965,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2720,14 +3010,6 @@ class ContactsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\Forbidden',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\NotFound',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2784,13 +3066,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactForgetRequest $contact_forget_request Parameters for the action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionForgetContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionForgetContactsAsync($list_id, $contact_forget_request)
+    public function actionForgetContactsAsync($list_id, $contact_forget_request, string $contentType = self::contentTypes['actionForgetContacts'][0])
     {
-        return $this->actionForgetContactsAsyncWithHttpInfo($list_id, $contact_forget_request)
+        return $this->actionForgetContactsAsyncWithHttpInfo($list_id, $contact_forget_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2805,24 +3088,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactForgetRequest $contact_forget_request Parameters for the action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionForgetContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionForgetContactsAsyncWithHttpInfo($list_id, $contact_forget_request)
+    public function actionForgetContactsAsyncWithHttpInfo($list_id, $contact_forget_request, string $contentType = self::contentTypes['actionForgetContacts'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionForgetContactsRequest($list_id, $contact_forget_request);
+        $request = $this->actionForgetContactsRequest($list_id, $contact_forget_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2842,7 +3128,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2853,12 +3139,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\ContactForgetRequest $contact_forget_request Parameters for the action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionForgetContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionForgetContactsRequest($list_id, $contact_forget_request)
+    public function actionForgetContactsRequest($list_id, $contact_forget_request, string $contentType = self::contentTypes['actionForgetContacts'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2868,7 +3156,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionForgetContacts, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'contact_forget_request' is set
         if ($contact_forget_request === null || (is_array($contact_forget_request) && count($contact_forget_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -2876,12 +3164,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/forget';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -2893,49 +3183,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($contact_forget_request)) {
-            $_tempBody = $contact_forget_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($contact_forget_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($contact_forget_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $contact_forget_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2956,10 +3239,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2971,15 +3255,16 @@ class ContactsApi
      * Import collection of contacts
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportBulkRequest $import_bulk_request Parameters for the bulk import (required)
+     * @param  \EgoiClient\EgoiModel\ImportBulkFileRequest $import_bulk_file_request Parameters for the bulk import (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionImportBulk'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\RequestEntityTooLarge|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionImportBulk($list_id, $import_bulk_request)
+    public function actionImportBulk($list_id, $import_bulk_file_request, string $contentType = self::contentTypes['actionImportBulk'][0])
     {
-        list($response) = $this->actionImportBulkWithHttpInfo($list_id, $import_bulk_request);
+        list($response) = $this->actionImportBulkWithHttpInfo($list_id, $import_bulk_file_request, $contentType);
         return $response;
     }
 
@@ -2989,15 +3274,16 @@ class ContactsApi
      * Import collection of contacts
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportBulkRequest $import_bulk_request Parameters for the bulk import (required)
+     * @param  \EgoiClient\EgoiModel\ImportBulkFileRequest $import_bulk_file_request Parameters for the bulk import (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionImportBulk'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\RequestEntityTooLarge|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionImportBulkWithHttpInfo($list_id, $import_bulk_request)
+    public function actionImportBulkWithHttpInfo($list_id, $import_bulk_file_request, string $contentType = self::contentTypes['actionImportBulk'][0])
     {
-        $request = $this->actionImportBulkRequest($list_id, $import_bulk_request);
+        $request = $this->actionImportBulkRequest($list_id, $import_bulk_file_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3006,9 +3292,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3019,21 +3312,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3043,9 +3338,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3055,9 +3353,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3067,9 +3368,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3079,9 +3383,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3089,11 +3396,44 @@ class ContactsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\EgoiClient\EgoiModel\Conflict' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Conflict' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Conflict', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 413:
+                    if ('\EgoiClient\EgoiModel\RequestEntityTooLarge' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestEntityTooLarge' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestEntityTooLarge', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3103,9 +3443,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3115,9 +3458,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3127,9 +3473,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3140,11 +3489,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -3195,6 +3546,22 @@ class ContactsApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Conflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 413:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestEntityTooLarge',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -3238,14 +3605,15 @@ class ContactsApi
      * Import collection of contacts
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportBulkRequest $import_bulk_request Parameters for the bulk import (required)
+     * @param  \EgoiClient\EgoiModel\ImportBulkFileRequest $import_bulk_file_request Parameters for the bulk import (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionImportBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionImportBulkAsync($list_id, $import_bulk_request)
+    public function actionImportBulkAsync($list_id, $import_bulk_file_request, string $contentType = self::contentTypes['actionImportBulk'][0])
     {
-        return $this->actionImportBulkAsyncWithHttpInfo($list_id, $import_bulk_request)
+        return $this->actionImportBulkAsyncWithHttpInfo($list_id, $import_bulk_file_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3259,25 +3627,28 @@ class ContactsApi
      * Import collection of contacts
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportBulkRequest $import_bulk_request Parameters for the bulk import (required)
+     * @param  \EgoiClient\EgoiModel\ImportBulkFileRequest $import_bulk_file_request Parameters for the bulk import (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionImportBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionImportBulkAsyncWithHttpInfo($list_id, $import_bulk_request)
+    public function actionImportBulkAsyncWithHttpInfo($list_id, $import_bulk_file_request, string $contentType = self::contentTypes['actionImportBulk'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionImportBulkRequest($list_id, $import_bulk_request);
+        $request = $this->actionImportBulkRequest($list_id, $import_bulk_file_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3297,7 +3668,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3307,13 +3678,15 @@ class ContactsApi
      * Create request for operation 'actionImportBulk'
      *
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ImportBulkRequest $import_bulk_request Parameters for the bulk import (required)
+     * @param  \EgoiClient\EgoiModel\ImportBulkFileRequest $import_bulk_file_request Parameters for the bulk import (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionImportBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionImportBulkRequest($list_id, $import_bulk_request)
+    public function actionImportBulkRequest($list_id, $import_bulk_file_request, string $contentType = self::contentTypes['actionImportBulk'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3323,13 +3696,14 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionImportBulk, must be bigger than or equal to 1.');
         }
-
-        // verify the required parameter 'import_bulk_request' is set
-        if ($import_bulk_request === null || (is_array($import_bulk_request) && count($import_bulk_request) === 0)) {
+        
+        // verify the required parameter 'import_bulk_file_request' is set
+        if ($import_bulk_file_request === null || (is_array($import_bulk_file_request) && count($import_bulk_file_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $import_bulk_request when calling actionImportBulk'
+                'Missing the required parameter $import_bulk_file_request when calling actionImportBulk'
             );
         }
+
 
         $resourcePath = '/lists/{list_id}/contacts/actions/import-bulk';
         $formParams = [];
@@ -3337,6 +3711,7 @@ class ContactsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -3348,49 +3723,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($import_bulk_request)) {
-            $_tempBody = $import_bulk_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($import_bulk_file_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($import_bulk_file_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $import_bulk_file_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3411,10 +3779,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3427,14 +3796,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\StartAutomationRequest $start_automation_request Parameters for the operation to start automation (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionStartAutomation'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\StartAutomationResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionStartAutomation($list_id, $start_automation_request)
+    public function actionStartAutomation($list_id, $start_automation_request, string $contentType = self::contentTypes['actionStartAutomation'][0])
     {
-        list($response) = $this->actionStartAutomationWithHttpInfo($list_id, $start_automation_request);
+        list($response) = $this->actionStartAutomationWithHttpInfo($list_id, $start_automation_request, $contentType);
         return $response;
     }
 
@@ -3445,14 +3815,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\StartAutomationRequest $start_automation_request Parameters for the operation to start automation (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionStartAutomation'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\StartAutomationResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionStartAutomationWithHttpInfo($list_id, $start_automation_request)
+    public function actionStartAutomationWithHttpInfo($list_id, $start_automation_request, string $contentType = self::contentTypes['actionStartAutomation'][0])
     {
-        $request = $this->actionStartAutomationRequest($list_id, $start_automation_request);
+        $request = $this->actionStartAutomationRequest($list_id, $start_automation_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3461,9 +3832,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3474,21 +3852,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\StartAutomationResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\StartAutomationResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3498,9 +3878,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3510,9 +3893,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3522,9 +3908,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3534,9 +3923,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3546,9 +3938,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3558,9 +3953,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3570,9 +3968,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3582,9 +3983,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3594,9 +3998,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3607,11 +4014,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\StartAutomationResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -3714,13 +4123,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\StartAutomationRequest $start_automation_request Parameters for the operation to start automation (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionStartAutomation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionStartAutomationAsync($list_id, $start_automation_request)
+    public function actionStartAutomationAsync($list_id, $start_automation_request, string $contentType = self::contentTypes['actionStartAutomation'][0])
     {
-        return $this->actionStartAutomationAsyncWithHttpInfo($list_id, $start_automation_request)
+        return $this->actionStartAutomationAsyncWithHttpInfo($list_id, $start_automation_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3735,24 +4145,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\StartAutomationRequest $start_automation_request Parameters for the operation to start automation (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionStartAutomation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionStartAutomationAsyncWithHttpInfo($list_id, $start_automation_request)
+    public function actionStartAutomationAsyncWithHttpInfo($list_id, $start_automation_request, string $contentType = self::contentTypes['actionStartAutomation'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\StartAutomationResponse';
-        $request = $this->actionStartAutomationRequest($list_id, $start_automation_request);
+        $request = $this->actionStartAutomationRequest($list_id, $start_automation_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3772,7 +4185,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3783,12 +4196,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\StartAutomationRequest $start_automation_request Parameters for the operation to start automation (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionStartAutomation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionStartAutomationRequest($list_id, $start_automation_request)
+    public function actionStartAutomationRequest($list_id, $start_automation_request, string $contentType = self::contentTypes['actionStartAutomation'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3798,7 +4213,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionStartAutomation, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'start_automation_request' is set
         if ($start_automation_request === null || (is_array($start_automation_request) && count($start_automation_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -3806,12 +4221,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/start-automation';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -3823,49 +4240,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($start_automation_request)) {
-            $_tempBody = $start_automation_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($start_automation_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($start_automation_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $start_automation_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3886,10 +4296,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3902,14 +4313,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\RemoveRequest $remove_request Parameters for the contact to unsubscribe (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUnsubscribeContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\RemoveResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionUnsubscribeContact($list_id, $remove_request)
+    public function actionUnsubscribeContact($list_id, $remove_request, string $contentType = self::contentTypes['actionUnsubscribeContact'][0])
     {
-        list($response) = $this->actionUnsubscribeContactWithHttpInfo($list_id, $remove_request);
+        list($response) = $this->actionUnsubscribeContactWithHttpInfo($list_id, $remove_request, $contentType);
         return $response;
     }
 
@@ -3920,14 +4332,15 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\RemoveRequest $remove_request Parameters for the contact to unsubscribe (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUnsubscribeContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\RemoveResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionUnsubscribeContactWithHttpInfo($list_id, $remove_request)
+    public function actionUnsubscribeContactWithHttpInfo($list_id, $remove_request, string $contentType = self::contentTypes['actionUnsubscribeContact'][0])
     {
-        $request = $this->actionUnsubscribeContactRequest($list_id, $remove_request);
+        $request = $this->actionUnsubscribeContactRequest($list_id, $remove_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3936,9 +4349,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3949,21 +4369,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\RemoveResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RemoveResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3973,9 +4395,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3985,9 +4410,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3997,9 +4425,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4009,9 +4440,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4021,9 +4455,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4033,9 +4470,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4045,9 +4485,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4057,9 +4500,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4070,11 +4516,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\RemoveResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -4169,13 +4617,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\RemoveRequest $remove_request Parameters for the contact to unsubscribe (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUnsubscribeContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionUnsubscribeContactAsync($list_id, $remove_request)
+    public function actionUnsubscribeContactAsync($list_id, $remove_request, string $contentType = self::contentTypes['actionUnsubscribeContact'][0])
     {
-        return $this->actionUnsubscribeContactAsyncWithHttpInfo($list_id, $remove_request)
+        return $this->actionUnsubscribeContactAsyncWithHttpInfo($list_id, $remove_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4190,24 +4639,27 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\RemoveRequest $remove_request Parameters for the contact to unsubscribe (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUnsubscribeContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionUnsubscribeContactAsyncWithHttpInfo($list_id, $remove_request)
+    public function actionUnsubscribeContactAsyncWithHttpInfo($list_id, $remove_request, string $contentType = self::contentTypes['actionUnsubscribeContact'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\RemoveResponse';
-        $request = $this->actionUnsubscribeContactRequest($list_id, $remove_request);
+        $request = $this->actionUnsubscribeContactRequest($list_id, $remove_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4227,7 +4679,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -4238,12 +4690,14 @@ class ContactsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\RemoveRequest $remove_request Parameters for the contact to unsubscribe (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUnsubscribeContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionUnsubscribeContactRequest($list_id, $remove_request)
+    public function actionUnsubscribeContactRequest($list_id, $remove_request, string $contentType = self::contentTypes['actionUnsubscribeContact'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4253,7 +4707,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionUnsubscribeContact, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'remove_request' is set
         if ($remove_request === null || (is_array($remove_request) && count($remove_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -4261,12 +4715,14 @@ class ContactsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/contacts/actions/unsubscribe';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -4278,49 +4734,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($remove_request)) {
-            $_tempBody = $remove_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($remove_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($remove_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $remove_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -4341,10 +4790,551 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation actionUpdateContacts
+     *
+     * Updates contacts
+     *
+     * @param  int $list_id ID of the List (required)
+     * @param  \EgoiClient\EgoiModel\UpdateContactsRequest $update_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUpdateContacts'] to see the possible values for this operation
+     *
+     * @throws \EgoiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     */
+    public function actionUpdateContacts($list_id, $update_contacts_request, string $contentType = self::contentTypes['actionUpdateContacts'][0])
+    {
+        list($response) = $this->actionUpdateContactsWithHttpInfo($list_id, $update_contacts_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation actionUpdateContactsWithHttpInfo
+     *
+     * Updates contacts
+     *
+     * @param  int $list_id ID of the List (required)
+     * @param  \EgoiClient\EgoiModel\UpdateContactsRequest $update_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUpdateContacts'] to see the possible values for this operation
+     *
+     * @throws \EgoiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function actionUpdateContactsWithHttpInfo($list_id, $update_contacts_request, string $contentType = self::contentTypes['actionUpdateContacts'][0])
+    {
+        $request = $this->actionUpdateContactsRequest($list_id, $update_contacts_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\AcceptedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\BadRequest', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Unauthorized', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Forbidden', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\NotFound', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 408:
+                    if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\RequestTimeout', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\EgoiClient\EgoiModel\Conflict' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Conflict' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Conflict', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\UnprocessableEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\TooManyRequests', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InternalServerError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ServiceUnavailable', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\AcceptedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\BadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Unauthorized',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Forbidden',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\NotFound',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\RequestTimeout',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Conflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\UnprocessableEntity',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\TooManyRequests',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\InternalServerError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\ServiceUnavailable',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation actionUpdateContactsAsync
+     *
+     * Updates contacts
+     *
+     * @param  int $list_id ID of the List (required)
+     * @param  \EgoiClient\EgoiModel\UpdateContactsRequest $update_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUpdateContacts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function actionUpdateContactsAsync($list_id, $update_contacts_request, string $contentType = self::contentTypes['actionUpdateContacts'][0])
+    {
+        return $this->actionUpdateContactsAsyncWithHttpInfo($list_id, $update_contacts_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation actionUpdateContactsAsyncWithHttpInfo
+     *
+     * Updates contacts
+     *
+     * @param  int $list_id ID of the List (required)
+     * @param  \EgoiClient\EgoiModel\UpdateContactsRequest $update_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUpdateContacts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function actionUpdateContactsAsyncWithHttpInfo($list_id, $update_contacts_request, string $contentType = self::contentTypes['actionUpdateContacts'][0])
+    {
+        $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
+        $request = $this->actionUpdateContactsRequest($list_id, $update_contacts_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'actionUpdateContacts'
+     *
+     * @param  int $list_id ID of the List (required)
+     * @param  \EgoiClient\EgoiModel\UpdateContactsRequest $update_contacts_request Parameters for the request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionUpdateContacts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function actionUpdateContactsRequest($list_id, $update_contacts_request, string $contentType = self::contentTypes['actionUpdateContacts'][0])
+    {
+
+        // verify the required parameter 'list_id' is set
+        if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $list_id when calling actionUpdateContacts'
+            );
+        }
+        if ($list_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.actionUpdateContacts, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'update_contacts_request' is set
+        if ($update_contacts_request === null || (is_array($update_contacts_request) && count($update_contacts_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_contacts_request when calling actionUpdateContacts'
+            );
+        }
+
+
+        $resourcePath = '/lists/{list_id}/contacts/actions/update';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($list_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'list_id' . '}',
+                ObjectSerializer::toPathValue($list_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_contacts_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_contacts_request));
+            } else {
+                $httpBody = $update_contacts_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -4356,15 +5346,16 @@ class ContactsApi
      * Create new contact
      *
      * @param  int $list_id ID of the list where the contact belongs (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseExtra $contact_base_extra Parameters for the Contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseExtraPost $contact_base_extra_post Parameters for the Contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\PostContactsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\PostContactsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function createContact($list_id, $contact_base_extra)
+    public function createContact($list_id, $contact_base_extra_post, string $contentType = self::contentTypes['createContact'][0])
     {
-        list($response) = $this->createContactWithHttpInfo($list_id, $contact_base_extra);
+        list($response) = $this->createContactWithHttpInfo($list_id, $contact_base_extra_post, $contentType);
         return $response;
     }
 
@@ -4374,15 +5365,16 @@ class ContactsApi
      * Create new contact
      *
      * @param  int $list_id ID of the list where the contact belongs (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseExtra $contact_base_extra Parameters for the Contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseExtraPost $contact_base_extra_post Parameters for the Contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\PostContactsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\PostContactsConflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactWithHttpInfo($list_id, $contact_base_extra)
+    public function createContactWithHttpInfo($list_id, $contact_base_extra_post, string $contentType = self::contentTypes['createContact'][0])
     {
-        $request = $this->createContactRequest($list_id, $contact_base_extra);
+        $request = $this->createContactRequest($list_id, $contact_base_extra_post, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4391,9 +5383,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -4404,21 +5403,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
                     if ('\EgoiClient\EgoiModel\CreateContactResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\CreateContactResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4428,9 +5429,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4440,9 +5444,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4452,9 +5459,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4462,23 +5472,14 @@ class ContactsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
-                    if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\NotFound', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4488,9 +5489,12 @@ class ContactsApi
                     ];
                 case 409:
                     if ('\EgoiClient\EgoiModel\PostContactsConflict' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\PostContactsConflict' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4500,9 +5504,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4512,9 +5519,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4524,9 +5534,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4536,9 +5549,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4549,11 +5565,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\CreateContactResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -4592,14 +5610,6 @@ class ContactsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\EgoiClient\EgoiModel\Forbidden',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\NotFound',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4663,14 +5673,15 @@ class ContactsApi
      * Create new contact
      *
      * @param  int $list_id ID of the list where the contact belongs (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseExtra $contact_base_extra Parameters for the Contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseExtraPost $contact_base_extra_post Parameters for the Contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsync($list_id, $contact_base_extra)
+    public function createContactAsync($list_id, $contact_base_extra_post, string $contentType = self::contentTypes['createContact'][0])
     {
-        return $this->createContactAsyncWithHttpInfo($list_id, $contact_base_extra)
+        return $this->createContactAsyncWithHttpInfo($list_id, $contact_base_extra_post, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4684,25 +5695,28 @@ class ContactsApi
      * Create new contact
      *
      * @param  int $list_id ID of the list where the contact belongs (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseExtra $contact_base_extra Parameters for the Contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseExtraPost $contact_base_extra_post Parameters for the Contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsyncWithHttpInfo($list_id, $contact_base_extra)
+    public function createContactAsyncWithHttpInfo($list_id, $contact_base_extra_post, string $contentType = self::contentTypes['createContact'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\CreateContactResponse';
-        $request = $this->createContactRequest($list_id, $contact_base_extra);
+        $request = $this->createContactRequest($list_id, $contact_base_extra_post, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4722,7 +5736,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -4732,13 +5746,15 @@ class ContactsApi
      * Create request for operation 'createContact'
      *
      * @param  int $list_id ID of the list where the contact belongs (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseExtra $contact_base_extra Parameters for the Contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseExtraPost $contact_base_extra_post Parameters for the Contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactRequest($list_id, $contact_base_extra)
+    public function createContactRequest($list_id, $contact_base_extra_post, string $contentType = self::contentTypes['createContact'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4748,13 +5764,14 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.createContact, must be bigger than or equal to 1.');
         }
-
-        // verify the required parameter 'contact_base_extra' is set
-        if ($contact_base_extra === null || (is_array($contact_base_extra) && count($contact_base_extra) === 0)) {
+        
+        // verify the required parameter 'contact_base_extra_post' is set
+        if ($contact_base_extra_post === null || (is_array($contact_base_extra_post) && count($contact_base_extra_post) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_base_extra when calling createContact'
+                'Missing the required parameter $contact_base_extra_post when calling createContact'
             );
         }
+
 
         $resourcePath = '/lists/{list_id}/contacts';
         $formParams = [];
@@ -4762,6 +5779,7 @@ class ContactsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -4773,49 +5791,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($contact_base_extra)) {
-            $_tempBody = $contact_base_extra;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($contact_base_extra_post)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($contact_base_extra_post));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $contact_base_extra_post;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -4836,10 +5847,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -4856,14 +5868,15 @@ class ContactsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  \DateTime $date_min Start date (optional)
      * @param  \DateTime $date_max End date (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactActivities'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\ActivityCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllContactActivities($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null)
+    public function getAllContactActivities($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null, string $contentType = self::contentTypes['getAllContactActivities'][0])
     {
-        list($response) = $this->getAllContactActivitiesWithHttpInfo($contact_id, $list_id, $offset, $limit, $date_min, $date_max);
+        list($response) = $this->getAllContactActivitiesWithHttpInfo($contact_id, $list_id, $offset, $limit, $date_min, $date_max, $contentType);
         return $response;
     }
 
@@ -4878,14 +5891,15 @@ class ContactsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  \DateTime $date_min Start date (optional)
      * @param  \DateTime $date_max End date (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactActivities'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\ActivityCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllContactActivitiesWithHttpInfo($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null)
+    public function getAllContactActivitiesWithHttpInfo($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null, string $contentType = self::contentTypes['getAllContactActivities'][0])
     {
-        $request = $this->getAllContactActivitiesRequest($contact_id, $list_id, $offset, $limit, $date_min, $date_max);
+        $request = $this->getAllContactActivitiesRequest($contact_id, $list_id, $offset, $limit, $date_min, $date_max, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4894,9 +5908,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -4907,21 +5928,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\ActivityCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ActivityCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4931,9 +5954,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4943,9 +5969,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4955,9 +5984,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4967,9 +5999,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4979,9 +6014,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4991,9 +6029,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5003,9 +6044,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5016,11 +6060,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\ActivityCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -5111,13 +6157,14 @@ class ContactsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  \DateTime $date_min Start date (optional)
      * @param  \DateTime $date_max End date (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactActivities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllContactActivitiesAsync($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null)
+    public function getAllContactActivitiesAsync($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null, string $contentType = self::contentTypes['getAllContactActivities'][0])
     {
-        return $this->getAllContactActivitiesAsyncWithHttpInfo($contact_id, $list_id, $offset, $limit, $date_min, $date_max)
+        return $this->getAllContactActivitiesAsyncWithHttpInfo($contact_id, $list_id, $offset, $limit, $date_min, $date_max, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5136,24 +6183,27 @@ class ContactsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  \DateTime $date_min Start date (optional)
      * @param  \DateTime $date_max End date (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactActivities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllContactActivitiesAsyncWithHttpInfo($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null)
+    public function getAllContactActivitiesAsyncWithHttpInfo($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null, string $contentType = self::contentTypes['getAllContactActivities'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\ActivityCollection';
-        $request = $this->getAllContactActivitiesRequest($contact_id, $list_id, $offset, $limit, $date_min, $date_max);
+        $request = $this->getAllContactActivitiesRequest($contact_id, $list_id, $offset, $limit, $date_min, $date_max, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5173,7 +6223,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -5188,12 +6238,14 @@ class ContactsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  \DateTime $date_min Start date (optional)
      * @param  \DateTime $date_max End date (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactActivities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllContactActivitiesRequest($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null)
+    public function getAllContactActivitiesRequest($contact_id, $list_id, $offset = null, $limit = 10, $date_min = null, $date_max = null, string $contentType = self::contentTypes['getAllContactActivities'][0])
     {
+
         // verify the required parameter 'contact_id' is set
         if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -5203,7 +6255,7 @@ class ContactsApi
         if (!preg_match("/[a-fA-F\\d]{10}/", $contact_id)) {
             throw new \InvalidArgumentException("invalid value for \"contact_id\" when calling ContactsApi.getAllContactActivities, must conform to the pattern /[a-fA-F\\d]{10}/.");
         }
-
+        
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -5213,17 +6265,19 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.getAllContactActivities, must be bigger than or equal to 1.');
         }
-
+        
         if ($offset !== null && $offset < 0) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling ContactsApi.getAllContactActivities, must be bigger than or equal to 0.');
         }
-
+        
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContactActivities, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContactActivities, must be bigger than or equal to 1.');
         }
+        
+
 
 
         $resourcePath = '/lists/{list_id}/contacts/{contact_id}/activities';
@@ -5234,21 +6288,42 @@ class ContactsApi
         $multipart = false;
 
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($date_min !== null) {
-            $queryParams['date_min'] = ObjectSerializer::toQueryValue($date_min);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $date_min,
+            'date_min', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($date_max !== null) {
-            $queryParams['date_max'] = ObjectSerializer::toQueryValue($date_max);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $date_max,
+            'date_max', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
 
         // path params
         if ($contact_id !== null) {
@@ -5267,46 +6342,35 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -5327,10 +6391,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -5354,15 +6419,16 @@ class ContactsApi
      * @param  bool $phone_status PhoneStatus of the contacts to return (optional)
      * @param  \DateTime $birth_date Birth date of the contacts to return (optional)
      * @param  string $language Language date of the contacts to return (optional)
-     * @param  string[] $extra_field_id Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)
+     * @param  GetAllContactsExtraFieldIdParameter $extra_field_id Extra field of contacts&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;extra_field_id[field_id]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\ContactCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllContacts($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null)
+    public function getAllContacts($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null, string $contentType = self::contentTypes['getAllContacts'][0])
     {
-        list($response) = $this->getAllContactsWithHttpInfo($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id);
+        list($response) = $this->getAllContactsWithHttpInfo($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id, $contentType);
         return $response;
     }
 
@@ -5384,15 +6450,16 @@ class ContactsApi
      * @param  bool $phone_status PhoneStatus of the contacts to return (optional)
      * @param  \DateTime $birth_date Birth date of the contacts to return (optional)
      * @param  string $language Language date of the contacts to return (optional)
-     * @param  string[] $extra_field_id Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)
+     * @param  GetAllContactsExtraFieldIdParameter $extra_field_id Extra field of contacts&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;extra_field_id[field_id]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\ContactCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllContactsWithHttpInfo($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null)
+    public function getAllContactsWithHttpInfo($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null, string $contentType = self::contentTypes['getAllContacts'][0])
     {
-        $request = $this->getAllContactsRequest($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id);
+        $request = $this->getAllContactsRequest($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5401,9 +6468,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -5414,21 +6488,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\ContactCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ContactCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5438,9 +6514,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5450,9 +6529,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5462,9 +6544,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5474,9 +6559,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5486,9 +6574,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5498,9 +6589,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5510,9 +6604,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5522,9 +6619,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5535,11 +6635,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\ContactCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -5645,14 +6747,15 @@ class ContactsApi
      * @param  bool $phone_status PhoneStatus of the contacts to return (optional)
      * @param  \DateTime $birth_date Birth date of the contacts to return (optional)
      * @param  string $language Language date of the contacts to return (optional)
-     * @param  string[] $extra_field_id Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)
+     * @param  GetAllContactsExtraFieldIdParameter $extra_field_id Extra field of contacts&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;extra_field_id[field_id]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllContactsAsync($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null)
+    public function getAllContactsAsync($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null, string $contentType = self::contentTypes['getAllContacts'][0])
     {
-        return $this->getAllContactsAsyncWithHttpInfo($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id)
+        return $this->getAllContactsAsyncWithHttpInfo($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5678,25 +6781,28 @@ class ContactsApi
      * @param  bool $phone_status PhoneStatus of the contacts to return (optional)
      * @param  \DateTime $birth_date Birth date of the contacts to return (optional)
      * @param  string $language Language date of the contacts to return (optional)
-     * @param  string[] $extra_field_id Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)
+     * @param  GetAllContactsExtraFieldIdParameter $extra_field_id Extra field of contacts&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;extra_field_id[field_id]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllContactsAsyncWithHttpInfo($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null)
+    public function getAllContactsAsyncWithHttpInfo($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null, string $contentType = self::contentTypes['getAllContacts'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\ContactCollection';
-        $request = $this->getAllContactsRequest($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id);
+        $request = $this->getAllContactsRequest($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5716,7 +6822,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -5738,13 +6844,15 @@ class ContactsApi
      * @param  bool $phone_status PhoneStatus of the contacts to return (optional)
      * @param  \DateTime $birth_date Birth date of the contacts to return (optional)
      * @param  string $language Language date of the contacts to return (optional)
-     * @param  string[] $extra_field_id Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)
+     * @param  GetAllContactsExtraFieldIdParameter $extra_field_id Extra field of contacts&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;extra_field_id[field_id]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllContactsRequest($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null)
+    public function getAllContactsRequest($list_id, $offset = null, $limit = 10, $first_name = null, $last_name = null, $email = null, $email_status = null, $cellphone = null, $cellphone_status = null, $phone = null, $phone_status = null, $birth_date = null, $language = null, $extra_field_id = null, string $contentType = self::contentTypes['getAllContacts'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -5754,17 +6862,28 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.getAllContacts, must be bigger than or equal to 1.');
         }
-
+        
         if ($offset !== null && $offset < 0) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling ContactsApi.getAllContacts, must be bigger than or equal to 0.');
         }
-
-        if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContacts, must be smaller than or equal to 100.');
+        
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContacts, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContacts, must be bigger than or equal to 1.');
         }
+        
+
+
+
+
+
+
+
+
+
+
 
 
         $resourcePath = '/lists/{list_id}/contacts';
@@ -5775,60 +6894,123 @@ class ContactsApi
         $multipart = false;
 
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($first_name !== null) {
-            $queryParams['first_name'] = ObjectSerializer::toQueryValue($first_name);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $first_name,
+            'first_name', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($last_name !== null) {
-            $queryParams['last_name'] = ObjectSerializer::toQueryValue($last_name);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $last_name,
+            'last_name', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($email !== null) {
-            $queryParams['email'] = ObjectSerializer::toQueryValue($email);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $email,
+            'email', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($email_status !== null) {
-            $queryParams['email_status'] = ObjectSerializer::toQueryValue($email_status);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $email_status,
+            'email_status', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($cellphone !== null) {
-            $queryParams['cellphone'] = ObjectSerializer::toQueryValue($cellphone);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cellphone,
+            'cellphone', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($cellphone_status !== null) {
-            $queryParams['cellphone_status'] = ObjectSerializer::toQueryValue($cellphone_status);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cellphone_status,
+            'cellphone_status', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($phone !== null) {
-            $queryParams['phone'] = ObjectSerializer::toQueryValue($phone);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $phone,
+            'phone', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($phone_status !== null) {
-            $queryParams['phone_status'] = ObjectSerializer::toQueryValue($phone_status);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $phone_status,
+            'phone_status', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($birth_date !== null) {
-            $queryParams['birth_date'] = ObjectSerializer::toQueryValue($birth_date);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $birth_date,
+            'birth_date', // param base name
+            'date', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($language !== null) {
-            $queryParams['language'] = ObjectSerializer::toQueryValue($language);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if (is_array($extra_field_id)) {
-            $extra_field_id = ObjectSerializer::serializeCollection($extra_field_id, 'multi', true);
-        }
-        if ($extra_field_id !== null) {
-            $queryParams['extra_field_id'] = ObjectSerializer::toQueryValue($extra_field_id);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $extra_field_id,
+            'extra_field_id', // param base name
+            'object', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
 
         // path params
         if ($list_id !== null) {
@@ -5839,46 +7021,35 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -5899,10 +7070,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -5918,14 +7090,15 @@ class ContactsApi
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  bool $show_removed Show removed contacts (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactsBySegment'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\ContactCollection|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllContactsBySegment($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false)
+    public function getAllContactsBySegment($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false, string $contentType = self::contentTypes['getAllContactsBySegment'][0])
     {
-        list($response) = $this->getAllContactsBySegmentWithHttpInfo($list_id, $segment_id, $offset, $limit, $show_removed);
+        list($response) = $this->getAllContactsBySegmentWithHttpInfo($list_id, $segment_id, $offset, $limit, $show_removed, $contentType);
         return $response;
     }
 
@@ -5939,14 +7112,15 @@ class ContactsApi
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  bool $show_removed Show removed contacts (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactsBySegment'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\ContactCollection|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllContactsBySegmentWithHttpInfo($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false)
+    public function getAllContactsBySegmentWithHttpInfo($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false, string $contentType = self::contentTypes['getAllContactsBySegment'][0])
     {
-        $request = $this->getAllContactsBySegmentRequest($list_id, $segment_id, $offset, $limit, $show_removed);
+        $request = $this->getAllContactsBySegmentRequest($list_id, $segment_id, $offset, $limit, $show_removed, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5955,9 +7129,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -5968,21 +7149,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\ContactCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ContactCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5992,9 +7175,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6004,9 +7190,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6016,9 +7205,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6028,9 +7220,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6040,9 +7235,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6052,9 +7250,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6064,9 +7265,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6076,9 +7280,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6088,9 +7295,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6101,11 +7311,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\ContactCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -6211,13 +7423,14 @@ class ContactsApi
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  bool $show_removed Show removed contacts (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactsBySegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllContactsBySegmentAsync($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false)
+    public function getAllContactsBySegmentAsync($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false, string $contentType = self::contentTypes['getAllContactsBySegment'][0])
     {
-        return $this->getAllContactsBySegmentAsyncWithHttpInfo($list_id, $segment_id, $offset, $limit, $show_removed)
+        return $this->getAllContactsBySegmentAsyncWithHttpInfo($list_id, $segment_id, $offset, $limit, $show_removed, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6235,24 +7448,27 @@ class ContactsApi
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  bool $show_removed Show removed contacts (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactsBySegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllContactsBySegmentAsyncWithHttpInfo($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false)
+    public function getAllContactsBySegmentAsyncWithHttpInfo($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false, string $contentType = self::contentTypes['getAllContactsBySegment'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\ContactCollection';
-        $request = $this->getAllContactsBySegmentRequest($list_id, $segment_id, $offset, $limit, $show_removed);
+        $request = $this->getAllContactsBySegmentRequest($list_id, $segment_id, $offset, $limit, $show_removed, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6272,7 +7488,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -6286,12 +7502,14 @@ class ContactsApi
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  bool $show_removed Show removed contacts (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllContactsBySegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllContactsBySegmentRequest($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false)
+    public function getAllContactsBySegmentRequest($list_id, $segment_id, $offset = null, $limit = 10, $show_removed = false, string $contentType = self::contentTypes['getAllContactsBySegment'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6301,23 +7519,25 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.getAllContactsBySegment, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'segment_id' is set
         if ($segment_id === null || (is_array($segment_id) && count($segment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $segment_id when calling getAllContactsBySegment'
             );
         }
+
         if ($offset !== null && $offset < 0) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling ContactsApi.getAllContactsBySegment, must be bigger than or equal to 0.');
         }
-
+        
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContactsBySegment, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling ContactsApi.getAllContactsBySegment, must be bigger than or equal to 1.');
         }
+        
 
 
         $resourcePath = '/lists/{list_id}/contacts/segment/{segment_id}';
@@ -6328,17 +7548,33 @@ class ContactsApi
         $multipart = false;
 
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($show_removed !== null) {
-            $queryParams['show_removed'] = ObjectSerializer::toQueryValue($show_removed);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_removed,
+            'show_removed', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
 
         // path params
         if ($list_id !== null) {
@@ -6357,46 +7593,35 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -6417,10 +7642,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -6433,14 +7659,15 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\ComplexContact|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getContact($contact_id, $list_id)
+    public function getContact($contact_id, $list_id, string $contentType = self::contentTypes['getContact'][0])
     {
-        list($response) = $this->getContactWithHttpInfo($contact_id, $list_id);
+        list($response) = $this->getContactWithHttpInfo($contact_id, $list_id, $contentType);
         return $response;
     }
 
@@ -6451,14 +7678,15 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\ComplexContact|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactWithHttpInfo($contact_id, $list_id)
+    public function getContactWithHttpInfo($contact_id, $list_id, string $contentType = self::contentTypes['getContact'][0])
     {
-        $request = $this->getContactRequest($contact_id, $list_id);
+        $request = $this->getContactRequest($contact_id, $list_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6467,9 +7695,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -6480,21 +7715,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\ComplexContact' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ComplexContact' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6504,9 +7741,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6516,9 +7756,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6528,9 +7771,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6540,9 +7786,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6552,9 +7801,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6564,9 +7816,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6576,9 +7831,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6588,9 +7846,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6601,11 +7862,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\ComplexContact';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -6700,13 +7963,14 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactAsync($contact_id, $list_id)
+    public function getContactAsync($contact_id, $list_id, string $contentType = self::contentTypes['getContact'][0])
     {
-        return $this->getContactAsyncWithHttpInfo($contact_id, $list_id)
+        return $this->getContactAsyncWithHttpInfo($contact_id, $list_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6721,24 +7985,27 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactAsyncWithHttpInfo($contact_id, $list_id)
+    public function getContactAsyncWithHttpInfo($contact_id, $list_id, string $contentType = self::contentTypes['getContact'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\ComplexContact';
-        $request = $this->getContactRequest($contact_id, $list_id);
+        $request = $this->getContactRequest($contact_id, $list_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6758,7 +8025,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -6769,12 +8036,14 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getContactRequest($contact_id, $list_id)
+    public function getContactRequest($contact_id, $list_id, string $contentType = self::contentTypes['getContact'][0])
     {
+
         // verify the required parameter 'contact_id' is set
         if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6784,7 +8053,7 @@ class ContactsApi
         if (!preg_match("/[a-fA-F\\d]{10}/", $contact_id)) {
             throw new \InvalidArgumentException("invalid value for \"contact_id\" when calling ContactsApi.getContact, must conform to the pattern /[a-fA-F\\d]{10}/.");
         }
-
+        
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6794,7 +8063,7 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.getContact, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/contacts/{contact_id}';
         $formParams = [];
@@ -6802,6 +8071,7 @@ class ContactsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -6821,46 +8091,35 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -6881,10 +8140,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -6897,15 +8157,16 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtra $contact_base_status_extra Parameters for the contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved $contact_base_status_extra_no_removed Parameters for the contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function patchContact($contact_id, $list_id, $contact_base_status_extra)
+    public function patchContact($contact_id, $list_id, $contact_base_status_extra_no_removed, string $contentType = self::contentTypes['patchContact'][0])
     {
-        list($response) = $this->patchContactWithHttpInfo($contact_id, $list_id, $contact_base_status_extra);
+        list($response) = $this->patchContactWithHttpInfo($contact_id, $list_id, $contact_base_status_extra_no_removed, $contentType);
         return $response;
     }
 
@@ -6916,15 +8177,16 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtra $contact_base_status_extra Parameters for the contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved $contact_base_status_extra_no_removed Parameters for the contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContact'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\CreateContactResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchContactWithHttpInfo($contact_id, $list_id, $contact_base_status_extra)
+    public function patchContactWithHttpInfo($contact_id, $list_id, $contact_base_status_extra_no_removed, string $contentType = self::contentTypes['patchContact'][0])
     {
-        $request = $this->patchContactRequest($contact_id, $list_id, $contact_base_status_extra);
+        $request = $this->patchContactRequest($contact_id, $list_id, $contact_base_status_extra_no_removed, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6933,9 +8195,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -6946,21 +8215,23 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\CreateContactResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\CreateContactResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6970,9 +8241,12 @@ class ContactsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6982,9 +8256,12 @@ class ContactsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -6994,9 +8271,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7006,9 +8286,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7018,9 +8301,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7028,11 +8314,29 @@ class ContactsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\EgoiClient\EgoiModel\Conflict' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Conflict' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\Conflict', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7042,9 +8346,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7054,9 +8361,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7066,9 +8376,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7079,11 +8392,13 @@ class ContactsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\CreateContactResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -7142,6 +8457,14 @@ class ContactsApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EgoiClient\EgoiModel\Conflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -7186,14 +8509,15 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtra $contact_base_status_extra Parameters for the contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved $contact_base_status_extra_no_removed Parameters for the contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchContactAsync($contact_id, $list_id, $contact_base_status_extra)
+    public function patchContactAsync($contact_id, $list_id, $contact_base_status_extra_no_removed, string $contentType = self::contentTypes['patchContact'][0])
     {
-        return $this->patchContactAsyncWithHttpInfo($contact_id, $list_id, $contact_base_status_extra)
+        return $this->patchContactAsyncWithHttpInfo($contact_id, $list_id, $contact_base_status_extra_no_removed, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7208,25 +8532,28 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtra $contact_base_status_extra Parameters for the contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved $contact_base_status_extra_no_removed Parameters for the contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchContactAsyncWithHttpInfo($contact_id, $list_id, $contact_base_status_extra)
+    public function patchContactAsyncWithHttpInfo($contact_id, $list_id, $contact_base_status_extra_no_removed, string $contentType = self::contentTypes['patchContact'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\CreateContactResponse';
-        $request = $this->patchContactRequest($contact_id, $list_id, $contact_base_status_extra);
+        $request = $this->patchContactRequest($contact_id, $list_id, $contact_base_status_extra_no_removed, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7246,7 +8573,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -7257,13 +8584,15 @@ class ContactsApi
      *
      * @param  string $contact_id ID of the Contact (required)
      * @param  int $list_id ID of the List (required)
-     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtra $contact_base_status_extra Parameters for the contact (required)
+     * @param  \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved $contact_base_status_extra_no_removed Parameters for the contact (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContact'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function patchContactRequest($contact_id, $list_id, $contact_base_status_extra)
+    public function patchContactRequest($contact_id, $list_id, $contact_base_status_extra_no_removed, string $contentType = self::contentTypes['patchContact'][0])
     {
+
         // verify the required parameter 'contact_id' is set
         if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -7273,7 +8602,7 @@ class ContactsApi
         if (!preg_match("/[a-fA-F\\d]{10}/", $contact_id)) {
             throw new \InvalidArgumentException("invalid value for \"contact_id\" when calling ContactsApi.patchContact, must conform to the pattern /[a-fA-F\\d]{10}/.");
         }
-
+        
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -7283,13 +8612,14 @@ class ContactsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling ContactsApi.patchContact, must be bigger than or equal to 1.');
         }
-
-        // verify the required parameter 'contact_base_status_extra' is set
-        if ($contact_base_status_extra === null || (is_array($contact_base_status_extra) && count($contact_base_status_extra) === 0)) {
+        
+        // verify the required parameter 'contact_base_status_extra_no_removed' is set
+        if ($contact_base_status_extra_no_removed === null || (is_array($contact_base_status_extra_no_removed) && count($contact_base_status_extra_no_removed) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_base_status_extra when calling patchContact'
+                'Missing the required parameter $contact_base_status_extra_no_removed when calling patchContact'
             );
         }
+
 
         $resourcePath = '/lists/{list_id}/contacts/{contact_id}';
         $formParams = [];
@@ -7297,6 +8627,7 @@ class ContactsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -7316,49 +8647,42 @@ class ContactsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($contact_base_status_extra)) {
-            $_tempBody = $contact_base_status_extra;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($contact_base_status_extra_no_removed)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($contact_base_status_extra_no_removed));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $contact_base_status_extra_no_removed;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -7379,10 +8703,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -7395,14 +8720,15 @@ class ContactsApi
      *
      * @param  string $contact Contact to search (required)
      * @param  string $type Type of contact to search (defaults to &#39;email&#39;) (optional, default to 'email')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\InlineResponse200|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\SearchContacts200Response|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function searchContacts($contact, $type = 'email')
+    public function searchContacts($contact, $type = 'email', string $contentType = self::contentTypes['searchContacts'][0])
     {
-        list($response) = $this->searchContactsWithHttpInfo($contact, $type);
+        list($response) = $this->searchContactsWithHttpInfo($contact, $type, $contentType);
         return $response;
     }
 
@@ -7413,14 +8739,15 @@ class ContactsApi
      *
      * @param  string $contact Contact to search (required)
      * @param  string $type Type of contact to search (defaults to &#39;email&#39;) (optional, default to 'email')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchContacts'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\InlineResponse200|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\SearchContacts200Response|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchContactsWithHttpInfo($contact, $type = 'email')
+    public function searchContactsWithHttpInfo($contact, $type = 'email', string $contentType = self::contentTypes['searchContacts'][0])
     {
-        $request = $this->searchContactsRequest($contact, $type);
+        $request = $this->searchContactsRequest($contact, $type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7429,9 +8756,16 @@ class ContactsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -7442,33 +8776,38 @@ class ContactsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\EgoiClient\EgoiModel\InlineResponse200' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                    if ('\EgoiClient\EgoiModel\SearchContacts200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\SearchContacts200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\SearchContacts200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7478,9 +8817,12 @@ class ContactsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7490,9 +8832,12 @@ class ContactsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7502,9 +8847,12 @@ class ContactsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7514,9 +8862,12 @@ class ContactsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7526,9 +8877,12 @@ class ContactsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7538,9 +8892,12 @@ class ContactsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7550,9 +8907,12 @@ class ContactsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7562,12 +8922,14 @@ class ContactsApi
                     ];
             }
 
-            $returnType = '\EgoiClient\EgoiModel\InlineResponse200';
-            $responseBody = $response->getBody();
+            $returnType = '\EgoiClient\EgoiModel\SearchContacts200Response';
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -7581,7 +8943,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\InlineResponse200',
+                        '\EgoiClient\EgoiModel\SearchContacts200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7662,13 +9024,14 @@ class ContactsApi
      *
      * @param  string $contact Contact to search (required)
      * @param  string $type Type of contact to search (defaults to &#39;email&#39;) (optional, default to 'email')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchContactsAsync($contact, $type = 'email')
+    public function searchContactsAsync($contact, $type = 'email', string $contentType = self::contentTypes['searchContacts'][0])
     {
-        return $this->searchContactsAsyncWithHttpInfo($contact, $type)
+        return $this->searchContactsAsyncWithHttpInfo($contact, $type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7683,24 +9046,27 @@ class ContactsApi
      *
      * @param  string $contact Contact to search (required)
      * @param  string $type Type of contact to search (defaults to &#39;email&#39;) (optional, default to 'email')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchContactsAsyncWithHttpInfo($contact, $type = 'email')
+    public function searchContactsAsyncWithHttpInfo($contact, $type = 'email', string $contentType = self::contentTypes['searchContacts'][0])
     {
-        $returnType = '\EgoiClient\EgoiModel\InlineResponse200';
-        $request = $this->searchContactsRequest($contact, $type);
+        $returnType = '\EgoiClient\EgoiModel\SearchContacts200Response';
+        $request = $this->searchContactsRequest($contact, $type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -7720,7 +9086,7 @@ class ContactsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -7731,18 +9097,22 @@ class ContactsApi
      *
      * @param  string $contact Contact to search (required)
      * @param  string $type Type of contact to search (defaults to &#39;email&#39;) (optional, default to 'email')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchContacts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchContactsRequest($contact, $type = 'email')
+    public function searchContactsRequest($contact, $type = 'email', string $contentType = self::contentTypes['searchContacts'][0])
     {
+
         // verify the required parameter 'contact' is set
         if ($contact === null || (is_array($contact) && count($contact) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $contact when calling searchContacts'
             );
         }
+
+
 
         $resourcePath = '/contacts/search';
         $formParams = [];
@@ -7752,55 +9122,55 @@ class ContactsApi
         $multipart = false;
 
         // query params
-        if ($type !== null) {
-            $queryParams['type'] = ObjectSerializer::toQueryValue($type);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($contact !== null) {
-            $queryParams['contact'] = ObjectSerializer::toQueryValue($contact);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $contact,
+            'contact', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
 
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -7821,10 +9191,11 @@ class ContactsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

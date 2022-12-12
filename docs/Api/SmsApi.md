@@ -1,18 +1,19 @@
 # EgoiClient\SmsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionSendSms**](SmsApi.md#actionSendSms) | **POST** /campaigns/sms/{campaign_hash}/actions/send | Send sms message
-[**createSmsCampaign**](SmsApi.md#createSmsCampaign) | **POST** /campaigns/sms | Create new sms campaign
-[**patchSmsCampaign**](SmsApi.md#patchSmsCampaign) | **PATCH** /campaigns/sms/{campaign_hash} | Update a specific sms campaign
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionSendSms()**](SmsApi.md#actionSendSms) | **POST** /campaigns/sms/{campaign_hash}/actions/send | Send sms message |
+| [**createSmsCampaign()**](SmsApi.md#createSmsCampaign) | **POST** /campaigns/sms | Create new sms campaign |
+| [**patchSmsCampaign()**](SmsApi.md#patchSmsCampaign) | **PATCH** /campaigns/sms/{campaign_hash} | Update a specific sms campaign |
 
 
+## `actionSendSms()`
 
-## actionSendSms
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionSendSms($campaign_hash, $campaign_sms_send_request)
+```php
+actionSendSms($campaign_hash, $campaign_sms_send_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Send sms message
 
@@ -46,16 +47,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SmsApi->actionSendSms: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **campaign_sms_send_request** | [**\EgoiClient\EgoiModel\CampaignSmsSendRequest**](../Model/CampaignSmsSendRequest.md)| Parameters for the &#39;send sms&#39; action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_sms_send_request** | [**\EgoiClient\EgoiModel\CampaignSmsSendRequest**](../Model/CampaignSmsSendRequest.md)| Parameters for the &#39;send sms&#39; action | |
 
 ### Return type
 
@@ -67,17 +66,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createSmsCampaign()`
 
-## createSmsCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign createSmsCampaign($sms_campaign)
+```php
+createSmsCampaign($sms_campaign): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Create new sms campaign
 
@@ -110,15 +110,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SmsApi->createSmsCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sms_campaign** | [**\EgoiClient\EgoiModel\SmsCampaign**](../Model/SmsCampaign.md)| Parameters for the Sms Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sms_campaign** | [**\EgoiClient\EgoiModel\SmsCampaign**](../Model/SmsCampaign.md)| Parameters for the Sms Campaign | |
 
 ### Return type
 
@@ -130,17 +128,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchSmsCampaign()`
 
-## patchSmsCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign patchSmsCampaign($campaign_hash, $sms_campaign_patch_request)
+```php
+patchSmsCampaign($campaign_hash, $sms_campaign_patch_request): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Update a specific sms campaign
 
@@ -174,16 +173,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SmsApi->patchSmsCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **sms_campaign_patch_request** | [**\EgoiClient\EgoiModel\SmsCampaignPatchRequest**](../Model/SmsCampaignPatchRequest.md)| Parameters for the Sms Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **sms_campaign_patch_request** | [**\EgoiClient\EgoiModel\SmsCampaignPatchRequest**](../Model/SmsCampaignPatchRequest.md)| Parameters for the Sms Campaign | |
 
 ### Return type
 
@@ -195,10 +192,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

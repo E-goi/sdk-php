@@ -1,17 +1,18 @@
 # EgoiClient\SegmentsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteSegment**](SegmentsApi.md#deleteSegment) | **DELETE** /lists/{list_id}/segments/{segment_id} | Remove segment
-[**getAllSegments**](SegmentsApi.md#getAllSegments) | **GET** /lists/{list_id}/segments | Get all segments
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteSegment()**](SegmentsApi.md#deleteSegment) | **DELETE** /lists/{list_id}/segments/{segment_id} | Remove segment |
+| [**getAllSegments()**](SegmentsApi.md#getAllSegments) | **GET** /lists/{list_id}/segments | Get all segments |
 
 
+## `deleteSegment()`
 
-## deleteSegment
-
-> deleteSegment($segment_id, $list_id)
+```php
+deleteSegment($segment_id, $list_id)
+```
 
 Remove segment
 
@@ -44,16 +45,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SegmentsApi->deleteSegment: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **segment_id** | **string**| ID of the Segment |
- **list_id** | **int**| ID of the List |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **segment_id** | **string**| ID of the Segment | |
+| **list_id** | **int**| ID of the List | |
 
 ### Return type
 
@@ -66,16 +65,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllSegments()`
 
-## getAllSegments
-
-> \EgoiClient\EgoiModel\SegmentCollection getAllSegments($list_id, $type, $name, $offset, $limit)
+```php
+getAllSegments($list_id, $type, $name, $offset, $limit): \EgoiClient\EgoiModel\SegmentCollection
+```
 
 Get all segments
 
@@ -112,19 +112,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SegmentsApi->getAllSegments: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **type** | **string**| Type of segment | [optional]
- **name** | **string**| Segment name | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **type** | **string**| Type of segment | [optional] |
+| **name** | **string**| Segment name | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
 
 ### Return type
 
@@ -137,9 +135,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

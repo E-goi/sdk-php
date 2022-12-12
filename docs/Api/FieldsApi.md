@@ -1,24 +1,25 @@
 # EgoiClient\FieldsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createExtraField**](FieldsApi.md#createExtraField) | **POST** /lists/{list_id}/fields/extra | Create extra field
-[**createFieldOption**](FieldsApi.md#createFieldOption) | **POST** /lists/{list_id}/fields/extra/{field_id}/options | Create new field option
-[**deleteExtraField**](FieldsApi.md#deleteExtraField) | **DELETE** /lists/{list_id}/fields/extra/{field_id} | Remove extra field
-[**deleteFieldOption**](FieldsApi.md#deleteFieldOption) | **DELETE** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Deletes an option
-[**getAllFieldOptions**](FieldsApi.md#getAllFieldOptions) | **GET** /lists/{list_id}/fields/extra/{field_id}/options | Get all field options
-[**getAllFields**](FieldsApi.md#getAllFields) | **GET** /lists/{list_id}/fields | Get all fields
-[**patchBaseField**](FieldsApi.md#patchBaseField) | **PATCH** /lists/{list_id}/fields/base/{field_id} | Update base field
-[**patchExtraField**](FieldsApi.md#patchExtraField) | **PATCH** /lists/{list_id}/fields/extra/{field_id} | Update extra field
-[**updateFieldOption**](FieldsApi.md#updateFieldOption) | **PATCH** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Update field option
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createExtraField()**](FieldsApi.md#createExtraField) | **POST** /lists/{list_id}/fields/extra | Create extra field |
+| [**createFieldOption()**](FieldsApi.md#createFieldOption) | **POST** /lists/{list_id}/fields/extra/{field_id}/options | Create new field option |
+| [**deleteExtraField()**](FieldsApi.md#deleteExtraField) | **DELETE** /lists/{list_id}/fields/extra/{field_id} | Remove extra field |
+| [**deleteFieldOption()**](FieldsApi.md#deleteFieldOption) | **DELETE** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Deletes an option |
+| [**getAllFieldOptions()**](FieldsApi.md#getAllFieldOptions) | **GET** /lists/{list_id}/fields/extra/{field_id}/options | Get all field options |
+| [**getAllFields()**](FieldsApi.md#getAllFields) | **GET** /lists/{list_id}/fields | Get all fields |
+| [**patchBaseField()**](FieldsApi.md#patchBaseField) | **PATCH** /lists/{list_id}/fields/base/{field_id} | Update base field |
+| [**patchExtraField()**](FieldsApi.md#patchExtraField) | **PATCH** /lists/{list_id}/fields/extra/{field_id} | Update extra field |
+| [**updateFieldOption()**](FieldsApi.md#updateFieldOption) | **PATCH** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Update field option |
 
 
+## `createExtraField()`
 
-## createExtraField
-
-> \EgoiClient\EgoiModel\Field createExtraField($list_id, $field)
+```php
+createExtraField($list_id, $field): \EgoiClient\EgoiModel\Field
+```
 
 Create extra field
 
@@ -52,16 +53,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->createExtraField: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field** | [**\EgoiClient\EgoiModel\Field**](../Model/Field.md)| Parameters for the extra field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field** | [**\EgoiClient\EgoiModel\Field**](../Model/Field.md)| Parameters for the extra field | |
 
 ### Return type
 
@@ -73,17 +72,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createFieldOption()`
 
-## createFieldOption
-
-> \EgoiClient\EgoiModel\FieldOption createFieldOption($list_id, $field_id, $field_option)
+```php
+createFieldOption($list_id, $field_id, $field_option_post): \EgoiClient\EgoiModel\FieldOption
+```
 
 Create new field option
 
@@ -110,25 +110,23 @@ $apiInstance = new EgoiClient\Api\FieldsApi(
 );
 $list_id = 56; // int | ID of the List
 $field_id = 56; // int | ID of the Field
-$field_option = new \EgoiClient\EgoiModel\FieldOption(); // \EgoiClient\EgoiModel\FieldOption | Parameters for the field option
+$field_option_post = new \EgoiClient\EgoiModel\FieldOptionPost(); // \EgoiClient\EgoiModel\FieldOptionPost | Parameters for the field option
 
 try {
-    $result = $apiInstance->createFieldOption($list_id, $field_id, $field_option);
+    $result = $apiInstance->createFieldOption($list_id, $field_id, $field_option_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->createFieldOption: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **int**| ID of the Field |
- **field_option** | [**\EgoiClient\EgoiModel\FieldOption**](../Model/FieldOption.md)| Parameters for the field option |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **int**| ID of the Field | |
+| **field_option_post** | [**\EgoiClient\EgoiModel\FieldOptionPost**](../Model/FieldOptionPost.md)| Parameters for the field option | |
 
 ### Return type
 
@@ -140,17 +138,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteExtraField()`
 
-## deleteExtraField
-
-> deleteExtraField($list_id, $field_id)
+```php
+deleteExtraField($list_id, $field_id)
+```
 
 Remove extra field
 
@@ -183,16 +182,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->deleteExtraField: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **int**| ID of the Field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **int**| ID of the Field | |
 
 ### Return type
 
@@ -205,16 +202,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteFieldOption()`
 
-## deleteFieldOption
-
-> deleteFieldOption($list_id, $field_id, $option_id)
+```php
+deleteFieldOption($list_id, $field_id, $option_id)
+```
 
 Deletes an option
 
@@ -248,17 +246,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->deleteFieldOption: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **int**| ID of the Field |
- **option_id** | **int**| ID of the field option |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **int**| ID of the Field | |
+| **option_id** | **int**| ID of the field option | |
 
 ### Return type
 
@@ -271,16 +267,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllFieldOptions()`
 
-## getAllFieldOptions
-
-> \EgoiClient\EgoiModel\FieldOptionsCollection getAllFieldOptions($list_id, $field_id)
+```php
+getAllFieldOptions($list_id, $field_id): \EgoiClient\EgoiModel\FieldOptionsCollection
+```
 
 Get all field options
 
@@ -314,16 +311,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->getAllFieldOptions: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **int**| ID of the Field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **int**| ID of the Field | |
 
 ### Return type
 
@@ -336,16 +331,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllFields()`
 
-## getAllFields
-
-> \EgoiClient\EgoiModel\FieldCollection getAllFields($list_id, $offset, $limit)
+```php
+getAllFields($list_id, $offset, $limit): \EgoiClient\EgoiModel\FieldCollection
+```
 
 Get all fields
 
@@ -380,17 +376,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->getAllFields: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
 
 ### Return type
 
@@ -403,16 +397,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchBaseField()`
 
-## patchBaseField
-
-> \EgoiClient\EgoiModel\Field patchBaseField($list_id, $field_id, $patch_request_base_field)
+```php
+patchBaseField($list_id, $field_id, $patch_request_base_field): \EgoiClient\EgoiModel\Field
+```
 
 Update base field
 
@@ -447,17 +442,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->patchBaseField: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **string**| ID of the base field |
- **patch_request_base_field** | [**\EgoiClient\EgoiModel\PatchRequestBaseField**](../Model/PatchRequestBaseField.md)| Parameters for the extra field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **string**| ID of the base field | |
+| **patch_request_base_field** | [**\EgoiClient\EgoiModel\PatchRequestBaseField**](../Model/PatchRequestBaseField.md)| Parameters for the extra field | |
 
 ### Return type
 
@@ -469,17 +462,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchExtraField()`
 
-## patchExtraField
-
-> \EgoiClient\EgoiModel\Field patchExtraField($list_id, $field_id, $patch_request_field)
+```php
+patchExtraField($list_id, $field_id, $patch_request_field): \EgoiClient\EgoiModel\Field
+```
 
 Update extra field
 
@@ -514,17 +508,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->patchExtraField: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **int**| ID of the Field |
- **patch_request_field** | [**\EgoiClient\EgoiModel\PatchRequestField**](../Model/PatchRequestField.md)| Parameters for the extra field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **int**| ID of the Field | |
+| **patch_request_field** | [**\EgoiClient\EgoiModel\PatchRequestField**](../Model/PatchRequestField.md)| Parameters for the extra field | |
 
 ### Return type
 
@@ -536,17 +528,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateFieldOption()`
 
-## updateFieldOption
-
-> \EgoiClient\EgoiModel\FieldOption updateFieldOption($list_id, $field_id, $option_id, $field_option)
+```php
+updateFieldOption($list_id, $field_id, $option_id, $field_option_post): \EgoiClient\EgoiModel\FieldOption
+```
 
 Update field option
 
@@ -574,26 +567,24 @@ $apiInstance = new EgoiClient\Api\FieldsApi(
 $list_id = 56; // int | ID of the List
 $field_id = 56; // int | ID of the Field
 $option_id = 56; // int | ID of the field option
-$field_option = new \EgoiClient\EgoiModel\FieldOption(); // \EgoiClient\EgoiModel\FieldOption | Parameters for the field option
+$field_option_post = new \EgoiClient\EgoiModel\FieldOptionPost(); // \EgoiClient\EgoiModel\FieldOptionPost | Parameters for the field option
 
 try {
-    $result = $apiInstance->updateFieldOption($list_id, $field_id, $option_id, $field_option);
+    $result = $apiInstance->updateFieldOption($list_id, $field_id, $option_id, $field_option_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FieldsApi->updateFieldOption: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **field_id** | **int**| ID of the Field |
- **option_id** | **int**| ID of the field option |
- **field_option** | [**\EgoiClient\EgoiModel\FieldOption**](../Model/FieldOption.md)| Parameters for the field option |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **field_id** | **int**| ID of the Field | |
+| **option_id** | **int**| ID of the field option | |
+| **field_option_post** | [**\EgoiClient\EgoiModel\FieldOptionPost**](../Model/FieldOptionPost.md)| Parameters for the field option | |
 
 ### Return type
 
@@ -605,10 +596,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

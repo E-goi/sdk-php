@@ -4,10 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**field_id** | **int** |  | [optional] 
-**format** | **string** | Extra field format | [optional] [readonly] 
-**value** | [**\DateTime**](\DateTime.md) | Extra field value | [optional] 
+**field_id** | **int** |  | [optional]
+**format** | **string** | Extra field format | [optional] [readonly]
+**value** | **\DateTime** | Extra field value | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

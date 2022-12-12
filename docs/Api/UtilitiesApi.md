@@ -1,16 +1,17 @@
 # EgoiClient\UtilitiesApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAllCountries**](UtilitiesApi.md#getAllCountries) | **GET** /utilities/countries | Get all countries
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getAllCountries()**](UtilitiesApi.md#getAllCountries) | **GET** /utilities/countries | Get all countries |
 
 
+## `getAllCountries()`
 
-## getAllCountries
-
-> \EgoiClient\EgoiModel\CountryCollection getAllCountries($phone)
+```php
+getAllCountries($phone): \EgoiClient\EgoiModel\CountryCollection
+```
 
 Get all countries
 
@@ -43,15 +44,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UtilitiesApi->getAllCountries: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **string**| Phone number without country code to get all countries which can use that phone number | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone** | **string**| Phone number without country code to get all countries which can use that phone number | [optional] |
 
 ### Return type
 
@@ -64,9 +63,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

@@ -2,7 +2,7 @@
 /**
  * CampaignVoiceSendRequest
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
+class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -59,9 +59,10 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'list_id' => 'int',
+        'destination_field' => 'string',
+        'unique_contacts_only' => 'bool',
         'segments' => '\EgoiClient\EgoiModel\OSegmentsActionSend',
         'notify' => 'int[]',
-        'destination_field' => 'string',
         'limit_contacts' => '\EgoiClient\EgoiModel\OLimitContactsActionSend',
         'limit_hour' => '\EgoiClient\EgoiModel\LimitHourActionSendLimitHour',
         'limit_speed' => 'int',
@@ -72,17 +73,44 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'list_id' => null,
+        'destination_field' => null,
+        'unique_contacts_only' => null,
         'segments' => null,
         'notify' => null,
-        'destination_field' => null,
         'limit_contacts' => null,
         'limit_hour' => null,
         'limit_speed' => null,
         'schedule_date' => 'date-time'
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'list_id' => false,
+		'destination_field' => false,
+		'unique_contacts_only' => false,
+		'segments' => false,
+		'notify' => false,
+		'limit_contacts' => false,
+		'limit_hour' => false,
+		'limit_speed' => false,
+		'schedule_date' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -105,6 +133,58 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -112,9 +192,10 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'list_id' => 'list_id',
+        'destination_field' => 'destination_field',
+        'unique_contacts_only' => 'unique_contacts_only',
         'segments' => 'segments',
         'notify' => 'notify',
-        'destination_field' => 'destination_field',
         'limit_contacts' => 'limit_contacts',
         'limit_hour' => 'limit_hour',
         'limit_speed' => 'limit_speed',
@@ -128,9 +209,10 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'list_id' => 'setListId',
+        'destination_field' => 'setDestinationField',
+        'unique_contacts_only' => 'setUniqueContactsOnly',
         'segments' => 'setSegments',
         'notify' => 'setNotify',
-        'destination_field' => 'setDestinationField',
         'limit_contacts' => 'setLimitContacts',
         'limit_hour' => 'setLimitHour',
         'limit_speed' => 'setLimitSpeed',
@@ -144,9 +226,10 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'list_id' => 'getListId',
+        'destination_field' => 'getDestinationField',
+        'unique_contacts_only' => 'getUniqueContactsOnly',
         'segments' => 'getSegments',
         'notify' => 'getNotify',
-        'destination_field' => 'getDestinationField',
         'limit_contacts' => 'getLimitContacts',
         'limit_hour' => 'getLimitHour',
         'limit_speed' => 'getLimitSpeed',
@@ -194,14 +277,12 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const DESTINATION_FIELD_PHONE = 'phone';
-    const DESTINATION_FIELD_CELLPHONE = 'cellphone';
-    const DESTINATION_FIELD_PHONE_FAILSAFE_CELLPHONE = 'phone_failsafe_cellphone';
-    const DESTINATION_FIELD_CELLPHONE_FAILSAFE_PHONE = 'cellphone_failsafe_phone';
-    const DESTINATION_FIELD_CELLPHONE_PHONE = 'cellphone_phone';
-    
+    public const DESTINATION_FIELD_PHONE = 'phone';
+    public const DESTINATION_FIELD_CELLPHONE = 'cellphone';
+    public const DESTINATION_FIELD_PHONE_FAILSAFE_CELLPHONE = 'phone_failsafe_cellphone';
+    public const DESTINATION_FIELD_CELLPHONE_FAILSAFE_PHONE = 'cellphone_failsafe_phone';
+    public const DESTINATION_FIELD_CELLPHONE_PHONE = 'cellphone_phone';
 
-    
     /**
      * Gets allowable values of the enum
      *
@@ -217,7 +298,6 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
             self::DESTINATION_FIELD_CELLPHONE_PHONE,
         ];
     }
-    
 
     /**
      * Associative array for storing property values
@@ -234,14 +314,33 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['list_id'] = isset($data['list_id']) ? $data['list_id'] : null;
-        $this->container['segments'] = isset($data['segments']) ? $data['segments'] : null;
-        $this->container['notify'] = isset($data['notify']) ? $data['notify'] : null;
-        $this->container['destination_field'] = isset($data['destination_field']) ? $data['destination_field'] : null;
-        $this->container['limit_contacts'] = isset($data['limit_contacts']) ? $data['limit_contacts'] : null;
-        $this->container['limit_hour'] = isset($data['limit_hour']) ? $data['limit_hour'] : null;
-        $this->container['limit_speed'] = isset($data['limit_speed']) ? $data['limit_speed'] : null;
-        $this->container['schedule_date'] = isset($data['schedule_date']) ? $data['schedule_date'] : null;
+        $this->setIfExists('list_id', $data ?? [], null);
+        $this->setIfExists('destination_field', $data ?? [], null);
+        $this->setIfExists('unique_contacts_only', $data ?? [], false);
+        $this->setIfExists('segments', $data ?? [], null);
+        $this->setIfExists('notify', $data ?? [], null);
+        $this->setIfExists('limit_contacts', $data ?? [], null);
+        $this->setIfExists('limit_hour', $data ?? [], null);
+        $this->setIfExists('limit_speed', $data ?? [], null);
+        $this->setIfExists('schedule_date', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -260,20 +359,21 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'list_id', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['segments'] === null) {
-            $invalidProperties[] = "'segments' can't be null";
-        }
         if ($this->container['destination_field'] === null) {
             $invalidProperties[] = "'destination_field' can't be null";
         }
         $allowedValues = $this->getDestinationFieldAllowableValues();
         if (!is_null($this->container['destination_field']) && !in_array($this->container['destination_field'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'destination_field', must be one of '%s'",
+                "invalid value '%s' for 'destination_field', must be one of '%s'",
+                $this->container['destination_field'],
                 implode("', '", $allowedValues)
             );
         }
 
+        if ($this->container['segments'] === null) {
+            $invalidProperties[] = "'segments' can't be null";
+        }
         if (!is_null($this->container['limit_speed']) && ($this->container['limit_speed'] > 10)) {
             $invalidProperties[] = "invalid value for 'limit_speed', must be smaller than or equal to 10.";
         }
@@ -312,7 +412,7 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param int $list_id list_id
      *
-     * @return $this
+     * @return self
      */
     public function setListId($list_id)
     {
@@ -321,7 +421,80 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
             throw new \InvalidArgumentException('invalid value for $list_id when calling CampaignVoiceSendRequest., must be bigger than or equal to 1.');
         }
 
+
+        if (is_null($list_id)) {
+            throw new \InvalidArgumentException('non-nullable list_id cannot be null');
+        }
+
         $this->container['list_id'] = $list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination_field
+     *
+     * @return string
+     */
+    public function getDestinationField()
+    {
+        return $this->container['destination_field'];
+    }
+
+    /**
+     * Sets destination_field
+     *
+     * @param string $destination_field Destination field of this campaign
+     *
+     * @return self
+     */
+    public function setDestinationField($destination_field)
+    {
+        $allowedValues = $this->getDestinationFieldAllowableValues();
+        if (!in_array($destination_field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'destination_field', must be one of '%s'",
+                    $destination_field,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($destination_field)) {
+            throw new \InvalidArgumentException('non-nullable destination_field cannot be null');
+        }
+
+        $this->container['destination_field'] = $destination_field;
+
+        return $this;
+    }
+
+    /**
+     * Gets unique_contacts_only
+     *
+     * @return bool|null
+     */
+    public function getUniqueContactsOnly()
+    {
+        return $this->container['unique_contacts_only'];
+    }
+
+    /**
+     * Sets unique_contacts_only
+     *
+     * @param bool|null $unique_contacts_only True to send the campaign only to unique contacts
+     *
+     * @return self
+     */
+    public function setUniqueContactsOnly($unique_contacts_only)
+    {
+
+        if (is_null($unique_contacts_only)) {
+            throw new \InvalidArgumentException('non-nullable unique_contacts_only cannot be null');
+        }
+
+        $this->container['unique_contacts_only'] = $unique_contacts_only;
 
         return $this;
     }
@@ -341,10 +514,15 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\OSegmentsActionSend $segments segments
      *
-     * @return $this
+     * @return self
      */
     public function setSegments($segments)
     {
+
+        if (is_null($segments)) {
+            throw new \InvalidArgumentException('non-nullable segments cannot be null');
+        }
+
         $this->container['segments'] = $segments;
 
         return $this;
@@ -365,44 +543,16 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param int[]|null $notify Array of IDs of the users to notify
      *
-     * @return $this
+     * @return self
      */
     public function setNotify($notify)
     {
-        $this->container['notify'] = $notify;
 
-        return $this;
-    }
-
-    /**
-     * Gets destination_field
-     *
-     * @return string
-     */
-    public function getDestinationField()
-    {
-        return $this->container['destination_field'];
-    }
-
-    /**
-     * Sets destination_field
-     *
-     * @param string $destination_field Destination field of this campaign
-     *
-     * @return $this
-     */
-    public function setDestinationField($destination_field)
-    {
-        $allowedValues = $this->getDestinationFieldAllowableValues();
-        if (!in_array($destination_field, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'destination_field', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+        if (is_null($notify)) {
+            throw new \InvalidArgumentException('non-nullable notify cannot be null');
         }
-        $this->container['destination_field'] = $destination_field;
+
+        $this->container['notify'] = $notify;
 
         return $this;
     }
@@ -422,10 +572,15 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\OLimitContactsActionSend|null $limit_contacts limit_contacts
      *
-     * @return $this
+     * @return self
      */
     public function setLimitContacts($limit_contacts)
     {
+
+        if (is_null($limit_contacts)) {
+            throw new \InvalidArgumentException('non-nullable limit_contacts cannot be null');
+        }
+
         $this->container['limit_contacts'] = $limit_contacts;
 
         return $this;
@@ -446,10 +601,15 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\LimitHourActionSendLimitHour|null $limit_hour limit_hour
      *
-     * @return $this
+     * @return self
      */
     public function setLimitHour($limit_hour)
     {
+
+        if (is_null($limit_hour)) {
+            throw new \InvalidArgumentException('non-nullable limit_hour cannot be null');
+        }
+
         $this->container['limit_hour'] = $limit_hour;
 
         return $this;
@@ -470,7 +630,7 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param int|null $limit_speed Speed limit to send the campaign
      *
-     * @return $this
+     * @return self
      */
     public function setLimitSpeed($limit_speed)
     {
@@ -480,6 +640,11 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
         }
         if (!is_null($limit_speed) && ($limit_speed < 1)) {
             throw new \InvalidArgumentException('invalid value for $limit_speed when calling CampaignVoiceSendRequest., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($limit_speed)) {
+            throw new \InvalidArgumentException('non-nullable limit_speed cannot be null');
         }
 
         $this->container['limit_speed'] = $limit_speed;
@@ -502,10 +667,15 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $schedule_date The date and time
      *
-     * @return $this
+     * @return self
      */
     public function setScheduleDate($schedule_date)
     {
+
+        if (is_null($schedule_date)) {
+            throw new \InvalidArgumentException('non-nullable schedule_date cannot be null');
+        }
+
         $this->container['schedule_date'] = $schedule_date;
 
         return $this;
@@ -517,7 +687,7 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -527,22 +697,23 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -558,9 +729,22 @@ class CampaignVoiceSendRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

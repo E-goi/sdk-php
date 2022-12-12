@@ -1,25 +1,26 @@
 # EgoiClient\SendersApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createCellphoneSender**](SendersApi.md#createCellphoneSender) | **POST** /senders/cellphone | Create cellphone sender
-[**createEmailSender**](SendersApi.md#createEmailSender) | **POST** /senders/email | Create email sender
-[**createPhoneSender**](SendersApi.md#createPhoneSender) | **POST** /senders/phone | Create phone sender
-[**deleteCellphoneSender**](SendersApi.md#deleteCellphoneSender) | **DELETE** /senders/cellphone/{sender_id} | Remove cellphone sender
-[**deleteEmailSender**](SendersApi.md#deleteEmailSender) | **DELETE** /senders/email/{sender_id} | Remove email sender
-[**deletePhoneSender**](SendersApi.md#deletePhoneSender) | **DELETE** /senders/phone/{sender_id} | Remove phone sender
-[**getAllCellphoneSenders**](SendersApi.md#getAllCellphoneSenders) | **GET** /senders/cellphone | Get all cellphone senders
-[**getAllEmailSenders**](SendersApi.md#getAllEmailSenders) | **GET** /senders/email | Get all email senders
-[**getAllPhoneSenders**](SendersApi.md#getAllPhoneSenders) | **GET** /senders/phone | Get all phone senders
-[**putEmailSender**](SendersApi.md#putEmailSender) | **PUT** /senders/email/{sender_id} | Update email sender
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createCellphoneSender()**](SendersApi.md#createCellphoneSender) | **POST** /senders/cellphone | Create cellphone sender |
+| [**createEmailSender()**](SendersApi.md#createEmailSender) | **POST** /senders/email | Create email sender |
+| [**createPhoneSender()**](SendersApi.md#createPhoneSender) | **POST** /senders/phone | Create phone sender |
+| [**deleteCellphoneSender()**](SendersApi.md#deleteCellphoneSender) | **DELETE** /senders/cellphone/{sender_id} | Remove cellphone sender |
+| [**deleteEmailSender()**](SendersApi.md#deleteEmailSender) | **DELETE** /senders/email/{sender_id} | Remove email sender |
+| [**deletePhoneSender()**](SendersApi.md#deletePhoneSender) | **DELETE** /senders/phone/{sender_id} | Remove phone sender |
+| [**getAllCellphoneSenders()**](SendersApi.md#getAllCellphoneSenders) | **GET** /senders/cellphone | Get all cellphone senders |
+| [**getAllEmailSenders()**](SendersApi.md#getAllEmailSenders) | **GET** /senders/email | Get all email senders |
+| [**getAllPhoneSenders()**](SendersApi.md#getAllPhoneSenders) | **GET** /senders/phone | Get all phone senders |
+| [**putEmailSender()**](SendersApi.md#putEmailSender) | **PUT** /senders/email/{sender_id} | Update email sender |
 
 
+## `createCellphoneSender()`
 
-## createCellphoneSender
-
-> \EgoiClient\EgoiModel\CellphoneSender createCellphoneSender($cellphone_sender)
+```php
+createCellphoneSender($cellphone_sender_post): \EgoiClient\EgoiModel\CellphoneSender
+```
 
 Create cellphone sender
 
@@ -44,23 +45,21 @@ $apiInstance = new EgoiClient\Api\SendersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cellphone_sender = new \EgoiClient\EgoiModel\CellphoneSender(); // \EgoiClient\EgoiModel\CellphoneSender | Parameters for the sender
+$cellphone_sender_post = new \EgoiClient\EgoiModel\CellphoneSenderPost(); // \EgoiClient\EgoiModel\CellphoneSenderPost | Parameters for the sender
 
 try {
-    $result = $apiInstance->createCellphoneSender($cellphone_sender);
+    $result = $apiInstance->createCellphoneSender($cellphone_sender_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->createCellphoneSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cellphone_sender** | [**\EgoiClient\EgoiModel\CellphoneSender**](../Model/CellphoneSender.md)| Parameters for the sender |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cellphone_sender_post** | [**\EgoiClient\EgoiModel\CellphoneSenderPost**](../Model/CellphoneSenderPost.md)| Parameters for the sender | |
 
 ### Return type
 
@@ -72,17 +71,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createEmailSender()`
 
-## createEmailSender
-
-> \EgoiClient\EgoiModel\EmailSender createEmailSender($email_sender)
+```php
+createEmailSender($email_sender_post): \EgoiClient\EgoiModel\EmailSender
+```
 
 Create email sender
 
@@ -107,23 +107,21 @@ $apiInstance = new EgoiClient\Api\SendersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$email_sender = new \EgoiClient\EgoiModel\EmailSender(); // \EgoiClient\EgoiModel\EmailSender | Parameters for the sender
+$email_sender_post = new \EgoiClient\EgoiModel\EmailSenderPost(); // \EgoiClient\EgoiModel\EmailSenderPost | Parameters for the sender
 
 try {
-    $result = $apiInstance->createEmailSender($email_sender);
+    $result = $apiInstance->createEmailSender($email_sender_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->createEmailSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email_sender** | [**\EgoiClient\EgoiModel\EmailSender**](../Model/EmailSender.md)| Parameters for the sender |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **email_sender_post** | [**\EgoiClient\EgoiModel\EmailSenderPost**](../Model/EmailSenderPost.md)| Parameters for the sender | |
 
 ### Return type
 
@@ -135,17 +133,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createPhoneSender()`
 
-## createPhoneSender
-
-> \EgoiClient\EgoiModel\PhoneSender createPhoneSender($phone_sender)
+```php
+createPhoneSender($phone_sender_post): \EgoiClient\EgoiModel\PhoneSender
+```
 
 Create phone sender
 
@@ -170,23 +169,21 @@ $apiInstance = new EgoiClient\Api\SendersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone_sender = new \EgoiClient\EgoiModel\PhoneSender(); // \EgoiClient\EgoiModel\PhoneSender | Parameters for the sender
+$phone_sender_post = new \EgoiClient\EgoiModel\PhoneSenderPost(); // \EgoiClient\EgoiModel\PhoneSenderPost | Parameters for the sender
 
 try {
-    $result = $apiInstance->createPhoneSender($phone_sender);
+    $result = $apiInstance->createPhoneSender($phone_sender_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->createPhoneSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone_sender** | [**\EgoiClient\EgoiModel\PhoneSender**](../Model/PhoneSender.md)| Parameters for the sender |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone_sender_post** | [**\EgoiClient\EgoiModel\PhoneSenderPost**](../Model/PhoneSenderPost.md)| Parameters for the sender | |
 
 ### Return type
 
@@ -198,17 +195,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteCellphoneSender()`
 
-## deleteCellphoneSender
-
-> deleteCellphoneSender($sender_id)
+```php
+deleteCellphoneSender($sender_id)
+```
 
 Remove cellphone sender
 
@@ -240,15 +238,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->deleteCellphoneSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sender_id** | **int**| ID of the Sender |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_id** | **int**| ID of the Sender | |
 
 ### Return type
 
@@ -261,16 +257,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteEmailSender()`
 
-## deleteEmailSender
-
-> deleteEmailSender($sender_id)
+```php
+deleteEmailSender($sender_id)
+```
 
 Remove email sender
 
@@ -302,15 +299,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->deleteEmailSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sender_id** | **int**| ID of the Sender |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_id** | **int**| ID of the Sender | |
 
 ### Return type
 
@@ -323,16 +318,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deletePhoneSender()`
 
-## deletePhoneSender
-
-> deletePhoneSender($sender_id)
+```php
+deletePhoneSender($sender_id)
+```
 
 Remove phone sender
 
@@ -364,15 +360,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->deletePhoneSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sender_id** | **int**| ID of the Sender |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_id** | **int**| ID of the Sender | |
 
 ### Return type
 
@@ -385,16 +379,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllCellphoneSenders()`
 
-## getAllCellphoneSenders
-
-> \EgoiClient\EgoiModel\CellphoneSenderCollection getAllCellphoneSenders($offset, $limit, $status)
+```php
+getAllCellphoneSenders($offset, $limit, $status): \EgoiClient\EgoiModel\CellphoneSenderCollection
+```
 
 Get all cellphone senders
 
@@ -429,17 +424,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->getAllCellphoneSenders: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **status** | **string**| Status filter | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **status** | **string**| Status filter | [optional] |
 
 ### Return type
 
@@ -452,16 +445,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllEmailSenders()`
 
-## getAllEmailSenders
-
-> \EgoiClient\EgoiModel\EmailSenderCollection getAllEmailSenders($offset, $limit, $status)
+```php
+getAllEmailSenders($offset, $limit, $status): \EgoiClient\EgoiModel\EmailSenderCollection
+```
 
 Get all email senders
 
@@ -496,17 +490,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->getAllEmailSenders: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **status** | **string**| Status filter | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **status** | **string**| Status filter | [optional] |
 
 ### Return type
 
@@ -519,16 +511,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllPhoneSenders()`
 
-## getAllPhoneSenders
-
-> \EgoiClient\EgoiModel\PhoneSenderCollection getAllPhoneSenders($offset, $limit, $status)
+```php
+getAllPhoneSenders($offset, $limit, $status): \EgoiClient\EgoiModel\PhoneSenderCollection
+```
 
 Get all phone senders
 
@@ -563,17 +556,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->getAllPhoneSenders: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **status** | **string**| Status filter | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **status** | **string**| Status filter | [optional] |
 
 ### Return type
 
@@ -586,16 +577,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `putEmailSender()`
 
-## putEmailSender
-
-> \EgoiClient\EgoiModel\EmailSender putEmailSender($sender_id, $email_sender_put_request)
+```php
+putEmailSender($sender_id, $email_sender_put_request): \EgoiClient\EgoiModel\EmailSender
+```
 
 Update email sender
 
@@ -629,16 +621,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->putEmailSender: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sender_id** | **int**| ID of the Sender |
- **email_sender_put_request** | [**\EgoiClient\EgoiModel\EmailSenderPutRequest**](../Model/EmailSenderPutRequest.md)| Parameters for the contact |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_id** | **int**| ID of the Sender | |
+| **email_sender_put_request** | [**\EgoiClient\EgoiModel\EmailSenderPutRequest**](../Model/EmailSenderPutRequest.md)| Parameters for the contact | |
 
 ### Return type
 
@@ -650,10 +640,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

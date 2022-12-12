@@ -1,19 +1,20 @@
 # EgoiClient\ListsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createList**](ListsApi.md#createList) | **POST** /lists | Create new list
-[**deleteList**](ListsApi.md#deleteList) | **DELETE** /lists/{list_id} | Remove list
-[**getAllLists**](ListsApi.md#getAllLists) | **GET** /lists | Get all lists
-[**updateList**](ListsApi.md#updateList) | **PATCH** /lists/{list_id} | Update a specific list
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createList()**](ListsApi.md#createList) | **POST** /lists | Create new list |
+| [**deleteList()**](ListsApi.md#deleteList) | **DELETE** /lists/{list_id} | Remove list |
+| [**getAllLists()**](ListsApi.md#getAllLists) | **GET** /lists | Get all lists |
+| [**updateList()**](ListsApi.md#updateList) | **PATCH** /lists/{list_id} | Update a specific list |
 
 
+## `createList()`
 
-## createList
-
-> \EgoiClient\EgoiModel\ModelList createList($post_request_list)
+```php
+createList($post_request_list): \EgoiClient\EgoiModel\ModelList
+```
 
 Create new list
 
@@ -46,15 +47,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListsApi->createList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **post_request_list** | [**\EgoiClient\EgoiModel\PostRequestList**](../Model/PostRequestList.md)| Parameters for the List |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **post_request_list** | [**\EgoiClient\EgoiModel\PostRequestList**](../Model/PostRequestList.md)| Parameters for the List | |
 
 ### Return type
 
@@ -66,17 +65,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteList()`
 
-## deleteList
-
-> deleteList($list_id)
+```php
+deleteList($list_id)
+```
 
 Remove list
 
@@ -108,15 +108,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListsApi->deleteList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
 
 ### Return type
 
@@ -129,16 +127,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllLists()`
 
-## getAllLists
-
-> \EgoiClient\EgoiModel\ListCollection getAllLists($offset, $limit, $order, $order_by, $internal_name, $public_name, $created_min, $created_max, $updated_min, $updated_max)
+```php
+getAllLists($offset, $limit, $order, $order_by, $internal_name, $public_name, $created_min, $created_max, $updated_min, $updated_max): \EgoiClient\EgoiModel\ListCollection
+```
 
 Get all lists
 
@@ -180,24 +179,22 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListsApi->getAllLists: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order lists | [optional] [default to &#39;list_id&#39;]
- **internal_name** | **string**| Internal name of the list | [optional]
- **public_name** | **string**| Public name of the list | [optional]
- **created_min** | **\DateTime**| Created initial date | [optional]
- **created_max** | **\DateTime**| Created finish | [optional]
- **updated_min** | **\DateTime**| Updated initial | [optional]
- **updated_max** | **\DateTime**| Updated finish | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order lists | [optional] [default to &#39;list_id&#39;] |
+| **internal_name** | **string**| Internal name of the list | [optional] |
+| **public_name** | **string**| Public name of the list | [optional] |
+| **created_min** | **\DateTime**| Created initial date | [optional] |
+| **created_max** | **\DateTime**| Created finish | [optional] |
+| **updated_min** | **\DateTime**| Updated initial | [optional] |
+| **updated_max** | **\DateTime**| Updated finish | [optional] |
 
 ### Return type
 
@@ -210,16 +207,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateList()`
 
-## updateList
-
-> \EgoiClient\EgoiModel\ModelList updateList($list_id, $patch_request_list)
+```php
+updateList($list_id, $patch_request_list): \EgoiClient\EgoiModel\ModelList
+```
 
 Update a specific list
 
@@ -253,16 +251,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListsApi->updateList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **patch_request_list** | [**\EgoiClient\EgoiModel\PatchRequestList**](../Model/PatchRequestList.md)| Parameters for the List |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **patch_request_list** | [**\EgoiClient\EgoiModel\PatchRequestList**](../Model/PatchRequestList.md)| Parameters for the List | |
 
 ### Return type
 
@@ -274,10 +270,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

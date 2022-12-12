@@ -1,31 +1,33 @@
 # EgoiClient\ContactsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionActivateContacts**](ContactsApi.md#actionActivateContacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts
-[**actionAttachTag**](ContactsApi.md#actionAttachTag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
-[**actionDeactivateContacts**](ContactsApi.md#actionDeactivateContacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts
-[**actionDetachTag**](ContactsApi.md#actionDetachTag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
-[**actionExportContacts**](ContactsApi.md#actionExportContacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
-[**actionForgetContacts**](ContactsApi.md#actionForgetContacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts
-[**actionImportBulk**](ContactsApi.md#actionImportBulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
-[**actionStartAutomation**](ContactsApi.md#actionStartAutomation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
-[**actionUnsubscribeContact**](ContactsApi.md#actionUnsubscribeContact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
-[**createContact**](ContactsApi.md#createContact) | **POST** /lists/{list_id}/contacts | Create new contact
-[**getAllContactActivities**](ContactsApi.md#getAllContactActivities) | **GET** /lists/{list_id}/contacts/{contact_id}/activities | Get all contact activities
-[**getAllContacts**](ContactsApi.md#getAllContacts) | **GET** /lists/{list_id}/contacts | Get all contacts
-[**getAllContactsBySegment**](ContactsApi.md#getAllContactsBySegment) | **GET** /lists/{list_id}/contacts/segment/{segment_id} | Get all contacts by Segment Id
-[**getContact**](ContactsApi.md#getContact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
-[**patchContact**](ContactsApi.md#patchContact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
-[**searchContacts**](ContactsApi.md#searchContacts) | **GET** /contacts/search | Search contact
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionActivateContacts()**](ContactsApi.md#actionActivateContacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts |
+| [**actionAttachTag()**](ContactsApi.md#actionAttachTag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact |
+| [**actionDeactivateContacts()**](ContactsApi.md#actionDeactivateContacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts |
+| [**actionDetachTag()**](ContactsApi.md#actionDetachTag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact |
+| [**actionExportContacts()**](ContactsApi.md#actionExportContacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts |
+| [**actionForgetContacts()**](ContactsApi.md#actionForgetContacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts |
+| [**actionImportBulk()**](ContactsApi.md#actionImportBulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts |
+| [**actionStartAutomation()**](ContactsApi.md#actionStartAutomation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation |
+| [**actionUnsubscribeContact()**](ContactsApi.md#actionUnsubscribeContact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts |
+| [**actionUpdateContacts()**](ContactsApi.md#actionUpdateContacts) | **POST** /lists/{list_id}/contacts/actions/update | Updates contacts |
+| [**createContact()**](ContactsApi.md#createContact) | **POST** /lists/{list_id}/contacts | Create new contact |
+| [**getAllContactActivities()**](ContactsApi.md#getAllContactActivities) | **GET** /lists/{list_id}/contacts/{contact_id}/activities | Get all contact activities |
+| [**getAllContacts()**](ContactsApi.md#getAllContacts) | **GET** /lists/{list_id}/contacts | Get all contacts |
+| [**getAllContactsBySegment()**](ContactsApi.md#getAllContactsBySegment) | **GET** /lists/{list_id}/contacts/segment/{segment_id} | Get all contacts by Segment Id |
+| [**getContact()**](ContactsApi.md#getContact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact |
+| [**patchContact()**](ContactsApi.md#patchContact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact |
+| [**searchContacts()**](ContactsApi.md#searchContacts) | **GET** /contacts/search | Search contact |
 
 
+## `actionActivateContacts()`
 
-## actionActivateContacts
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionActivateContacts($list_id, $activate_contacts_request)
+```php
+actionActivateContacts($list_id, $activate_contacts_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Activate contacts
 
@@ -59,16 +61,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionActivateContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **activate_contacts_request** | [**\EgoiClient\EgoiModel\ActivateContactsRequest**](../Model/ActivateContactsRequest.md)| Parameters for the request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **activate_contacts_request** | [**\EgoiClient\EgoiModel\ActivateContactsRequest**](../Model/ActivateContactsRequest.md)| Parameters for the request | |
 
 ### Return type
 
@@ -80,21 +80,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionAttachTag()`
 
-## actionAttachTag
-
-> \EgoiClient\EgoiModel\AttachTagResponse actionAttachTag($list_id, $attach_tag_request)
+```php
+actionAttachTag($list_id, $attach_tag_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Attach tag to contact
 
-Attaches a tag to the provided contacts. <br>***Note:***<br> If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
+Attaches a tag to the provided contacts.
 
 ### Example
 
@@ -124,20 +125,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionAttachTag: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **attach_tag_request** | [**\EgoiClient\EgoiModel\AttachTagRequest**](../Model/AttachTagRequest.md)| Parameters for the Tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **attach_tag_request** | [**\EgoiClient\EgoiModel\AttachTagRequest**](../Model/AttachTagRequest.md)| Parameters for the Tag | |
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\AttachTagResponse**](../Model/AttachTagResponse.md)
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
 
 ### Authorization
 
@@ -145,17 +144,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionDeactivateContacts()`
 
-## actionDeactivateContacts
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionDeactivateContacts($list_id, $deactivate_contacts_request)
+```php
+actionDeactivateContacts($list_id, $deactivate_contacts_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Deactivate contacts
 
@@ -189,16 +189,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionDeactivateContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **deactivate_contacts_request** | [**\EgoiClient\EgoiModel\DeactivateContactsRequest**](../Model/DeactivateContactsRequest.md)| Parameters for the request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **deactivate_contacts_request** | [**\EgoiClient\EgoiModel\DeactivateContactsRequest**](../Model/DeactivateContactsRequest.md)| Parameters for the request | |
 
 ### Return type
 
@@ -210,17 +208,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionDetachTag()`
 
-## actionDetachTag
-
-> \EgoiClient\EgoiModel\AttachTagResponse actionDetachTag($list_id, $attach_tag_request)
+```php
+actionDetachTag($list_id, $detach_tag_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Detach tag to contact
 
@@ -246,28 +245,26 @@ $apiInstance = new EgoiClient\Api\ContactsApi(
     $config
 );
 $list_id = 56; // int | ID of the List
-$attach_tag_request = new \EgoiClient\EgoiModel\AttachTagRequest(); // \EgoiClient\EgoiModel\AttachTagRequest | Parameters for the Tag
+$detach_tag_request = new \EgoiClient\EgoiModel\DetachTagRequest(); // \EgoiClient\EgoiModel\DetachTagRequest | Parameters for the Tag
 
 try {
-    $result = $apiInstance->actionDetachTag($list_id, $attach_tag_request);
+    $result = $apiInstance->actionDetachTag($list_id, $detach_tag_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionDetachTag: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **attach_tag_request** | [**\EgoiClient\EgoiModel\AttachTagRequest**](../Model/AttachTagRequest.md)| Parameters for the Tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **detach_tag_request** | [**\EgoiClient\EgoiModel\DetachTagRequest**](../Model/DetachTagRequest.md)| Parameters for the Tag | |
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\AttachTagResponse**](../Model/AttachTagResponse.md)
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
 
 ### Authorization
 
@@ -275,17 +272,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionExportContacts()`
 
-## actionExportContacts
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionExportContacts($list_id, $contact_export_request)
+```php
+actionExportContacts($list_id, $contact_export_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Exports a list of contacts
 
@@ -319,16 +317,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionExportContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **contact_export_request** | [**\EgoiClient\EgoiModel\ContactExportRequest**](../Model/ContactExportRequest.md)| Parameters for export |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **contact_export_request** | [**\EgoiClient\EgoiModel\ContactExportRequest**](../Model/ContactExportRequest.md)| Parameters for export | |
 
 ### Return type
 
@@ -340,21 +336,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionForgetContacts()`
 
-## actionForgetContacts
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionForgetContacts($list_id, $contact_forget_request)
+```php
+actionForgetContacts($list_id, $contact_forget_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Forget contacts
 
-Forgets a list of contacts to the desired callback url
+Forgets a list of contacts
 
 ### Example
 
@@ -384,16 +381,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionForgetContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **contact_forget_request** | [**\EgoiClient\EgoiModel\ContactForgetRequest**](../Model/ContactForgetRequest.md)| Parameters for the action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **contact_forget_request** | [**\EgoiClient\EgoiModel\ContactForgetRequest**](../Model/ContactForgetRequest.md)| Parameters for the action | |
 
 ### Return type
 
@@ -405,21 +400,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionImportBulk()`
 
-## actionImportBulk
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionImportBulk($list_id, $import_bulk_request)
+```php
+actionImportBulk($list_id, $import_bulk_file_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Import collection of contacts
 
-Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact 'Create new contact')
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Notes:***<br>Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact 'Create new contact')<br>It defaults to ***Bulk object*** import.
 
 ### Example
 
@@ -441,24 +437,22 @@ $apiInstance = new EgoiClient\Api\ContactsApi(
     $config
 );
 $list_id = 56; // int | ID of the List
-$import_bulk_request = new \EgoiClient\EgoiModel\ImportBulkRequest(); // \EgoiClient\EgoiModel\ImportBulkRequest | Parameters for the bulk import
+$import_bulk_file_request = new \EgoiClient\EgoiModel\ImportBulkFileRequest(); // \EgoiClient\EgoiModel\ImportBulkFileRequest | Parameters for the bulk import
 
 try {
-    $result = $apiInstance->actionImportBulk($list_id, $import_bulk_request);
+    $result = $apiInstance->actionImportBulk($list_id, $import_bulk_file_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionImportBulk: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **import_bulk_request** | [**\EgoiClient\EgoiModel\ImportBulkRequest**](../Model/ImportBulkRequest.md)| Parameters for the bulk import |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **import_bulk_file_request** | [**\EgoiClient\EgoiModel\ImportBulkFileRequest**](../Model/ImportBulkFileRequest.md)| Parameters for the bulk import | |
 
 ### Return type
 
@@ -470,17 +464,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionStartAutomation()`
 
-## actionStartAutomation
-
-> \EgoiClient\EgoiModel\StartAutomationResponse actionStartAutomation($list_id, $start_automation_request)
+```php
+actionStartAutomation($list_id, $start_automation_request): \EgoiClient\EgoiModel\StartAutomationResponse
+```
 
 Start automation
 
@@ -514,16 +509,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionStartAutomation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **start_automation_request** | [**\EgoiClient\EgoiModel\StartAutomationRequest**](../Model/StartAutomationRequest.md)| Parameters for the operation to start automation |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **start_automation_request** | [**\EgoiClient\EgoiModel\StartAutomationRequest**](../Model/StartAutomationRequest.md)| Parameters for the operation to start automation | |
 
 ### Return type
 
@@ -535,17 +528,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionUnsubscribeContact()`
 
-## actionUnsubscribeContact
-
-> \EgoiClient\EgoiModel\RemoveResponse actionUnsubscribeContact($list_id, $remove_request)
+```php
+actionUnsubscribeContact($list_id, $remove_request): \EgoiClient\EgoiModel\RemoveResponse
+```
 
 Unsubscribes contacts
 
@@ -579,16 +573,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->actionUnsubscribeContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **remove_request** | [**\EgoiClient\EgoiModel\RemoveRequest**](../Model/RemoveRequest.md)| Parameters for the contact to unsubscribe |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **remove_request** | [**\EgoiClient\EgoiModel\RemoveRequest**](../Model/RemoveRequest.md)| Parameters for the contact to unsubscribe | |
 
 ### Return type
 
@@ -600,17 +592,82 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionUpdateContacts()`
 
-## createContact
+```php
+actionUpdateContacts($list_id, $update_contacts_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
-> \EgoiClient\EgoiModel\CreateContactResponse createContact($list_id, $contact_base_extra)
+Updates contacts
+
+Updates a collection of contacts (does not apply to removed contacts).      Note that all contacts will be updated with the same values and the existance of unique fields in the payload will trigger a 409 Conflict response.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$update_contacts_request = new \EgoiClient\EgoiModel\UpdateContactsRequest(); // \EgoiClient\EgoiModel\UpdateContactsRequest | Parameters for the request
+
+try {
+    $result = $apiInstance->actionUpdateContacts($list_id, $update_contacts_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->actionUpdateContacts: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **update_contacts_request** | [**\EgoiClient\EgoiModel\UpdateContactsRequest**](../Model/UpdateContactsRequest.md)| Parameters for the request | |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createContact()`
+
+```php
+createContact($list_id, $contact_base_extra_post): \EgoiClient\EgoiModel\CreateContactResponse
+```
 
 Create new contact
 
@@ -636,24 +693,22 @@ $apiInstance = new EgoiClient\Api\ContactsApi(
     $config
 );
 $list_id = 56; // int | ID of the list where the contact belongs
-$contact_base_extra = new \EgoiClient\EgoiModel\ContactBaseExtra(); // \EgoiClient\EgoiModel\ContactBaseExtra | Parameters for the Contact
+$contact_base_extra_post = new \EgoiClient\EgoiModel\ContactBaseExtraPost(); // \EgoiClient\EgoiModel\ContactBaseExtraPost | Parameters for the Contact
 
 try {
-    $result = $apiInstance->createContact($list_id, $contact_base_extra);
+    $result = $apiInstance->createContact($list_id, $contact_base_extra_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->createContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the list where the contact belongs |
- **contact_base_extra** | [**\EgoiClient\EgoiModel\ContactBaseExtra**](../Model/ContactBaseExtra.md)| Parameters for the Contact |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the list where the contact belongs | |
+| **contact_base_extra_post** | [**\EgoiClient\EgoiModel\ContactBaseExtraPost**](../Model/ContactBaseExtraPost.md)| Parameters for the Contact | |
 
 ### Return type
 
@@ -665,17 +720,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllContactActivities()`
 
-## getAllContactActivities
-
-> \EgoiClient\EgoiModel\ActivityCollection getAllContactActivities($contact_id, $list_id, $offset, $limit, $date_min, $date_max)
+```php
+getAllContactActivities($contact_id, $list_id, $offset, $limit, $date_min, $date_max): \EgoiClient\EgoiModel\ActivityCollection
+```
 
 Get all contact activities
 
@@ -713,20 +769,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getAllContactActivities: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contact_id** | **string**| ID of the Contact |
- **list_id** | **int**| ID of the List |
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **date_min** | **\DateTime**| Start date | [optional]
- **date_max** | **\DateTime**| End date | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_id** | **string**| ID of the Contact | |
+| **list_id** | **int**| ID of the List | |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **date_min** | **\DateTime**| Start date | [optional] |
+| **date_max** | **\DateTime**| End date | [optional] |
 
 ### Return type
 
@@ -739,16 +793,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllContacts()`
 
-## getAllContacts
-
-> \EgoiClient\EgoiModel\ContactCollection getAllContacts($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id)
+```php
+getAllContacts($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id): \EgoiClient\EgoiModel\ContactCollection
+```
 
 Get all contacts
 
@@ -786,7 +841,7 @@ $phone = 'phone_example'; // string | Phone of the contacts to return
 $phone_status = True; // bool | PhoneStatus of the contacts to return
 $birth_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Birth date of the contacts to return
 $language = 'language_example'; // string | Language date of the contacts to return
-$extra_field_id = array('extra_field_id_example'); // string[] | Extra field of contacts, extra_field_id[field_id]=value
+$extra_field_id = array('key' => new \EgoiClient\EgoiModel\GetAllContactsExtraFieldIdParameter()); // GetAllContactsExtraFieldIdParameter | Extra field of contacts<div><span class='sc-cJSrbW cWGDGi'> Example: </span> <span class='sc-uJMKN cTkJKI'> 'extra_field_id[field_id]=value' </span></div>
 
 try {
     $result = $apiInstance->getAllContacts($list_id, $offset, $limit, $first_name, $last_name, $email, $email_status, $cellphone, $cellphone_status, $phone, $phone_status, $birth_date, $language, $extra_field_id);
@@ -794,28 +849,26 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getAllContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **first_name** | **string**| First name of the contacts to return | [optional]
- **last_name** | **string**| Last name of the contacts to return | [optional]
- **email** | **string**| Email of the contacts to return | [optional]
- **email_status** | **bool**| EmailStatus of the contacts to return | [optional]
- **cellphone** | **string**| Cellphone of the contacts to return | [optional]
- **cellphone_status** | **bool**| CellphoneStatus of the contacts to return | [optional]
- **phone** | **string**| Phone of the contacts to return | [optional]
- **phone_status** | **bool**| PhoneStatus of the contacts to return | [optional]
- **birth_date** | [**\DateTime**](../Model/.md)| Birth date of the contacts to return | [optional]
- **language** | **string**| Language date of the contacts to return | [optional]
- **extra_field_id** | [**string[]**](../Model/string.md)| Extra field of contacts, extra_field_id[field_id]&#x3D;value | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **first_name** | **string**| First name of the contacts to return | [optional] |
+| **last_name** | **string**| Last name of the contacts to return | [optional] |
+| **email** | **string**| Email of the contacts to return | [optional] |
+| **email_status** | **bool**| EmailStatus of the contacts to return | [optional] |
+| **cellphone** | **string**| Cellphone of the contacts to return | [optional] |
+| **cellphone_status** | **bool**| CellphoneStatus of the contacts to return | [optional] |
+| **phone** | **string**| Phone of the contacts to return | [optional] |
+| **phone_status** | **bool**| PhoneStatus of the contacts to return | [optional] |
+| **birth_date** | [**\DateTime**](../Model/.md)| Birth date of the contacts to return | [optional] |
+| **language** | **string**| Language date of the contacts to return | [optional] |
+| **extra_field_id** | [**GetAllContactsExtraFieldIdParameter**](../Model/.md)| Extra field of contacts&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;extra_field_id[field_id]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; | [optional] |
 
 ### Return type
 
@@ -828,16 +881,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllContactsBySegment()`
 
-## getAllContactsBySegment
-
-> \EgoiClient\EgoiModel\ContactCollection getAllContactsBySegment($list_id, $segment_id, $offset, $limit, $show_removed)
+```php
+getAllContactsBySegment($list_id, $segment_id, $offset, $limit, $show_removed): \EgoiClient\EgoiModel\ContactCollection
+```
 
 Get all contacts by Segment Id
 
@@ -874,19 +928,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getAllContactsBySegment: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List |
- **segment_id** | **string**| ID of the Segment |
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **show_removed** | **bool**| Show removed contacts | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+| **segment_id** | **string**| ID of the Segment | |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **show_removed** | **bool**| Show removed contacts | [optional] [default to false] |
 
 ### Return type
 
@@ -899,16 +951,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getContact()`
 
-## getContact
-
-> \EgoiClient\EgoiModel\ComplexContact getContact($contact_id, $list_id)
+```php
+getContact($contact_id, $list_id): \EgoiClient\EgoiModel\ComplexContact
+```
 
 Get contact
 
@@ -942,16 +995,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contact_id** | **string**| ID of the Contact |
- **list_id** | **int**| ID of the List |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_id** | **string**| ID of the Contact | |
+| **list_id** | **int**| ID of the List | |
 
 ### Return type
 
@@ -964,16 +1015,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchContact()`
 
-## patchContact
-
-> \EgoiClient\EgoiModel\CreateContactResponse patchContact($contact_id, $list_id, $contact_base_status_extra)
+```php
+patchContact($contact_id, $list_id, $contact_base_status_extra_no_removed): \EgoiClient\EgoiModel\CreateContactResponse
+```
 
 Update a specific contact
 
@@ -1000,25 +1052,23 @@ $apiInstance = new EgoiClient\Api\ContactsApi(
 );
 $contact_id = 'contact_id_example'; // string | ID of the Contact
 $list_id = 56; // int | ID of the List
-$contact_base_status_extra = new \EgoiClient\EgoiModel\ContactBaseStatusExtra(); // \EgoiClient\EgoiModel\ContactBaseStatusExtra | Parameters for the contact
+$contact_base_status_extra_no_removed = new \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved(); // \EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved | Parameters for the contact
 
 try {
-    $result = $apiInstance->patchContact($contact_id, $list_id, $contact_base_status_extra);
+    $result = $apiInstance->patchContact($contact_id, $list_id, $contact_base_status_extra_no_removed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->patchContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contact_id** | **string**| ID of the Contact |
- **list_id** | **int**| ID of the List |
- **contact_base_status_extra** | [**\EgoiClient\EgoiModel\ContactBaseStatusExtra**](../Model/ContactBaseStatusExtra.md)| Parameters for the contact |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_id** | **string**| ID of the Contact | |
+| **list_id** | **int**| ID of the List | |
+| **contact_base_status_extra_no_removed** | [**\EgoiClient\EgoiModel\ContactBaseStatusExtraNoRemoved**](../Model/ContactBaseStatusExtraNoRemoved.md)| Parameters for the contact | |
 
 ### Return type
 
@@ -1030,17 +1080,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchContacts()`
 
-## searchContacts
-
-> \EgoiClient\EgoiModel\InlineResponse200 searchContacts($contact, $type)
+```php
+searchContacts($contact, $type): \EgoiClient\EgoiModel\SearchContacts200Response
+```
 
 Search contact
 
@@ -1074,20 +1125,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->searchContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contact** | **string**| Contact to search |
- **type** | **string**| Type of contact to search (defaults to &#39;email&#39;) | [optional] [default to &#39;email&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact** | **string**| Contact to search | |
+| **type** | **string**| Type of contact to search (defaults to &#39;email&#39;) | [optional] [default to &#39;email&#39;] |
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\InlineResponse200**](../Model/InlineResponse200.md)
+[**\EgoiClient\EgoiModel\SearchContacts200Response**](../Model/SearchContacts200Response.md)
 
 ### Authorization
 
@@ -1096,9 +1145,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

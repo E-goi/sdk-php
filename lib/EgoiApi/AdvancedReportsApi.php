@@ -1,7 +1,7 @@
 <?php
 /**
  * AdvancedReportsApi
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -12,12 +12,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -30,6 +29,7 @@ namespace EgoiClient\EgoiApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -69,38 +69,78 @@ class AdvancedReportsApi
      */
     protected $hostIndex;
 
-    /**
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'generateEmailBouncesReport' => [
+            'application/json',
+        ],
+        'generateEmailClicksByContactReport' => [
+            'application/json',
+        ],
+        'generateEmailClicksByUrlReport' => [
+            'application/json',
+        ],
+        'generateEmailEventsReport' => [
+            'application/json',
+        ],
+        'generateEmailSmsReport' => [
+            'application/json',
+        ],
+        'generateEmailUnsubscriptionsReport' => [
+            'application/json',
+        ],
+        'generateFormAnswersReport' => [
+            'application/json',
+        ],
+        'generateSendsReport' => [
+            'application/json',
+        ],
+        'generateSmsEventsReport' => [
+            'application/json',
+        ],
+        'generateSubscriptionsReport' => [
+            'application/json',
+        ],
+        'generateUnsubscriptionsReport' => [
+            'application/json',
+        ],
+        'getAllAdvancedReports' => [
+            'application/json',
+        ],
+    ];
+
+/**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
-     * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null,
-        $host_index = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex): void
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -121,14 +161,15 @@ class AdvancedReportsApi
      * Generate email bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailBouncesReport $generate_email_bounces_report Parameters for the email bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailBouncesReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateEmailBouncesReport($generate_email_bounces_report)
+    public function generateEmailBouncesReport($generate_email_bounces_report, string $contentType = self::contentTypes['generateEmailBouncesReport'][0])
     {
-        list($response) = $this->generateEmailBouncesReportWithHttpInfo($generate_email_bounces_report);
+        list($response) = $this->generateEmailBouncesReportWithHttpInfo($generate_email_bounces_report, $contentType);
         return $response;
     }
 
@@ -138,14 +179,15 @@ class AdvancedReportsApi
      * Generate email bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailBouncesReport $generate_email_bounces_report Parameters for the email bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailBouncesReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateEmailBouncesReportWithHttpInfo($generate_email_bounces_report)
+    public function generateEmailBouncesReportWithHttpInfo($generate_email_bounces_report, string $contentType = self::contentTypes['generateEmailBouncesReport'][0])
     {
-        $request = $this->generateEmailBouncesReportRequest($generate_email_bounces_report);
+        $request = $this->generateEmailBouncesReportRequest($generate_email_bounces_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -154,9 +196,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -167,21 +216,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -191,9 +242,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -203,9 +257,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -215,9 +272,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -227,9 +287,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -239,9 +302,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -251,9 +317,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -263,9 +332,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -276,11 +348,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -366,13 +440,14 @@ class AdvancedReportsApi
      * Generate email bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailBouncesReport $generate_email_bounces_report Parameters for the email bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailBouncesReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailBouncesReportAsync($generate_email_bounces_report)
+    public function generateEmailBouncesReportAsync($generate_email_bounces_report, string $contentType = self::contentTypes['generateEmailBouncesReport'][0])
     {
-        return $this->generateEmailBouncesReportAsyncWithHttpInfo($generate_email_bounces_report)
+        return $this->generateEmailBouncesReportAsyncWithHttpInfo($generate_email_bounces_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -386,24 +461,27 @@ class AdvancedReportsApi
      * Generate email bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailBouncesReport $generate_email_bounces_report Parameters for the email bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailBouncesReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailBouncesReportAsyncWithHttpInfo($generate_email_bounces_report)
+    public function generateEmailBouncesReportAsyncWithHttpInfo($generate_email_bounces_report, string $contentType = self::contentTypes['generateEmailBouncesReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateEmailBouncesReportRequest($generate_email_bounces_report);
+        $request = $this->generateEmailBouncesReportRequest($generate_email_bounces_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -423,7 +501,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -433,18 +511,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateEmailBouncesReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailBouncesReport $generate_email_bounces_report Parameters for the email bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailBouncesReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateEmailBouncesReportRequest($generate_email_bounces_report)
+    public function generateEmailBouncesReportRequest($generate_email_bounces_report, string $contentType = self::contentTypes['generateEmailBouncesReport'][0])
     {
+
         // verify the required parameter 'generate_email_bounces_report' is set
         if ($generate_email_bounces_report === null || (is_array($generate_email_bounces_report) && count($generate_email_bounces_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_email_bounces_report when calling generateEmailBouncesReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/email-bounces';
         $formParams = [];
@@ -455,49 +536,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_email_bounces_report)) {
-            $_tempBody = $generate_email_bounces_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_email_bounces_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_email_bounces_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_email_bounces_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -518,10 +593,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -533,14 +609,15 @@ class AdvancedReportsApi
      * Generate email clicks by contact report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByContactReport $generate_email_clicks_by_contact_report Parameters for the email clicks by contact report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByContactReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateEmailClicksByContactReport($generate_email_clicks_by_contact_report)
+    public function generateEmailClicksByContactReport($generate_email_clicks_by_contact_report, string $contentType = self::contentTypes['generateEmailClicksByContactReport'][0])
     {
-        list($response) = $this->generateEmailClicksByContactReportWithHttpInfo($generate_email_clicks_by_contact_report);
+        list($response) = $this->generateEmailClicksByContactReportWithHttpInfo($generate_email_clicks_by_contact_report, $contentType);
         return $response;
     }
 
@@ -550,14 +627,15 @@ class AdvancedReportsApi
      * Generate email clicks by contact report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByContactReport $generate_email_clicks_by_contact_report Parameters for the email clicks by contact report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByContactReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateEmailClicksByContactReportWithHttpInfo($generate_email_clicks_by_contact_report)
+    public function generateEmailClicksByContactReportWithHttpInfo($generate_email_clicks_by_contact_report, string $contentType = self::contentTypes['generateEmailClicksByContactReport'][0])
     {
-        $request = $this->generateEmailClicksByContactReportRequest($generate_email_clicks_by_contact_report);
+        $request = $this->generateEmailClicksByContactReportRequest($generate_email_clicks_by_contact_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -566,9 +644,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -579,21 +664,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -603,9 +690,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -615,9 +705,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -627,9 +720,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -639,9 +735,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -651,9 +750,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -663,9 +765,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -675,9 +780,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -687,9 +795,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -700,11 +811,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -798,13 +911,14 @@ class AdvancedReportsApi
      * Generate email clicks by contact report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByContactReport $generate_email_clicks_by_contact_report Parameters for the email clicks by contact report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByContactReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailClicksByContactReportAsync($generate_email_clicks_by_contact_report)
+    public function generateEmailClicksByContactReportAsync($generate_email_clicks_by_contact_report, string $contentType = self::contentTypes['generateEmailClicksByContactReport'][0])
     {
-        return $this->generateEmailClicksByContactReportAsyncWithHttpInfo($generate_email_clicks_by_contact_report)
+        return $this->generateEmailClicksByContactReportAsyncWithHttpInfo($generate_email_clicks_by_contact_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -818,24 +932,27 @@ class AdvancedReportsApi
      * Generate email clicks by contact report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByContactReport $generate_email_clicks_by_contact_report Parameters for the email clicks by contact report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByContactReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailClicksByContactReportAsyncWithHttpInfo($generate_email_clicks_by_contact_report)
+    public function generateEmailClicksByContactReportAsyncWithHttpInfo($generate_email_clicks_by_contact_report, string $contentType = self::contentTypes['generateEmailClicksByContactReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateEmailClicksByContactReportRequest($generate_email_clicks_by_contact_report);
+        $request = $this->generateEmailClicksByContactReportRequest($generate_email_clicks_by_contact_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -855,7 +972,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -865,18 +982,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateEmailClicksByContactReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByContactReport $generate_email_clicks_by_contact_report Parameters for the email clicks by contact report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByContactReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateEmailClicksByContactReportRequest($generate_email_clicks_by_contact_report)
+    public function generateEmailClicksByContactReportRequest($generate_email_clicks_by_contact_report, string $contentType = self::contentTypes['generateEmailClicksByContactReport'][0])
     {
+
         // verify the required parameter 'generate_email_clicks_by_contact_report' is set
         if ($generate_email_clicks_by_contact_report === null || (is_array($generate_email_clicks_by_contact_report) && count($generate_email_clicks_by_contact_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_email_clicks_by_contact_report when calling generateEmailClicksByContactReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/email-clicks-by-contact';
         $formParams = [];
@@ -887,49 +1007,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_email_clicks_by_contact_report)) {
-            $_tempBody = $generate_email_clicks_by_contact_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_email_clicks_by_contact_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_email_clicks_by_contact_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_email_clicks_by_contact_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -950,10 +1064,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -965,14 +1080,15 @@ class AdvancedReportsApi
      * Generate email clicks by URL report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport $generate_email_clicks_by_url_report Parameters for the email clicks by URL report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByUrlReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateEmailClicksByUrlReport($generate_email_clicks_by_url_report)
+    public function generateEmailClicksByUrlReport($generate_email_clicks_by_url_report, string $contentType = self::contentTypes['generateEmailClicksByUrlReport'][0])
     {
-        list($response) = $this->generateEmailClicksByUrlReportWithHttpInfo($generate_email_clicks_by_url_report);
+        list($response) = $this->generateEmailClicksByUrlReportWithHttpInfo($generate_email_clicks_by_url_report, $contentType);
         return $response;
     }
 
@@ -982,14 +1098,15 @@ class AdvancedReportsApi
      * Generate email clicks by URL report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport $generate_email_clicks_by_url_report Parameters for the email clicks by URL report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByUrlReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateEmailClicksByUrlReportWithHttpInfo($generate_email_clicks_by_url_report)
+    public function generateEmailClicksByUrlReportWithHttpInfo($generate_email_clicks_by_url_report, string $contentType = self::contentTypes['generateEmailClicksByUrlReport'][0])
     {
-        $request = $this->generateEmailClicksByUrlReportRequest($generate_email_clicks_by_url_report);
+        $request = $this->generateEmailClicksByUrlReportRequest($generate_email_clicks_by_url_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -998,9 +1115,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1011,21 +1135,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1035,9 +1161,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1047,9 +1176,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1059,9 +1191,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1071,9 +1206,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1083,9 +1221,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1095,9 +1236,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1107,9 +1251,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1119,9 +1266,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1132,11 +1282,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1230,13 +1382,14 @@ class AdvancedReportsApi
      * Generate email clicks by URL report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport $generate_email_clicks_by_url_report Parameters for the email clicks by URL report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByUrlReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailClicksByUrlReportAsync($generate_email_clicks_by_url_report)
+    public function generateEmailClicksByUrlReportAsync($generate_email_clicks_by_url_report, string $contentType = self::contentTypes['generateEmailClicksByUrlReport'][0])
     {
-        return $this->generateEmailClicksByUrlReportAsyncWithHttpInfo($generate_email_clicks_by_url_report)
+        return $this->generateEmailClicksByUrlReportAsyncWithHttpInfo($generate_email_clicks_by_url_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1250,24 +1403,27 @@ class AdvancedReportsApi
      * Generate email clicks by URL report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport $generate_email_clicks_by_url_report Parameters for the email clicks by URL report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByUrlReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailClicksByUrlReportAsyncWithHttpInfo($generate_email_clicks_by_url_report)
+    public function generateEmailClicksByUrlReportAsyncWithHttpInfo($generate_email_clicks_by_url_report, string $contentType = self::contentTypes['generateEmailClicksByUrlReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateEmailClicksByUrlReportRequest($generate_email_clicks_by_url_report);
+        $request = $this->generateEmailClicksByUrlReportRequest($generate_email_clicks_by_url_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1287,7 +1443,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1297,18 +1453,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateEmailClicksByUrlReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport $generate_email_clicks_by_url_report Parameters for the email clicks by URL report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailClicksByUrlReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateEmailClicksByUrlReportRequest($generate_email_clicks_by_url_report)
+    public function generateEmailClicksByUrlReportRequest($generate_email_clicks_by_url_report, string $contentType = self::contentTypes['generateEmailClicksByUrlReport'][0])
     {
+
         // verify the required parameter 'generate_email_clicks_by_url_report' is set
         if ($generate_email_clicks_by_url_report === null || (is_array($generate_email_clicks_by_url_report) && count($generate_email_clicks_by_url_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_email_clicks_by_url_report when calling generateEmailClicksByUrlReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/email-clicks-by-url';
         $formParams = [];
@@ -1319,49 +1478,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_email_clicks_by_url_report)) {
-            $_tempBody = $generate_email_clicks_by_url_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_email_clicks_by_url_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_email_clicks_by_url_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_email_clicks_by_url_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1382,10 +1535,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1397,14 +1551,15 @@ class AdvancedReportsApi
      * Generate email events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailEventsReport $generate_email_events_report Parameters for the email events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailEventsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateEmailEventsReport($generate_email_events_report)
+    public function generateEmailEventsReport($generate_email_events_report, string $contentType = self::contentTypes['generateEmailEventsReport'][0])
     {
-        list($response) = $this->generateEmailEventsReportWithHttpInfo($generate_email_events_report);
+        list($response) = $this->generateEmailEventsReportWithHttpInfo($generate_email_events_report, $contentType);
         return $response;
     }
 
@@ -1414,14 +1569,15 @@ class AdvancedReportsApi
      * Generate email events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailEventsReport $generate_email_events_report Parameters for the email events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailEventsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateEmailEventsReportWithHttpInfo($generate_email_events_report)
+    public function generateEmailEventsReportWithHttpInfo($generate_email_events_report, string $contentType = self::contentTypes['generateEmailEventsReport'][0])
     {
-        $request = $this->generateEmailEventsReportRequest($generate_email_events_report);
+        $request = $this->generateEmailEventsReportRequest($generate_email_events_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1430,9 +1586,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1443,21 +1606,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1467,9 +1632,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1479,9 +1647,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1491,9 +1662,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1503,9 +1677,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1515,9 +1692,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1527,9 +1707,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1539,9 +1722,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1551,9 +1737,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1564,11 +1753,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1662,13 +1853,14 @@ class AdvancedReportsApi
      * Generate email events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailEventsReport $generate_email_events_report Parameters for the email events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailEventsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailEventsReportAsync($generate_email_events_report)
+    public function generateEmailEventsReportAsync($generate_email_events_report, string $contentType = self::contentTypes['generateEmailEventsReport'][0])
     {
-        return $this->generateEmailEventsReportAsyncWithHttpInfo($generate_email_events_report)
+        return $this->generateEmailEventsReportAsyncWithHttpInfo($generate_email_events_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1682,24 +1874,27 @@ class AdvancedReportsApi
      * Generate email events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailEventsReport $generate_email_events_report Parameters for the email events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailEventsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailEventsReportAsyncWithHttpInfo($generate_email_events_report)
+    public function generateEmailEventsReportAsyncWithHttpInfo($generate_email_events_report, string $contentType = self::contentTypes['generateEmailEventsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateEmailEventsReportRequest($generate_email_events_report);
+        $request = $this->generateEmailEventsReportRequest($generate_email_events_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1719,7 +1914,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1729,18 +1924,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateEmailEventsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailEventsReport $generate_email_events_report Parameters for the email events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailEventsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateEmailEventsReportRequest($generate_email_events_report)
+    public function generateEmailEventsReportRequest($generate_email_events_report, string $contentType = self::contentTypes['generateEmailEventsReport'][0])
     {
+
         // verify the required parameter 'generate_email_events_report' is set
         if ($generate_email_events_report === null || (is_array($generate_email_events_report) && count($generate_email_events_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_email_events_report when calling generateEmailEventsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/email-events';
         $formParams = [];
@@ -1751,49 +1949,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_email_events_report)) {
-            $_tempBody = $generate_email_events_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_email_events_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_email_events_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_email_events_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1814,10 +2006,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1829,14 +2022,15 @@ class AdvancedReportsApi
      * Generate SMS bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsBouncesReport $generate_sms_bounces_report Parameters for the SMS bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailSmsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateEmailSmsReport($generate_sms_bounces_report)
+    public function generateEmailSmsReport($generate_sms_bounces_report, string $contentType = self::contentTypes['generateEmailSmsReport'][0])
     {
-        list($response) = $this->generateEmailSmsReportWithHttpInfo($generate_sms_bounces_report);
+        list($response) = $this->generateEmailSmsReportWithHttpInfo($generate_sms_bounces_report, $contentType);
         return $response;
     }
 
@@ -1846,14 +2040,15 @@ class AdvancedReportsApi
      * Generate SMS bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsBouncesReport $generate_sms_bounces_report Parameters for the SMS bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailSmsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateEmailSmsReportWithHttpInfo($generate_sms_bounces_report)
+    public function generateEmailSmsReportWithHttpInfo($generate_sms_bounces_report, string $contentType = self::contentTypes['generateEmailSmsReport'][0])
     {
-        $request = $this->generateEmailSmsReportRequest($generate_sms_bounces_report);
+        $request = $this->generateEmailSmsReportRequest($generate_sms_bounces_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1862,9 +2057,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1875,21 +2077,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1899,9 +2103,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1911,9 +2118,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1923,9 +2133,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1935,9 +2148,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1947,9 +2163,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1959,9 +2178,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1971,9 +2193,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1983,9 +2208,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1996,11 +2224,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2094,13 +2324,14 @@ class AdvancedReportsApi
      * Generate SMS bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsBouncesReport $generate_sms_bounces_report Parameters for the SMS bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailSmsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailSmsReportAsync($generate_sms_bounces_report)
+    public function generateEmailSmsReportAsync($generate_sms_bounces_report, string $contentType = self::contentTypes['generateEmailSmsReport'][0])
     {
-        return $this->generateEmailSmsReportAsyncWithHttpInfo($generate_sms_bounces_report)
+        return $this->generateEmailSmsReportAsyncWithHttpInfo($generate_sms_bounces_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2114,24 +2345,27 @@ class AdvancedReportsApi
      * Generate SMS bounces report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsBouncesReport $generate_sms_bounces_report Parameters for the SMS bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailSmsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailSmsReportAsyncWithHttpInfo($generate_sms_bounces_report)
+    public function generateEmailSmsReportAsyncWithHttpInfo($generate_sms_bounces_report, string $contentType = self::contentTypes['generateEmailSmsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateEmailSmsReportRequest($generate_sms_bounces_report);
+        $request = $this->generateEmailSmsReportRequest($generate_sms_bounces_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2151,7 +2385,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2161,18 +2395,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateEmailSmsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsBouncesReport $generate_sms_bounces_report Parameters for the SMS bounces report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailSmsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateEmailSmsReportRequest($generate_sms_bounces_report)
+    public function generateEmailSmsReportRequest($generate_sms_bounces_report, string $contentType = self::contentTypes['generateEmailSmsReport'][0])
     {
+
         // verify the required parameter 'generate_sms_bounces_report' is set
         if ($generate_sms_bounces_report === null || (is_array($generate_sms_bounces_report) && count($generate_sms_bounces_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_sms_bounces_report when calling generateEmailSmsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/sms-bounces';
         $formParams = [];
@@ -2183,49 +2420,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_sms_bounces_report)) {
-            $_tempBody = $generate_sms_bounces_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_sms_bounces_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_sms_bounces_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_sms_bounces_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2246,10 +2477,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2261,14 +2493,15 @@ class AdvancedReportsApi
      * Generate email unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport $generate_email_unsubscriptions_report Parameters for the email unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateEmailUnsubscriptionsReport($generate_email_unsubscriptions_report)
+    public function generateEmailUnsubscriptionsReport($generate_email_unsubscriptions_report, string $contentType = self::contentTypes['generateEmailUnsubscriptionsReport'][0])
     {
-        list($response) = $this->generateEmailUnsubscriptionsReportWithHttpInfo($generate_email_unsubscriptions_report);
+        list($response) = $this->generateEmailUnsubscriptionsReportWithHttpInfo($generate_email_unsubscriptions_report, $contentType);
         return $response;
     }
 
@@ -2278,14 +2511,15 @@ class AdvancedReportsApi
      * Generate email unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport $generate_email_unsubscriptions_report Parameters for the email unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateEmailUnsubscriptionsReportWithHttpInfo($generate_email_unsubscriptions_report)
+    public function generateEmailUnsubscriptionsReportWithHttpInfo($generate_email_unsubscriptions_report, string $contentType = self::contentTypes['generateEmailUnsubscriptionsReport'][0])
     {
-        $request = $this->generateEmailUnsubscriptionsReportRequest($generate_email_unsubscriptions_report);
+        $request = $this->generateEmailUnsubscriptionsReportRequest($generate_email_unsubscriptions_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2294,9 +2528,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2307,21 +2548,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2331,9 +2574,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2343,9 +2589,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2355,9 +2604,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2367,9 +2619,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2379,9 +2634,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2391,9 +2649,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2403,9 +2664,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2415,9 +2679,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2428,11 +2695,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2526,13 +2795,14 @@ class AdvancedReportsApi
      * Generate email unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport $generate_email_unsubscriptions_report Parameters for the email unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailUnsubscriptionsReportAsync($generate_email_unsubscriptions_report)
+    public function generateEmailUnsubscriptionsReportAsync($generate_email_unsubscriptions_report, string $contentType = self::contentTypes['generateEmailUnsubscriptionsReport'][0])
     {
-        return $this->generateEmailUnsubscriptionsReportAsyncWithHttpInfo($generate_email_unsubscriptions_report)
+        return $this->generateEmailUnsubscriptionsReportAsyncWithHttpInfo($generate_email_unsubscriptions_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2546,24 +2816,27 @@ class AdvancedReportsApi
      * Generate email unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport $generate_email_unsubscriptions_report Parameters for the email unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateEmailUnsubscriptionsReportAsyncWithHttpInfo($generate_email_unsubscriptions_report)
+    public function generateEmailUnsubscriptionsReportAsyncWithHttpInfo($generate_email_unsubscriptions_report, string $contentType = self::contentTypes['generateEmailUnsubscriptionsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateEmailUnsubscriptionsReportRequest($generate_email_unsubscriptions_report);
+        $request = $this->generateEmailUnsubscriptionsReportRequest($generate_email_unsubscriptions_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2583,7 +2856,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2593,18 +2866,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateEmailUnsubscriptionsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport $generate_email_unsubscriptions_report Parameters for the email unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateEmailUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateEmailUnsubscriptionsReportRequest($generate_email_unsubscriptions_report)
+    public function generateEmailUnsubscriptionsReportRequest($generate_email_unsubscriptions_report, string $contentType = self::contentTypes['generateEmailUnsubscriptionsReport'][0])
     {
+
         // verify the required parameter 'generate_email_unsubscriptions_report' is set
         if ($generate_email_unsubscriptions_report === null || (is_array($generate_email_unsubscriptions_report) && count($generate_email_unsubscriptions_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_email_unsubscriptions_report when calling generateEmailUnsubscriptionsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/email-unsubscriptions';
         $formParams = [];
@@ -2615,49 +2891,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_email_unsubscriptions_report)) {
-            $_tempBody = $generate_email_unsubscriptions_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_email_unsubscriptions_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_email_unsubscriptions_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_email_unsubscriptions_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2678,10 +2948,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2693,14 +2964,15 @@ class AdvancedReportsApi
      * Generate form answers report
      *
      * @param  \EgoiClient\EgoiModel\GenerateFormAnswersReport $generate_form_answers_report Parameters for the form answers report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateFormAnswersReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateFormAnswersReport($generate_form_answers_report)
+    public function generateFormAnswersReport($generate_form_answers_report, string $contentType = self::contentTypes['generateFormAnswersReport'][0])
     {
-        list($response) = $this->generateFormAnswersReportWithHttpInfo($generate_form_answers_report);
+        list($response) = $this->generateFormAnswersReportWithHttpInfo($generate_form_answers_report, $contentType);
         return $response;
     }
 
@@ -2710,14 +2982,15 @@ class AdvancedReportsApi
      * Generate form answers report
      *
      * @param  \EgoiClient\EgoiModel\GenerateFormAnswersReport $generate_form_answers_report Parameters for the form answers report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateFormAnswersReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateFormAnswersReportWithHttpInfo($generate_form_answers_report)
+    public function generateFormAnswersReportWithHttpInfo($generate_form_answers_report, string $contentType = self::contentTypes['generateFormAnswersReport'][0])
     {
-        $request = $this->generateFormAnswersReportRequest($generate_form_answers_report);
+        $request = $this->generateFormAnswersReportRequest($generate_form_answers_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2726,9 +2999,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2739,21 +3019,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2763,9 +3045,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2775,9 +3060,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2787,9 +3075,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2799,9 +3090,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2811,9 +3105,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2823,9 +3120,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2835,9 +3135,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2847,9 +3150,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2860,11 +3166,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2958,13 +3266,14 @@ class AdvancedReportsApi
      * Generate form answers report
      *
      * @param  \EgoiClient\EgoiModel\GenerateFormAnswersReport $generate_form_answers_report Parameters for the form answers report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateFormAnswersReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateFormAnswersReportAsync($generate_form_answers_report)
+    public function generateFormAnswersReportAsync($generate_form_answers_report, string $contentType = self::contentTypes['generateFormAnswersReport'][0])
     {
-        return $this->generateFormAnswersReportAsyncWithHttpInfo($generate_form_answers_report)
+        return $this->generateFormAnswersReportAsyncWithHttpInfo($generate_form_answers_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2978,24 +3287,27 @@ class AdvancedReportsApi
      * Generate form answers report
      *
      * @param  \EgoiClient\EgoiModel\GenerateFormAnswersReport $generate_form_answers_report Parameters for the form answers report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateFormAnswersReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateFormAnswersReportAsyncWithHttpInfo($generate_form_answers_report)
+    public function generateFormAnswersReportAsyncWithHttpInfo($generate_form_answers_report, string $contentType = self::contentTypes['generateFormAnswersReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateFormAnswersReportRequest($generate_form_answers_report);
+        $request = $this->generateFormAnswersReportRequest($generate_form_answers_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3015,7 +3327,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3025,18 +3337,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateFormAnswersReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateFormAnswersReport $generate_form_answers_report Parameters for the form answers report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateFormAnswersReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateFormAnswersReportRequest($generate_form_answers_report)
+    public function generateFormAnswersReportRequest($generate_form_answers_report, string $contentType = self::contentTypes['generateFormAnswersReport'][0])
     {
+
         // verify the required parameter 'generate_form_answers_report' is set
         if ($generate_form_answers_report === null || (is_array($generate_form_answers_report) && count($generate_form_answers_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_form_answers_report when calling generateFormAnswersReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/form-answers';
         $formParams = [];
@@ -3047,49 +3362,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_form_answers_report)) {
-            $_tempBody = $generate_form_answers_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_form_answers_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_form_answers_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_form_answers_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3110,10 +3419,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3125,14 +3435,15 @@ class AdvancedReportsApi
      * Generate sends report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSendsReport $generate_sends_report Parameters for the sends report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSendsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateSendsReport($generate_sends_report)
+    public function generateSendsReport($generate_sends_report, string $contentType = self::contentTypes['generateSendsReport'][0])
     {
-        list($response) = $this->generateSendsReportWithHttpInfo($generate_sends_report);
+        list($response) = $this->generateSendsReportWithHttpInfo($generate_sends_report, $contentType);
         return $response;
     }
 
@@ -3142,14 +3453,15 @@ class AdvancedReportsApi
      * Generate sends report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSendsReport $generate_sends_report Parameters for the sends report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSendsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateSendsReportWithHttpInfo($generate_sends_report)
+    public function generateSendsReportWithHttpInfo($generate_sends_report, string $contentType = self::contentTypes['generateSendsReport'][0])
     {
-        $request = $this->generateSendsReportRequest($generate_sends_report);
+        $request = $this->generateSendsReportRequest($generate_sends_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3158,9 +3470,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3171,21 +3490,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3195,9 +3516,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3207,9 +3531,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3219,9 +3546,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3231,9 +3561,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3243,9 +3576,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3255,9 +3591,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3267,9 +3606,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3279,9 +3621,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3292,11 +3637,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -3390,13 +3737,14 @@ class AdvancedReportsApi
      * Generate sends report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSendsReport $generate_sends_report Parameters for the sends report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSendsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSendsReportAsync($generate_sends_report)
+    public function generateSendsReportAsync($generate_sends_report, string $contentType = self::contentTypes['generateSendsReport'][0])
     {
-        return $this->generateSendsReportAsyncWithHttpInfo($generate_sends_report)
+        return $this->generateSendsReportAsyncWithHttpInfo($generate_sends_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3410,24 +3758,27 @@ class AdvancedReportsApi
      * Generate sends report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSendsReport $generate_sends_report Parameters for the sends report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSendsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSendsReportAsyncWithHttpInfo($generate_sends_report)
+    public function generateSendsReportAsyncWithHttpInfo($generate_sends_report, string $contentType = self::contentTypes['generateSendsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateSendsReportRequest($generate_sends_report);
+        $request = $this->generateSendsReportRequest($generate_sends_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3447,7 +3798,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3457,18 +3808,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateSendsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateSendsReport $generate_sends_report Parameters for the sends report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSendsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateSendsReportRequest($generate_sends_report)
+    public function generateSendsReportRequest($generate_sends_report, string $contentType = self::contentTypes['generateSendsReport'][0])
     {
+
         // verify the required parameter 'generate_sends_report' is set
         if ($generate_sends_report === null || (is_array($generate_sends_report) && count($generate_sends_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_sends_report when calling generateSendsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/sends';
         $formParams = [];
@@ -3479,49 +3833,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_sends_report)) {
-            $_tempBody = $generate_sends_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_sends_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_sends_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_sends_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3542,10 +3890,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3557,14 +3906,15 @@ class AdvancedReportsApi
      * Generate SMS events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsEventsReport $generate_sms_events_report Parameters for the SMS events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSmsEventsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateSmsEventsReport($generate_sms_events_report)
+    public function generateSmsEventsReport($generate_sms_events_report, string $contentType = self::contentTypes['generateSmsEventsReport'][0])
     {
-        list($response) = $this->generateSmsEventsReportWithHttpInfo($generate_sms_events_report);
+        list($response) = $this->generateSmsEventsReportWithHttpInfo($generate_sms_events_report, $contentType);
         return $response;
     }
 
@@ -3574,14 +3924,15 @@ class AdvancedReportsApi
      * Generate SMS events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsEventsReport $generate_sms_events_report Parameters for the SMS events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSmsEventsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateSmsEventsReportWithHttpInfo($generate_sms_events_report)
+    public function generateSmsEventsReportWithHttpInfo($generate_sms_events_report, string $contentType = self::contentTypes['generateSmsEventsReport'][0])
     {
-        $request = $this->generateSmsEventsReportRequest($generate_sms_events_report);
+        $request = $this->generateSmsEventsReportRequest($generate_sms_events_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3590,9 +3941,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3603,21 +3961,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3627,9 +3987,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3639,9 +4002,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3651,9 +4017,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3663,9 +4032,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3675,9 +4047,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3687,9 +4062,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3699,9 +4077,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3711,9 +4092,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3724,11 +4108,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -3822,13 +4208,14 @@ class AdvancedReportsApi
      * Generate SMS events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsEventsReport $generate_sms_events_report Parameters for the SMS events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSmsEventsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSmsEventsReportAsync($generate_sms_events_report)
+    public function generateSmsEventsReportAsync($generate_sms_events_report, string $contentType = self::contentTypes['generateSmsEventsReport'][0])
     {
-        return $this->generateSmsEventsReportAsyncWithHttpInfo($generate_sms_events_report)
+        return $this->generateSmsEventsReportAsyncWithHttpInfo($generate_sms_events_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3842,24 +4229,27 @@ class AdvancedReportsApi
      * Generate SMS events report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsEventsReport $generate_sms_events_report Parameters for the SMS events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSmsEventsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSmsEventsReportAsyncWithHttpInfo($generate_sms_events_report)
+    public function generateSmsEventsReportAsyncWithHttpInfo($generate_sms_events_report, string $contentType = self::contentTypes['generateSmsEventsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateSmsEventsReportRequest($generate_sms_events_report);
+        $request = $this->generateSmsEventsReportRequest($generate_sms_events_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3879,7 +4269,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3889,18 +4279,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateSmsEventsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateSmsEventsReport $generate_sms_events_report Parameters for the SMS events report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSmsEventsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateSmsEventsReportRequest($generate_sms_events_report)
+    public function generateSmsEventsReportRequest($generate_sms_events_report, string $contentType = self::contentTypes['generateSmsEventsReport'][0])
     {
+
         // verify the required parameter 'generate_sms_events_report' is set
         if ($generate_sms_events_report === null || (is_array($generate_sms_events_report) && count($generate_sms_events_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_sms_events_report when calling generateSmsEventsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/sms-events';
         $formParams = [];
@@ -3911,49 +4304,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_sms_events_report)) {
-            $_tempBody = $generate_sms_events_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_sms_events_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_sms_events_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_sms_events_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3974,10 +4361,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3989,14 +4377,15 @@ class AdvancedReportsApi
      * Generate subscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSubscriptionsReport $generate_subscriptions_report Parameters for the subscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateSubscriptionsReport($generate_subscriptions_report)
+    public function generateSubscriptionsReport($generate_subscriptions_report, string $contentType = self::contentTypes['generateSubscriptionsReport'][0])
     {
-        list($response) = $this->generateSubscriptionsReportWithHttpInfo($generate_subscriptions_report);
+        list($response) = $this->generateSubscriptionsReportWithHttpInfo($generate_subscriptions_report, $contentType);
         return $response;
     }
 
@@ -4006,14 +4395,15 @@ class AdvancedReportsApi
      * Generate subscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSubscriptionsReport $generate_subscriptions_report Parameters for the subscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateSubscriptionsReportWithHttpInfo($generate_subscriptions_report)
+    public function generateSubscriptionsReportWithHttpInfo($generate_subscriptions_report, string $contentType = self::contentTypes['generateSubscriptionsReport'][0])
     {
-        $request = $this->generateSubscriptionsReportRequest($generate_subscriptions_report);
+        $request = $this->generateSubscriptionsReportRequest($generate_subscriptions_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4022,9 +4412,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -4035,21 +4432,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4059,9 +4458,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4071,9 +4473,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4083,9 +4488,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4095,9 +4503,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4107,9 +4518,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4119,9 +4533,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4131,9 +4548,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4143,9 +4563,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4156,11 +4579,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -4254,13 +4679,14 @@ class AdvancedReportsApi
      * Generate subscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSubscriptionsReport $generate_subscriptions_report Parameters for the subscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSubscriptionsReportAsync($generate_subscriptions_report)
+    public function generateSubscriptionsReportAsync($generate_subscriptions_report, string $contentType = self::contentTypes['generateSubscriptionsReport'][0])
     {
-        return $this->generateSubscriptionsReportAsyncWithHttpInfo($generate_subscriptions_report)
+        return $this->generateSubscriptionsReportAsyncWithHttpInfo($generate_subscriptions_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4274,24 +4700,27 @@ class AdvancedReportsApi
      * Generate subscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateSubscriptionsReport $generate_subscriptions_report Parameters for the subscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSubscriptionsReportAsyncWithHttpInfo($generate_subscriptions_report)
+    public function generateSubscriptionsReportAsyncWithHttpInfo($generate_subscriptions_report, string $contentType = self::contentTypes['generateSubscriptionsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateSubscriptionsReportRequest($generate_subscriptions_report);
+        $request = $this->generateSubscriptionsReportRequest($generate_subscriptions_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4311,7 +4740,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -4321,18 +4750,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateSubscriptionsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateSubscriptionsReport $generate_subscriptions_report Parameters for the subscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateSubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateSubscriptionsReportRequest($generate_subscriptions_report)
+    public function generateSubscriptionsReportRequest($generate_subscriptions_report, string $contentType = self::contentTypes['generateSubscriptionsReport'][0])
     {
+
         // verify the required parameter 'generate_subscriptions_report' is set
         if ($generate_subscriptions_report === null || (is_array($generate_subscriptions_report) && count($generate_subscriptions_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_subscriptions_report when calling generateSubscriptionsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/subscriptions';
         $formParams = [];
@@ -4343,49 +4775,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_subscriptions_report)) {
-            $_tempBody = $generate_subscriptions_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_subscriptions_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_subscriptions_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_subscriptions_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -4406,10 +4832,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -4421,14 +4848,15 @@ class AdvancedReportsApi
      * Generate unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateUnsubscriptionsReport $generate_unsubscriptions_report Parameters for the unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function generateUnsubscriptionsReport($generate_unsubscriptions_report)
+    public function generateUnsubscriptionsReport($generate_unsubscriptions_report, string $contentType = self::contentTypes['generateUnsubscriptionsReport'][0])
     {
-        list($response) = $this->generateUnsubscriptionsReportWithHttpInfo($generate_unsubscriptions_report);
+        list($response) = $this->generateUnsubscriptionsReportWithHttpInfo($generate_unsubscriptions_report, $contentType);
         return $response;
     }
 
@@ -4438,14 +4866,15 @@ class AdvancedReportsApi
      * Generate unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateUnsubscriptionsReport $generate_unsubscriptions_report Parameters for the unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateUnsubscriptionsReportWithHttpInfo($generate_unsubscriptions_report)
+    public function generateUnsubscriptionsReportWithHttpInfo($generate_unsubscriptions_report, string $contentType = self::contentTypes['generateUnsubscriptionsReport'][0])
     {
-        $request = $this->generateUnsubscriptionsReportRequest($generate_unsubscriptions_report);
+        $request = $this->generateUnsubscriptionsReportRequest($generate_unsubscriptions_report, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4454,9 +4883,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -4467,21 +4903,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4491,9 +4929,12 @@ class AdvancedReportsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4503,9 +4944,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4515,9 +4959,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4527,9 +4974,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4539,9 +4989,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4551,9 +5004,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4563,9 +5019,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4575,9 +5034,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4588,11 +5050,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -4686,13 +5150,14 @@ class AdvancedReportsApi
      * Generate unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateUnsubscriptionsReport $generate_unsubscriptions_report Parameters for the unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateUnsubscriptionsReportAsync($generate_unsubscriptions_report)
+    public function generateUnsubscriptionsReportAsync($generate_unsubscriptions_report, string $contentType = self::contentTypes['generateUnsubscriptionsReport'][0])
     {
-        return $this->generateUnsubscriptionsReportAsyncWithHttpInfo($generate_unsubscriptions_report)
+        return $this->generateUnsubscriptionsReportAsyncWithHttpInfo($generate_unsubscriptions_report, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4706,24 +5171,27 @@ class AdvancedReportsApi
      * Generate unsubscriptions report
      *
      * @param  \EgoiClient\EgoiModel\GenerateUnsubscriptionsReport $generate_unsubscriptions_report Parameters for the unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateUnsubscriptionsReportAsyncWithHttpInfo($generate_unsubscriptions_report)
+    public function generateUnsubscriptionsReportAsyncWithHttpInfo($generate_unsubscriptions_report, string $contentType = self::contentTypes['generateUnsubscriptionsReport'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->generateUnsubscriptionsReportRequest($generate_unsubscriptions_report);
+        $request = $this->generateUnsubscriptionsReportRequest($generate_unsubscriptions_report, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4743,7 +5211,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -4753,18 +5221,21 @@ class AdvancedReportsApi
      * Create request for operation 'generateUnsubscriptionsReport'
      *
      * @param  \EgoiClient\EgoiModel\GenerateUnsubscriptionsReport $generate_unsubscriptions_report Parameters for the unsubscriptions report (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateUnsubscriptionsReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateUnsubscriptionsReportRequest($generate_unsubscriptions_report)
+    public function generateUnsubscriptionsReportRequest($generate_unsubscriptions_report, string $contentType = self::contentTypes['generateUnsubscriptionsReport'][0])
     {
+
         // verify the required parameter 'generate_unsubscriptions_report' is set
         if ($generate_unsubscriptions_report === null || (is_array($generate_unsubscriptions_report) && count($generate_unsubscriptions_report) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $generate_unsubscriptions_report when calling generateUnsubscriptionsReport'
             );
         }
+
 
         $resourcePath = '/reports/advanced/unsubscriptions';
         $formParams = [];
@@ -4775,49 +5246,43 @@ class AdvancedReportsApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($generate_unsubscriptions_report)) {
-            $_tempBody = $generate_unsubscriptions_report;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($generate_unsubscriptions_report)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($generate_unsubscriptions_report));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $generate_unsubscriptions_report;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -4838,10 +5303,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -4860,14 +5326,15 @@ class AdvancedReportsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  string $order Type of order (optional, default to 'desc')
      * @param  string $order_by Reference attribute to order the advanced reports (optional, default to 'advanced_report_id')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllAdvancedReports'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AdvancedReportsCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllAdvancedReports($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id')
+    public function getAllAdvancedReports($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id', string $contentType = self::contentTypes['getAllAdvancedReports'][0])
     {
-        list($response) = $this->getAllAdvancedReportsWithHttpInfo($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by);
+        list($response) = $this->getAllAdvancedReportsWithHttpInfo($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by, $contentType);
         return $response;
     }
 
@@ -4884,14 +5351,15 @@ class AdvancedReportsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  string $order Type of order (optional, default to 'desc')
      * @param  string $order_by Reference attribute to order the advanced reports (optional, default to 'advanced_report_id')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllAdvancedReports'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AdvancedReportsCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllAdvancedReportsWithHttpInfo($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id')
+    public function getAllAdvancedReportsWithHttpInfo($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id', string $contentType = self::contentTypes['getAllAdvancedReports'][0])
     {
-        $request = $this->getAllAdvancedReportsRequest($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by);
+        $request = $this->getAllAdvancedReportsRequest($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4900,9 +5368,16 @@ class AdvancedReportsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -4913,21 +5388,23 @@ class AdvancedReportsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\AdvancedReportsCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AdvancedReportsCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4937,9 +5414,12 @@ class AdvancedReportsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4949,9 +5429,12 @@ class AdvancedReportsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4961,9 +5444,12 @@ class AdvancedReportsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4973,9 +5459,12 @@ class AdvancedReportsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4985,9 +5474,12 @@ class AdvancedReportsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -4997,9 +5489,12 @@ class AdvancedReportsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5009,9 +5504,12 @@ class AdvancedReportsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5022,11 +5520,13 @@ class AdvancedReportsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AdvancedReportsCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -5119,13 +5619,14 @@ class AdvancedReportsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  string $order Type of order (optional, default to 'desc')
      * @param  string $order_by Reference attribute to order the advanced reports (optional, default to 'advanced_report_id')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllAdvancedReports'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllAdvancedReportsAsync($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id')
+    public function getAllAdvancedReportsAsync($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id', string $contentType = self::contentTypes['getAllAdvancedReports'][0])
     {
-        return $this->getAllAdvancedReportsAsyncWithHttpInfo($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by)
+        return $this->getAllAdvancedReportsAsyncWithHttpInfo($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5146,24 +5647,27 @@ class AdvancedReportsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  string $order Type of order (optional, default to 'desc')
      * @param  string $order_by Reference attribute to order the advanced reports (optional, default to 'advanced_report_id')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllAdvancedReports'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllAdvancedReportsAsyncWithHttpInfo($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id')
+    public function getAllAdvancedReportsAsyncWithHttpInfo($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id', string $contentType = self::contentTypes['getAllAdvancedReports'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AdvancedReportsCollection';
-        $request = $this->getAllAdvancedReportsRequest($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by);
+        $request = $this->getAllAdvancedReportsRequest($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -5183,7 +5687,7 @@ class AdvancedReportsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -5200,22 +5704,30 @@ class AdvancedReportsApi
      * @param  int $limit Number of items to return (optional, default to 10)
      * @param  string $order Type of order (optional, default to 'desc')
      * @param  string $order_by Reference attribute to order the advanced reports (optional, default to 'advanced_report_id')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllAdvancedReports'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllAdvancedReportsRequest($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id')
+    public function getAllAdvancedReportsRequest($status = null, $title = null, $created_min = null, $created_max = null, $offset = null, $limit = 10, $order = 'desc', $order_by = 'advanced_report_id', string $contentType = self::contentTypes['getAllAdvancedReports'][0])
     {
+
+
+
+
+
         if ($offset !== null && $offset < 0) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling AdvancedReportsApi.getAllAdvancedReports, must be bigger than or equal to 0.');
         }
-
+        
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling AdvancedReportsApi.getAllAdvancedReports, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling AdvancedReportsApi.getAllAdvancedReports, must be bigger than or equal to 1.');
         }
+        
+
 
 
         $resourcePath = '/reports/advanced';
@@ -5226,79 +5738,109 @@ class AdvancedReportsApi
         $multipart = false;
 
         // query params
-        if ($status !== null) {
-            $queryParams['status'] = ObjectSerializer::toQueryValue($status);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($title !== null) {
-            $queryParams['title'] = ObjectSerializer::toQueryValue($title);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $title,
+            'title', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($created_min !== null) {
-            $queryParams['created_min'] = ObjectSerializer::toQueryValue($created_min);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_min,
+            'created_min', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($created_max !== null) {
-            $queryParams['created_max'] = ObjectSerializer::toQueryValue($created_max);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_max,
+            'created_max', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order,
+            'order', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($order_by !== null) {
-            $queryParams['order_by'] = ObjectSerializer::toQueryValue($order_by);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order_by,
+            'order_by', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -5319,10 +5861,11 @@ class AdvancedReportsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

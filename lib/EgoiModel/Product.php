@@ -2,7 +2,7 @@
 /**
  * Product
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class Product implements ModelInterface, ArrayAccess
+class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -58,6 +58,9 @@ class Product implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'categories' => 'string[]',
+        'related_products' => 'string[]',
+        'custom_attributes' => '\EgoiClient\EgoiModel\ProductCustomAttributes[]',
         'product_identifier' => 'string',
         'catalog_id' => 'int',
         'name' => 'string',
@@ -69,20 +72,22 @@ class Product implements ModelInterface, ArrayAccess
         'mpn' => 'string',
         'link' => 'string',
         'image_link' => 'string',
-        'price' => 'double',
-        'sale_price' => 'double',
-        'brand' => 'string',
-        'categories' => 'string[]',
-        'related_products' => 'string[]',
-        'custom_attributes' => '\EgoiClient\EgoiModel\ProductCustomAttributes[]'
+        'price' => 'float',
+        'sale_price' => 'float',
+        'brand' => 'string'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'categories' => null,
+        'related_products' => null,
+        'custom_attributes' => null,
         'product_identifier' => null,
         'catalog_id' => null,
         'name' => null,
@@ -96,11 +101,40 @@ class Product implements ModelInterface, ArrayAccess
         'image_link' => null,
         'price' => 'double',
         'sale_price' => 'double',
-        'brand' => null,
-        'categories' => null,
-        'related_products' => null,
-        'custom_attributes' => null
+        'brand' => null
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'categories' => false,
+		'related_products' => false,
+		'custom_attributes' => false,
+		'product_identifier' => false,
+		'catalog_id' => false,
+		'name' => false,
+		'description' => false,
+		'sku' => false,
+		'upc' => false,
+		'ean' => false,
+		'gtin' => false,
+		'mpn' => false,
+		'link' => false,
+		'image_link' => false,
+		'price' => false,
+		'sale_price' => false,
+		'brand' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -123,12 +157,67 @@ class Product implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
      * @var string[]
      */
     protected static $attributeMap = [
+        'categories' => 'categories',
+        'related_products' => 'related_products',
+        'custom_attributes' => 'custom_attributes',
         'product_identifier' => 'product_identifier',
         'catalog_id' => 'catalog_id',
         'name' => 'name',
@@ -142,10 +231,7 @@ class Product implements ModelInterface, ArrayAccess
         'image_link' => 'image_link',
         'price' => 'price',
         'sale_price' => 'sale_price',
-        'brand' => 'brand',
-        'categories' => 'categories',
-        'related_products' => 'related_products',
-        'custom_attributes' => 'custom_attributes'
+        'brand' => 'brand'
     ];
 
     /**
@@ -154,6 +240,9 @@ class Product implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'categories' => 'setCategories',
+        'related_products' => 'setRelatedProducts',
+        'custom_attributes' => 'setCustomAttributes',
         'product_identifier' => 'setProductIdentifier',
         'catalog_id' => 'setCatalogId',
         'name' => 'setName',
@@ -167,10 +256,7 @@ class Product implements ModelInterface, ArrayAccess
         'image_link' => 'setImageLink',
         'price' => 'setPrice',
         'sale_price' => 'setSalePrice',
-        'brand' => 'setBrand',
-        'categories' => 'setCategories',
-        'related_products' => 'setRelatedProducts',
-        'custom_attributes' => 'setCustomAttributes'
+        'brand' => 'setBrand'
     ];
 
     /**
@@ -179,6 +265,9 @@ class Product implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'categories' => 'getCategories',
+        'related_products' => 'getRelatedProducts',
+        'custom_attributes' => 'getCustomAttributes',
         'product_identifier' => 'getProductIdentifier',
         'catalog_id' => 'getCatalogId',
         'name' => 'getName',
@@ -192,10 +281,7 @@ class Product implements ModelInterface, ArrayAccess
         'image_link' => 'getImageLink',
         'price' => 'getPrice',
         'sale_price' => 'getSalePrice',
-        'brand' => 'getBrand',
-        'categories' => 'getCategories',
-        'related_products' => 'getRelatedProducts',
-        'custom_attributes' => 'getCustomAttributes'
+        'brand' => 'getBrand'
     ];
 
     /**
@@ -239,9 +325,6 @@ class Product implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -258,23 +341,41 @@ class Product implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_identifier'] = isset($data['product_identifier']) ? $data['product_identifier'] : null;
-        $this->container['catalog_id'] = isset($data['catalog_id']) ? $data['catalog_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['upc'] = isset($data['upc']) ? $data['upc'] : null;
-        $this->container['ean'] = isset($data['ean']) ? $data['ean'] : null;
-        $this->container['gtin'] = isset($data['gtin']) ? $data['gtin'] : null;
-        $this->container['mpn'] = isset($data['mpn']) ? $data['mpn'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
-        $this->container['image_link'] = isset($data['image_link']) ? $data['image_link'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : 0;
-        $this->container['sale_price'] = isset($data['sale_price']) ? $data['sale_price'] : 0;
-        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
-        $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
-        $this->container['related_products'] = isset($data['related_products']) ? $data['related_products'] : null;
-        $this->container['custom_attributes'] = isset($data['custom_attributes']) ? $data['custom_attributes'] : null;
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('related_products', $data ?? [], null);
+        $this->setIfExists('custom_attributes', $data ?? [], null);
+        $this->setIfExists('product_identifier', $data ?? [], null);
+        $this->setIfExists('catalog_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('sku', $data ?? [], null);
+        $this->setIfExists('upc', $data ?? [], null);
+        $this->setIfExists('ean', $data ?? [], null);
+        $this->setIfExists('gtin', $data ?? [], null);
+        $this->setIfExists('mpn', $data ?? [], null);
+        $this->setIfExists('link', $data ?? [], null);
+        $this->setIfExists('image_link', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], 0);
+        $this->setIfExists('sale_price', $data ?? [], 0);
+        $this->setIfExists('brand', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -285,6 +386,10 @@ class Product implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['product_identifier']) && !preg_match("/[a-zA-Z0-9\\_\\-.]/", $this->container['product_identifier'])) {
+            $invalidProperties[] = "invalid value for 'product_identifier', must be conform to the pattern /[a-zA-Z0-9\\_\\-.]/.";
+        }
 
         if (!is_null($this->container['catalog_id']) && ($this->container['catalog_id'] < 1)) {
             $invalidProperties[] = "invalid value for 'catalog_id', must be bigger than or equal to 1.";
@@ -306,6 +411,93 @@ class Product implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets categories
+     *
+     * @return string[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param string[]|null $categories Array of product categories, using the character '>' as delimiter for the breadcrumb                                 syntax
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+
+        if (is_null($categories)) {
+            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+        }
+
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets related_products
+     *
+     * @return string[]|null
+     */
+    public function getRelatedProducts()
+    {
+        return $this->container['related_products'];
+    }
+
+    /**
+     * Sets related_products
+     *
+     * @param string[]|null $related_products Related products
+     *
+     * @return self
+     */
+    public function setRelatedProducts($related_products)
+    {
+
+        if (is_null($related_products)) {
+            throw new \InvalidArgumentException('non-nullable related_products cannot be null');
+        }
+
+        $this->container['related_products'] = $related_products;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_attributes
+     *
+     * @return \EgoiClient\EgoiModel\ProductCustomAttributes[]|null
+     */
+    public function getCustomAttributes()
+    {
+        return $this->container['custom_attributes'];
+    }
+
+    /**
+     * Sets custom_attributes
+     *
+     * @param \EgoiClient\EgoiModel\ProductCustomAttributes[]|null $custom_attributes Custom attributes
+     *
+     * @return self
+     */
+    public function setCustomAttributes($custom_attributes)
+    {
+
+        if (is_null($custom_attributes)) {
+            throw new \InvalidArgumentException('non-nullable custom_attributes cannot be null');
+        }
+
+        $this->container['custom_attributes'] = $custom_attributes;
+
+        return $this;
+    }
+
+    /**
      * Gets product_identifier
      *
      * @return string|null
@@ -320,10 +512,20 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $product_identifier The ID of the product in your store
      *
-     * @return $this
+     * @return self
      */
     public function setProductIdentifier($product_identifier)
     {
+
+        if (!is_null($product_identifier) && (!preg_match("/[a-zA-Z0-9\\_\\-.]/", $product_identifier))) {
+            throw new \InvalidArgumentException("invalid value for \$product_identifier when calling Product., must conform to the pattern /[a-zA-Z0-9\\_\\-.]/.");
+        }
+
+
+        if (is_null($product_identifier)) {
+            throw new \InvalidArgumentException('non-nullable product_identifier cannot be null');
+        }
+
         $this->container['product_identifier'] = $product_identifier;
 
         return $this;
@@ -344,13 +546,18 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param int|null $catalog_id catalog_id
      *
-     * @return $this
+     * @return self
      */
     public function setCatalogId($catalog_id)
     {
 
         if (!is_null($catalog_id) && ($catalog_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $catalog_id when calling Product., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($catalog_id)) {
+            throw new \InvalidArgumentException('non-nullable catalog_id cannot be null');
         }
 
         $this->container['catalog_id'] = $catalog_id;
@@ -373,10 +580,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $name Name of the product
      *
-     * @return $this
+     * @return self
      */
     public function setName($name)
     {
+
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -397,10 +609,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $description Description of the product
      *
-     * @return $this
+     * @return self
      */
     public function setDescription($description)
     {
+
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+
         $this->container['description'] = $description;
 
         return $this;
@@ -421,10 +638,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $sku Stock Keeping Unit
      *
-     * @return $this
+     * @return self
      */
     public function setSku($sku)
     {
+
+        if (is_null($sku)) {
+            throw new \InvalidArgumentException('non-nullable sku cannot be null');
+        }
+
         $this->container['sku'] = $sku;
 
         return $this;
@@ -445,10 +667,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $upc Universal Product Code
      *
-     * @return $this
+     * @return self
      */
     public function setUpc($upc)
     {
+
+        if (is_null($upc)) {
+            throw new \InvalidArgumentException('non-nullable upc cannot be null');
+        }
+
         $this->container['upc'] = $upc;
 
         return $this;
@@ -469,10 +696,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $ean European Article Numbering
      *
-     * @return $this
+     * @return self
      */
     public function setEan($ean)
     {
+
+        if (is_null($ean)) {
+            throw new \InvalidArgumentException('non-nullable ean cannot be null');
+        }
+
         $this->container['ean'] = $ean;
 
         return $this;
@@ -493,10 +725,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $gtin Global Trade Item Number
      *
-     * @return $this
+     * @return self
      */
     public function setGtin($gtin)
     {
+
+        if (is_null($gtin)) {
+            throw new \InvalidArgumentException('non-nullable gtin cannot be null');
+        }
+
         $this->container['gtin'] = $gtin;
 
         return $this;
@@ -517,10 +754,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $mpn Manufacturer Part Number
      *
-     * @return $this
+     * @return self
      */
     public function setMpn($mpn)
     {
+
+        if (is_null($mpn)) {
+            throw new \InvalidArgumentException('non-nullable mpn cannot be null');
+        }
+
         $this->container['mpn'] = $mpn;
 
         return $this;
@@ -541,10 +783,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $link Link for the product
      *
-     * @return $this
+     * @return self
      */
     public function setLink($link)
     {
+
+        if (is_null($link)) {
+            throw new \InvalidArgumentException('non-nullable link cannot be null');
+        }
+
         $this->container['link'] = $link;
 
         return $this;
@@ -565,10 +812,15 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $image_link Link for the product image
      *
-     * @return $this
+     * @return self
      */
     public function setImageLink($image_link)
     {
+
+        if (is_null($image_link)) {
+            throw new \InvalidArgumentException('non-nullable image_link cannot be null');
+        }
+
         $this->container['image_link'] = $image_link;
 
         return $this;
@@ -577,7 +829,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Gets price
      *
-     * @return double|null
+     * @return float|null
      */
     public function getPrice()
     {
@@ -587,12 +839,17 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param double|null $price Price of the product
+     * @param float|null $price Price of the product
      *
-     * @return $this
+     * @return self
      */
     public function setPrice($price)
     {
+
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
+        }
+
         $this->container['price'] = $price;
 
         return $this;
@@ -601,7 +858,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Gets sale_price
      *
-     * @return double|null
+     * @return float|null
      */
     public function getSalePrice()
     {
@@ -611,12 +868,17 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Sets sale_price
      *
-     * @param double|null $sale_price Sale price of the product
+     * @param float|null $sale_price Sale price of the product
      *
-     * @return $this
+     * @return self
      */
     public function setSalePrice($sale_price)
     {
+
+        if (is_null($sale_price)) {
+            throw new \InvalidArgumentException('non-nullable sale_price cannot be null');
+        }
+
         $this->container['sale_price'] = $sale_price;
 
         return $this;
@@ -637,83 +899,16 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param string|null $brand Brand of the product
      *
-     * @return $this
+     * @return self
      */
     public function setBrand($brand)
     {
+
+        if (is_null($brand)) {
+            throw new \InvalidArgumentException('non-nullable brand cannot be null');
+        }
+
         $this->container['brand'] = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Gets categories
-     *
-     * @return string[]|null
-     */
-    public function getCategories()
-    {
-        return $this->container['categories'];
-    }
-
-    /**
-     * Sets categories
-     *
-     * @param string[]|null $categories Array of product categories, using the character '>' as delimiter for the breadcrumb                                 syntax
-     *
-     * @return $this
-     */
-    public function setCategories($categories)
-    {
-        $this->container['categories'] = $categories;
-
-        return $this;
-    }
-
-    /**
-     * Gets related_products
-     *
-     * @return string[]|null
-     */
-    public function getRelatedProducts()
-    {
-        return $this->container['related_products'];
-    }
-
-    /**
-     * Sets related_products
-     *
-     * @param string[]|null $related_products Related products
-     *
-     * @return $this
-     */
-    public function setRelatedProducts($related_products)
-    {
-        $this->container['related_products'] = $related_products;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_attributes
-     *
-     * @return \EgoiClient\EgoiModel\ProductCustomAttributes[]|null
-     */
-    public function getCustomAttributes()
-    {
-        return $this->container['custom_attributes'];
-    }
-
-    /**
-     * Sets custom_attributes
-     *
-     * @param \EgoiClient\EgoiModel\ProductCustomAttributes[]|null $custom_attributes Custom attributes
-     *
-     * @return $this
-     */
-    public function setCustomAttributes($custom_attributes)
-    {
-        $this->container['custom_attributes'] = $custom_attributes;
 
         return $this;
     }
@@ -724,7 +919,7 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -734,22 +929,23 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -765,9 +961,22 @@ class Product implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

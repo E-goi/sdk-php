@@ -2,7 +2,7 @@
 /**
  * PushCampaignPostRequest
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class PushCampaignPostRequest implements ModelInterface, ArrayAccess
+class PushCampaignPostRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -58,10 +58,10 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'app_id' => 'int',
+        'app_id' => 'string',
         'title' => 'string',
         'content' => '\EgoiClient\EgoiModel\CampaignPushContent',
-        'actions' => '\EgoiClient\EgoiModel\PushCampaignPostRequestActions[]',
+        'actions' => '\EgoiClient\EgoiModel\PushCampaignPostRequestActions',
         'geo_options' => '\EgoiClient\EgoiModel\PushCampaignPostRequestGeoOptions',
         'notification_options' => '\EgoiClient\EgoiModel\PushCampaignPostRequestNotificationOptions'
     ];
@@ -70,6 +70,8 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'app_id' => null,
@@ -79,6 +81,27 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
         'geo_options' => null,
         'notification_options' => null
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'app_id' => false,
+		'title' => false,
+		'content' => false,
+		'actions' => false,
+		'geo_options' => false,
+		'notification_options' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -98,6 +121,58 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
     public static function openAPIFormats()
     {
         return self::$openAPIFormats;
+    }
+
+    /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
     }
 
     /**
@@ -184,9 +259,6 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -203,12 +275,30 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
-        $this->container['actions'] = isset($data['actions']) ? $data['actions'] : null;
-        $this->container['geo_options'] = isset($data['geo_options']) ? $data['geo_options'] : null;
-        $this->container['notification_options'] = isset($data['notification_options']) ? $data['notification_options'] : null;
+        $this->setIfExists('app_id', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
+        $this->setIfExists('actions', $data ?? [], null);
+        $this->setIfExists('geo_options', $data ?? [], null);
+        $this->setIfExists('notification_options', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -223,8 +313,8 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
         if ($this->container['app_id'] === null) {
             $invalidProperties[] = "'app_id' can't be null";
         }
-        if (($this->container['app_id'] < 1)) {
-            $invalidProperties[] = "invalid value for 'app_id', must be bigger than or equal to 1.";
+        if (!preg_match("/[a-zA-Z0-9_-]*/", $this->container['app_id'])) {
+            $invalidProperties[] = "invalid value for 'app_id', must be conform to the pattern /[a-zA-Z0-9_-]*/.";
         }
 
         if ($this->container['title'] === null) {
@@ -251,7 +341,7 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
     /**
      * Gets app_id
      *
-     * @return int
+     * @return string
      */
     public function getAppId()
     {
@@ -261,15 +351,20 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
     /**
      * Sets app_id
      *
-     * @param int $app_id app_id
+     * @param string $app_id app_id
      *
-     * @return $this
+     * @return self
      */
     public function setAppId($app_id)
     {
 
-        if (($app_id < 1)) {
-            throw new \InvalidArgumentException('invalid value for $app_id when calling PushCampaignPostRequest., must be bigger than or equal to 1.');
+        if ((!preg_match("/[a-zA-Z0-9_-]*/", $app_id))) {
+            throw new \InvalidArgumentException("invalid value for \$app_id when calling PushCampaignPostRequest., must conform to the pattern /[a-zA-Z0-9_-]*/.");
+        }
+
+
+        if (is_null($app_id)) {
+            throw new \InvalidArgumentException('non-nullable app_id cannot be null');
         }
 
         $this->container['app_id'] = $app_id;
@@ -292,10 +387,15 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @param string $title Push campaign subject
      *
-     * @return $this
+     * @return self
      */
     public function setTitle($title)
     {
+
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -316,10 +416,15 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\CampaignPushContent $content content
      *
-     * @return $this
+     * @return self
      */
     public function setContent($content)
     {
+
+        if (is_null($content)) {
+            throw new \InvalidArgumentException('non-nullable content cannot be null');
+        }
+
         $this->container['content'] = $content;
 
         return $this;
@@ -328,7 +433,7 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
     /**
      * Gets actions
      *
-     * @return \EgoiClient\EgoiModel\PushCampaignPostRequestActions[]|null
+     * @return \EgoiClient\EgoiModel\PushCampaignPostRequestActions|null
      */
     public function getActions()
     {
@@ -338,12 +443,17 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
     /**
      * Sets actions
      *
-     * @param \EgoiClient\EgoiModel\PushCampaignPostRequestActions[]|null $actions Actions for push campaign
+     * @param \EgoiClient\EgoiModel\PushCampaignPostRequestActions|null $actions actions
      *
-     * @return $this
+     * @return self
      */
     public function setActions($actions)
     {
+
+        if (is_null($actions)) {
+            throw new \InvalidArgumentException('non-nullable actions cannot be null');
+        }
+
         $this->container['actions'] = $actions;
 
         return $this;
@@ -364,10 +474,15 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\PushCampaignPostRequestGeoOptions|null $geo_options geo_options
      *
-     * @return $this
+     * @return self
      */
     public function setGeoOptions($geo_options)
     {
+
+        if (is_null($geo_options)) {
+            throw new \InvalidArgumentException('non-nullable geo_options cannot be null');
+        }
+
         $this->container['geo_options'] = $geo_options;
 
         return $this;
@@ -388,10 +503,15 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\PushCampaignPostRequestNotificationOptions|null $notification_options notification_options
      *
-     * @return $this
+     * @return self
      */
     public function setNotificationOptions($notification_options)
     {
+
+        if (is_null($notification_options)) {
+            throw new \InvalidArgumentException('non-nullable notification_options cannot be null');
+        }
+
         $this->container['notification_options'] = $notification_options;
 
         return $this;
@@ -403,7 +523,7 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -413,22 +533,23 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -444,9 +565,22 @@ class PushCampaignPostRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -2,7 +2,7 @@
 /**
  * ComplexUser
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class ComplexUser implements ModelInterface, ArrayAccess
+class ComplexUser implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -58,45 +58,53 @@ class ComplexUser implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_id' => 'int',
+        'language' => '\EgoiClient\EgoiModel\Language',
+        'gender' => 'string',
         'username' => 'string',
-        'is_admin' => 'bool',
         'first_name' => 'string',
         'last_name' => 'string',
         'email' => 'string',
-        'phone' => 'string',
-        'profile_image' => 'string',
-        'status' => 'string',
-        'created' => '\DateTime',
-        'updated' => '\DateTime',
-        'language' => '\EgoiClient\EgoiModel\Language',
-        'timezone' => 'string',
-        'show_removed_contacts' => 'bool',
-        'gender' => 'string'
+        'phone' => 'string'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_id' => null,
+        'language' => null,
+        'gender' => null,
         'username' => null,
-        'is_admin' => null,
         'first_name' => null,
         'last_name' => null,
         'email' => null,
-        'phone' => null,
-        'profile_image' => null,
-        'status' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time',
-        'language' => null,
-        'timezone' => null,
-        'show_removed_contacts' => null,
-        'gender' => null
+        'phone' => null
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'language' => false,
+		'gender' => false,
+		'username' => false,
+		'first_name' => false,
+		'last_name' => false,
+		'email' => false,
+		'phone' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -119,27 +127,71 @@ class ComplexUser implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'user_id',
+        'language' => 'language',
+        'gender' => 'gender',
         'username' => 'username',
-        'is_admin' => 'is_admin',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
         'email' => 'email',
-        'phone' => 'phone',
-        'profile_image' => 'profile_image',
-        'status' => 'status',
-        'created' => 'created',
-        'updated' => 'updated',
-        'language' => 'language',
-        'timezone' => 'timezone',
-        'show_removed_contacts' => 'show_removed_contacts',
-        'gender' => 'gender'
+        'phone' => 'phone'
     ];
 
     /**
@@ -148,21 +200,13 @@ class ComplexUser implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId',
+        'language' => 'setLanguage',
+        'gender' => 'setGender',
         'username' => 'setUsername',
-        'is_admin' => 'setIsAdmin',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'email' => 'setEmail',
-        'phone' => 'setPhone',
-        'profile_image' => 'setProfileImage',
-        'status' => 'setStatus',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated',
-        'language' => 'setLanguage',
-        'timezone' => 'setTimezone',
-        'show_removed_contacts' => 'setShowRemovedContacts',
-        'gender' => 'setGender'
+        'phone' => 'setPhone'
     ];
 
     /**
@@ -171,21 +215,13 @@ class ComplexUser implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId',
+        'language' => 'getLanguage',
+        'gender' => 'getGender',
         'username' => 'getUsername',
-        'is_admin' => 'getIsAdmin',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'email' => 'getEmail',
-        'phone' => 'getPhone',
-        'profile_image' => 'getProfileImage',
-        'status' => 'getStatus',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated',
-        'language' => 'getLanguage',
-        'timezone' => 'getTimezone',
-        'show_removed_contacts' => 'getShowRemovedContacts',
-        'gender' => 'getGender'
+        'phone' => 'getPhone'
     ];
 
     /**
@@ -229,26 +265,9 @@ class ComplexUser implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_ACTIVE = 'active';
-    const STATUS_INACTIVE = 'inactive';
-    const GENDER_MALE = 'male';
-    const GENDER_FEMALE = 'female';
-    
+    public const GENDER_MALE = 'male';
+    public const GENDER_FEMALE = 'female';
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_ACTIVE,
-            self::STATUS_INACTIVE,
-        ];
-    }
-    
     /**
      * Gets allowable values of the enum
      *
@@ -261,7 +280,6 @@ class ComplexUser implements ModelInterface, ArrayAccess
             self::GENDER_FEMALE,
         ];
     }
-    
 
     /**
      * Associative array for storing property values
@@ -278,21 +296,31 @@ class ComplexUser implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['is_admin'] = isset($data['is_admin']) ? $data['is_admin'] : false;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
-        $this->container['profile_image'] = isset($data['profile_image']) ? $data['profile_image'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
-        $this->container['show_removed_contacts'] = isset($data['show_removed_contacts']) ? $data['show_removed_contacts'] : true;
-        $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
+        $this->setIfExists('language', $data ?? [], null);
+        $this->setIfExists('gender', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -304,22 +332,11 @@ class ComplexUser implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['user_id']) && ($this->container['user_id'] < 1)) {
-            $invalidProperties[] = "invalid value for 'user_id', must be bigger than or equal to 1.";
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getGenderAllowableValues();
         if (!is_null($this->container['gender']) && !in_array($this->container['gender'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'gender', must be one of '%s'",
+                "invalid value '%s' for 'gender', must be one of '%s'",
+                $this->container['gender'],
                 implode("', '", $allowedValues)
             );
         }
@@ -340,30 +357,69 @@ class ComplexUser implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets user_id
+     * Gets language
      *
-     * @return int|null
+     * @return \EgoiClient\EgoiModel\Language|null
      */
-    public function getUserId()
+    public function getLanguage()
     {
-        return $this->container['user_id'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets user_id
+     * Sets language
      *
-     * @param int|null $user_id user_id
+     * @param \EgoiClient\EgoiModel\Language|null $language language
      *
-     * @return $this
+     * @return self
      */
-    public function setUserId($user_id)
+    public function setLanguage($language)
     {
 
-        if (!is_null($user_id) && ($user_id < 1)) {
-            throw new \InvalidArgumentException('invalid value for $user_id when calling ComplexUser., must be bigger than or equal to 1.');
+        if (is_null($language)) {
+            throw new \InvalidArgumentException('non-nullable language cannot be null');
         }
 
-        $this->container['user_id'] = $user_id;
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string|null $gender User gender
+     *
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        $allowedValues = $this->getGenderAllowableValues();
+        if (!is_null($gender) && !in_array($gender, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'gender', must be one of '%s'",
+                    $gender,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($gender)) {
+            throw new \InvalidArgumentException('non-nullable gender cannot be null');
+        }
+
+        $this->container['gender'] = $gender;
 
         return $this;
     }
@@ -383,35 +439,16 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @param string|null $username User login
      *
-     * @return $this
+     * @return self
      */
     public function setUsername($username)
     {
+
+        if (is_null($username)) {
+            throw new \InvalidArgumentException('non-nullable username cannot be null');
+        }
+
         $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_admin
-     *
-     * @return bool|null
-     */
-    public function getIsAdmin()
-    {
-        return $this->container['is_admin'];
-    }
-
-    /**
-     * Sets is_admin
-     *
-     * @param bool|null $is_admin True if user is admin, false otherwise
-     *
-     * @return $this
-     */
-    public function setIsAdmin($is_admin)
-    {
-        $this->container['is_admin'] = $is_admin;
 
         return $this;
     }
@@ -431,10 +468,15 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @param string|null $first_name First name of the user
      *
-     * @return $this
+     * @return self
      */
     public function setFirstName($first_name)
     {
+
+        if (is_null($first_name)) {
+            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        }
+
         $this->container['first_name'] = $first_name;
 
         return $this;
@@ -455,10 +497,15 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @param string|null $last_name Last name of the user
      *
-     * @return $this
+     * @return self
      */
     public function setLastName($last_name)
     {
+
+        if (is_null($last_name)) {
+            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+        }
+
         $this->container['last_name'] = $last_name;
 
         return $this;
@@ -479,10 +526,15 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @param string|null $email Email of the user
      *
-     * @return $this
+     * @return self
      */
     public function setEmail($email)
     {
+
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+
         $this->container['email'] = $email;
 
         return $this;
@@ -503,221 +555,16 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @param string|null $phone User's phone (may be cellphone or phone)
      *
-     * @return $this
+     * @return self
      */
     public function setPhone($phone)
     {
+
+        if (is_null($phone)) {
+            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+        }
+
         $this->container['phone'] = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_image
-     *
-     * @return string|null
-     */
-    public function getProfileImage()
-    {
-        return $this->container['profile_image'];
-    }
-
-    /**
-     * Sets profile_image
-     *
-     * @param string|null $profile_image User's profile image
-     *
-     * @return $this
-     */
-    public function setProfileImage($profile_image)
-    {
-        $this->container['profile_image'] = $profile_image;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status User status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     *
-     * @return \DateTime|null
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     *
-     * @param \DateTime|null $created The date and time
-     *
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdated()
-    {
-        return $this->container['updated'];
-    }
-
-    /**
-     * Sets updated
-     *
-     * @param \DateTime|null $updated The date and time
-     *
-     * @return $this
-     */
-    public function setUpdated($updated)
-    {
-        $this->container['updated'] = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Gets language
-     *
-     * @return \EgoiClient\EgoiModel\Language|null
-     */
-    public function getLanguage()
-    {
-        return $this->container['language'];
-    }
-
-    /**
-     * Sets language
-     *
-     * @param \EgoiClient\EgoiModel\Language|null $language language
-     *
-     * @return $this
-     */
-    public function setLanguage($language)
-    {
-        $this->container['language'] = $language;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone User timezone
-     *
-     * @return $this
-     */
-    public function setTimezone($timezone)
-    {
-        $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets show_removed_contacts
-     *
-     * @return bool|null
-     */
-    public function getShowRemovedContacts()
-    {
-        return $this->container['show_removed_contacts'];
-    }
-
-    /**
-     * Sets show_removed_contacts
-     *
-     * @param bool|null $show_removed_contacts True if the user can see removed contacts, false otherwise
-     *
-     * @return $this
-     */
-    public function setShowRemovedContacts($show_removed_contacts)
-    {
-        $this->container['show_removed_contacts'] = $show_removed_contacts;
-
-        return $this;
-    }
-
-    /**
-     * Gets gender
-     *
-     * @return string|null
-     */
-    public function getGender()
-    {
-        return $this->container['gender'];
-    }
-
-    /**
-     * Sets gender
-     *
-     * @param string|null $gender User gender
-     *
-     * @return $this
-     */
-    public function setGender($gender)
-    {
-        $allowedValues = $this->getGenderAllowableValues();
-        if (!is_null($gender) && !in_array($gender, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'gender', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['gender'] = $gender;
 
         return $this;
     }
@@ -728,7 +575,7 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -738,22 +585,23 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -769,9 +617,22 @@ class ComplexUser implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -1,20 +1,21 @@
 # EgoiClient\EmailApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionEnableEmailRss**](EmailApi.md#actionEnableEmailRss) | **POST** /campaigns/email/rss/{campaign_hash}/actions/enable | Enables a rss email campaign
-[**actionSendEmail**](EmailApi.md#actionSendEmail) | **POST** /campaigns/email/{campaign_hash}/actions/send | Send email message
-[**createEmailCampaign**](EmailApi.md#createEmailCampaign) | **POST** /campaigns/email | Create new email campaign
-[**createEmailRssCampaign**](EmailApi.md#createEmailRssCampaign) | **POST** /campaigns/email/rss | Create new email rss campaign
-[**patchEmailCampaign**](EmailApi.md#patchEmailCampaign) | **PATCH** /campaigns/email/{campaign_hash} | Update a specific email campaign
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionEnableEmailRss()**](EmailApi.md#actionEnableEmailRss) | **POST** /campaigns/email/rss/{campaign_hash}/actions/enable | Enables a rss email campaign |
+| [**actionSendEmail()**](EmailApi.md#actionSendEmail) | **POST** /campaigns/email/{campaign_hash}/actions/send | Send email message |
+| [**createEmailCampaign()**](EmailApi.md#createEmailCampaign) | **POST** /campaigns/email | Create new email campaign |
+| [**createEmailRssCampaign()**](EmailApi.md#createEmailRssCampaign) | **POST** /campaigns/email/rss | Create new email rss campaign |
+| [**patchEmailCampaign()**](EmailApi.md#patchEmailCampaign) | **PATCH** /campaigns/email/{campaign_hash} | Update a specific email campaign |
 
 
+## `actionEnableEmailRss()`
 
-## actionEnableEmailRss
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionEnableEmailRss($campaign_hash)
+```php
+actionEnableEmailRss($campaign_hash): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Enables a rss email campaign
 
@@ -47,15 +48,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->actionEnableEmailRss: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
 
 ### Return type
 
@@ -68,16 +67,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionSendEmail()`
 
-## actionSendEmail
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionSendEmail($campaign_hash, $campaign_email_send_request)
+```php
+actionSendEmail($campaign_hash, $campaign_email_send_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Send email message
 
@@ -111,16 +111,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->actionSendEmail: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **campaign_email_send_request** | [**\EgoiClient\EgoiModel\CampaignEmailSendRequest**](../Model/CampaignEmailSendRequest.md)| Parameters for the &#39;send email&#39; action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_email_send_request** | [**\EgoiClient\EgoiModel\CampaignEmailSendRequest**](../Model/CampaignEmailSendRequest.md)| Parameters for the &#39;send email&#39; action | |
 
 ### Return type
 
@@ -132,17 +130,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createEmailCampaign()`
 
-## createEmailCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign createEmailCampaign($email_campaign_create)
+```php
+createEmailCampaign($email_campaign_create): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Create new email campaign
 
@@ -175,15 +174,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->createEmailCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email_campaign_create** | [**\EgoiClient\EgoiModel\EmailCampaignCreate**](../Model/EmailCampaignCreate.md)| Parameters for the Email Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **email_campaign_create** | [**\EgoiClient\EgoiModel\EmailCampaignCreate**](../Model/EmailCampaignCreate.md)| Parameters for the Email Campaign | |
 
 ### Return type
 
@@ -195,17 +192,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createEmailRssCampaign()`
 
-## createEmailRssCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign createEmailRssCampaign($email_rss_campaign_create)
+```php
+createEmailRssCampaign($email_rss_campaign_create): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Create new email rss campaign
 
@@ -238,15 +236,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->createEmailRssCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email_rss_campaign_create** | [**\EgoiClient\EgoiModel\EmailRssCampaignCreate**](../Model/EmailRssCampaignCreate.md)| Parameters for the Email Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **email_rss_campaign_create** | [**\EgoiClient\EgoiModel\EmailRssCampaignCreate**](../Model/EmailRssCampaignCreate.md)| Parameters for the Email Campaign | |
 
 ### Return type
 
@@ -258,17 +254,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchEmailCampaign()`
 
-## patchEmailCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign patchEmailCampaign($campaign_hash, $email_campaign_patch)
+```php
+patchEmailCampaign($campaign_hash, $email_campaign_patch): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Update a specific email campaign
 
@@ -302,16 +299,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->patchEmailCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **email_campaign_patch** | [**\EgoiClient\EgoiModel\EmailCampaignPatch**](../Model/EmailCampaignPatch.md)| Parameters for the Email Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **email_campaign_patch** | [**\EgoiClient\EgoiModel\EmailCampaignPatch**](../Model/EmailCampaignPatch.md)| Parameters for the Email Campaign | |
 
 ### Return type
 
@@ -323,10 +318,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

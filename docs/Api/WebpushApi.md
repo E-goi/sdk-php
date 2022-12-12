@@ -1,22 +1,23 @@
 # EgoiClient\WebpushApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionEnableWebPushRss**](WebpushApi.md#actionEnableWebPushRss) | **POST** /campaigns/webpush/rss/{campaign_hash}/actions/enable | Enable a rss webpush campaign
-[**actionSendWebPush**](WebpushApi.md#actionSendWebPush) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
-[**createWebPushCampaign**](WebpushApi.md#createWebPushCampaign) | **POST** /campaigns/web-push | Create new webpush campaign
-[**createWebPushRssCampaign**](WebpushApi.md#createWebPushRssCampaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
-[**createWebpushSite**](WebpushApi.md#createWebpushSite) | **POST** /webpush/sites | Creates a webpush site
-[**getAllWebPushSites**](WebpushApi.md#getAllWebPushSites) | **GET** /webpush/sites | Get all webpush sites
-[**patchWebPushCampaign**](WebpushApi.md#patchWebPushCampaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionEnableWebPushRss()**](WebpushApi.md#actionEnableWebPushRss) | **POST** /campaigns/webpush/rss/{campaign_hash}/actions/enable | Enable a rss webpush campaign |
+| [**actionSendWebPush()**](WebpushApi.md#actionSendWebPush) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message |
+| [**createWebPushCampaign()**](WebpushApi.md#createWebPushCampaign) | **POST** /campaigns/web-push | Create new webpush campaign |
+| [**createWebPushRssCampaign()**](WebpushApi.md#createWebPushRssCampaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign |
+| [**createWebpushSite()**](WebpushApi.md#createWebpushSite) | **POST** /webpush/sites | Creates a webpush site |
+| [**getAllWebPushSites()**](WebpushApi.md#getAllWebPushSites) | **GET** /webpush/sites | Get all webpush sites |
+| [**patchWebPushCampaign()**](WebpushApi.md#patchWebPushCampaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign |
 
 
+## `actionEnableWebPushRss()`
 
-## actionEnableWebPushRss
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionEnableWebPushRss($campaign_hash)
+```php
+actionEnableWebPushRss($campaign_hash): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Enable a rss webpush campaign
 
@@ -49,15 +50,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->actionEnableWebPushRss: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
 
 ### Return type
 
@@ -70,16 +69,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionSendWebPush()`
 
-## actionSendWebPush
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionSendWebPush($campaign_hash, $campaign_web_push_send_request)
+```php
+actionSendWebPush($campaign_hash, $campaign_web_push_send_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Send webpush message
 
@@ -113,16 +113,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->actionSendWebPush: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **campaign_web_push_send_request** | [**\EgoiClient\EgoiModel\CampaignWebPushSendRequest**](../Model/CampaignWebPushSendRequest.md)| Parameters for the &#39;send web-push&#39; action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_web_push_send_request** | [**\EgoiClient\EgoiModel\CampaignWebPushSendRequest**](../Model/CampaignWebPushSendRequest.md)| Parameters for the &#39;send web-push&#39; action | |
 
 ### Return type
 
@@ -134,17 +132,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createWebPushCampaign()`
 
-## createWebPushCampaign
-
-> \EgoiClient\EgoiModel\CampaignHash createWebPushCampaign($web_push_campaign)
+```php
+createWebPushCampaign($web_push_campaign): \EgoiClient\EgoiModel\PatchVoiceCampaign200Response
+```
 
 Create new webpush campaign
 
@@ -177,19 +176,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->createWebPushCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **web_push_campaign** | [**\EgoiClient\EgoiModel\WebPushCampaign**](../Model/WebPushCampaign.md)| Parameters for the webpush campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **web_push_campaign** | [**\EgoiClient\EgoiModel\WebPushCampaign**](../Model/WebPushCampaign.md)| Parameters for the webpush campaign | |
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\CampaignHash**](../Model/CampaignHash.md)
+[**\EgoiClient\EgoiModel\PatchVoiceCampaign200Response**](../Model/PatchVoiceCampaign200Response.md)
 
 ### Authorization
 
@@ -197,17 +194,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createWebPushRssCampaign()`
 
-## createWebPushRssCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign createWebPushRssCampaign($web_push_rss_campaign)
+```php
+createWebPushRssCampaign($web_push_rss_campaign): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Create new webpush rss campaign
 
@@ -240,15 +238,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->createWebPushRssCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **web_push_rss_campaign** | [**\EgoiClient\EgoiModel\WebPushRssCampaign**](../Model/WebPushRssCampaign.md)| Parameters for the WebPush Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **web_push_rss_campaign** | [**\EgoiClient\EgoiModel\WebPushRssCampaign**](../Model/WebPushRssCampaign.md)| Parameters for the WebPush Campaign | |
 
 ### Return type
 
@@ -260,17 +256,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createWebpushSite()`
 
-## createWebpushSite
-
-> \EgoiClient\EgoiModel\WebPushSite createWebpushSite($web_push_site)
+```php
+createWebpushSite($web_push_site): \EgoiClient\EgoiModel\WebPushSite
+```
 
 Creates a webpush site
 
@@ -303,15 +300,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->createWebpushSite: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **web_push_site** | [**\EgoiClient\EgoiModel\WebPushSite**](../Model/WebPushSite.md)| Parameters for the webpush site |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **web_push_site** | [**\EgoiClient\EgoiModel\WebPushSite**](../Model/WebPushSite.md)| Parameters for the webpush site | |
 
 ### Return type
 
@@ -323,17 +318,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllWebPushSites()`
 
-## getAllWebPushSites
-
-> \EgoiClient\EgoiModel\TagCollection1 getAllWebPushSites($offset, $limit, $order, $order_by, $list_id)
+```php
+getAllWebPushSites($offset, $limit, $order, $order_by, $list_id): \EgoiClient\EgoiModel\TagCollection1
+```
 
 Get all webpush sites
 
@@ -370,19 +366,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->getAllWebPushSites: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order sites | [optional] [default to &#39;list_id&#39;]
- **list_id** | **int**| Select sites referenced to a list | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order sites | [optional] [default to &#39;list_id&#39;] |
+| **list_id** | **int**| Select sites referenced to a list | [optional] |
 
 ### Return type
 
@@ -395,16 +389,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchWebPushCampaign()`
 
-## patchWebPushCampaign
-
-> \EgoiClient\EgoiModel\CampaignHash patchWebPushCampaign($campaign_hash, $web_push_patch_campaign)
+```php
+patchWebPushCampaign($campaign_hash, $web_push_patch_campaign): \EgoiClient\EgoiModel\PatchVoiceCampaign200Response
+```
 
 Update a specific webpush campaign
 
@@ -438,20 +433,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebpushApi->patchWebPushCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **web_push_patch_campaign** | [**\EgoiClient\EgoiModel\WebPushPatchCampaign**](../Model/WebPushPatchCampaign.md)| Parameters for the Webpush Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **web_push_patch_campaign** | [**\EgoiClient\EgoiModel\WebPushPatchCampaign**](../Model/WebPushPatchCampaign.md)| Parameters for the Webpush Campaign | |
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\CampaignHash**](../Model/CampaignHash.md)
+[**\EgoiClient\EgoiModel\PatchVoiceCampaign200Response**](../Model/PatchVoiceCampaign200Response.md)
 
 ### Authorization
 
@@ -459,10 +452,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

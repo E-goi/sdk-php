@@ -1,22 +1,23 @@
 # EgoiClient\PushApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionSendPush**](PushApi.md#actionSendPush) | **POST** /campaigns/push/{campaign_hash}/actions/send | Send push message
-[**createPushCampaign**](PushApi.md#createPushCampaign) | **POST** /campaigns/push | Create new push campaign
-[**getPushApp**](PushApi.md#getPushApp) | **GET** /push/apps/{app_id} | Get a Push application from E-goi
-[**getPushApps**](PushApi.md#getPushApps) | **GET** /push/apps | Get all Push applications from E-goi
-[**patchPushCampaign**](PushApi.md#patchPushCampaign) | **PATCH** /campaigns/push/{campaign_hash} | Update a specific push campaign
-[**registerPushEvent**](PushApi.md#registerPushEvent) | **POST** /push/apps/{app_id}/event | Registers an event from the push notification.
-[**registerPushToken**](PushApi.md#registerPushToken) | **POST** /push/apps/{app_id}/token | Registers a Firebase token
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionSendPush()**](PushApi.md#actionSendPush) | **POST** /campaigns/push/{campaign_hash}/actions/send | Send push message |
+| [**createPushCampaign()**](PushApi.md#createPushCampaign) | **POST** /campaigns/push | Create new push campaign |
+| [**getPushApp()**](PushApi.md#getPushApp) | **GET** /push/apps/{app_id} | Get a Push application from E-goi |
+| [**getPushApps()**](PushApi.md#getPushApps) | **GET** /push/apps | Get all Push applications from E-goi |
+| [**patchPushCampaign()**](PushApi.md#patchPushCampaign) | **PATCH** /campaigns/push/{campaign_hash} | Update a specific push campaign |
+| [**registerPushEvent()**](PushApi.md#registerPushEvent) | **POST** /push/apps/{app_id}/event | Registers an event from the push notification. |
+| [**registerPushToken()**](PushApi.md#registerPushToken) | **POST** /push/apps/{app_id}/token | Registers a Firebase token |
 
 
+## `actionSendPush()`
 
-## actionSendPush
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionSendPush($campaign_hash, $campaign_push_send_request)
+```php
+actionSendPush($campaign_hash, $campaign_push_send_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Send push message
 
@@ -50,16 +51,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->actionSendPush: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **campaign_push_send_request** | [**\EgoiClient\EgoiModel\CampaignPushSendRequest**](../Model/CampaignPushSendRequest.md)| Parameters for the &#39;send push&#39; action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_push_send_request** | [**\EgoiClient\EgoiModel\CampaignPushSendRequest**](../Model/CampaignPushSendRequest.md)| Parameters for the &#39;send push&#39; action | |
 
 ### Return type
 
@@ -71,17 +70,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createPushCampaign()`
 
-## createPushCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign createPushCampaign($push_campaign_post_request)
+```php
+createPushCampaign($push_campaign_post_request): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Create new push campaign
 
@@ -114,15 +114,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->createPushCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **push_campaign_post_request** | [**\EgoiClient\EgoiModel\PushCampaignPostRequest**](../Model/PushCampaignPostRequest.md)| Parameters for the push campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **push_campaign_post_request** | [**\EgoiClient\EgoiModel\PushCampaignPostRequest**](../Model/PushCampaignPostRequest.md)| Parameters for the push campaign | |
 
 ### Return type
 
@@ -134,17 +132,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPushApp()`
 
-## getPushApp
-
-> \EgoiClient\EgoiModel\AppStructure getPushApp($app_id)
+```php
+getPushApp($app_id): \EgoiClient\EgoiModel\AppStructure
+```
 
 Get a Push application from E-goi
 
@@ -177,15 +176,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->getPushApp: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **app_id** | **string**| ID of the E-goi push app. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **app_id** | **string**| ID of the E-goi push app. | |
 
 ### Return type
 
@@ -198,16 +195,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPushApps()`
 
-## getPushApps
-
-> \EgoiClient\EgoiModel\AppStructure[] getPushApps($list_id)
+```php
+getPushApps($list_id): \EgoiClient\EgoiModel\AppStructure[]
+```
 
 Get all Push applications from E-goi
 
@@ -240,15 +238,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->getPushApps: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the list to search for. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the list to search for. | [optional] |
 
 ### Return type
 
@@ -261,16 +257,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchPushCampaign()`
 
-## patchPushCampaign
-
-> \EgoiClient\EgoiModel\HashcodeCampaign patchPushCampaign($campaign_hash, $push_campaign_patch_request)
+```php
+patchPushCampaign($campaign_hash, $push_campaign_patch_request): \EgoiClient\EgoiModel\HashcodeCampaign
+```
 
 Update a specific push campaign
 
@@ -304,16 +301,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->patchPushCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **push_campaign_patch_request** | [**\EgoiClient\EgoiModel\PushCampaignPatchRequest**](../Model/PushCampaignPatchRequest.md)| Parameters for the push campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **push_campaign_patch_request** | [**\EgoiClient\EgoiModel\PushCampaignPatchRequest**](../Model/PushCampaignPatchRequest.md)| Parameters for the push campaign | |
 
 ### Return type
 
@@ -325,21 +320,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `registerPushEvent()`
 
-## registerPushEvent
-
-> \EgoiClient\EgoiModel\PushResponse registerPushEvent($app_id, $push_event)
+```php
+registerPushEvent($app_id, $push_event): \EgoiClient\EgoiModel\PushResponse
+```
 
 Registers an event from the push notification.
 
-Registers an event from the push notification.
+Registers a Firebase token
 
 ### Example
 
@@ -369,16 +365,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->registerPushEvent: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **app_id** | **string**| ID of the E-goi push app. |
- **push_event** | [**\EgoiClient\EgoiModel\PushEvent**](../Model/PushEvent.md)| Parameters for the event |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **app_id** | **string**| ID of the E-goi push app. | |
+| **push_event** | [**\EgoiClient\EgoiModel\PushEvent**](../Model/PushEvent.md)| Parameters for the event | |
 
 ### Return type
 
@@ -390,17 +384,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `registerPushToken()`
 
-## registerPushToken
-
-> \EgoiClient\EgoiModel\PushResponse registerPushToken($app_id, $push_token)
+```php
+registerPushToken($app_id, $push_token): \EgoiClient\EgoiModel\PushResponse
+```
 
 Registers a Firebase token
 
@@ -434,16 +429,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PushApi->registerPushToken: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **app_id** | **string**| ID of the E-goi push app. |
- **push_token** | [**\EgoiClient\EgoiModel\PushToken**](../Model/PushToken.md)| Parameters for the token |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **app_id** | **string**| ID of the E-goi push app. | |
+| **push_token** | [**\EgoiClient\EgoiModel\PushToken**](../Model/PushToken.md)| Parameters for the token | |
 
 ### Return type
 
@@ -455,10 +448,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

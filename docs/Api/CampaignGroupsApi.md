@@ -1,19 +1,20 @@
 # EgoiClient\CampaignGroupsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createCampaignGroup**](CampaignGroupsApi.md#createCampaignGroup) | **POST** /campaign-groups | Create new campaign group
-[**deleteCampaignGroup**](CampaignGroupsApi.md#deleteCampaignGroup) | **DELETE** /campaign-groups/{group_id} | Remove Campaign Group
-[**getAllCampaignGroups**](CampaignGroupsApi.md#getAllCampaignGroups) | **GET** /campaign-groups | Get all campaign groups
-[**updateCampaignGroup**](CampaignGroupsApi.md#updateCampaignGroup) | **PUT** /campaign-groups/{group_id} | Update a specific campaign group
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createCampaignGroup()**](CampaignGroupsApi.md#createCampaignGroup) | **POST** /campaign-groups | Create new campaign group |
+| [**deleteCampaignGroup()**](CampaignGroupsApi.md#deleteCampaignGroup) | **DELETE** /campaign-groups/{group_id} | Remove Campaign Group |
+| [**getAllCampaignGroups()**](CampaignGroupsApi.md#getAllCampaignGroups) | **GET** /campaign-groups | Get all campaign groups |
+| [**updateCampaignGroup()**](CampaignGroupsApi.md#updateCampaignGroup) | **PUT** /campaign-groups/{group_id} | Update a specific campaign group |
 
 
+## `createCampaignGroup()`
 
-## createCampaignGroup
-
-> \EgoiClient\EgoiModel\CampaignGroup createCampaignGroup($campaign_group)
+```php
+createCampaignGroup($campaign_group_post): \EgoiClient\EgoiModel\CampaignGroup
+```
 
 Create new campaign group
 
@@ -38,23 +39,21 @@ $apiInstance = new EgoiClient\Api\CampaignGroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_group = new \EgoiClient\EgoiModel\CampaignGroup(); // \EgoiClient\EgoiModel\CampaignGroup | Parameters for the Campaign Group
+$campaign_group_post = new \EgoiClient\EgoiModel\CampaignGroupPost(); // \EgoiClient\EgoiModel\CampaignGroupPost | Parameters for the Campaign Group
 
 try {
-    $result = $apiInstance->createCampaignGroup($campaign_group);
+    $result = $apiInstance->createCampaignGroup($campaign_group_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignGroupsApi->createCampaignGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_group** | [**\EgoiClient\EgoiModel\CampaignGroup**](../Model/CampaignGroup.md)| Parameters for the Campaign Group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_group_post** | [**\EgoiClient\EgoiModel\CampaignGroupPost**](../Model/CampaignGroupPost.md)| Parameters for the Campaign Group | |
 
 ### Return type
 
@@ -66,17 +65,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteCampaignGroup()`
 
-## deleteCampaignGroup
-
-> deleteCampaignGroup($group_id)
+```php
+deleteCampaignGroup($group_id)
+```
 
 Remove Campaign Group
 
@@ -108,15 +108,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CampaignGroupsApi->deleteCampaignGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **int**| ID of the Campaign Group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **group_id** | **int**| ID of the Campaign Group | |
 
 ### Return type
 
@@ -129,16 +127,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllCampaignGroups()`
 
-## getAllCampaignGroups
-
-> \EgoiClient\EgoiModel\CampaignGroupCollection getAllCampaignGroups($group_id, $name, $limit, $offset)
+```php
+getAllCampaignGroups($group_id, $name, $limit, $offset): \EgoiClient\EgoiModel\CampaignGroupCollection
+```
 
 Get all campaign groups
 
@@ -174,18 +173,16 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CampaignGroupsApi->getAllCampaignGroups: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **int**| Reference attribute to campaign group id | [optional]
- **name** | **string**| Reference attribute to campaign group id | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **group_id** | **int**| Reference attribute to campaign group id | [optional] |
+| **name** | **string**| Reference attribute to campaign group id | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
 
 ### Return type
 
@@ -198,16 +195,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateCampaignGroup()`
 
-## updateCampaignGroup
-
-> \EgoiClient\EgoiModel\CampaignGroup updateCampaignGroup($group_id, $campaign_group)
+```php
+updateCampaignGroup($group_id, $campaign_group_post): \EgoiClient\EgoiModel\CampaignGroup
+```
 
 Update a specific campaign group
 
@@ -233,24 +231,22 @@ $apiInstance = new EgoiClient\Api\CampaignGroupsApi(
     $config
 );
 $group_id = 56; // int | ID of the Campaign Group
-$campaign_group = new \EgoiClient\EgoiModel\CampaignGroup(); // \EgoiClient\EgoiModel\CampaignGroup | Parameters for the Campaign Group
+$campaign_group_post = new \EgoiClient\EgoiModel\CampaignGroupPost(); // \EgoiClient\EgoiModel\CampaignGroupPost | Parameters for the Campaign Group
 
 try {
-    $result = $apiInstance->updateCampaignGroup($group_id, $campaign_group);
+    $result = $apiInstance->updateCampaignGroup($group_id, $campaign_group_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignGroupsApi->updateCampaignGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **int**| ID of the Campaign Group |
- **campaign_group** | [**\EgoiClient\EgoiModel\CampaignGroup**](../Model/CampaignGroup.md)| Parameters for the Campaign Group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **group_id** | **int**| ID of the Campaign Group | |
+| **campaign_group_post** | [**\EgoiClient\EgoiModel\CampaignGroupPost**](../Model/CampaignGroupPost.md)| Parameters for the Campaign Group | |
 
 ### Return type
 
@@ -262,10 +258,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

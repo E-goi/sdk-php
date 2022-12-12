@@ -1,7 +1,7 @@
 <?php
 /**
  * PushApi
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -12,12 +12,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -30,6 +29,7 @@ namespace EgoiClient\EgoiApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -69,38 +69,63 @@ class PushApi
      */
     protected $hostIndex;
 
-    /**
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'actionSendPush' => [
+            'application/json',
+        ],
+        'createPushCampaign' => [
+            'application/json',
+        ],
+        'getPushApp' => [
+            'application/json',
+        ],
+        'getPushApps' => [
+            'application/json',
+        ],
+        'patchPushCampaign' => [
+            'application/json',
+        ],
+        'registerPushEvent' => [
+            'application/json',
+        ],
+        'registerPushToken' => [
+            'application/json',
+        ],
+    ];
+
+/**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
-     * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null,
-        $host_index = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex): void
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -122,14 +147,15 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignPushSendRequest $campaign_push_send_request Parameters for the &#39;send push&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendPush'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function actionSendPush($campaign_hash, $campaign_push_send_request)
+    public function actionSendPush($campaign_hash, $campaign_push_send_request, string $contentType = self::contentTypes['actionSendPush'][0])
     {
-        list($response) = $this->actionSendPushWithHttpInfo($campaign_hash, $campaign_push_send_request);
+        list($response) = $this->actionSendPushWithHttpInfo($campaign_hash, $campaign_push_send_request, $contentType);
         return $response;
     }
 
@@ -140,14 +166,15 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignPushSendRequest $campaign_push_send_request Parameters for the &#39;send push&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendPush'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AcceptedResponse|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function actionSendPushWithHttpInfo($campaign_hash, $campaign_push_send_request)
+    public function actionSendPushWithHttpInfo($campaign_hash, $campaign_push_send_request, string $contentType = self::contentTypes['actionSendPush'][0])
     {
-        $request = $this->actionSendPushRequest($campaign_hash, $campaign_push_send_request);
+        $request = $this->actionSendPushRequest($campaign_hash, $campaign_push_send_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -156,9 +183,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -169,21 +203,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\AcceptedResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AcceptedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -193,9 +229,12 @@ class PushApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -205,9 +244,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -217,9 +259,12 @@ class PushApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -229,9 +274,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -241,9 +289,12 @@ class PushApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -253,9 +304,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -265,9 +319,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -278,11 +335,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -369,13 +428,14 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignPushSendRequest $campaign_push_send_request Parameters for the &#39;send push&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendPush'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionSendPushAsync($campaign_hash, $campaign_push_send_request)
+    public function actionSendPushAsync($campaign_hash, $campaign_push_send_request, string $contentType = self::contentTypes['actionSendPush'][0])
     {
-        return $this->actionSendPushAsyncWithHttpInfo($campaign_hash, $campaign_push_send_request)
+        return $this->actionSendPushAsyncWithHttpInfo($campaign_hash, $campaign_push_send_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -390,24 +450,27 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignPushSendRequest $campaign_push_send_request Parameters for the &#39;send push&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendPush'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function actionSendPushAsyncWithHttpInfo($campaign_hash, $campaign_push_send_request)
+    public function actionSendPushAsyncWithHttpInfo($campaign_hash, $campaign_push_send_request, string $contentType = self::contentTypes['actionSendPush'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AcceptedResponse';
-        $request = $this->actionSendPushRequest($campaign_hash, $campaign_push_send_request);
+        $request = $this->actionSendPushRequest($campaign_hash, $campaign_push_send_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -427,7 +490,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -438,12 +501,14 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\CampaignPushSendRequest $campaign_push_send_request Parameters for the &#39;send push&#39; action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionSendPush'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function actionSendPushRequest($campaign_hash, $campaign_push_send_request)
+    public function actionSendPushRequest($campaign_hash, $campaign_push_send_request, string $contentType = self::contentTypes['actionSendPush'][0])
     {
+
         // verify the required parameter 'campaign_hash' is set
         if ($campaign_hash === null || (is_array($campaign_hash) && count($campaign_hash) === 0)) {
             throw new \InvalidArgumentException(
@@ -453,7 +518,7 @@ class PushApi
         if (!preg_match("/[a-zA-Z0-9_-]*/", $campaign_hash)) {
             throw new \InvalidArgumentException("invalid value for \"campaign_hash\" when calling PushApi.actionSendPush, must conform to the pattern /[a-zA-Z0-9_-]*/.");
         }
-
+        
         // verify the required parameter 'campaign_push_send_request' is set
         if ($campaign_push_send_request === null || (is_array($campaign_push_send_request) && count($campaign_push_send_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -461,12 +526,14 @@ class PushApi
             );
         }
 
+
         $resourcePath = '/campaigns/push/{campaign_hash}/actions/send';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -478,49 +545,42 @@ class PushApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($campaign_push_send_request)) {
-            $_tempBody = $campaign_push_send_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($campaign_push_send_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($campaign_push_send_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $campaign_push_send_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -541,10 +601,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -556,14 +617,15 @@ class PushApi
      * Create new push campaign
      *
      * @param  \EgoiClient\EgoiModel\PushCampaignPostRequest $push_campaign_post_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPushCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\HashcodeCampaign|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function createPushCampaign($push_campaign_post_request)
+    public function createPushCampaign($push_campaign_post_request, string $contentType = self::contentTypes['createPushCampaign'][0])
     {
-        list($response) = $this->createPushCampaignWithHttpInfo($push_campaign_post_request);
+        list($response) = $this->createPushCampaignWithHttpInfo($push_campaign_post_request, $contentType);
         return $response;
     }
 
@@ -573,14 +635,15 @@ class PushApi
      * Create new push campaign
      *
      * @param  \EgoiClient\EgoiModel\PushCampaignPostRequest $push_campaign_post_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPushCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\HashcodeCampaign|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\Conflict|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPushCampaignWithHttpInfo($push_campaign_post_request)
+    public function createPushCampaignWithHttpInfo($push_campaign_post_request, string $contentType = self::contentTypes['createPushCampaign'][0])
     {
-        $request = $this->createPushCampaignRequest($push_campaign_post_request);
+        $request = $this->createPushCampaignRequest($push_campaign_post_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -589,9 +652,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -602,21 +672,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
                     if ('\EgoiClient\EgoiModel\HashcodeCampaign' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\HashcodeCampaign' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -626,9 +698,12 @@ class PushApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -638,9 +713,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -650,9 +728,12 @@ class PushApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -662,9 +743,12 @@ class PushApi
                     ];
                 case 409:
                     if ('\EgoiClient\EgoiModel\Conflict' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Conflict' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -674,9 +758,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -686,9 +773,12 @@ class PushApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -698,9 +788,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -710,9 +803,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -723,11 +819,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\HashcodeCampaign';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -821,13 +919,14 @@ class PushApi
      * Create new push campaign
      *
      * @param  \EgoiClient\EgoiModel\PushCampaignPostRequest $push_campaign_post_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPushCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPushCampaignAsync($push_campaign_post_request)
+    public function createPushCampaignAsync($push_campaign_post_request, string $contentType = self::contentTypes['createPushCampaign'][0])
     {
-        return $this->createPushCampaignAsyncWithHttpInfo($push_campaign_post_request)
+        return $this->createPushCampaignAsyncWithHttpInfo($push_campaign_post_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -841,24 +940,27 @@ class PushApi
      * Create new push campaign
      *
      * @param  \EgoiClient\EgoiModel\PushCampaignPostRequest $push_campaign_post_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPushCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPushCampaignAsyncWithHttpInfo($push_campaign_post_request)
+    public function createPushCampaignAsyncWithHttpInfo($push_campaign_post_request, string $contentType = self::contentTypes['createPushCampaign'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\HashcodeCampaign';
-        $request = $this->createPushCampaignRequest($push_campaign_post_request);
+        $request = $this->createPushCampaignRequest($push_campaign_post_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -878,7 +980,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -888,18 +990,21 @@ class PushApi
      * Create request for operation 'createPushCampaign'
      *
      * @param  \EgoiClient\EgoiModel\PushCampaignPostRequest $push_campaign_post_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPushCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPushCampaignRequest($push_campaign_post_request)
+    public function createPushCampaignRequest($push_campaign_post_request, string $contentType = self::contentTypes['createPushCampaign'][0])
     {
+
         // verify the required parameter 'push_campaign_post_request' is set
         if ($push_campaign_post_request === null || (is_array($push_campaign_post_request) && count($push_campaign_post_request) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $push_campaign_post_request when calling createPushCampaign'
             );
         }
+
 
         $resourcePath = '/campaigns/push';
         $formParams = [];
@@ -910,49 +1015,43 @@ class PushApi
 
 
 
-        // body params
-        $_tempBody = null;
-        if (isset($push_campaign_post_request)) {
-            $_tempBody = $push_campaign_post_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($push_campaign_post_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($push_campaign_post_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $push_campaign_post_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -973,10 +1072,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -988,14 +1088,15 @@ class PushApi
      * Get a Push application from E-goi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApp'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AppStructure|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getPushApp($app_id)
+    public function getPushApp($app_id, string $contentType = self::contentTypes['getPushApp'][0])
     {
-        list($response) = $this->getPushAppWithHttpInfo($app_id);
+        list($response) = $this->getPushAppWithHttpInfo($app_id, $contentType);
         return $response;
     }
 
@@ -1005,14 +1106,15 @@ class PushApi
      * Get a Push application from E-goi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApp'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AppStructure|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPushAppWithHttpInfo($app_id)
+    public function getPushAppWithHttpInfo($app_id, string $contentType = self::contentTypes['getPushApp'][0])
     {
-        $request = $this->getPushAppRequest($app_id);
+        $request = $this->getPushAppRequest($app_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1021,9 +1123,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1034,21 +1143,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\AppStructure' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AppStructure' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1058,9 +1169,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1070,9 +1184,12 @@ class PushApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1082,9 +1199,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1094,9 +1214,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1106,9 +1229,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1119,11 +1245,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AppStructure';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1193,13 +1321,14 @@ class PushApi
      * Get a Push application from E-goi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPushAppAsync($app_id)
+    public function getPushAppAsync($app_id, string $contentType = self::contentTypes['getPushApp'][0])
     {
-        return $this->getPushAppAsyncWithHttpInfo($app_id)
+        return $this->getPushAppAsyncWithHttpInfo($app_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1213,24 +1342,27 @@ class PushApi
      * Get a Push application from E-goi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPushAppAsyncWithHttpInfo($app_id)
+    public function getPushAppAsyncWithHttpInfo($app_id, string $contentType = self::contentTypes['getPushApp'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AppStructure';
-        $request = $this->getPushAppRequest($app_id);
+        $request = $this->getPushAppRequest($app_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1250,7 +1382,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1260,12 +1392,14 @@ class PushApi
      * Create request for operation 'getPushApp'
      *
      * @param  string $app_id ID of the E-goi push app. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPushAppRequest($app_id)
+    public function getPushAppRequest($app_id, string $contentType = self::contentTypes['getPushApp'][0])
     {
+
         // verify the required parameter 'app_id' is set
         if ($app_id === null || (is_array($app_id) && count($app_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1273,12 +1407,14 @@ class PushApi
             );
         }
 
+
         $resourcePath = '/push/apps/{app_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -1290,46 +1426,35 @@ class PushApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1350,10 +1475,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1365,14 +1491,15 @@ class PushApi
      * Get all Push applications from E-goi
      *
      * @param  int $list_id ID of the list to search for. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApps'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\AppStructure[]|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getPushApps($list_id = null)
+    public function getPushApps($list_id = null, string $contentType = self::contentTypes['getPushApps'][0])
     {
-        list($response) = $this->getPushAppsWithHttpInfo($list_id);
+        list($response) = $this->getPushAppsWithHttpInfo($list_id, $contentType);
         return $response;
     }
 
@@ -1382,14 +1509,15 @@ class PushApi
      * Get all Push applications from E-goi
      *
      * @param  int $list_id ID of the list to search for. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApps'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\AppStructure[]|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPushAppsWithHttpInfo($list_id = null)
+    public function getPushAppsWithHttpInfo($list_id = null, string $contentType = self::contentTypes['getPushApps'][0])
     {
-        $request = $this->getPushAppsRequest($list_id);
+        $request = $this->getPushAppsRequest($list_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1398,9 +1526,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1411,21 +1546,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\AppStructure[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\AppStructure[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1435,9 +1572,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1447,9 +1587,12 @@ class PushApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1459,9 +1602,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1471,9 +1617,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1483,9 +1632,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1496,11 +1648,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\AppStructure[]';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1570,13 +1724,14 @@ class PushApi
      * Get all Push applications from E-goi
      *
      * @param  int $list_id ID of the list to search for. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPushAppsAsync($list_id = null)
+    public function getPushAppsAsync($list_id = null, string $contentType = self::contentTypes['getPushApps'][0])
     {
-        return $this->getPushAppsAsyncWithHttpInfo($list_id)
+        return $this->getPushAppsAsyncWithHttpInfo($list_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1590,24 +1745,27 @@ class PushApi
      * Get all Push applications from E-goi
      *
      * @param  int $list_id ID of the list to search for. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPushAppsAsyncWithHttpInfo($list_id = null)
+    public function getPushAppsAsyncWithHttpInfo($list_id = null, string $contentType = self::contentTypes['getPushApps'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\AppStructure[]';
-        $request = $this->getPushAppsRequest($list_id);
+        $request = $this->getPushAppsRequest($list_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1627,7 +1785,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1637,12 +1795,15 @@ class PushApi
      * Create request for operation 'getPushApps'
      *
      * @param  int $list_id ID of the list to search for. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushApps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPushAppsRequest($list_id = null)
+    public function getPushAppsRequest($list_id = null, string $contentType = self::contentTypes['getPushApps'][0])
     {
+
+
 
         $resourcePath = '/push/apps';
         $formParams = [];
@@ -1652,51 +1813,46 @@ class PushApi
         $multipart = false;
 
         // query params
-        if ($list_id !== null) {
-            $queryParams['list_id'] = ObjectSerializer::toQueryValue($list_id);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $list_id,
+            'list_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1717,10 +1873,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1733,14 +1890,15 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\PushCampaignPatchRequest $push_campaign_patch_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPushCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\HashcodeCampaign|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function patchPushCampaign($campaign_hash, $push_campaign_patch_request)
+    public function patchPushCampaign($campaign_hash, $push_campaign_patch_request, string $contentType = self::contentTypes['patchPushCampaign'][0])
     {
-        list($response) = $this->patchPushCampaignWithHttpInfo($campaign_hash, $push_campaign_patch_request);
+        list($response) = $this->patchPushCampaignWithHttpInfo($campaign_hash, $push_campaign_patch_request, $contentType);
         return $response;
     }
 
@@ -1751,14 +1909,15 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\PushCampaignPatchRequest $push_campaign_patch_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPushCampaign'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\HashcodeCampaign|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPushCampaignWithHttpInfo($campaign_hash, $push_campaign_patch_request)
+    public function patchPushCampaignWithHttpInfo($campaign_hash, $push_campaign_patch_request, string $contentType = self::contentTypes['patchPushCampaign'][0])
     {
-        $request = $this->patchPushCampaignRequest($campaign_hash, $push_campaign_patch_request);
+        $request = $this->patchPushCampaignRequest($campaign_hash, $push_campaign_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1767,9 +1926,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1780,21 +1946,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\HashcodeCampaign' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\HashcodeCampaign' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1804,9 +1972,12 @@ class PushApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1816,9 +1987,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1828,9 +2002,12 @@ class PushApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1840,9 +2017,12 @@ class PushApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1852,9 +2032,12 @@ class PushApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1864,9 +2047,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1876,9 +2062,12 @@ class PushApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1888,9 +2077,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1900,9 +2092,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1913,11 +2108,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\HashcodeCampaign';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2020,13 +2217,14 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\PushCampaignPatchRequest $push_campaign_patch_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPushCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPushCampaignAsync($campaign_hash, $push_campaign_patch_request)
+    public function patchPushCampaignAsync($campaign_hash, $push_campaign_patch_request, string $contentType = self::contentTypes['patchPushCampaign'][0])
     {
-        return $this->patchPushCampaignAsyncWithHttpInfo($campaign_hash, $push_campaign_patch_request)
+        return $this->patchPushCampaignAsyncWithHttpInfo($campaign_hash, $push_campaign_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2041,24 +2239,27 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\PushCampaignPatchRequest $push_campaign_patch_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPushCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPushCampaignAsyncWithHttpInfo($campaign_hash, $push_campaign_patch_request)
+    public function patchPushCampaignAsyncWithHttpInfo($campaign_hash, $push_campaign_patch_request, string $contentType = self::contentTypes['patchPushCampaign'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\HashcodeCampaign';
-        $request = $this->patchPushCampaignRequest($campaign_hash, $push_campaign_patch_request);
+        $request = $this->patchPushCampaignRequest($campaign_hash, $push_campaign_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2078,7 +2279,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2089,12 +2290,14 @@ class PushApi
      *
      * @param  string $campaign_hash ID of the Campaign (required)
      * @param  \EgoiClient\EgoiModel\PushCampaignPatchRequest $push_campaign_patch_request Parameters for the push campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPushCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function patchPushCampaignRequest($campaign_hash, $push_campaign_patch_request)
+    public function patchPushCampaignRequest($campaign_hash, $push_campaign_patch_request, string $contentType = self::contentTypes['patchPushCampaign'][0])
     {
+
         // verify the required parameter 'campaign_hash' is set
         if ($campaign_hash === null || (is_array($campaign_hash) && count($campaign_hash) === 0)) {
             throw new \InvalidArgumentException(
@@ -2104,7 +2307,7 @@ class PushApi
         if (!preg_match("/[a-zA-Z0-9_-]*/", $campaign_hash)) {
             throw new \InvalidArgumentException("invalid value for \"campaign_hash\" when calling PushApi.patchPushCampaign, must conform to the pattern /[a-zA-Z0-9_-]*/.");
         }
-
+        
         // verify the required parameter 'push_campaign_patch_request' is set
         if ($push_campaign_patch_request === null || (is_array($push_campaign_patch_request) && count($push_campaign_patch_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -2112,12 +2315,14 @@ class PushApi
             );
         }
 
+
         $resourcePath = '/campaigns/push/{campaign_hash}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -2129,49 +2334,42 @@ class PushApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($push_campaign_patch_request)) {
-            $_tempBody = $push_campaign_patch_request;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($push_campaign_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($push_campaign_patch_request));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $push_campaign_patch_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2192,10 +2390,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2208,14 +2407,15 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushEvent $push_event Parameters for the event (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushEvent'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\PushResponse|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function registerPushEvent($app_id, $push_event)
+    public function registerPushEvent($app_id, $push_event, string $contentType = self::contentTypes['registerPushEvent'][0])
     {
-        list($response) = $this->registerPushEventWithHttpInfo($app_id, $push_event);
+        list($response) = $this->registerPushEventWithHttpInfo($app_id, $push_event, $contentType);
         return $response;
     }
 
@@ -2226,14 +2426,15 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushEvent $push_event Parameters for the event (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushEvent'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\PushResponse|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerPushEventWithHttpInfo($app_id, $push_event)
+    public function registerPushEventWithHttpInfo($app_id, $push_event, string $contentType = self::contentTypes['registerPushEvent'][0])
     {
-        $request = $this->registerPushEventRequest($app_id, $push_event);
+        $request = $this->registerPushEventRequest($app_id, $push_event, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2242,9 +2443,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2255,21 +2463,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\PushResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\PushResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2279,9 +2489,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2291,9 +2504,12 @@ class PushApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2303,9 +2519,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2315,9 +2534,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2327,9 +2549,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2340,11 +2565,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\PushResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2415,13 +2642,14 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushEvent $push_event Parameters for the event (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerPushEventAsync($app_id, $push_event)
+    public function registerPushEventAsync($app_id, $push_event, string $contentType = self::contentTypes['registerPushEvent'][0])
     {
-        return $this->registerPushEventAsyncWithHttpInfo($app_id, $push_event)
+        return $this->registerPushEventAsyncWithHttpInfo($app_id, $push_event, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2436,24 +2664,27 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushEvent $push_event Parameters for the event (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerPushEventAsyncWithHttpInfo($app_id, $push_event)
+    public function registerPushEventAsyncWithHttpInfo($app_id, $push_event, string $contentType = self::contentTypes['registerPushEvent'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\PushResponse';
-        $request = $this->registerPushEventRequest($app_id, $push_event);
+        $request = $this->registerPushEventRequest($app_id, $push_event, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2473,7 +2704,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2484,18 +2715,21 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushEvent $push_event Parameters for the event (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function registerPushEventRequest($app_id, $push_event)
+    public function registerPushEventRequest($app_id, $push_event, string $contentType = self::contentTypes['registerPushEvent'][0])
     {
+
         // verify the required parameter 'app_id' is set
         if ($app_id === null || (is_array($app_id) && count($app_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $app_id when calling registerPushEvent'
             );
         }
+
         // verify the required parameter 'push_event' is set
         if ($push_event === null || (is_array($push_event) && count($push_event) === 0)) {
             throw new \InvalidArgumentException(
@@ -2503,12 +2737,14 @@ class PushApi
             );
         }
 
+
         $resourcePath = '/push/apps/{app_id}/event';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -2520,49 +2756,42 @@ class PushApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($push_event)) {
-            $_tempBody = $push_event;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($push_event)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($push_event));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $push_event;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2583,10 +2812,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2599,14 +2829,15 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushToken $push_token Parameters for the token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushToken'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\PushResponse|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function registerPushToken($app_id, $push_token)
+    public function registerPushToken($app_id, $push_token, string $contentType = self::contentTypes['registerPushToken'][0])
     {
-        list($response) = $this->registerPushTokenWithHttpInfo($app_id, $push_token);
+        list($response) = $this->registerPushTokenWithHttpInfo($app_id, $push_token, $contentType);
         return $response;
     }
 
@@ -2617,14 +2848,15 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushToken $push_token Parameters for the token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushToken'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\PushResponse|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerPushTokenWithHttpInfo($app_id, $push_token)
+    public function registerPushTokenWithHttpInfo($app_id, $push_token, string $contentType = self::contentTypes['registerPushToken'][0])
     {
-        $request = $this->registerPushTokenRequest($app_id, $push_token);
+        $request = $this->registerPushTokenRequest($app_id, $push_token, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2633,9 +2865,16 @@ class PushApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2646,21 +2885,23 @@ class PushApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
                     if ('\EgoiClient\EgoiModel\PushResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\PushResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2670,9 +2911,12 @@ class PushApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2682,9 +2926,12 @@ class PushApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2694,9 +2941,12 @@ class PushApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2706,9 +2956,12 @@ class PushApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2718,9 +2971,12 @@ class PushApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2731,11 +2987,13 @@ class PushApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\PushResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2806,13 +3064,14 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushToken $push_token Parameters for the token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerPushTokenAsync($app_id, $push_token)
+    public function registerPushTokenAsync($app_id, $push_token, string $contentType = self::contentTypes['registerPushToken'][0])
     {
-        return $this->registerPushTokenAsyncWithHttpInfo($app_id, $push_token)
+        return $this->registerPushTokenAsyncWithHttpInfo($app_id, $push_token, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2827,24 +3086,27 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushToken $push_token Parameters for the token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerPushTokenAsyncWithHttpInfo($app_id, $push_token)
+    public function registerPushTokenAsyncWithHttpInfo($app_id, $push_token, string $contentType = self::contentTypes['registerPushToken'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\PushResponse';
-        $request = $this->registerPushTokenRequest($app_id, $push_token);
+        $request = $this->registerPushTokenRequest($app_id, $push_token, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2864,7 +3126,7 @@ class PushApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2875,18 +3137,21 @@ class PushApi
      *
      * @param  string $app_id ID of the E-goi push app. (required)
      * @param  \EgoiClient\EgoiModel\PushToken $push_token Parameters for the token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function registerPushTokenRequest($app_id, $push_token)
+    public function registerPushTokenRequest($app_id, $push_token, string $contentType = self::contentTypes['registerPushToken'][0])
     {
+
         // verify the required parameter 'app_id' is set
         if ($app_id === null || (is_array($app_id) && count($app_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $app_id when calling registerPushToken'
             );
         }
+
         // verify the required parameter 'push_token' is set
         if ($push_token === null || (is_array($push_token) && count($push_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2894,12 +3159,14 @@ class PushApi
             );
         }
 
+
         $resourcePath = '/push/apps/{app_id}/token';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -2911,49 +3178,42 @@ class PushApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($push_token)) {
-            $_tempBody = $push_token;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($push_token)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($push_token));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $push_token;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2974,10 +3234,11 @@ class PushApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

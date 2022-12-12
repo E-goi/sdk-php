@@ -1,19 +1,20 @@
 # EgoiClient\TagsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createTag**](TagsApi.md#createTag) | **POST** /tags | Create new tag
-[**deleteTag**](TagsApi.md#deleteTag) | **DELETE** /tags/{tag_id} | Remove tag
-[**getAllTags**](TagsApi.md#getAllTags) | **GET** /tags | Get all tags
-[**updateTag**](TagsApi.md#updateTag) | **PUT** /tags/{tag_id} | Update a specific tag
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createTag()**](TagsApi.md#createTag) | **POST** /tags | Create new tag |
+| [**deleteTag()**](TagsApi.md#deleteTag) | **DELETE** /tags/{tag_id} | Remove tag |
+| [**getAllTags()**](TagsApi.md#getAllTags) | **GET** /tags | Get all tags |
+| [**updateTag()**](TagsApi.md#updateTag) | **PUT** /tags/{tag_id} | Update a specific tag |
 
 
+## `createTag()`
 
-## createTag
-
-> \EgoiClient\EgoiModel\Tag createTag($tag_request)
+```php
+createTag($tag_request): \EgoiClient\EgoiModel\Tag
+```
 
 Create new tag
 
@@ -46,15 +47,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TagsApi->createTag: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tag_request** | [**\EgoiClient\EgoiModel\TagRequest**](../Model/TagRequest.md)| Parameters for the Tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tag_request** | [**\EgoiClient\EgoiModel\TagRequest**](../Model/TagRequest.md)| Parameters for the Tag | |
 
 ### Return type
 
@@ -66,17 +65,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteTag()`
 
-## deleteTag
-
-> deleteTag($tag_id)
+```php
+deleteTag($tag_id)
+```
 
 Remove tag
 
@@ -108,15 +108,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TagsApi->deleteTag: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tag_id** | **int**| ID of the Tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tag_id** | **int**| ID of the Tag | |
 
 ### Return type
 
@@ -129,16 +127,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllTags()`
 
-## getAllTags
-
-> \EgoiClient\EgoiModel\TagCollection getAllTags($offset, $limit, $order, $order_by)
+```php
+getAllTags($offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\TagCollection
+```
 
 Get all tags
 
@@ -174,18 +173,16 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TagsApi->getAllTags: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order tags | [optional] [default to &#39;tag_id&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order tags | [optional] [default to &#39;tag_id&#39;] |
 
 ### Return type
 
@@ -198,16 +195,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateTag()`
 
-## updateTag
-
-> \EgoiClient\EgoiModel\Tag updateTag($tag_id, $tag_request)
+```php
+updateTag($tag_id, $tag_request): \EgoiClient\EgoiModel\Tag
+```
 
 Update a specific tag
 
@@ -241,16 +239,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TagsApi->updateTag: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tag_id** | **int**| ID of the Tag |
- **tag_request** | [**\EgoiClient\EgoiModel\TagRequest**](../Model/TagRequest.md)| Parameters for the tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tag_id** | **int**| ID of the Tag | |
+| **tag_request** | [**\EgoiClient\EgoiModel\TagRequest**](../Model/TagRequest.md)| Parameters for the tag | |
 
 ### Return type
 
@@ -262,10 +258,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

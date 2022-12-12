@@ -1,26 +1,27 @@
 # EgoiClient\EcommerceApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createCart**](EcommerceApi.md#createCart) | **POST** /{domain}/carts | Create cart
-[**createCatalog**](EcommerceApi.md#createCatalog) | **POST** /catalogs | Create new catalog
-[**createOrder**](EcommerceApi.md#createOrder) | **POST** /{domain}/orders | Create order
-[**createProduct**](EcommerceApi.md#createProduct) | **POST** /catalogs/{catalog_id}/products | Create new product
-[**deleteCatalog**](EcommerceApi.md#deleteCatalog) | **DELETE** /catalogs/{catalog_id} | Remove catalog
-[**deleteProduct**](EcommerceApi.md#deleteProduct) | **DELETE** /catalogs/{catalog_id}/products/{product_identifier} | Remove product
-[**getAllCatalogs**](EcommerceApi.md#getAllCatalogs) | **GET** /catalogs | Get all catalogs
-[**getAllProducts**](EcommerceApi.md#getAllProducts) | **GET** /catalogs/{catalog_id}/products | Get all products
-[**getProduct**](EcommerceApi.md#getProduct) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product
-[**importProducts**](EcommerceApi.md#importProducts) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products
-[**updateProduct**](EcommerceApi.md#updateProduct) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createCart()**](EcommerceApi.md#createCart) | **POST** /{domain}/carts | Create cart |
+| [**createCatalog()**](EcommerceApi.md#createCatalog) | **POST** /catalogs | Create new catalog |
+| [**createOrder()**](EcommerceApi.md#createOrder) | **POST** /{domain}/orders | Create order |
+| [**createProduct()**](EcommerceApi.md#createProduct) | **POST** /catalogs/{catalog_id}/products | Create new product |
+| [**deleteCatalog()**](EcommerceApi.md#deleteCatalog) | **DELETE** /catalogs/{catalog_id} | Remove catalog |
+| [**deleteProduct()**](EcommerceApi.md#deleteProduct) | **DELETE** /catalogs/{catalog_id}/products/{product_identifier} | Remove product |
+| [**getAllCatalogs()**](EcommerceApi.md#getAllCatalogs) | **GET** /catalogs | Get all catalogs |
+| [**getAllProducts()**](EcommerceApi.md#getAllProducts) | **GET** /catalogs/{catalog_id}/products | Get all products |
+| [**getProduct()**](EcommerceApi.md#getProduct) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product |
+| [**importProducts()**](EcommerceApi.md#importProducts) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products |
+| [**updateProduct()**](EcommerceApi.md#updateProduct) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product |
 
 
+## `createCart()`
 
-## createCart
-
-> \EgoiClient\EgoiModel\AcceptedResponse createCart($domain, $cart)
+```php
+createCart($domain, $cart): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Create cart
 
@@ -54,16 +55,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->createCart: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **domain** | **string**| Domain |
- **cart** | [**\EgoiClient\EgoiModel\Cart**](../Model/Cart.md)| Parameters for the Carts |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Domain | |
+| **cart** | [**\EgoiClient\EgoiModel\Cart**](../Model/Cart.md)| Parameters for the Carts | |
 
 ### Return type
 
@@ -75,17 +74,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createCatalog()`
 
-## createCatalog
-
-> \EgoiClient\EgoiModel\Catalog createCatalog($catalog_post_request)
+```php
+createCatalog($catalog_post_request): \EgoiClient\EgoiModel\Catalog
+```
 
 Create new catalog
 
@@ -118,15 +118,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->createCatalog: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_post_request** | [**\EgoiClient\EgoiModel\CatalogPostRequest**](../Model/CatalogPostRequest.md)| Parameters for the Catalog |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_post_request** | [**\EgoiClient\EgoiModel\CatalogPostRequest**](../Model/CatalogPostRequest.md)| Parameters for the Catalog | |
 
 ### Return type
 
@@ -138,17 +136,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createOrder()`
 
-## createOrder
-
-> \EgoiClient\EgoiModel\AcceptedResponse createOrder($domain, $create_order)
+```php
+createOrder($domain, $create_order): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Create order
 
@@ -182,16 +181,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->createOrder: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **domain** | **string**| Domain |
- **create_order** | [**\EgoiClient\EgoiModel\CreateOrder**](../Model/CreateOrder.md)| Parameters for the Orders |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Domain | |
+| **create_order** | [**\EgoiClient\EgoiModel\CreateOrder**](../Model/CreateOrder.md)| Parameters for the Orders | |
 
 ### Return type
 
@@ -203,17 +200,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createProduct()`
 
-## createProduct
-
-> \EgoiClient\EgoiModel\Product createProduct($catalog_id, $product_post_request)
+```php
+createProduct($catalog_id, $product_post_request): \EgoiClient\EgoiModel\Product
+```
 
 Create new product
 
@@ -247,16 +245,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->createProduct: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
- **product_post_request** | [**\EgoiClient\EgoiModel\ProductPostRequest**](../Model/ProductPostRequest.md)| Parameters for the Product |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
+| **product_post_request** | [**\EgoiClient\EgoiModel\ProductPostRequest**](../Model/ProductPostRequest.md)| Parameters for the Product | |
 
 ### Return type
 
@@ -268,17 +264,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteCatalog()`
 
-## deleteCatalog
-
-> deleteCatalog($catalog_id)
+```php
+deleteCatalog($catalog_id)
+```
 
 Remove catalog
 
@@ -310,15 +307,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->deleteCatalog: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
 
 ### Return type
 
@@ -331,16 +326,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteProduct()`
 
-## deleteProduct
-
-> deleteProduct($catalog_id, $product_identifier)
+```php
+deleteProduct($catalog_id, $product_identifier)
+```
 
 Remove product
 
@@ -373,16 +369,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->deleteProduct: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
- **product_identifier** | **string**| ID of the Product |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
+| **product_identifier** | **string**| ID of the Product | |
 
 ### Return type
 
@@ -395,16 +389,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllCatalogs()`
 
-## getAllCatalogs
-
-> \EgoiClient\EgoiModel\CatalogCollection getAllCatalogs()
+```php
+getAllCatalogs(): \EgoiClient\EgoiModel\CatalogCollection
+```
 
 Get all catalogs
 
@@ -436,7 +431,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->getAllCatalogs: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -454,16 +448,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllProducts()`
 
-## getAllProducts
-
-> \EgoiClient\EgoiModel\ProductCollection getAllProducts($catalog_id, $product_identifier, $offset, $limit)
+```php
+getAllProducts($catalog_id, $product_identifier, $name, $description, $sku, $upc, $ean, $gtin, $mpn, $price, $sale_price, $brand, $custom_attributes, $offset, $limit): \EgoiClient\EgoiModel\ProductCollection
+```
 
 Get all products
 
@@ -489,28 +484,48 @@ $apiInstance = new EgoiClient\Api\EcommerceApi(
     $config
 );
 $catalog_id = 56; // int | ID of the Catalog
-$product_identifier = 'product_identifier_example'; // string | Product ID in your store
+$product_identifier = 'product_identifier_example'; // string | Filter by product ID in your store
+$name = 'name_example'; // string | Filter by name of the product
+$description = 'description_example'; // string | Filter by description of the product
+$sku = 'sku_example'; // string | Filter by Stock Keeping Unit
+$upc = 'upc_example'; // string | Filter by Universal Product Code
+$ean = 'ean_example'; // string | Filter by European Article Numbering
+$gtin = 'gtin_example'; // string | Filter by Global Trade Item Number
+$mpn = 'mpn_example'; // string | Filter by Manufacturer Part Number
+$price = 3.4; // float | Filter by price of the product
+$sale_price = 3.4; // float | Filter by sale price of the product
+$brand = 'brand_example'; // string | Filter by brand of the product
+$custom_attributes = array('key' => new \EgoiClient\EgoiModel\GetAllProductsCustomAttributesParameter()); // GetAllProductsCustomAttributesParameter | Filter by custom attributes of products<div><span class='sc-cJSrbW cWGDGi'> Example: </span> <span class='sc-uJMKN cTkJKI'> 'custom_attributes[alias]=value' </span></div>
 $offset = 56; // int | Element offset (starting at zero for the first element)
 $limit = 10; // int | Number of items to return
 
 try {
-    $result = $apiInstance->getAllProducts($catalog_id, $product_identifier, $offset, $limit);
+    $result = $apiInstance->getAllProducts($catalog_id, $product_identifier, $name, $description, $sku, $upc, $ean, $gtin, $mpn, $price, $sale_price, $brand, $custom_attributes, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->getAllProducts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
- **product_identifier** | **string**| Product ID in your store | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
+| **product_identifier** | **string**| Filter by product ID in your store | [optional] |
+| **name** | **string**| Filter by name of the product | [optional] |
+| **description** | **string**| Filter by description of the product | [optional] |
+| **sku** | **string**| Filter by Stock Keeping Unit | [optional] |
+| **upc** | **string**| Filter by Universal Product Code | [optional] |
+| **ean** | **string**| Filter by European Article Numbering | [optional] |
+| **gtin** | **string**| Filter by Global Trade Item Number | [optional] |
+| **mpn** | **string**| Filter by Manufacturer Part Number | [optional] |
+| **price** | **float**| Filter by price of the product | [optional] |
+| **sale_price** | **float**| Filter by sale price of the product | [optional] |
+| **brand** | **string**| Filter by brand of the product | [optional] |
+| **custom_attributes** | [**GetAllProductsCustomAttributesParameter**](../Model/.md)| Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
 
 ### Return type
 
@@ -523,16 +538,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getProduct()`
 
-## getProduct
-
-> \EgoiClient\EgoiModel\Product getProduct($catalog_id, $product_identifier)
+```php
+getProduct($catalog_id, $product_identifier): \EgoiClient\EgoiModel\Product
+```
 
 Get product
 
@@ -566,16 +582,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->getProduct: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
- **product_identifier** | **string**| ID of the Product |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
+| **product_identifier** | **string**| ID of the Product | |
 
 ### Return type
 
@@ -588,16 +602,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `importProducts()`
 
-## importProducts
-
-> \EgoiClient\EgoiModel\AcceptedResponse importProducts($catalog_id, $product_bulk_request)
+```php
+importProducts($catalog_id, $product_bulk_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Import products
 
@@ -631,16 +646,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->importProducts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
- **product_bulk_request** | [**\EgoiClient\EgoiModel\ProductBulkRequest**](../Model/ProductBulkRequest.md)| Parameters for the Product |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
+| **product_bulk_request** | [**\EgoiClient\EgoiModel\ProductBulkRequest**](../Model/ProductBulkRequest.md)| Parameters for the Product | |
 
 ### Return type
 
@@ -652,17 +665,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateProduct()`
 
-## updateProduct
-
-> \EgoiClient\EgoiModel\Product updateProduct($catalog_id, $product_identifier, $product_patch_request)
+```php
+updateProduct($catalog_id, $product_identifier, $product_patch_request): \EgoiClient\EgoiModel\Product
+```
 
 Update product
 
@@ -697,17 +711,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling EcommerceApi->updateProduct: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **catalog_id** | **int**| ID of the Catalog |
- **product_identifier** | **string**| ID of the Product |
- **product_patch_request** | [**\EgoiClient\EgoiModel\ProductPatchRequest**](../Model/ProductPatchRequest.md)| Parameters for the product |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **catalog_id** | **int**| ID of the Catalog | |
+| **product_identifier** | **string**| ID of the Product | |
+| **product_patch_request** | [**\EgoiClient\EgoiModel\ProductPatchRequest**](../Model/ProductPatchRequest.md)| Parameters for the product | |
 
 ### Return type
 
@@ -719,10 +731,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

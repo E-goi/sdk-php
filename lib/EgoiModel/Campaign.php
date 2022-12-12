@@ -2,7 +2,7 @@
 /**
  * Campaign
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class Campaign implements ModelInterface, ArrayAccess
+class Campaign implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -78,6 +78,8 @@ class Campaign implements ModelInterface, ArrayAccess
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'campaign_hash' => null,
@@ -97,6 +99,35 @@ class Campaign implements ModelInterface, ArrayAccess
     ];
 
     /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'campaign_hash' => false,
+		'status' => false,
+		'thumbnail' => false,
+		'channel' => false,
+		'internal_name' => false,
+		'list_id' => false,
+		'title' => false,
+		'created_by' => false,
+		'group_id' => false,
+		'created' => false,
+		'updated' => false,
+		'start_date' => false,
+		'end_date' => false,
+		'schedule_date' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
+
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -114,6 +145,58 @@ class Campaign implements ModelInterface, ArrayAccess
     public static function openAPIFormats()
     {
         return self::$openAPIFormats;
+    }
+
+    /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
     }
 
     /**
@@ -224,21 +307,19 @@ class Campaign implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_DRAFT = 'draft';
-    const STATUS_CANCELED = 'canceled';
-    const STATUS_QUEUED = 'queued';
-    const STATUS_PAUSED = 'paused';
-    const STATUS_SENDING = 'sending';
-    const STATUS_SENT = 'sent';
-    const CHANNEL_EMAIL = 'email';
-    const CHANNEL_PUSH = 'push';
-    const CHANNEL_SMS = 'sms';
-    const CHANNEL_SMART_SMS = 'smart_sms';
-    const CHANNEL_VOICE = 'voice';
-    const CHANNEL_WEB_PUSH = 'web_push';
-    
+    public const STATUS_DRAFT = 'draft';
+    public const STATUS_CANCELED = 'canceled';
+    public const STATUS_QUEUED = 'queued';
+    public const STATUS_PAUSED = 'paused';
+    public const STATUS_SENDING = 'sending';
+    public const STATUS_SENT = 'sent';
+    public const CHANNEL_EMAIL = 'email';
+    public const CHANNEL_PUSH = 'push';
+    public const CHANNEL_SMS = 'sms';
+    public const CHANNEL_SMART_SMS = 'smart_sms';
+    public const CHANNEL_VOICE = 'voice';
+    public const CHANNEL_WEB_PUSH = 'web_push';
 
-    
     /**
      * Gets allowable values of the enum
      *
@@ -255,7 +336,7 @@ class Campaign implements ModelInterface, ArrayAccess
             self::STATUS_SENT,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
@@ -272,7 +353,6 @@ class Campaign implements ModelInterface, ArrayAccess
             self::CHANNEL_WEB_PUSH,
         ];
     }
-    
 
     /**
      * Associative array for storing property values
@@ -289,20 +369,38 @@ class Campaign implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign_hash'] = isset($data['campaign_hash']) ? $data['campaign_hash'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['thumbnail'] = isset($data['thumbnail']) ? $data['thumbnail'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['internal_name'] = isset($data['internal_name']) ? $data['internal_name'] : null;
-        $this->container['list_id'] = isset($data['list_id']) ? $data['list_id'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
-        $this->container['group_id'] = isset($data['group_id']) ? $data['group_id'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
-        $this->container['schedule_date'] = isset($data['schedule_date']) ? $data['schedule_date'] : null;
+        $this->setIfExists('campaign_hash', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('thumbnail', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('internal_name', $data ?? [], null);
+        $this->setIfExists('list_id', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('created_by', $data ?? [], null);
+        $this->setIfExists('group_id', $data ?? [], null);
+        $this->setIfExists('created', $data ?? [], null);
+        $this->setIfExists('updated', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('schedule_date', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -321,7 +419,8 @@ class Campaign implements ModelInterface, ArrayAccess
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -329,7 +428,8 @@ class Campaign implements ModelInterface, ArrayAccess
         $allowedValues = $this->getChannelAllowableValues();
         if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'channel', must be one of '%s'",
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
                 implode("', '", $allowedValues)
             );
         }
@@ -376,13 +476,18 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param string|null $campaign_hash campaign_hash
      *
-     * @return $this
+     * @return self
      */
     public function setCampaignHash($campaign_hash)
     {
 
         if (!is_null($campaign_hash) && (!preg_match("/[a-zA-Z0-9_-]*/", $campaign_hash))) {
-            throw new \InvalidArgumentException("invalid value for $campaign_hash when calling Campaign., must conform to the pattern /[a-zA-Z0-9_-]*/.");
+            throw new \InvalidArgumentException("invalid value for \$campaign_hash when calling Campaign., must conform to the pattern /[a-zA-Z0-9_-]*/.");
+        }
+
+
+        if (is_null($campaign_hash)) {
+            throw new \InvalidArgumentException('non-nullable campaign_hash cannot be null');
         }
 
         $this->container['campaign_hash'] = $campaign_hash;
@@ -405,7 +510,7 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param string|null $status Status of the campaign
      *
-     * @return $this
+     * @return self
      */
     public function setStatus($status)
     {
@@ -413,11 +518,17 @@ class Campaign implements ModelInterface, ArrayAccess
         if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+
         $this->container['status'] = $status;
 
         return $this;
@@ -438,10 +549,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param string|null $thumbnail Thumbnail of the campaign
      *
-     * @return $this
+     * @return self
      */
     public function setThumbnail($thumbnail)
     {
+
+        if (is_null($thumbnail)) {
+            throw new \InvalidArgumentException('non-nullable thumbnail cannot be null');
+        }
+
         $this->container['thumbnail'] = $thumbnail;
 
         return $this;
@@ -462,7 +578,7 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param string|null $channel Channel of the campaign
      *
-     * @return $this
+     * @return self
      */
     public function setChannel($channel)
     {
@@ -470,11 +586,17 @@ class Campaign implements ModelInterface, ArrayAccess
         if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'channel', must be one of '%s'",
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+
         $this->container['channel'] = $channel;
 
         return $this;
@@ -495,10 +617,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param string|null $internal_name Internal name of the campaign
      *
-     * @return $this
+     * @return self
      */
     public function setInternalName($internal_name)
     {
+
+        if (is_null($internal_name)) {
+            throw new \InvalidArgumentException('non-nullable internal_name cannot be null');
+        }
+
         $this->container['internal_name'] = $internal_name;
 
         return $this;
@@ -519,13 +646,18 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param int|null $list_id list_id
      *
-     * @return $this
+     * @return self
      */
     public function setListId($list_id)
     {
 
         if (!is_null($list_id) && ($list_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $list_id when calling Campaign., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($list_id)) {
+            throw new \InvalidArgumentException('non-nullable list_id cannot be null');
         }
 
         $this->container['list_id'] = $list_id;
@@ -548,10 +680,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param string|null $title Subject of the campaign
      *
-     * @return $this
+     * @return self
      */
     public function setTitle($title)
     {
+
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+
         $this->container['title'] = $title;
 
         return $this;
@@ -572,13 +709,18 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param int|null $created_by created_by
      *
-     * @return $this
+     * @return self
      */
     public function setCreatedBy($created_by)
     {
 
         if (!is_null($created_by) && ($created_by < 1)) {
             throw new \InvalidArgumentException('invalid value for $created_by when calling Campaign., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($created_by)) {
+            throw new \InvalidArgumentException('non-nullable created_by cannot be null');
         }
 
         $this->container['created_by'] = $created_by;
@@ -601,13 +743,18 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param int|null $group_id group_id
      *
-     * @return $this
+     * @return self
      */
     public function setGroupId($group_id)
     {
 
         if (!is_null($group_id) && ($group_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $group_id when calling Campaign., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($group_id)) {
+            throw new \InvalidArgumentException('non-nullable group_id cannot be null');
         }
 
         $this->container['group_id'] = $group_id;
@@ -630,10 +777,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $created created
      *
-     * @return $this
+     * @return self
      */
     public function setCreated($created)
     {
+
+        if (is_null($created)) {
+            throw new \InvalidArgumentException('non-nullable created cannot be null');
+        }
+
         $this->container['created'] = $created;
 
         return $this;
@@ -654,10 +806,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $updated updated
      *
-     * @return $this
+     * @return self
      */
     public function setUpdated($updated)
     {
+
+        if (is_null($updated)) {
+            throw new \InvalidArgumentException('non-nullable updated cannot be null');
+        }
+
         $this->container['updated'] = $updated;
 
         return $this;
@@ -678,10 +835,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $start_date start_date
      *
-     * @return $this
+     * @return self
      */
     public function setStartDate($start_date)
     {
+
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+        }
+
         $this->container['start_date'] = $start_date;
 
         return $this;
@@ -702,10 +864,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $end_date end_date
      *
-     * @return $this
+     * @return self
      */
     public function setEndDate($end_date)
     {
+
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        }
+
         $this->container['end_date'] = $end_date;
 
         return $this;
@@ -726,10 +893,15 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param \EgoiClient\EgoiModel\CampaignScheduleDate|null $schedule_date schedule_date
      *
-     * @return $this
+     * @return self
      */
     public function setScheduleDate($schedule_date)
     {
+
+        if (is_null($schedule_date)) {
+            throw new \InvalidArgumentException('non-nullable schedule_date cannot be null');
+        }
+
         $this->container['schedule_date'] = $schedule_date;
 
         return $this;
@@ -741,7 +913,7 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -751,22 +923,23 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -782,9 +955,22 @@ class Campaign implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

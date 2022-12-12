@@ -2,7 +2,7 @@
 /**
  * ContactBaseWithStatusFieldsSchemaBase
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAccess
+class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -71,14 +71,16 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         'cellphone_status' => 'string',
         'phone' => 'string',
         'phone_status' => 'string',
-        'push_token_android' => '\EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid[]',
-        'push_token_ios' => '\EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBasePushTokenIos[]'
+        'push_token_android' => '\EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner[]',
+        'push_token_ios' => '\EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner[]'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
         'contact_id' => null,
@@ -99,6 +101,36 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
     ];
 
     /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'contact_id' => false,
+		'status' => false,
+		'consent' => false,
+		'first_name' => false,
+		'last_name' => false,
+		'birth_date' => false,
+		'language' => false,
+		'email' => false,
+		'email_status' => false,
+		'cellphone' => false,
+		'cellphone_status' => false,
+		'phone' => false,
+		'phone_status' => false,
+		'push_token_android' => false,
+		'push_token_ios' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
+
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -116,6 +148,58 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
     public static function openAPIFormats()
     {
         return self::$openAPIFormats;
+    }
+
+    /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
     }
 
     /**
@@ -229,28 +313,26 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
-    const STATUS_ACTIVE = 'active';
-    const STATUS_INACTIVE = 'inactive';
-    const STATUS_REMOVED = 'removed';
-    const STATUS_UNCONFIRMED = 'unconfirmed';
-    const CONSENT_ANY = 'any';
-    const CONSENT_CONSENT = 'consent';
-    const CONSENT_CONTRACT = 'contract';
-    const CONSENT_LEGITIMATE_INTEREST = 'legitimate_interest';
-    const CONSENT_NONE = 'none';
-    const CONSENT_PROTECT_VITAL_INTERESTS = 'protect_vital_interests';
-    const CONSENT_PUBLIC_INTERESTS = 'public_interests';
-    const CONSENT_REQUIRED_BY_LAW = 'required_by_law';
-    const CONSENT_WITHDRAWN = 'withdrawn';
-    const EMAIL_STATUS_ACTIVE = 'active';
-    const EMAIL_STATUS_INACTIVE = 'inactive';
-    const CELLPHONE_STATUS_ACTIVE = 'active';
-    const CELLPHONE_STATUS_INACTIVE = 'inactive';
-    const PHONE_STATUS_ACTIVE = 'active';
-    const PHONE_STATUS_INACTIVE = 'inactive';
-    
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_INACTIVE = 'inactive';
+    public const STATUS_REMOVED = 'removed';
+    public const STATUS_UNCONFIRMED = 'unconfirmed';
+    public const CONSENT_ANY = 'any';
+    public const CONSENT_CONSENT = 'consent';
+    public const CONSENT_CONTRACT = 'contract';
+    public const CONSENT_LEGITIMATE_INTEREST = 'legitimate_interest';
+    public const CONSENT_NONE = 'none';
+    public const CONSENT_PROTECT_VITAL_INTERESTS = 'protect_vital_interests';
+    public const CONSENT_PUBLIC_INTERESTS = 'public_interests';
+    public const CONSENT_REQUIRED_BY_LAW = 'required_by_law';
+    public const CONSENT_WITHDRAWN = 'withdrawn';
+    public const EMAIL_STATUS_ACTIVE = 'active';
+    public const EMAIL_STATUS_INACTIVE = 'inactive';
+    public const CELLPHONE_STATUS_ACTIVE = 'active';
+    public const CELLPHONE_STATUS_INACTIVE = 'inactive';
+    public const PHONE_STATUS_ACTIVE = 'active';
+    public const PHONE_STATUS_INACTIVE = 'inactive';
 
-    
     /**
      * Gets allowable values of the enum
      *
@@ -265,7 +347,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
             self::STATUS_UNCONFIRMED,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
@@ -285,7 +367,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
             self::CONSENT_WITHDRAWN,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
@@ -298,7 +380,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
             self::EMAIL_STATUS_INACTIVE,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
@@ -311,7 +393,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
             self::CELLPHONE_STATUS_INACTIVE,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
@@ -324,7 +406,6 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
             self::PHONE_STATUS_INACTIVE,
         ];
     }
-    
 
     /**
      * Associative array for storing property values
@@ -341,21 +422,39 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['contact_id'] = isset($data['contact_id']) ? $data['contact_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : 'active';
-        $this->container['consent'] = isset($data['consent']) ? $data['consent'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-        $this->container['birth_date'] = isset($data['birth_date']) ? $data['birth_date'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_status'] = isset($data['email_status']) ? $data['email_status'] : null;
-        $this->container['cellphone'] = isset($data['cellphone']) ? $data['cellphone'] : null;
-        $this->container['cellphone_status'] = isset($data['cellphone_status']) ? $data['cellphone_status'] : null;
-        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
-        $this->container['phone_status'] = isset($data['phone_status']) ? $data['phone_status'] : null;
-        $this->container['push_token_android'] = isset($data['push_token_android']) ? $data['push_token_android'] : null;
-        $this->container['push_token_ios'] = isset($data['push_token_ios']) ? $data['push_token_ios'] : null;
+        $this->setIfExists('contact_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], 'active');
+        $this->setIfExists('consent', $data ?? [], null);
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('birth_date', $data ?? [], null);
+        $this->setIfExists('language', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('email_status', $data ?? [], null);
+        $this->setIfExists('cellphone', $data ?? [], null);
+        $this->setIfExists('cellphone_status', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('phone_status', $data ?? [], null);
+        $this->setIfExists('push_token_android', $data ?? [], null);
+        $this->setIfExists('push_token_ios', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -374,7 +473,8 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -382,7 +482,8 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         $allowedValues = $this->getConsentAllowableValues();
         if (!is_null($this->container['consent']) && !in_array($this->container['consent'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'consent', must be one of '%s'",
+                "invalid value '%s' for 'consent', must be one of '%s'",
+                $this->container['consent'],
                 implode("', '", $allowedValues)
             );
         }
@@ -390,7 +491,8 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         $allowedValues = $this->getEmailStatusAllowableValues();
         if (!is_null($this->container['email_status']) && !in_array($this->container['email_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'email_status', must be one of '%s'",
+                "invalid value '%s' for 'email_status', must be one of '%s'",
+                $this->container['email_status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -398,7 +500,8 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         $allowedValues = $this->getCellphoneStatusAllowableValues();
         if (!is_null($this->container['cellphone_status']) && !in_array($this->container['cellphone_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'cellphone_status', must be one of '%s'",
+                "invalid value '%s' for 'cellphone_status', must be one of '%s'",
+                $this->container['cellphone_status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -406,7 +509,8 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         $allowedValues = $this->getPhoneStatusAllowableValues();
         if (!is_null($this->container['phone_status']) && !in_array($this->container['phone_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'phone_status', must be one of '%s'",
+                "invalid value '%s' for 'phone_status', must be one of '%s'",
+                $this->container['phone_status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -441,13 +545,18 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $contact_id contact_id
      *
-     * @return $this
+     * @return self
      */
     public function setContactId($contact_id)
     {
 
         if (!is_null($contact_id) && (!preg_match("/[a-fA-F\\d]{10}/", $contact_id))) {
-            throw new \InvalidArgumentException("invalid value for $contact_id when calling ContactBaseWithStatusFieldsSchemaBase., must conform to the pattern /[a-fA-F\\d]{10}/.");
+            throw new \InvalidArgumentException("invalid value for \$contact_id when calling ContactBaseWithStatusFieldsSchemaBase., must conform to the pattern /[a-fA-F\\d]{10}/.");
+        }
+
+
+        if (is_null($contact_id)) {
+            throw new \InvalidArgumentException('non-nullable contact_id cannot be null');
         }
 
         $this->container['contact_id'] = $contact_id;
@@ -470,7 +579,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $status Status of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setStatus($status)
     {
@@ -478,11 +587,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+
         $this->container['status'] = $status;
 
         return $this;
@@ -503,7 +618,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $consent Contact consent
      *
-     * @return $this
+     * @return self
      */
     public function setConsent($consent)
     {
@@ -511,11 +626,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         if (!is_null($consent) && !in_array($consent, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'consent', must be one of '%s'",
+                    "Invalid value '%s' for 'consent', must be one of '%s'",
+                    $consent,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($consent)) {
+            throw new \InvalidArgumentException('non-nullable consent cannot be null');
+        }
+
         $this->container['consent'] = $consent;
 
         return $this;
@@ -536,10 +657,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $first_name First name of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setFirstName($first_name)
     {
+
+        if (is_null($first_name)) {
+            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        }
+
         $this->container['first_name'] = $first_name;
 
         return $this;
@@ -560,10 +686,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $last_name Last name of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setLastName($last_name)
     {
+
+        if (is_null($last_name)) {
+            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+        }
+
         $this->container['last_name'] = $last_name;
 
         return $this;
@@ -584,10 +715,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param \DateTime|null $birth_date Birth date of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setBirthDate($birth_date)
     {
+
+        if (is_null($birth_date)) {
+            throw new \InvalidArgumentException('non-nullable birth_date cannot be null');
+        }
+
         $this->container['birth_date'] = $birth_date;
 
         return $this;
@@ -608,10 +744,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param \EgoiClient\EgoiModel\Language|null $language language
      *
-     * @return $this
+     * @return self
      */
     public function setLanguage($language)
     {
+
+        if (is_null($language)) {
+            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        }
+
         $this->container['language'] = $language;
 
         return $this;
@@ -632,10 +773,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $email Email of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setEmail($email)
     {
+
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+
         $this->container['email'] = $email;
 
         return $this;
@@ -656,7 +802,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $email_status Email channel status
      *
-     * @return $this
+     * @return self
      */
     public function setEmailStatus($email_status)
     {
@@ -664,11 +810,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         if (!is_null($email_status) && !in_array($email_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'email_status', must be one of '%s'",
+                    "Invalid value '%s' for 'email_status', must be one of '%s'",
+                    $email_status,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($email_status)) {
+            throw new \InvalidArgumentException('non-nullable email_status cannot be null');
+        }
+
         $this->container['email_status'] = $email_status;
 
         return $this;
@@ -689,10 +841,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $cellphone Cellphone of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setCellphone($cellphone)
     {
+
+        if (is_null($cellphone)) {
+            throw new \InvalidArgumentException('non-nullable cellphone cannot be null');
+        }
+
         $this->container['cellphone'] = $cellphone;
 
         return $this;
@@ -713,7 +870,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $cellphone_status Cellphone channel status
      *
-     * @return $this
+     * @return self
      */
     public function setCellphoneStatus($cellphone_status)
     {
@@ -721,11 +878,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         if (!is_null($cellphone_status) && !in_array($cellphone_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'cellphone_status', must be one of '%s'",
+                    "Invalid value '%s' for 'cellphone_status', must be one of '%s'",
+                    $cellphone_status,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($cellphone_status)) {
+            throw new \InvalidArgumentException('non-nullable cellphone_status cannot be null');
+        }
+
         $this->container['cellphone_status'] = $cellphone_status;
 
         return $this;
@@ -746,10 +909,15 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $phone Phone of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setPhone($phone)
     {
+
+        if (is_null($phone)) {
+            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+        }
+
         $this->container['phone'] = $phone;
 
         return $this;
@@ -770,7 +938,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $phone_status Phone channel status
      *
-     * @return $this
+     * @return self
      */
     public function setPhoneStatus($phone_status)
     {
@@ -778,11 +946,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
         if (!is_null($phone_status) && !in_array($phone_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'phone_status', must be one of '%s'",
+                    "Invalid value '%s' for 'phone_status', must be one of '%s'",
+                    $phone_status,
                     implode("', '", $allowedValues)
                 )
             );
         }
+
+        if (is_null($phone_status)) {
+            throw new \InvalidArgumentException('non-nullable phone_status cannot be null');
+        }
+
         $this->container['phone_status'] = $phone_status;
 
         return $this;
@@ -791,7 +965,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
     /**
      * Gets push_token_android
      *
-     * @return \EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid[]|null
+     * @return \EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner[]|null
      */
     public function getPushTokenAndroid()
     {
@@ -801,12 +975,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
     /**
      * Sets push_token_android
      *
-     * @param \EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid[]|null $push_token_android Android push token of the contact
+     * @param \EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner[]|null $push_token_android Android push token of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setPushTokenAndroid($push_token_android)
     {
+
+        if (is_null($push_token_android)) {
+            throw new \InvalidArgumentException('non-nullable push_token_android cannot be null');
+        }
+
         $this->container['push_token_android'] = $push_token_android;
 
         return $this;
@@ -815,7 +994,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
     /**
      * Gets push_token_ios
      *
-     * @return \EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBasePushTokenIos[]|null
+     * @return \EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner[]|null
      */
     public function getPushTokenIos()
     {
@@ -825,12 +1004,17 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
     /**
      * Sets push_token_ios
      *
-     * @param \EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBasePushTokenIos[]|null $push_token_ios IOS push token of the contact
+     * @param \EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner[]|null $push_token_ios IOS push token of the contact
      *
-     * @return $this
+     * @return self
      */
     public function setPushTokenIos($push_token_ios)
     {
+
+        if (is_null($push_token_ios)) {
+            throw new \InvalidArgumentException('non-nullable push_token_ios cannot be null');
+        }
+
         $this->container['push_token_ios'] = $push_token_ios;
 
         return $this;
@@ -842,7 +1026,7 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -852,22 +1036,23 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -883,9 +1068,22 @@ class ContactBaseWithStatusFieldsSchemaBase implements ModelInterface, ArrayAcce
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

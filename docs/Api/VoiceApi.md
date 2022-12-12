@@ -1,18 +1,19 @@
 # EgoiClient\VoiceApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionSendVoice**](VoiceApi.md#actionSendVoice) | **POST** /campaigns/voice/{campaign_hash}/actions/send | Send voice message
-[**createVoiceCampaign**](VoiceApi.md#createVoiceCampaign) | **POST** /campaigns/voice | Create new voice campaign
-[**patchVoiceCampaign**](VoiceApi.md#patchVoiceCampaign) | **PATCH** /campaigns/voice/{campaign_hash} | Update a specific voice campaign
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionSendVoice()**](VoiceApi.md#actionSendVoice) | **POST** /campaigns/voice/{campaign_hash}/actions/send | Send voice message |
+| [**createVoiceCampaign()**](VoiceApi.md#createVoiceCampaign) | **POST** /campaigns/voice | Create new voice campaign |
+| [**patchVoiceCampaign()**](VoiceApi.md#patchVoiceCampaign) | **PATCH** /campaigns/voice/{campaign_hash} | Update a specific voice campaign |
 
 
+## `actionSendVoice()`
 
-## actionSendVoice
-
-> \EgoiClient\EgoiModel\AcceptedResponse actionSendVoice($campaign_hash, $campaign_voice_send_request)
+```php
+actionSendVoice($campaign_hash, $campaign_voice_send_request): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Send voice message
 
@@ -38,7 +39,7 @@ $apiInstance = new EgoiClient\Api\VoiceApi(
     $config
 );
 $campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
-$campaign_voice_send_request = {"schedule_date":"2019-04-01 12:30:23","list_id":1,"segments":{"type":"none"},"notify":[0],"destination_field":"cellphone","limit_contacts":{"type":"percent","value":10},"limit_hour":{"hour_start":"01:00","hour_end":"04:00"},"limit_speed":1}; // \EgoiClient\EgoiModel\CampaignVoiceSendRequest | Parameters for the 'send voice' action
+$campaign_voice_send_request = {"schedule_date":"2019-04-01 12:30:23","list_id":1,"segments":{"type":"none"},"notify":[0],"destination_field":"cellphone","unique_contacts_only":true,"limit_contacts":{"type":"percent","value":10},"limit_hour":{"hour_start":"01:00","hour_end":"04:00"},"limit_speed":1}; // \EgoiClient\EgoiModel\CampaignVoiceSendRequest | Parameters for the 'send voice' action
 
 try {
     $result = $apiInstance->actionSendVoice($campaign_hash, $campaign_voice_send_request);
@@ -46,16 +47,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling VoiceApi->actionSendVoice: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **campaign_voice_send_request** | [**\EgoiClient\EgoiModel\CampaignVoiceSendRequest**](../Model/CampaignVoiceSendRequest.md)| Parameters for the &#39;send voice&#39; action |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_voice_send_request** | [**\EgoiClient\EgoiModel\CampaignVoiceSendRequest**](../Model/CampaignVoiceSendRequest.md)| Parameters for the &#39;send voice&#39; action | |
 
 ### Return type
 
@@ -67,17 +66,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createVoiceCampaign()`
 
-## createVoiceCampaign
-
-> \EgoiClient\EgoiModel\CampaignHash createVoiceCampaign($voice_campaign)
+```php
+createVoiceCampaign($voice_campaign): \EgoiClient\EgoiModel\CampaignHash
+```
 
 Create new voice campaign
 
@@ -110,15 +110,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling VoiceApi->createVoiceCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **voice_campaign** | [**\EgoiClient\EgoiModel\VoiceCampaign**](../Model/VoiceCampaign.md)| Parameters for the Voice Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **voice_campaign** | [**\EgoiClient\EgoiModel\VoiceCampaign**](../Model/VoiceCampaign.md)| Parameters for the Voice Campaign | |
 
 ### Return type
 
@@ -130,17 +128,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchVoiceCampaign()`
 
-## patchVoiceCampaign
-
-> \EgoiClient\EgoiModel\CampaignHash patchVoiceCampaign($campaign_hash, $voice_patch_campaign)
+```php
+patchVoiceCampaign($campaign_hash, $voice_patch_campaign): \EgoiClient\EgoiModel\PatchVoiceCampaign200Response
+```
 
 Update a specific voice campaign
 
@@ -174,20 +173,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling VoiceApi->patchVoiceCampaign: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
- **voice_patch_campaign** | [**\EgoiClient\EgoiModel\VoicePatchCampaign**](../Model/VoicePatchCampaign.md)| Parameters for the Voice Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
+| **voice_patch_campaign** | [**\EgoiClient\EgoiModel\VoicePatchCampaign**](../Model/VoicePatchCampaign.md)| Parameters for the Voice Campaign | |
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\CampaignHash**](../Model/CampaignHash.md)
+[**\EgoiClient\EgoiModel\PatchVoiceCampaign200Response**](../Model/PatchVoiceCampaign200Response.md)
 
 ### Authorization
 
@@ -195,10 +192,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

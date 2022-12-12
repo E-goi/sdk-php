@@ -1,17 +1,18 @@
 # EgoiClient\CNamesApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createCName**](CNamesApi.md#createCName) | **POST** /cnames | Create cname
-[**getAllCNames**](CNamesApi.md#getAllCNames) | **GET** /cnames | Get All CNames
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createCName()**](CNamesApi.md#createCName) | **POST** /cnames | Create cname |
+| [**getAllCNames()**](CNamesApi.md#getAllCNames) | **GET** /cnames | Get All CNames |
 
 
+## `createCName()`
 
-## createCName
-
-> \EgoiClient\EgoiModel\CName createCName($c_name)
+```php
+createCName($c_name_post): \EgoiClient\EgoiModel\CName
+```
 
 Create cname
 
@@ -36,23 +37,21 @@ $apiInstance = new EgoiClient\Api\CNamesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$c_name = new \EgoiClient\EgoiModel\CName(); // \EgoiClient\EgoiModel\CName | Parameters for the cname
+$c_name_post = new \EgoiClient\EgoiModel\CNamePost(); // \EgoiClient\EgoiModel\CNamePost | Parameters for the cname
 
 try {
-    $result = $apiInstance->createCName($c_name);
+    $result = $apiInstance->createCName($c_name_post);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CNamesApi->createCName: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **c_name** | [**\EgoiClient\EgoiModel\CName**](../Model/CName.md)| Parameters for the cname |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **c_name_post** | [**\EgoiClient\EgoiModel\CNamePost**](../Model/CNamePost.md)| Parameters for the cname | |
 
 ### Return type
 
@@ -64,17 +63,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllCNames()`
 
-## getAllCNames
-
-> \EgoiClient\EgoiModel\CNamesCollection getAllCNames()
+```php
+getAllCNames(): \EgoiClient\EgoiModel\CNamesCollection
+```
 
 Get All CNames
 
@@ -106,7 +106,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CNamesApi->getAllCNames: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -124,9 +123,8 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

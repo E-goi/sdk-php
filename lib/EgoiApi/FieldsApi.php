@@ -1,7 +1,7 @@
 <?php
 /**
  * FieldsApi
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -12,12 +12,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -30,6 +29,7 @@ namespace EgoiClient\EgoiApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -69,38 +69,69 @@ class FieldsApi
      */
     protected $hostIndex;
 
-    /**
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'createExtraField' => [
+            'application/json',
+        ],
+        'createFieldOption' => [
+            'application/json',
+        ],
+        'deleteExtraField' => [
+            'application/json',
+        ],
+        'deleteFieldOption' => [
+            'application/json',
+        ],
+        'getAllFieldOptions' => [
+            'application/json',
+        ],
+        'getAllFields' => [
+            'application/json',
+        ],
+        'patchBaseField' => [
+            'application/json',
+        ],
+        'patchExtraField' => [
+            'application/json',
+        ],
+        'updateFieldOption' => [
+            'application/json',
+        ],
+    ];
+
+/**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
-     * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null,
-        $host_index = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Set the host index
      *
-     * @param  int Host index (required)
+     * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($host_index)
+    public function setHostIndex($hostIndex): void
     {
-        $this->hostIndex = $host_index;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
      * Get the host index
      *
-     * @return Host index
+     * @return int Host index
      */
     public function getHostIndex()
     {
@@ -122,14 +153,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\Field $field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createExtraField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\Field|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function createExtraField($list_id, $field)
+    public function createExtraField($list_id, $field, string $contentType = self::contentTypes['createExtraField'][0])
     {
-        list($response) = $this->createExtraFieldWithHttpInfo($list_id, $field);
+        list($response) = $this->createExtraFieldWithHttpInfo($list_id, $field, $contentType);
         return $response;
     }
 
@@ -140,14 +172,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\Field $field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createExtraField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\Field|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createExtraFieldWithHttpInfo($list_id, $field)
+    public function createExtraFieldWithHttpInfo($list_id, $field, string $contentType = self::contentTypes['createExtraField'][0])
     {
-        $request = $this->createExtraFieldRequest($list_id, $field);
+        $request = $this->createExtraFieldRequest($list_id, $field, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -156,9 +189,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -169,21 +209,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
                     if ('\EgoiClient\EgoiModel\Field' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Field' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -193,9 +235,12 @@ class FieldsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -205,9 +250,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -217,9 +265,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -229,9 +280,12 @@ class FieldsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -241,9 +295,12 @@ class FieldsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -253,9 +310,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -265,9 +325,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -277,9 +340,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -290,11 +356,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\Field';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -389,13 +457,14 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\Field $field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createExtraFieldAsync($list_id, $field)
+    public function createExtraFieldAsync($list_id, $field, string $contentType = self::contentTypes['createExtraField'][0])
     {
-        return $this->createExtraFieldAsyncWithHttpInfo($list_id, $field)
+        return $this->createExtraFieldAsyncWithHttpInfo($list_id, $field, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -410,24 +479,27 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\Field $field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createExtraFieldAsyncWithHttpInfo($list_id, $field)
+    public function createExtraFieldAsyncWithHttpInfo($list_id, $field, string $contentType = self::contentTypes['createExtraField'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\Field';
-        $request = $this->createExtraFieldRequest($list_id, $field);
+        $request = $this->createExtraFieldRequest($list_id, $field, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -447,7 +519,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -458,12 +530,14 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  \EgoiClient\EgoiModel\Field $field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createExtraFieldRequest($list_id, $field)
+    public function createExtraFieldRequest($list_id, $field, string $contentType = self::contentTypes['createExtraField'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -473,7 +547,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.createExtraField, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field' is set
         if ($field === null || (is_array($field) && count($field) === 0)) {
             throw new \InvalidArgumentException(
@@ -481,12 +555,14 @@ class FieldsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/fields/extra';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -498,49 +574,42 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($field)) {
-            $_tempBody = $field;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($field)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($field));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $field;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -561,10 +630,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -577,15 +647,16 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFieldOption'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\FieldOption|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function createFieldOption($list_id, $field_id, $field_option)
+    public function createFieldOption($list_id, $field_id, $field_option_post, string $contentType = self::contentTypes['createFieldOption'][0])
     {
-        list($response) = $this->createFieldOptionWithHttpInfo($list_id, $field_id, $field_option);
+        list($response) = $this->createFieldOptionWithHttpInfo($list_id, $field_id, $field_option_post, $contentType);
         return $response;
     }
 
@@ -596,15 +667,16 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFieldOption'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\FieldOption|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFieldOptionWithHttpInfo($list_id, $field_id, $field_option)
+    public function createFieldOptionWithHttpInfo($list_id, $field_id, $field_option_post, string $contentType = self::contentTypes['createFieldOption'][0])
     {
-        $request = $this->createFieldOptionRequest($list_id, $field_id, $field_option);
+        $request = $this->createFieldOptionRequest($list_id, $field_id, $field_option_post, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -613,9 +685,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -626,21 +705,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
                     if ('\EgoiClient\EgoiModel\FieldOption' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\FieldOption' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -650,9 +731,12 @@ class FieldsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -662,9 +746,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -674,9 +761,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -686,9 +776,12 @@ class FieldsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -698,9 +791,12 @@ class FieldsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -710,9 +806,12 @@ class FieldsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -722,9 +821,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -734,9 +836,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -746,9 +851,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -759,11 +867,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\FieldOption';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -866,14 +976,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFieldOptionAsync($list_id, $field_id, $field_option)
+    public function createFieldOptionAsync($list_id, $field_id, $field_option_post, string $contentType = self::contentTypes['createFieldOption'][0])
     {
-        return $this->createFieldOptionAsyncWithHttpInfo($list_id, $field_id, $field_option)
+        return $this->createFieldOptionAsyncWithHttpInfo($list_id, $field_id, $field_option_post, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -888,25 +999,28 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFieldOptionAsyncWithHttpInfo($list_id, $field_id, $field_option)
+    public function createFieldOptionAsyncWithHttpInfo($list_id, $field_id, $field_option_post, string $contentType = self::contentTypes['createFieldOption'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\FieldOption';
-        $request = $this->createFieldOptionRequest($list_id, $field_id, $field_option);
+        $request = $this->createFieldOptionRequest($list_id, $field_id, $field_option_post, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -926,7 +1040,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -937,13 +1051,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createFieldOptionRequest($list_id, $field_id, $field_option)
+    public function createFieldOptionRequest($list_id, $field_id, $field_option_post, string $contentType = self::contentTypes['createFieldOption'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -953,7 +1069,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.createFieldOption, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -963,13 +1079,14 @@ class FieldsApi
         if ($field_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$field_id" when calling FieldsApi.createFieldOption, must be bigger than or equal to 1.');
         }
-
-        // verify the required parameter 'field_option' is set
-        if ($field_option === null || (is_array($field_option) && count($field_option) === 0)) {
+        
+        // verify the required parameter 'field_option_post' is set
+        if ($field_option_post === null || (is_array($field_option_post) && count($field_option_post) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $field_option when calling createFieldOption'
+                'Missing the required parameter $field_option_post when calling createFieldOption'
             );
         }
+
 
         $resourcePath = '/lists/{list_id}/fields/extra/{field_id}/options';
         $formParams = [];
@@ -977,6 +1094,7 @@ class FieldsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -996,49 +1114,42 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($field_option)) {
-            $_tempBody = $field_option;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($field_option_post)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($field_option_post));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $field_option_post;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1059,10 +1170,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1075,14 +1187,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExtraField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteExtraField($list_id, $field_id)
+    public function deleteExtraField($list_id, $field_id, string $contentType = self::contentTypes['deleteExtraField'][0])
     {
-        $this->deleteExtraFieldWithHttpInfo($list_id, $field_id);
+        $this->deleteExtraFieldWithHttpInfo($list_id, $field_id, $contentType);
     }
 
     /**
@@ -1092,14 +1205,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExtraField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteExtraFieldWithHttpInfo($list_id, $field_id)
+    public function deleteExtraFieldWithHttpInfo($list_id, $field_id, string $contentType = self::contentTypes['deleteExtraField'][0])
     {
-        $request = $this->deleteExtraFieldRequest($list_id, $field_id);
+        $request = $this->deleteExtraFieldRequest($list_id, $field_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1108,9 +1222,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1121,11 +1242,11 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -1209,13 +1330,14 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteExtraFieldAsync($list_id, $field_id)
+    public function deleteExtraFieldAsync($list_id, $field_id, string $contentType = self::contentTypes['deleteExtraField'][0])
     {
-        return $this->deleteExtraFieldAsyncWithHttpInfo($list_id, $field_id)
+        return $this->deleteExtraFieldAsyncWithHttpInfo($list_id, $field_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1230,14 +1352,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteExtraFieldAsyncWithHttpInfo($list_id, $field_id)
+    public function deleteExtraFieldAsyncWithHttpInfo($list_id, $field_id, string $contentType = self::contentTypes['deleteExtraField'][0])
     {
         $returnType = '';
-        $request = $this->deleteExtraFieldRequest($list_id, $field_id);
+        $request = $this->deleteExtraFieldRequest($list_id, $field_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1256,7 +1379,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1267,12 +1390,14 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteExtraFieldRequest($list_id, $field_id)
+    public function deleteExtraFieldRequest($list_id, $field_id, string $contentType = self::contentTypes['deleteExtraField'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1282,7 +1407,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.deleteExtraField, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1292,7 +1417,7 @@ class FieldsApi
         if ($field_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$field_id" when calling FieldsApi.deleteExtraField, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/fields/extra/{field_id}';
         $formParams = [];
@@ -1300,6 +1425,7 @@ class FieldsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -1319,46 +1445,35 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1379,10 +1494,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1396,14 +1512,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFieldOption'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteFieldOption($list_id, $field_id, $option_id)
+    public function deleteFieldOption($list_id, $field_id, $option_id, string $contentType = self::contentTypes['deleteFieldOption'][0])
     {
-        $this->deleteFieldOptionWithHttpInfo($list_id, $field_id, $option_id);
+        $this->deleteFieldOptionWithHttpInfo($list_id, $field_id, $option_id, $contentType);
     }
 
     /**
@@ -1414,14 +1531,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFieldOption'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFieldOptionWithHttpInfo($list_id, $field_id, $option_id)
+    public function deleteFieldOptionWithHttpInfo($list_id, $field_id, $option_id, string $contentType = self::contentTypes['deleteFieldOption'][0])
     {
-        $request = $this->deleteFieldOptionRequest($list_id, $field_id, $option_id);
+        $request = $this->deleteFieldOptionRequest($list_id, $field_id, $option_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1430,9 +1548,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1443,11 +1568,11 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -1524,13 +1649,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFieldOptionAsync($list_id, $field_id, $option_id)
+    public function deleteFieldOptionAsync($list_id, $field_id, $option_id, string $contentType = self::contentTypes['deleteFieldOption'][0])
     {
-        return $this->deleteFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id)
+        return $this->deleteFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1546,14 +1672,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id)
+    public function deleteFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id, string $contentType = self::contentTypes['deleteFieldOption'][0])
     {
         $returnType = '';
-        $request = $this->deleteFieldOptionRequest($list_id, $field_id, $option_id);
+        $request = $this->deleteFieldOptionRequest($list_id, $field_id, $option_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1572,7 +1699,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1584,12 +1711,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteFieldOptionRequest($list_id, $field_id, $option_id)
+    public function deleteFieldOptionRequest($list_id, $field_id, $option_id, string $contentType = self::contentTypes['deleteFieldOption'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1599,7 +1728,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.deleteFieldOption, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1609,7 +1738,7 @@ class FieldsApi
         if ($field_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$field_id" when calling FieldsApi.deleteFieldOption, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'option_id' is set
         if ($option_id === null || (is_array($option_id) && count($option_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1619,7 +1748,7 @@ class FieldsApi
         if ($option_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$option_id" when calling FieldsApi.deleteFieldOption, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/fields/extra/{field_id}/options/{option_id}';
         $formParams = [];
@@ -1627,6 +1756,7 @@ class FieldsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -1654,46 +1784,35 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -1714,10 +1833,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1730,14 +1850,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFieldOptions'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\FieldOptionsCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllFieldOptions($list_id, $field_id)
+    public function getAllFieldOptions($list_id, $field_id, string $contentType = self::contentTypes['getAllFieldOptions'][0])
     {
-        list($response) = $this->getAllFieldOptionsWithHttpInfo($list_id, $field_id);
+        list($response) = $this->getAllFieldOptionsWithHttpInfo($list_id, $field_id, $contentType);
         return $response;
     }
 
@@ -1748,14 +1869,15 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFieldOptions'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\FieldOptionsCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllFieldOptionsWithHttpInfo($list_id, $field_id)
+    public function getAllFieldOptionsWithHttpInfo($list_id, $field_id, string $contentType = self::contentTypes['getAllFieldOptions'][0])
     {
-        $request = $this->getAllFieldOptionsRequest($list_id, $field_id);
+        $request = $this->getAllFieldOptionsRequest($list_id, $field_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1764,9 +1886,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -1777,21 +1906,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\FieldOptionsCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\FieldOptionsCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1801,9 +1932,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1813,9 +1947,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1825,9 +1962,12 @@ class FieldsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1837,9 +1977,12 @@ class FieldsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1849,9 +1992,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1861,9 +2007,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1873,9 +2022,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1886,11 +2038,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\FieldOptionsCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -1977,13 +2131,14 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFieldOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllFieldOptionsAsync($list_id, $field_id)
+    public function getAllFieldOptionsAsync($list_id, $field_id, string $contentType = self::contentTypes['getAllFieldOptions'][0])
     {
-        return $this->getAllFieldOptionsAsyncWithHttpInfo($list_id, $field_id)
+        return $this->getAllFieldOptionsAsyncWithHttpInfo($list_id, $field_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1998,24 +2153,27 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFieldOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllFieldOptionsAsyncWithHttpInfo($list_id, $field_id)
+    public function getAllFieldOptionsAsyncWithHttpInfo($list_id, $field_id, string $contentType = self::contentTypes['getAllFieldOptions'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\FieldOptionsCollection';
-        $request = $this->getAllFieldOptionsRequest($list_id, $field_id);
+        $request = $this->getAllFieldOptionsRequest($list_id, $field_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2035,7 +2193,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2046,12 +2204,14 @@ class FieldsApi
      *
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFieldOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllFieldOptionsRequest($list_id, $field_id)
+    public function getAllFieldOptionsRequest($list_id, $field_id, string $contentType = self::contentTypes['getAllFieldOptions'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2061,7 +2221,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.getAllFieldOptions, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2071,7 +2231,7 @@ class FieldsApi
         if ($field_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$field_id" when calling FieldsApi.getAllFieldOptions, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/fields/extra/{field_id}/options';
         $formParams = [];
@@ -2079,6 +2239,7 @@ class FieldsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -2098,46 +2259,35 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2158,10 +2308,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2175,14 +2326,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFields'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\FieldCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function getAllFields($list_id, $offset = null, $limit = 10)
+    public function getAllFields($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
-        list($response) = $this->getAllFieldsWithHttpInfo($list_id, $offset, $limit);
+        list($response) = $this->getAllFieldsWithHttpInfo($list_id, $offset, $limit, $contentType);
         return $response;
     }
 
@@ -2194,14 +2346,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFields'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\FieldCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllFieldsWithHttpInfo($list_id, $offset = null, $limit = 10)
+    public function getAllFieldsWithHttpInfo($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
-        $request = $this->getAllFieldsRequest($list_id, $offset, $limit);
+        $request = $this->getAllFieldsRequest($list_id, $offset, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2210,9 +2363,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2223,21 +2383,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\FieldCollection' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\FieldCollection' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2247,9 +2409,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2259,9 +2424,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2271,9 +2439,12 @@ class FieldsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2283,9 +2454,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2295,9 +2469,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2307,9 +2484,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2320,11 +2500,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\FieldCollection';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2404,13 +2586,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllFieldsAsync($list_id, $offset = null, $limit = 10)
+    public function getAllFieldsAsync($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
-        return $this->getAllFieldsAsyncWithHttpInfo($list_id, $offset, $limit)
+        return $this->getAllFieldsAsyncWithHttpInfo($list_id, $offset, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2426,24 +2609,27 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllFieldsAsyncWithHttpInfo($list_id, $offset = null, $limit = 10)
+    public function getAllFieldsAsyncWithHttpInfo($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\FieldCollection';
-        $request = $this->getAllFieldsRequest($list_id, $offset, $limit);
+        $request = $this->getAllFieldsRequest($list_id, $offset, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2463,7 +2649,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2475,12 +2661,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $offset Element offset (starting at zero for the first element) (optional)
      * @param  int $limit Number of items to return (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllFieldsRequest($list_id, $offset = null, $limit = 10)
+    public function getAllFieldsRequest($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2490,18 +2678,18 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.getAllFields, must be bigger than or equal to 1.');
         }
-
+        
         if ($offset !== null && $offset < 0) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling FieldsApi.getAllFields, must be bigger than or equal to 0.');
         }
-
+        
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling FieldsApi.getAllFields, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling FieldsApi.getAllFields, must be bigger than or equal to 1.');
         }
-
+        
 
         $resourcePath = '/lists/{list_id}/fields';
         $formParams = [];
@@ -2511,13 +2699,24 @@ class FieldsApi
         $multipart = false;
 
         // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
 
         // path params
         if ($list_id !== null) {
@@ -2528,46 +2727,35 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -2588,10 +2776,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2605,14 +2794,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  string $field_id ID of the base field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestBaseField $patch_request_base_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBaseField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\Field|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function patchBaseField($list_id, $field_id, $patch_request_base_field)
+    public function patchBaseField($list_id, $field_id, $patch_request_base_field, string $contentType = self::contentTypes['patchBaseField'][0])
     {
-        list($response) = $this->patchBaseFieldWithHttpInfo($list_id, $field_id, $patch_request_base_field);
+        list($response) = $this->patchBaseFieldWithHttpInfo($list_id, $field_id, $patch_request_base_field, $contentType);
         return $response;
     }
 
@@ -2624,14 +2814,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  string $field_id ID of the base field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestBaseField $patch_request_base_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBaseField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\Field|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBaseFieldWithHttpInfo($list_id, $field_id, $patch_request_base_field)
+    public function patchBaseFieldWithHttpInfo($list_id, $field_id, $patch_request_base_field, string $contentType = self::contentTypes['patchBaseField'][0])
     {
-        $request = $this->patchBaseFieldRequest($list_id, $field_id, $patch_request_base_field);
+        $request = $this->patchBaseFieldRequest($list_id, $field_id, $patch_request_base_field, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2640,9 +2831,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -2653,21 +2851,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\Field' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Field' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2677,9 +2877,12 @@ class FieldsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2689,9 +2892,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2701,9 +2907,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2713,9 +2922,12 @@ class FieldsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2725,9 +2937,12 @@ class FieldsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2737,9 +2952,12 @@ class FieldsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2749,9 +2967,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2761,9 +2982,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2773,9 +2997,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2786,11 +3013,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\Field';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -2894,13 +3123,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  string $field_id ID of the base field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestBaseField $patch_request_base_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBaseField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBaseFieldAsync($list_id, $field_id, $patch_request_base_field)
+    public function patchBaseFieldAsync($list_id, $field_id, $patch_request_base_field, string $contentType = self::contentTypes['patchBaseField'][0])
     {
-        return $this->patchBaseFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_base_field)
+        return $this->patchBaseFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_base_field, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2916,24 +3146,27 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  string $field_id ID of the base field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestBaseField $patch_request_base_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBaseField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBaseFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_base_field)
+    public function patchBaseFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_base_field, string $contentType = self::contentTypes['patchBaseField'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\Field';
-        $request = $this->patchBaseFieldRequest($list_id, $field_id, $patch_request_base_field);
+        $request = $this->patchBaseFieldRequest($list_id, $field_id, $patch_request_base_field, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2953,7 +3186,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2965,12 +3198,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  string $field_id ID of the base field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestBaseField $patch_request_base_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBaseField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function patchBaseFieldRequest($list_id, $field_id, $patch_request_base_field)
+    public function patchBaseFieldRequest($list_id, $field_id, $patch_request_base_field, string $contentType = self::contentTypes['patchBaseField'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2980,13 +3215,14 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.patchBaseField, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $field_id when calling patchBaseField'
             );
         }
+
         // verify the required parameter 'patch_request_base_field' is set
         if ($patch_request_base_field === null || (is_array($patch_request_base_field) && count($patch_request_base_field) === 0)) {
             throw new \InvalidArgumentException(
@@ -2994,12 +3230,14 @@ class FieldsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/fields/base/{field_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -3019,49 +3257,42 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($patch_request_base_field)) {
-            $_tempBody = $patch_request_base_field;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($patch_request_base_field)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($patch_request_base_field));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $patch_request_base_field;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3082,10 +3313,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3099,14 +3331,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestField $patch_request_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExtraField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\Field|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function patchExtraField($list_id, $field_id, $patch_request_field)
+    public function patchExtraField($list_id, $field_id, $patch_request_field, string $contentType = self::contentTypes['patchExtraField'][0])
     {
-        list($response) = $this->patchExtraFieldWithHttpInfo($list_id, $field_id, $patch_request_field);
+        list($response) = $this->patchExtraFieldWithHttpInfo($list_id, $field_id, $patch_request_field, $contentType);
         return $response;
     }
 
@@ -3118,14 +3351,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestField $patch_request_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExtraField'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\Field|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchExtraFieldWithHttpInfo($list_id, $field_id, $patch_request_field)
+    public function patchExtraFieldWithHttpInfo($list_id, $field_id, $patch_request_field, string $contentType = self::contentTypes['patchExtraField'][0])
     {
-        $request = $this->patchExtraFieldRequest($list_id, $field_id, $patch_request_field);
+        $request = $this->patchExtraFieldRequest($list_id, $field_id, $patch_request_field, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3134,9 +3368,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3147,21 +3388,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\Field' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Field' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3171,9 +3414,12 @@ class FieldsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3183,9 +3429,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3195,9 +3444,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3207,9 +3459,12 @@ class FieldsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3219,9 +3474,12 @@ class FieldsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3231,9 +3489,12 @@ class FieldsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3243,9 +3504,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3255,9 +3519,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3267,9 +3534,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3280,11 +3550,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\Field';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -3388,13 +3660,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestField $patch_request_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchExtraFieldAsync($list_id, $field_id, $patch_request_field)
+    public function patchExtraFieldAsync($list_id, $field_id, $patch_request_field, string $contentType = self::contentTypes['patchExtraField'][0])
     {
-        return $this->patchExtraFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_field)
+        return $this->patchExtraFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_field, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3410,24 +3683,27 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestField $patch_request_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchExtraFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_field)
+    public function patchExtraFieldAsyncWithHttpInfo($list_id, $field_id, $patch_request_field, string $contentType = self::contentTypes['patchExtraField'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\Field';
-        $request = $this->patchExtraFieldRequest($list_id, $field_id, $patch_request_field);
+        $request = $this->patchExtraFieldRequest($list_id, $field_id, $patch_request_field, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3447,7 +3723,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3459,12 +3735,14 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  \EgoiClient\EgoiModel\PatchRequestField $patch_request_field Parameters for the extra field (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExtraField'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function patchExtraFieldRequest($list_id, $field_id, $patch_request_field)
+    public function patchExtraFieldRequest($list_id, $field_id, $patch_request_field, string $contentType = self::contentTypes['patchExtraField'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3474,7 +3752,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.patchExtraField, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3484,7 +3762,7 @@ class FieldsApi
         if ($field_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$field_id" when calling FieldsApi.patchExtraField, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'patch_request_field' is set
         if ($patch_request_field === null || (is_array($patch_request_field) && count($patch_request_field) === 0)) {
             throw new \InvalidArgumentException(
@@ -3492,12 +3770,14 @@ class FieldsApi
             );
         }
 
+
         $resourcePath = '/lists/{list_id}/fields/extra/{field_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -3517,49 +3797,42 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($patch_request_field)) {
-            $_tempBody = $patch_request_field;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($patch_request_field)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($patch_request_field));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $patch_request_field;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -3580,10 +3853,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -3597,15 +3871,16 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFieldOption'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \EgoiClient\EgoiModel\FieldOption|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
-    public function updateFieldOption($list_id, $field_id, $option_id, $field_option)
+    public function updateFieldOption($list_id, $field_id, $option_id, $field_option_post, string $contentType = self::contentTypes['updateFieldOption'][0])
     {
-        list($response) = $this->updateFieldOptionWithHttpInfo($list_id, $field_id, $option_id, $field_option);
+        list($response) = $this->updateFieldOptionWithHttpInfo($list_id, $field_id, $option_id, $field_option_post, $contentType);
         return $response;
     }
 
@@ -3617,15 +3892,16 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFieldOption'] to see the possible values for this operation
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \EgoiClient\EgoiModel\FieldOption|\EgoiClient\EgoiModel\BadRequest|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\NotFound|\EgoiClient\EgoiModel\RequestTimeout|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFieldOptionWithHttpInfo($list_id, $field_id, $option_id, $field_option)
+    public function updateFieldOptionWithHttpInfo($list_id, $field_id, $option_id, $field_option_post, string $contentType = self::contentTypes['updateFieldOption'][0])
     {
-        $request = $this->updateFieldOptionRequest($list_id, $field_id, $option_id, $field_option);
+        $request = $this->updateFieldOptionRequest($list_id, $field_id, $option_id, $field_option_post, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3634,9 +3910,16 @@ class FieldsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
                 );
             }
 
@@ -3647,21 +3930,23 @@ class FieldsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\EgoiClient\EgoiModel\FieldOption' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\FieldOption' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3671,9 +3956,12 @@ class FieldsApi
                     ];
                 case 400:
                     if ('\EgoiClient\EgoiModel\BadRequest' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\BadRequest' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3683,9 +3971,12 @@ class FieldsApi
                     ];
                 case 401:
                     if ('\EgoiClient\EgoiModel\Unauthorized' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Unauthorized' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3695,9 +3986,12 @@ class FieldsApi
                     ];
                 case 403:
                     if ('\EgoiClient\EgoiModel\Forbidden' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\Forbidden' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3707,9 +4001,12 @@ class FieldsApi
                     ];
                 case 404:
                     if ('\EgoiClient\EgoiModel\NotFound' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\NotFound' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3719,9 +4016,12 @@ class FieldsApi
                     ];
                 case 408:
                     if ('\EgoiClient\EgoiModel\RequestTimeout' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\RequestTimeout' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3731,9 +4031,12 @@ class FieldsApi
                     ];
                 case 422:
                     if ('\EgoiClient\EgoiModel\UnprocessableEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\UnprocessableEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3743,9 +4046,12 @@ class FieldsApi
                     ];
                 case 429:
                     if ('\EgoiClient\EgoiModel\TooManyRequests' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\TooManyRequests' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3755,9 +4061,12 @@ class FieldsApi
                     ];
                 case 500:
                     if ('\EgoiClient\EgoiModel\InternalServerError' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\InternalServerError' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3767,9 +4076,12 @@ class FieldsApi
                     ];
                 case 503:
                     if ('\EgoiClient\EgoiModel\ServiceUnavailable' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ('\EgoiClient\EgoiModel\ServiceUnavailable' !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3780,11 +4092,13 @@ class FieldsApi
             }
 
             $returnType = '\EgoiClient\EgoiModel\FieldOption';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
             }
 
             return [
@@ -3888,14 +4202,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFieldOptionAsync($list_id, $field_id, $option_id, $field_option)
+    public function updateFieldOptionAsync($list_id, $field_id, $option_id, $field_option_post, string $contentType = self::contentTypes['updateFieldOption'][0])
     {
-        return $this->updateFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id, $field_option)
+        return $this->updateFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id, $field_option_post, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3911,25 +4226,28 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id, $field_option)
+    public function updateFieldOptionAsyncWithHttpInfo($list_id, $field_id, $option_id, $field_option_post, string $contentType = self::contentTypes['updateFieldOption'][0])
     {
         $returnType = '\EgoiClient\EgoiModel\FieldOption';
-        $request = $this->updateFieldOptionRequest($list_id, $field_id, $option_id, $field_option);
+        $request = $this->updateFieldOptionRequest($list_id, $field_id, $option_id, $field_option_post, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -3949,7 +4267,7 @@ class FieldsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3961,13 +4279,15 @@ class FieldsApi
      * @param  int $list_id ID of the List (required)
      * @param  int $field_id ID of the Field (required)
      * @param  int $option_id ID of the field option (required)
-     * @param  \EgoiClient\EgoiModel\FieldOption $field_option Parameters for the field option (required)
+     * @param  \EgoiClient\EgoiModel\FieldOptionPost $field_option_post Parameters for the field option (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFieldOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateFieldOptionRequest($list_id, $field_id, $option_id, $field_option)
+    public function updateFieldOptionRequest($list_id, $field_id, $option_id, $field_option_post, string $contentType = self::contentTypes['updateFieldOption'][0])
     {
+
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3977,7 +4297,7 @@ class FieldsApi
         if ($list_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$list_id" when calling FieldsApi.updateFieldOption, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'field_id' is set
         if ($field_id === null || (is_array($field_id) && count($field_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3987,7 +4307,7 @@ class FieldsApi
         if ($field_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$field_id" when calling FieldsApi.updateFieldOption, must be bigger than or equal to 1.');
         }
-
+        
         // verify the required parameter 'option_id' is set
         if ($option_id === null || (is_array($option_id) && count($option_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3997,13 +4317,14 @@ class FieldsApi
         if ($option_id < 1) {
             throw new \InvalidArgumentException('invalid value for "$option_id" when calling FieldsApi.updateFieldOption, must be bigger than or equal to 1.');
         }
-
-        // verify the required parameter 'field_option' is set
-        if ($field_option === null || (is_array($field_option) && count($field_option) === 0)) {
+        
+        // verify the required parameter 'field_option_post' is set
+        if ($field_option_post === null || (is_array($field_option_post) && count($field_option_post) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $field_option when calling updateFieldOption'
+                'Missing the required parameter $field_option_post when calling updateFieldOption'
             );
         }
+
 
         $resourcePath = '/lists/{list_id}/fields/extra/{field_id}/options/{option_id}';
         $formParams = [];
@@ -4011,6 +4332,7 @@ class FieldsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // path params
@@ -4038,49 +4360,42 @@ class FieldsApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($field_option)) {
-            $_tempBody = $field_option;
-        }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+        if (isset($field_option_post)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($field_option_post));
             } else {
-                $httpBody = $_tempBody;
+                $httpBody = $field_option_post;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
 
@@ -4101,10 +4416,11 @@ class FieldsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

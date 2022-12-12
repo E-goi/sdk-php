@@ -1,17 +1,18 @@
 # EgoiClient\AutomationsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteAutomation**](AutomationsApi.md#deleteAutomation) | **DELETE** /automations/{automation_id} | Remove automation
-[**getAllAutomations**](AutomationsApi.md#getAllAutomations) | **GET** /automations | Get all automations
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteAutomation()**](AutomationsApi.md#deleteAutomation) | **DELETE** /automations/{automation_id} | Remove automation |
+| [**getAllAutomations()**](AutomationsApi.md#getAllAutomations) | **GET** /automations | Get all automations |
 
 
+## `deleteAutomation()`
 
-## deleteAutomation
-
-> deleteAutomation($automation_id)
+```php
+deleteAutomation($automation_id)
+```
 
 Remove automation
 
@@ -43,15 +44,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AutomationsApi->deleteAutomation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **automation_id** | **int**| ID of the Automation |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **int**| ID of the Automation | |
 
 ### Return type
 
@@ -64,16 +63,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllAutomations()`
 
-## getAllAutomations
-
-> \EgoiClient\EgoiModel\AutomationCollection getAllAutomations($automation_id, $title, $created_by, $list_id, $status, $offset, $limit, $order, $order_by)
+```php
+getAllAutomations($automation_id, $title, $created_by, $list_id, $status, $offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\AutomationCollection
+```
 
 Get all automations
 
@@ -114,23 +114,21 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AutomationsApi->getAllAutomations: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **automation_id** | **int**| Reference attribute to automation id | [optional]
- **title** | **string**| Reference attribute to title | [optional]
- **created_by** | **int**| Reference attribute to created by | [optional]
- **list_id** | **int**| ID of the list that owns the automation | [optional]
- **status** | **string**| Automation status | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order automations | [optional] [default to &#39;automation_id&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **int**| Reference attribute to automation id | [optional] |
+| **title** | **string**| Reference attribute to title | [optional] |
+| **created_by** | **int**| Reference attribute to created by | [optional] |
+| **list_id** | **int**| ID of the list that owns the automation | [optional] |
+| **status** | **string**| Automation status | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order automations | [optional] [default to &#39;automation_id&#39;] |
 
 ### Return type
 
@@ -143,9 +141,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

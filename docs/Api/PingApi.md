@@ -1,16 +1,17 @@
 # EgoiClient\PingApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ping**](PingApi.md#ping) | **POST** /ping | Pings the API
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**ping()**](PingApi.md#ping) | **POST** /ping | Pings the API |
 
 
+## `ping()`
 
-## ping
-
-> \EgoiClient\EgoiModel\Ping ping()
+```php
+ping(): \EgoiClient\EgoiModel\Ping
+```
 
 Pings the API
 
@@ -21,6 +22,7 @@ Checks if API is up and running
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new EgoiClient\Api\PingApi(
@@ -35,7 +37,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PingApi->ping: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -53,9 +54,8 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

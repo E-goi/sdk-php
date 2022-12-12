@@ -1,27 +1,28 @@
 # EgoiClient\AdvancedReportsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**generateEmailBouncesReport**](AdvancedReportsApi.md#generateEmailBouncesReport) | **POST** /reports/advanced/email-bounces | Generate email bounces report
-[**generateEmailClicksByContactReport**](AdvancedReportsApi.md#generateEmailClicksByContactReport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
-[**generateEmailClicksByUrlReport**](AdvancedReportsApi.md#generateEmailClicksByUrlReport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
-[**generateEmailEventsReport**](AdvancedReportsApi.md#generateEmailEventsReport) | **POST** /reports/advanced/email-events | Generate email events report
-[**generateEmailSmsReport**](AdvancedReportsApi.md#generateEmailSmsReport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
-[**generateEmailUnsubscriptionsReport**](AdvancedReportsApi.md#generateEmailUnsubscriptionsReport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report
-[**generateFormAnswersReport**](AdvancedReportsApi.md#generateFormAnswersReport) | **POST** /reports/advanced/form-answers | Generate form answers report
-[**generateSendsReport**](AdvancedReportsApi.md#generateSendsReport) | **POST** /reports/advanced/sends | Generate sends report
-[**generateSmsEventsReport**](AdvancedReportsApi.md#generateSmsEventsReport) | **POST** /reports/advanced/sms-events | Generate SMS events report
-[**generateSubscriptionsReport**](AdvancedReportsApi.md#generateSubscriptionsReport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
-[**generateUnsubscriptionsReport**](AdvancedReportsApi.md#generateUnsubscriptionsReport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
-[**getAllAdvancedReports**](AdvancedReportsApi.md#getAllAdvancedReports) | **GET** /reports/advanced | Get all advanced reports
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**generateEmailBouncesReport()**](AdvancedReportsApi.md#generateEmailBouncesReport) | **POST** /reports/advanced/email-bounces | Generate email bounces report |
+| [**generateEmailClicksByContactReport()**](AdvancedReportsApi.md#generateEmailClicksByContactReport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report |
+| [**generateEmailClicksByUrlReport()**](AdvancedReportsApi.md#generateEmailClicksByUrlReport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report |
+| [**generateEmailEventsReport()**](AdvancedReportsApi.md#generateEmailEventsReport) | **POST** /reports/advanced/email-events | Generate email events report |
+| [**generateEmailSmsReport()**](AdvancedReportsApi.md#generateEmailSmsReport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report |
+| [**generateEmailUnsubscriptionsReport()**](AdvancedReportsApi.md#generateEmailUnsubscriptionsReport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report |
+| [**generateFormAnswersReport()**](AdvancedReportsApi.md#generateFormAnswersReport) | **POST** /reports/advanced/form-answers | Generate form answers report |
+| [**generateSendsReport()**](AdvancedReportsApi.md#generateSendsReport) | **POST** /reports/advanced/sends | Generate sends report |
+| [**generateSmsEventsReport()**](AdvancedReportsApi.md#generateSmsEventsReport) | **POST** /reports/advanced/sms-events | Generate SMS events report |
+| [**generateSubscriptionsReport()**](AdvancedReportsApi.md#generateSubscriptionsReport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report |
+| [**generateUnsubscriptionsReport()**](AdvancedReportsApi.md#generateUnsubscriptionsReport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report |
+| [**getAllAdvancedReports()**](AdvancedReportsApi.md#getAllAdvancedReports) | **GET** /reports/advanced | Get all advanced reports |
 
 
+## `generateEmailBouncesReport()`
 
-## generateEmailBouncesReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateEmailBouncesReport($generate_email_bounces_report)
+```php
+generateEmailBouncesReport($generate_email_bounces_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate email bounces report
 
@@ -54,15 +55,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateEmailBouncesReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_email_bounces_report** | [**\EgoiClient\EgoiModel\GenerateEmailBouncesReport**](../Model/GenerateEmailBouncesReport.md)| Parameters for the email bounces report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_email_bounces_report** | [**\EgoiClient\EgoiModel\GenerateEmailBouncesReport**](../Model/GenerateEmailBouncesReport.md)| Parameters for the email bounces report | |
 
 ### Return type
 
@@ -74,17 +73,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateEmailClicksByContactReport()`
 
-## generateEmailClicksByContactReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateEmailClicksByContactReport($generate_email_clicks_by_contact_report)
+```php
+generateEmailClicksByContactReport($generate_email_clicks_by_contact_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate email clicks by contact report
 
@@ -117,15 +117,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateEmailClicksByContactReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_email_clicks_by_contact_report** | [**\EgoiClient\EgoiModel\GenerateEmailClicksByContactReport**](../Model/GenerateEmailClicksByContactReport.md)| Parameters for the email clicks by contact report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_email_clicks_by_contact_report** | [**\EgoiClient\EgoiModel\GenerateEmailClicksByContactReport**](../Model/GenerateEmailClicksByContactReport.md)| Parameters for the email clicks by contact report | |
 
 ### Return type
 
@@ -137,17 +135,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateEmailClicksByUrlReport()`
 
-## generateEmailClicksByUrlReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateEmailClicksByUrlReport($generate_email_clicks_by_url_report)
+```php
+generateEmailClicksByUrlReport($generate_email_clicks_by_url_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate email clicks by URL report
 
@@ -180,15 +179,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateEmailClicksByUrlReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_email_clicks_by_url_report** | [**\EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport**](../Model/GenerateEmailClicksByUrlReport.md)| Parameters for the email clicks by URL report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_email_clicks_by_url_report** | [**\EgoiClient\EgoiModel\GenerateEmailClicksByUrlReport**](../Model/GenerateEmailClicksByUrlReport.md)| Parameters for the email clicks by URL report | |
 
 ### Return type
 
@@ -200,17 +197,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateEmailEventsReport()`
 
-## generateEmailEventsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateEmailEventsReport($generate_email_events_report)
+```php
+generateEmailEventsReport($generate_email_events_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate email events report
 
@@ -243,15 +241,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateEmailEventsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_email_events_report** | [**\EgoiClient\EgoiModel\GenerateEmailEventsReport**](../Model/GenerateEmailEventsReport.md)| Parameters for the email events report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_email_events_report** | [**\EgoiClient\EgoiModel\GenerateEmailEventsReport**](../Model/GenerateEmailEventsReport.md)| Parameters for the email events report | |
 
 ### Return type
 
@@ -263,17 +259,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateEmailSmsReport()`
 
-## generateEmailSmsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateEmailSmsReport($generate_sms_bounces_report)
+```php
+generateEmailSmsReport($generate_sms_bounces_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate SMS bounces report
 
@@ -306,15 +303,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateEmailSmsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_sms_bounces_report** | [**\EgoiClient\EgoiModel\GenerateSmsBouncesReport**](../Model/GenerateSmsBouncesReport.md)| Parameters for the SMS bounces report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_sms_bounces_report** | [**\EgoiClient\EgoiModel\GenerateSmsBouncesReport**](../Model/GenerateSmsBouncesReport.md)| Parameters for the SMS bounces report | |
 
 ### Return type
 
@@ -326,17 +321,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateEmailUnsubscriptionsReport()`
 
-## generateEmailUnsubscriptionsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateEmailUnsubscriptionsReport($generate_email_unsubscriptions_report)
+```php
+generateEmailUnsubscriptionsReport($generate_email_unsubscriptions_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate email unsubscriptions report
 
@@ -369,15 +365,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateEmailUnsubscriptionsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_email_unsubscriptions_report** | [**\EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport**](../Model/GenerateEmailUnsubscriptionsReport.md)| Parameters for the email unsubscriptions report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_email_unsubscriptions_report** | [**\EgoiClient\EgoiModel\GenerateEmailUnsubscriptionsReport**](../Model/GenerateEmailUnsubscriptionsReport.md)| Parameters for the email unsubscriptions report | |
 
 ### Return type
 
@@ -389,17 +383,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateFormAnswersReport()`
 
-## generateFormAnswersReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateFormAnswersReport($generate_form_answers_report)
+```php
+generateFormAnswersReport($generate_form_answers_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate form answers report
 
@@ -432,15 +427,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateFormAnswersReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_form_answers_report** | [**\EgoiClient\EgoiModel\GenerateFormAnswersReport**](../Model/GenerateFormAnswersReport.md)| Parameters for the form answers report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_form_answers_report** | [**\EgoiClient\EgoiModel\GenerateFormAnswersReport**](../Model/GenerateFormAnswersReport.md)| Parameters for the form answers report | |
 
 ### Return type
 
@@ -452,17 +445,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateSendsReport()`
 
-## generateSendsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateSendsReport($generate_sends_report)
+```php
+generateSendsReport($generate_sends_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate sends report
 
@@ -495,15 +489,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateSendsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_sends_report** | [**\EgoiClient\EgoiModel\GenerateSendsReport**](../Model/GenerateSendsReport.md)| Parameters for the sends report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_sends_report** | [**\EgoiClient\EgoiModel\GenerateSendsReport**](../Model/GenerateSendsReport.md)| Parameters for the sends report | |
 
 ### Return type
 
@@ -515,17 +507,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateSmsEventsReport()`
 
-## generateSmsEventsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateSmsEventsReport($generate_sms_events_report)
+```php
+generateSmsEventsReport($generate_sms_events_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate SMS events report
 
@@ -558,15 +551,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateSmsEventsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_sms_events_report** | [**\EgoiClient\EgoiModel\GenerateSmsEventsReport**](../Model/GenerateSmsEventsReport.md)| Parameters for the SMS events report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_sms_events_report** | [**\EgoiClient\EgoiModel\GenerateSmsEventsReport**](../Model/GenerateSmsEventsReport.md)| Parameters for the SMS events report | |
 
 ### Return type
 
@@ -578,17 +569,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateSubscriptionsReport()`
 
-## generateSubscriptionsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateSubscriptionsReport($generate_subscriptions_report)
+```php
+generateSubscriptionsReport($generate_subscriptions_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate subscriptions report
 
@@ -621,15 +613,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateSubscriptionsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_subscriptions_report** | [**\EgoiClient\EgoiModel\GenerateSubscriptionsReport**](../Model/GenerateSubscriptionsReport.md)| Parameters for the subscriptions report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_subscriptions_report** | [**\EgoiClient\EgoiModel\GenerateSubscriptionsReport**](../Model/GenerateSubscriptionsReport.md)| Parameters for the subscriptions report | |
 
 ### Return type
 
@@ -641,17 +631,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateUnsubscriptionsReport()`
 
-## generateUnsubscriptionsReport
-
-> \EgoiClient\EgoiModel\AcceptedResponse generateUnsubscriptionsReport($generate_unsubscriptions_report)
+```php
+generateUnsubscriptionsReport($generate_unsubscriptions_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
 
 Generate unsubscriptions report
 
@@ -684,15 +675,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->generateUnsubscriptionsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generate_unsubscriptions_report** | [**\EgoiClient\EgoiModel\GenerateUnsubscriptionsReport**](../Model/GenerateUnsubscriptionsReport.md)| Parameters for the unsubscriptions report |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_unsubscriptions_report** | [**\EgoiClient\EgoiModel\GenerateUnsubscriptionsReport**](../Model/GenerateUnsubscriptionsReport.md)| Parameters for the unsubscriptions report | |
 
 ### Return type
 
@@ -704,17 +693,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllAdvancedReports()`
 
-## getAllAdvancedReports
-
-> \EgoiClient\EgoiModel\AdvancedReportsCollection getAllAdvancedReports($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by)
+```php
+getAllAdvancedReports($status, $title, $created_min, $created_max, $offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\AdvancedReportsCollection
+```
 
 Get all advanced reports
 
@@ -754,22 +744,20 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AdvancedReportsApi->getAllAdvancedReports: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **status** | **string**| Advanced report status | [optional]
- **title** | **string**| Advanced report title | [optional]
- **created_min** | **\DateTime**| Created initial date | [optional]
- **created_max** | **\DateTime**| Created finish | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order the advanced reports | [optional] [default to &#39;advanced_report_id&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **status** | **string**| Advanced report status | [optional] |
+| **title** | **string**| Advanced report title | [optional] |
+| **created_min** | **\DateTime**| Created initial date | [optional] |
+| **created_max** | **\DateTime**| Created finish | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order the advanced reports | [optional] [default to &#39;advanced_report_id&#39;] |
 
 ### Return type
 
@@ -782,9 +770,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

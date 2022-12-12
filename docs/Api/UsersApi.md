@@ -1,17 +1,18 @@
 # EgoiClient\UsersApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{user_id} | Remove user
-[**getAllUsers**](UsersApi.md#getAllUsers) | **GET** /users | Get all users
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /users/{user_id} | Remove user |
+| [**getAllUsers()**](UsersApi.md#getAllUsers) | **GET** /users | Get all users |
 
 
+## `deleteUser()`
 
-## deleteUser
-
-> deleteUser($user_id)
+```php
+deleteUser($user_id)
+```
 
 Remove user
 
@@ -43,15 +44,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->deleteUser: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| ID of the User |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **int**| ID of the User | |
 
 ### Return type
 
@@ -64,16 +63,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllUsers()`
 
-## getAllUsers
-
-> \EgoiClient\EgoiModel\UserCollection getAllUsers($username, $status, $created_min, $created_max, $updated_min, $updated_max, $offset, $limit, $order, $order_by)
+```php
+getAllUsers($username, $status, $created_min, $created_max, $updated_min, $updated_max, $offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\UserCollection
+```
 
 Get all users
 
@@ -115,24 +115,22 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getAllUsers: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| Reference attribute to username user | [optional]
- **status** | **string**| Status filter | [optional]
- **created_min** | **\DateTime**| Created initial date | [optional]
- **created_max** | **\DateTime**| Created finish | [optional]
- **updated_min** | **\DateTime**| Updated initial | [optional]
- **updated_max** | **\DateTime**| Updated finish | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order users | [optional] [default to &#39;user_id&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| Reference attribute to username user | [optional] |
+| **status** | **string**| Status filter | [optional] |
+| **created_min** | **\DateTime**| Created initial date | [optional] |
+| **created_max** | **\DateTime**| Created finish | [optional] |
+| **updated_min** | **\DateTime**| Updated initial | [optional] |
+| **updated_max** | **\DateTime**| Updated finish | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order users | [optional] [default to &#39;user_id&#39;] |
 
 ### Return type
 
@@ -145,9 +143,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

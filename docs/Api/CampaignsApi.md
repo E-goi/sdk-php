@@ -1,17 +1,18 @@
 # EgoiClient\CampaignsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteCampaigns**](CampaignsApi.md#deleteCampaigns) | **DELETE** /campaigns/{campaign_hash} | Remove Campaign
-[**getAllCampaigns**](CampaignsApi.md#getAllCampaigns) | **GET** /campaigns | Get all Campaigns
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteCampaigns()**](CampaignsApi.md#deleteCampaigns) | **DELETE** /campaigns/{campaign_hash} | Remove Campaign |
+| [**getAllCampaigns()**](CampaignsApi.md#getAllCampaigns) | **GET** /campaigns | Get all Campaigns |
 
 
+## `deleteCampaigns()`
 
-## deleteCampaigns
-
-> deleteCampaigns($campaign_hash)
+```php
+deleteCampaigns($campaign_hash)
+```
 
 Remove Campaign
 
@@ -43,15 +44,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CampaignsApi->deleteCampaigns: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaign_hash** | **string**| ID of the Campaign |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign_hash** | **string**| ID of the Campaign | |
 
 ### Return type
 
@@ -64,16 +63,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllCampaigns()`
 
-## getAllCampaigns
-
-> \EgoiClient\EgoiModel\CampaignsCollection getAllCampaigns($channel, $campaign_hash, $list_id, $status, $internal_name, $created_by, $group_id, $created_min, $created_max, $updated_min, $updated_max, $start_date_min, $start_date_max, $end_date_min, $end_date_max, $schedule_date_min, $schedule_date_max, $offset, $limit, $order, $order_by)
+```php
+getAllCampaigns($channel, $campaign_hash, $list_id, $status, $internal_name, $created_by, $group_id, $created_min, $created_max, $updated_min, $updated_max, $start_date_min, $start_date_max, $end_date_min, $end_date_max, $schedule_date_min, $schedule_date_max, $offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\CampaignsCollection
+```
 
 Get all Campaigns
 
@@ -126,35 +126,33 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CampaignsApi->getAllCampaigns: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channel** | **string**| Channel of the campaign | [optional]
- **campaign_hash** | **string**| Hash of the campaign | [optional]
- **list_id** | **int**| ID of the list where the campaign belongs | [optional]
- **status** | **string**| Status of the campaign | [optional]
- **internal_name** | **string**| Internal name of the campaign | [optional]
- **created_by** | **int**| ID of the user who created the campaign | [optional]
- **group_id** | **int**| ID of the group where the campaign belongs | [optional]
- **created_min** | **\DateTime**| Created initial date | [optional]
- **created_max** | **\DateTime**| Created finish | [optional]
- **updated_min** | **\DateTime**| Updated initial | [optional]
- **updated_max** | **\DateTime**| Updated finish | [optional]
- **start_date_min** | **\DateTime**| Start date initial | [optional]
- **start_date_max** | **\DateTime**| Start date finish | [optional]
- **end_date_min** | **\DateTime**| End Date initial | [optional]
- **end_date_max** | **\DateTime**| End Date finish | [optional]
- **schedule_date_min** | **\DateTime**| Schedule Date initial | [optional]
- **schedule_date_max** | **\DateTime**| Schedule Date finish | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order campaigns | [optional] [default to &#39;created&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **channel** | **string**| Channel of the campaign | [optional] |
+| **campaign_hash** | **string**| Hash of the campaign | [optional] |
+| **list_id** | **int**| ID of the list where the campaign belongs | [optional] |
+| **status** | **string**| Status of the campaign | [optional] |
+| **internal_name** | **string**| Internal name of the campaign | [optional] |
+| **created_by** | **int**| ID of the user who created the campaign | [optional] |
+| **group_id** | **int**| ID of the group where the campaign belongs | [optional] |
+| **created_min** | **\DateTime**| Created initial date | [optional] |
+| **created_max** | **\DateTime**| Created finish | [optional] |
+| **updated_min** | **\DateTime**| Updated initial | [optional] |
+| **updated_max** | **\DateTime**| Updated finish | [optional] |
+| **start_date_min** | **\DateTime**| Start date initial | [optional] |
+| **start_date_max** | **\DateTime**| Start date finish | [optional] |
+| **end_date_min** | **\DateTime**| End Date initial | [optional] |
+| **end_date_max** | **\DateTime**| End Date finish | [optional] |
+| **schedule_date_min** | **\DateTime**| Schedule Date initial | [optional] |
+| **schedule_date_max** | **\DateTime**| Schedule Date finish | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order campaigns | [optional] [default to &#39;created&#39;] |
 
 ### Return type
 
@@ -167,9 +165,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

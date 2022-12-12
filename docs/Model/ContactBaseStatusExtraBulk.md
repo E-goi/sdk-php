@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**base** | [**\EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBase**](ContactBaseWithStatusFieldsSchemaBase.md) |  | [optional] 
-**extra** | [**\EgoiClient\EgoiModel\ContactExtraFieldsBulk[]**](ContactExtraFieldsBulk.md) | Array of the contact&#39;s extra fields | [optional] 
+**base** | [**\EgoiClient\EgoiModel\ContactBaseWithStatusFieldsSchemaBase**](ContactBaseWithStatusFieldsSchemaBase.md) |  | [optional]
+**extra** | [**\EgoiClient\EgoiModel\ContactExtraFieldsBulk[]**](ContactExtraFieldsBulk.md) | Array of the contact&#39;s extra fields | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,20 +1,21 @@
 # EgoiClient\OperationsApi
 
-All URIs are relative to *https://api.egoiapp.com*
+All URIs are relative to https://api.egoiapp.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**actionApproveOperation**](OperationsApi.md#actionApproveOperation) | **POST** /operations/actions/approve | Approve operation
-[**actionCancelOperation**](OperationsApi.md#actionCancelOperation) | **POST** /operations/actions/cancel | Cancel operation
-[**actionPauseOperation**](OperationsApi.md#actionPauseOperation) | **POST** /operations/actions/pause | Pause operation
-[**actionResumeOperation**](OperationsApi.md#actionResumeOperation) | **POST** /operations/actions/resume | Resume operation
-[**getAllOperations**](OperationsApi.md#getAllOperations) | **GET** /operations | Get all queued operations
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**actionApproveOperation()**](OperationsApi.md#actionApproveOperation) | **POST** /operations/actions/approve | Approve operation |
+| [**actionCancelOperation()**](OperationsApi.md#actionCancelOperation) | **POST** /operations/actions/cancel | Cancel operation |
+| [**actionPauseOperation()**](OperationsApi.md#actionPauseOperation) | **POST** /operations/actions/pause | Pause operation |
+| [**actionResumeOperation()**](OperationsApi.md#actionResumeOperation) | **POST** /operations/actions/resume | Resume operation |
+| [**getAllOperations()**](OperationsApi.md#getAllOperations) | **GET** /operations | Get all queued operations |
 
 
+## `actionApproveOperation()`
 
-## actionApproveOperation
-
-> \EgoiClient\EgoiModel\OperationActionResponse actionApproveOperation($operation_action_request)
+```php
+actionApproveOperation($operation_action_request): \EgoiClient\EgoiModel\OperationActionResponse
+```
 
 Approve operation
 
@@ -47,15 +48,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling OperationsApi->actionApproveOperation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request | |
 
 ### Return type
 
@@ -67,17 +66,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionCancelOperation()`
 
-## actionCancelOperation
-
-> \EgoiClient\EgoiModel\OperationActionResponse actionCancelOperation($operation_action_request)
+```php
+actionCancelOperation($operation_action_request): \EgoiClient\EgoiModel\OperationActionResponse
+```
 
 Cancel operation
 
@@ -110,15 +110,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling OperationsApi->actionCancelOperation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request | |
 
 ### Return type
 
@@ -130,17 +128,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionPauseOperation()`
 
-## actionPauseOperation
-
-> \EgoiClient\EgoiModel\OperationActionResponse actionPauseOperation($operation_action_request)
+```php
+actionPauseOperation($operation_action_request): \EgoiClient\EgoiModel\OperationActionResponse
+```
 
 Pause operation
 
@@ -173,15 +172,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling OperationsApi->actionPauseOperation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request | |
 
 ### Return type
 
@@ -193,17 +190,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `actionResumeOperation()`
 
-## actionResumeOperation
-
-> \EgoiClient\EgoiModel\OperationActionResponse actionResumeOperation($operation_action_request)
+```php
+actionResumeOperation($operation_action_request): \EgoiClient\EgoiModel\OperationActionResponse
+```
 
 Resume operation
 
@@ -236,15 +234,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling OperationsApi->actionResumeOperation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation_action_request** | [**\EgoiClient\EgoiModel\OperationActionRequest**](../Model/OperationActionRequest.md)| Parameters for the request | |
 
 ### Return type
 
@@ -256,17 +252,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAllOperations()`
 
-## getAllOperations
-
-> \EgoiClient\EgoiModel\OperationsCollection getAllOperations($type, $status, $offset, $limit, $order, $order_by)
+```php
+getAllOperations($type, $status, $offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\OperationsCollection
+```
 
 Get all queued operations
 
@@ -304,20 +301,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling OperationsApi->getAllOperations: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | **string**| Operation type | [optional]
- **status** | **string**| Operation state | [optional]
- **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
- **limit** | **int**| Number of items to return | [optional] [default to 10]
- **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;]
- **order_by** | **string**| Reference attribute to order operations | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **type** | **string**| Operation type | [optional] |
+| **status** | **string**| Operation state | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order operations | [optional] |
 
 ### Return type
 
@@ -330,9 +325,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

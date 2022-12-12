@@ -2,7 +2,7 @@
 /**
  * SmsCampaignTemplate
  *
- * PHP version 5
+ * PHP version 7.4
  *
  * @category Class
  * @package  EgoiClient
@@ -13,12 +13,11 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
- * 
  * Generated by: https://openapi-generator.tech
- * OpenAPI Generator version: 4.2.3-SNAPSHOT
+ * OpenAPI Generator version: 6.2.1
  */
 
 /**
@@ -40,10 +39,11 @@ use \EgoiClient\ObjectSerializer;
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class SmsCampaignTemplate implements ModelInterface, ArrayAccess
+class SmsCampaignTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -58,35 +58,62 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'encoding' => 'string',
+        'max_messages' => 'int',
+        'message' => 'string',
+        'sender' => 'string',
+        'message_type' => 'string',
         'template_id' => 'int',
         'template_hash' => 'string',
         'internal_name' => 'string',
         'created' => '\DateTime',
-        'updated' => '\DateTime',
-        'message' => 'string',
-        'sender' => 'string',
-        'message_type' => 'string',
-        'encoding' => 'string',
-        'max_messages' => 'int'
+        'updated' => '\DateTime'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
       * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'encoding' => null,
+        'max_messages' => null,
+        'message' => null,
+        'sender' => null,
+        'message_type' => null,
         'template_id' => null,
         'template_hash' => null,
         'internal_name' => null,
         'created' => null,
-        'updated' => null,
-        'message' => null,
-        'sender' => null,
-        'message_type' => null,
-        'encoding' => null,
-        'max_messages' => null
+        'updated' => null
     ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'encoding' => false,
+		'max_messages' => false,
+		'message' => false,
+		'sender' => false,
+		'message_type' => false,
+		'template_id' => false,
+		'template_hash' => false,
+		'internal_name' => false,
+		'created' => false,
+		'updated' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -109,22 +136,74 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
      * @var string[]
      */
     protected static $attributeMap = [
+        'encoding' => 'encoding',
+        'max_messages' => 'max_messages',
+        'message' => 'message',
+        'sender' => 'sender',
+        'message_type' => 'message_type',
         'template_id' => 'template_id',
         'template_hash' => 'template_hash',
         'internal_name' => 'internal_name',
         'created' => 'created',
-        'updated' => 'updated',
-        'message' => 'message',
-        'sender' => 'sender',
-        'message_type' => 'message_type',
-        'encoding' => 'encoding',
-        'max_messages' => 'max_messages'
+        'updated' => 'updated'
     ];
 
     /**
@@ -133,16 +212,16 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'encoding' => 'setEncoding',
+        'max_messages' => 'setMaxMessages',
+        'message' => 'setMessage',
+        'sender' => 'setSender',
+        'message_type' => 'setMessageType',
         'template_id' => 'setTemplateId',
         'template_hash' => 'setTemplateHash',
         'internal_name' => 'setInternalName',
         'created' => 'setCreated',
-        'updated' => 'setUpdated',
-        'message' => 'setMessage',
-        'sender' => 'setSender',
-        'message_type' => 'setMessageType',
-        'encoding' => 'setEncoding',
-        'max_messages' => 'setMaxMessages'
+        'updated' => 'setUpdated'
     ];
 
     /**
@@ -151,16 +230,16 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'encoding' => 'getEncoding',
+        'max_messages' => 'getMaxMessages',
+        'message' => 'getMessage',
+        'sender' => 'getSender',
+        'message_type' => 'getMessageType',
         'template_id' => 'getTemplateId',
         'template_hash' => 'getTemplateHash',
         'internal_name' => 'getInternalName',
         'created' => 'getCreated',
-        'updated' => 'getUpdated',
-        'message' => 'getMessage',
-        'sender' => 'getSender',
-        'message_type' => 'getMessageType',
-        'encoding' => 'getEncoding',
-        'max_messages' => 'getMaxMessages'
+        'updated' => 'getUpdated'
     ];
 
     /**
@@ -204,26 +283,11 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const MESSAGE_TYPE_NORMAL = 'normal';
-    const MESSAGE_TYPE_FLASH = 'flash';
-    const ENCODING_GSM = 'gsm';
-    const ENCODING_UNICODE = 'unicode';
-    
+    public const ENCODING_GSM = 'gsm';
+    public const ENCODING_UNICODE = 'unicode';
+    public const MESSAGE_TYPE_NORMAL = 'normal';
+    public const MESSAGE_TYPE_FLASH = 'flash';
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMessageTypeAllowableValues()
-    {
-        return [
-            self::MESSAGE_TYPE_NORMAL,
-            self::MESSAGE_TYPE_FLASH,
-        ];
-    }
-    
     /**
      * Gets allowable values of the enum
      *
@@ -236,7 +300,19 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
             self::ENCODING_UNICODE,
         ];
     }
-    
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMessageTypeAllowableValues()
+    {
+        return [
+            self::MESSAGE_TYPE_NORMAL,
+            self::MESSAGE_TYPE_FLASH,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -253,16 +329,34 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
-        $this->container['template_hash'] = isset($data['template_hash']) ? $data['template_hash'] : null;
-        $this->container['internal_name'] = isset($data['internal_name']) ? $data['internal_name'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
-        $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
-        $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
-        $this->container['max_messages'] = isset($data['max_messages']) ? $data['max_messages'] : null;
+        $this->setIfExists('encoding', $data ?? [], null);
+        $this->setIfExists('max_messages', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('sender', $data ?? [], null);
+        $this->setIfExists('message_type', $data ?? [], null);
+        $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('template_hash', $data ?? [], null);
+        $this->setIfExists('internal_name', $data ?? [], null);
+        $this->setIfExists('created', $data ?? [], null);
+        $this->setIfExists('updated', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -274,32 +368,34 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['template_id']) && ($this->container['template_id'] < 1)) {
-            $invalidProperties[] = "invalid value for 'template_id', must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['template_hash']) && !preg_match("/[a-zA-Z0-9_-]*/", $this->container['template_hash'])) {
-            $invalidProperties[] = "invalid value for 'template_hash', must be conform to the pattern /[a-zA-Z0-9_-]*/.";
-        }
-
-        $allowedValues = $this->getMessageTypeAllowableValues();
-        if (!is_null($this->container['message_type']) && !in_array($this->container['message_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'message_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getEncodingAllowableValues();
         if (!is_null($this->container['encoding']) && !in_array($this->container['encoding'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'encoding', must be one of '%s'",
+                "invalid value '%s' for 'encoding', must be one of '%s'",
+                $this->container['encoding'],
                 implode("', '", $allowedValues)
             );
         }
 
         if (!is_null($this->container['max_messages']) && ($this->container['max_messages'] < 1)) {
             $invalidProperties[] = "invalid value for 'max_messages', must be bigger than or equal to 1.";
+        }
+
+        $allowedValues = $this->getMessageTypeAllowableValues();
+        if (!is_null($this->container['message_type']) && !in_array($this->container['message_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'message_type', must be one of '%s'",
+                $this->container['message_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['template_id']) && ($this->container['template_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'template_id', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['template_hash']) && !preg_match("/[a-zA-Z0-9_-]*/", $this->container['template_hash'])) {
+            $invalidProperties[] = "invalid value for 'template_hash', must be conform to the pattern /[a-zA-Z0-9_-]*/.";
         }
 
         return $invalidProperties;
@@ -318,6 +414,176 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets encoding
+     *
+     * @return string|null
+     */
+    public function getEncoding()
+    {
+        return $this->container['encoding'];
+    }
+
+    /**
+     * Sets encoding
+     *
+     * @param string|null $encoding Message encoding
+     *
+     * @return self
+     */
+    public function setEncoding($encoding)
+    {
+        $allowedValues = $this->getEncodingAllowableValues();
+        if (!is_null($encoding) && !in_array($encoding, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'encoding', must be one of '%s'",
+                    $encoding,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($encoding)) {
+            throw new \InvalidArgumentException('non-nullable encoding cannot be null');
+        }
+
+        $this->container['encoding'] = $encoding;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_messages
+     *
+     * @return int|null
+     */
+    public function getMaxMessages()
+    {
+        return $this->container['max_messages'];
+    }
+
+    /**
+     * Sets max_messages
+     *
+     * @param int|null $max_messages Maximum number of messages
+     *
+     * @return self
+     */
+    public function setMaxMessages($max_messages)
+    {
+
+        if (!is_null($max_messages) && ($max_messages < 1)) {
+            throw new \InvalidArgumentException('invalid value for $max_messages when calling SmsCampaignTemplate., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($max_messages)) {
+            throw new \InvalidArgumentException('non-nullable max_messages cannot be null');
+        }
+
+        $this->container['max_messages'] = $max_messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender
+     *
+     * @return string|null
+     */
+    public function getSender()
+    {
+        return $this->container['sender'];
+    }
+
+    /**
+     * Sets sender
+     *
+     * @param string|null $sender Sender number
+     *
+     * @return self
+     */
+    public function setSender($sender)
+    {
+
+        if (is_null($sender)) {
+            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        }
+
+        $this->container['sender'] = $sender;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_type
+     *
+     * @return string|null
+     */
+    public function getMessageType()
+    {
+        return $this->container['message_type'];
+    }
+
+    /**
+     * Sets message_type
+     *
+     * @param string|null $message_type Message type
+     *
+     * @return self
+     */
+    public function setMessageType($message_type)
+    {
+        $allowedValues = $this->getMessageTypeAllowableValues();
+        if (!is_null($message_type) && !in_array($message_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'message_type', must be one of '%s'",
+                    $message_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($message_type)) {
+            throw new \InvalidArgumentException('non-nullable message_type cannot be null');
+        }
+
+        $this->container['message_type'] = $message_type;
+
+        return $this;
+    }
+
+    /**
      * Gets template_id
      *
      * @return int|null
@@ -332,13 +598,18 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @param int|null $template_id template_id
      *
-     * @return $this
+     * @return self
      */
     public function setTemplateId($template_id)
     {
 
         if (!is_null($template_id) && ($template_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $template_id when calling SmsCampaignTemplate., must be bigger than or equal to 1.');
+        }
+
+
+        if (is_null($template_id)) {
+            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
 
         $this->container['template_id'] = $template_id;
@@ -361,13 +632,18 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @param string|null $template_hash template_hash
      *
-     * @return $this
+     * @return self
      */
     public function setTemplateHash($template_hash)
     {
 
         if (!is_null($template_hash) && (!preg_match("/[a-zA-Z0-9_-]*/", $template_hash))) {
-            throw new \InvalidArgumentException("invalid value for $template_hash when calling SmsCampaignTemplate., must conform to the pattern /[a-zA-Z0-9_-]*/.");
+            throw new \InvalidArgumentException("invalid value for \$template_hash when calling SmsCampaignTemplate., must conform to the pattern /[a-zA-Z0-9_-]*/.");
+        }
+
+
+        if (is_null($template_hash)) {
+            throw new \InvalidArgumentException('non-nullable template_hash cannot be null');
         }
 
         $this->container['template_hash'] = $template_hash;
@@ -390,10 +666,15 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @param string|null $internal_name Campaign internal name
      *
-     * @return $this
+     * @return self
      */
     public function setInternalName($internal_name)
     {
+
+        if (is_null($internal_name)) {
+            throw new \InvalidArgumentException('non-nullable internal_name cannot be null');
+        }
+
         $this->container['internal_name'] = $internal_name;
 
         return $this;
@@ -414,10 +695,15 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $created created
      *
-     * @return $this
+     * @return self
      */
     public function setCreated($created)
     {
+
+        if (is_null($created)) {
+            throw new \InvalidArgumentException('non-nullable created cannot be null');
+        }
+
         $this->container['created'] = $created;
 
         return $this;
@@ -438,154 +724,16 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @param \DateTime|null $updated updated
      *
-     * @return $this
+     * @return self
      */
     public function setUpdated($updated)
     {
+
+        if (is_null($updated)) {
+            throw new \InvalidArgumentException('non-nullable updated cannot be null');
+        }
+
         $this->container['updated'] = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message Message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return string|null
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string|null $sender Sender number
-     *
-     * @return $this
-     */
-    public function setSender($sender)
-    {
-        $this->container['sender'] = $sender;
-
-        return $this;
-    }
-
-    /**
-     * Gets message_type
-     *
-     * @return string|null
-     */
-    public function getMessageType()
-    {
-        return $this->container['message_type'];
-    }
-
-    /**
-     * Sets message_type
-     *
-     * @param string|null $message_type Message type
-     *
-     * @return $this
-     */
-    public function setMessageType($message_type)
-    {
-        $allowedValues = $this->getMessageTypeAllowableValues();
-        if (!is_null($message_type) && !in_array($message_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'message_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['message_type'] = $message_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets encoding
-     *
-     * @return string|null
-     */
-    public function getEncoding()
-    {
-        return $this->container['encoding'];
-    }
-
-    /**
-     * Sets encoding
-     *
-     * @param string|null $encoding Message encoding
-     *
-     * @return $this
-     */
-    public function setEncoding($encoding)
-    {
-        $allowedValues = $this->getEncodingAllowableValues();
-        if (!is_null($encoding) && !in_array($encoding, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'encoding', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['encoding'] = $encoding;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_messages
-     *
-     * @return int|null
-     */
-    public function getMaxMessages()
-    {
-        return $this->container['max_messages'];
-    }
-
-    /**
-     * Sets max_messages
-     *
-     * @param int|null $max_messages Maximum number of messages
-     *
-     * @return $this
-     */
-    public function setMaxMessages($max_messages)
-    {
-
-        if (!is_null($max_messages) && ($max_messages < 1)) {
-            throw new \InvalidArgumentException('invalid value for $max_messages when calling SmsCampaignTemplate., must be bigger than or equal to 1.');
-        }
-
-        $this->container['max_messages'] = $max_messages;
 
         return $this;
     }
@@ -596,7 +744,7 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -606,22 +754,23 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @param integer $offset Offset
      *
-     * @return mixed
+     * @return mixed|null
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
      * Sets value based on offset.
      *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -637,9 +786,22 @@ class SmsCampaignTemplate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
