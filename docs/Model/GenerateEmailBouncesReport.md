@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **campaigns** | [**\EgoiClient\EgoiModel\AdvancedReportCampaignsObject[]**](AdvancedReportCampaignsObject.md) | Campaigns of the report |
 **columns** | [**\EgoiClient\EgoiModel\AdvancedReportEmailBouncesColumns**](AdvancedReportEmailBouncesColumns.md) |  |
 **options** | [**\EgoiClient\EgoiModel\AdvancedReportEmailBouncesOptions**](AdvancedReportEmailBouncesOptions.md) |  |
-**callback_url** | **string** | URL which will receive the information of the report | [optional]
+**callback_url** | **string** | URL which will receive the information of the report &lt;a href&#x3D;&#39;/usecases/callbacks/&#39; target&#x3D;&#39;_blank&#39;&gt;[Go to callback documentation]&lt;/a&gt; | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

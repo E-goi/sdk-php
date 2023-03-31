@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action_data** | [**\EgoiClient\EgoiModel\ContactActivityClickAllOfActionData**](ContactActivityClickAllOfActionData.md) |  | [optional]
+**action_data** | [**\EgoiClient\EgoiModel\ContactAutomationsActivityAllOfActionData**](ContactAutomationsActivityAllOfActionData.md) |  | [optional]
 **date** | **\DateTime** | The date and time | [optional]
 **action_name** | **string** | Action name | [optional]
 

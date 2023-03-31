@@ -730,7 +730,7 @@ try {
 ## `getAllContactActivities()`
 
 ```php
-getAllContactActivities($contact_id, $list_id, $offset, $limit, $date_min, $date_max): \EgoiClient\EgoiModel\ActivityCollection
+getAllContactActivities($contact_id, $list_id, $offset, $limit, $date_min, $date_max, $action_name): \EgoiClient\EgoiModel\ActivityCollection
 ```
 
 Get all contact activities
@@ -762,9 +762,10 @@ $offset = 56; // int | Element offset (starting at zero for the first element)
 $limit = 10; // int | Number of items to return
 $date_min = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start date
 $date_max = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End date
+$action_name = 'action_name_example'; // string | Action data to return
 
 try {
-    $result = $apiInstance->getAllContactActivities($contact_id, $list_id, $offset, $limit, $date_min, $date_max);
+    $result = $apiInstance->getAllContactActivities($contact_id, $list_id, $offset, $limit, $date_min, $date_max, $action_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getAllContactActivities: ', $e->getMessage(), PHP_EOL;
@@ -781,6 +782,7 @@ try {
 | **limit** | **int**| Number of items to return | [optional] [default to 10] |
 | **date_min** | **\DateTime**| Start date | [optional] |
 | **date_max** | **\DateTime**| End date | [optional] |
+| **action_name** | **string**| Action data to return | [optional] |
 
 ### Return type
 

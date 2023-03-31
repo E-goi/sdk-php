@@ -13,7 +13,7 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  <a href='/usecases/callbacks/' target='_blank'>[Go to callbacks documentation]</a>  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
  * Generated by: https://openapi-generator.tech
@@ -58,7 +58,7 @@ class ContactActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action_data' => '\EgoiClient\EgoiModel\ContactActivityClickAllOfActionData',
+        'action_data' => '\EgoiClient\EgoiModel\ContactAutomationsActivityAllOfActionData',
         'date' => '\DateTime',
         'action_name' => 'string'
     ];
@@ -241,50 +241,22 @@ class ContactActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ACTION_NAME_EMAIL_OPEN = 'email_open';
-    public const ACTION_NAME_FORWARD = 'forward';
-    public const ACTION_NAME_CONVERSION = 'conversion';
-    public const ACTION_NAME_EMAIL_SEND = 'email_send';
-    public const ACTION_NAME_SMS_SEND = 'sms_send';
-    public const ACTION_NAME_VOICE_SEND = 'voice_send';
-    public const ACTION_NAME_MMS_SEND = 'mms_send';
-    public const ACTION_NAME_SMS_REPORT = 'sms_report';
-    public const ACTION_NAME_VOICE_REPORT = 'voice_report';
-    public const ACTION_NAME_INVITATION_SEND = 'invitation_send';
-    public const ACTION_NAME_INVITATION_OPEN = 'invitation_open';
-    public const ACTION_NAME_MMS_OPEN = 'mms_open';
-    public const ACTION_NAME_UNSUBSCRIBE = 'unsubscribe';
-    public const ACTION_NAME_EMAIL_SOFT_BOUNCE = 'email_soft_bounce';
-    public const ACTION_NAME_EMAIL_HARD_BOUNCE = 'email_hard_bounce';
     public const ACTION_NAME_SUBSCRIPTION = 'subscription';
-    public const ACTION_NAME_RESUBSCRIPTION = 'resubscription';
+    public const ACTION_NAME_UNSUBSCRIBE = 'unsubscribe';
+    public const ACTION_NAME_UNSUBSCRIBE_API = 'unsubscribe_api';
+    public const ACTION_NAME_UNSUBSCRIBE_MANUAL = 'unsubscribe_manual';
     public const ACTION_NAME_UNSUBSCRIBE_REASON = 'unsubscribe_reason';
+    public const ACTION_NAME_EDIT_SUBSCRIPTION = 'edit_subscription';
+    public const ACTION_NAME_RESUBSCRIPTION = 'resubscription';
+    public const ACTION_NAME_CONVERSION = 'conversion';
     public const ACTION_NAME_FACEBOOK_LIKE = 'facebook_like';
     public const ACTION_NAME_SOCIAL_SHARE = 'social_share';
-    public const ACTION_NAME_UNSUBSCRIBE_MANUAL = 'unsubscribe_manual';
-    public const ACTION_NAME_DOUBLE_OPTIN = 'double_optin';
-    public const ACTION_NAME_DOUBLE_OPTIN_RESEND = 'double_optin_resend';
-    public const ACTION_NAME_EMAIL_SPAM_COMPLAINT = 'email_spam_complaint';
-    public const ACTION_NAME_EMAIL_FIELD_DISABLE = 'email_field_disable';
     public const ACTION_NAME_CELLPHONE_FIELD_DISABLE = 'cellphone_field_disable';
+    public const ACTION_NAME_EMAIL_FIELD_DISABLE = 'email_field_disable';
     public const ACTION_NAME_PHONE_FIELD_DISABLE = 'phone_field_disable';
-    public const ACTION_NAME_UNSUBSCRIBE_API = 'unsubscribe_api';
     public const ACTION_NAME_EMAIL_FIELD_ENABLE = 'email_field_enable';
     public const ACTION_NAME_CELLPHONE_FIELD_ENABLE = 'cellphone_field_enable';
     public const ACTION_NAME_PHONE_FIELD_ENABLE = 'phone_field_enable';
-    public const ACTION_NAME_EDIT_SUBSCRIPTION = 'edit_subscription';
-    public const ACTION_NAME_DOUBLE_OPTEDIT = 'double_optedit';
-    public const ACTION_NAME_AUTOMATION_EVENT = 'automation_event';
-    public const ACTION_NAME_PUSH_SEND = 'push_send';
-    public const ACTION_NAME_PUSH_OPEN = 'push_open';
-    public const ACTION_NAME_PUSH_RECEIVED = 'push_received';
-    public const ACTION_NAME_PUSH_ERROR = 'push_error';
-    public const ACTION_NAME_PUSH_CANCELED = 'push_canceled';
-    public const ACTION_NAME_REPLY_TO_EMAIL = 'reply_to_email';
-    public const ACTION_NAME_WEB_PUSH_SEND = 'web_push_send';
-    public const ACTION_NAME_WEB_PUSH_DELIVERED = 'web_push_delivered';
-    public const ACTION_NAME_WEB_PUSH_OPEN = 'web_push_open';
-    public const ACTION_NAME_WEB_PUSH_BOUNCE = 'web_push_bounce';
     public const ACTION_NAME_WEB_PUSH_SUBSCRIPTION = 'web_push_subscription';
     public const ACTION_NAME_WEB_PUSH_UNSUBSCRIPTION = 'web_push_unsubscription';
     public const ACTION_NAME_ADD_PUSH_CONTACT = 'add_push_contact';
@@ -301,50 +273,22 @@ class ContactActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getActionNameAllowableValues()
     {
         return [
-            self::ACTION_NAME_EMAIL_OPEN,
-            self::ACTION_NAME_FORWARD,
-            self::ACTION_NAME_CONVERSION,
-            self::ACTION_NAME_EMAIL_SEND,
-            self::ACTION_NAME_SMS_SEND,
-            self::ACTION_NAME_VOICE_SEND,
-            self::ACTION_NAME_MMS_SEND,
-            self::ACTION_NAME_SMS_REPORT,
-            self::ACTION_NAME_VOICE_REPORT,
-            self::ACTION_NAME_INVITATION_SEND,
-            self::ACTION_NAME_INVITATION_OPEN,
-            self::ACTION_NAME_MMS_OPEN,
-            self::ACTION_NAME_UNSUBSCRIBE,
-            self::ACTION_NAME_EMAIL_SOFT_BOUNCE,
-            self::ACTION_NAME_EMAIL_HARD_BOUNCE,
             self::ACTION_NAME_SUBSCRIPTION,
-            self::ACTION_NAME_RESUBSCRIPTION,
+            self::ACTION_NAME_UNSUBSCRIBE,
+            self::ACTION_NAME_UNSUBSCRIBE_API,
+            self::ACTION_NAME_UNSUBSCRIBE_MANUAL,
             self::ACTION_NAME_UNSUBSCRIBE_REASON,
+            self::ACTION_NAME_EDIT_SUBSCRIPTION,
+            self::ACTION_NAME_RESUBSCRIPTION,
+            self::ACTION_NAME_CONVERSION,
             self::ACTION_NAME_FACEBOOK_LIKE,
             self::ACTION_NAME_SOCIAL_SHARE,
-            self::ACTION_NAME_UNSUBSCRIBE_MANUAL,
-            self::ACTION_NAME_DOUBLE_OPTIN,
-            self::ACTION_NAME_DOUBLE_OPTIN_RESEND,
-            self::ACTION_NAME_EMAIL_SPAM_COMPLAINT,
-            self::ACTION_NAME_EMAIL_FIELD_DISABLE,
             self::ACTION_NAME_CELLPHONE_FIELD_DISABLE,
+            self::ACTION_NAME_EMAIL_FIELD_DISABLE,
             self::ACTION_NAME_PHONE_FIELD_DISABLE,
-            self::ACTION_NAME_UNSUBSCRIBE_API,
             self::ACTION_NAME_EMAIL_FIELD_ENABLE,
             self::ACTION_NAME_CELLPHONE_FIELD_ENABLE,
             self::ACTION_NAME_PHONE_FIELD_ENABLE,
-            self::ACTION_NAME_EDIT_SUBSCRIPTION,
-            self::ACTION_NAME_DOUBLE_OPTEDIT,
-            self::ACTION_NAME_AUTOMATION_EVENT,
-            self::ACTION_NAME_PUSH_SEND,
-            self::ACTION_NAME_PUSH_OPEN,
-            self::ACTION_NAME_PUSH_RECEIVED,
-            self::ACTION_NAME_PUSH_ERROR,
-            self::ACTION_NAME_PUSH_CANCELED,
-            self::ACTION_NAME_REPLY_TO_EMAIL,
-            self::ACTION_NAME_WEB_PUSH_SEND,
-            self::ACTION_NAME_WEB_PUSH_DELIVERED,
-            self::ACTION_NAME_WEB_PUSH_OPEN,
-            self::ACTION_NAME_WEB_PUSH_BOUNCE,
             self::ACTION_NAME_WEB_PUSH_SUBSCRIPTION,
             self::ACTION_NAME_WEB_PUSH_UNSUBSCRIPTION,
             self::ACTION_NAME_ADD_PUSH_CONTACT,
@@ -429,7 +373,7 @@ class ContactActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action_data
      *
-     * @return \EgoiClient\EgoiModel\ContactActivityClickAllOfActionData|null
+     * @return \EgoiClient\EgoiModel\ContactAutomationsActivityAllOfActionData|null
      */
     public function getActionData()
     {
@@ -439,7 +383,7 @@ class ContactActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action_data
      *
-     * @param \EgoiClient\EgoiModel\ContactActivityClickAllOfActionData|null $action_data action_data
+     * @param \EgoiClient\EgoiModel\ContactAutomationsActivityAllOfActionData|null $action_data action_data
      *
      * @return self
      */

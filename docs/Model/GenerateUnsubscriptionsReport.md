@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **lists** | **int[]** | Array of List Id&#39;s |
 **columns** | [**\EgoiClient\EgoiModel\AdvancedReportUnsubscriptionsColumns**](AdvancedReportUnsubscriptionsColumns.md) |  |
 **options** | [**\EgoiClient\EgoiModel\AdvancedReportUnsubscriptionsOptions**](AdvancedReportUnsubscriptionsOptions.md) |  |
-**callback_url** | **string** | URL which will receive the information of the report | [optional]
+**callback_url** | **string** | URL which will receive the information of the report &lt;a href&#x3D;&#39;/usecases/callbacks/&#39; target&#x3D;&#39;_blank&#39;&gt;[Go to callback documentation]&lt;/a&gt; | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

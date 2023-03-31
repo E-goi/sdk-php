@@ -13,7 +13,7 @@
 /**
  * APIv3 (New)
  *
- * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
+ * # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  <a href='/usecases/callbacks/' target='_blank'>[Go to callbacks documentation]</a>  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
  * Generated by: https://openapi-generator.tech
@@ -60,6 +60,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'internal_name' => 'bool',
         'campaign_hash' => 'bool',
+        'send_date' => 'bool',
+        'group' => 'bool',
+        'channel' => 'bool',
+        'type' => 'bool',
         'sender' => 'bool'
     ];
 
@@ -73,6 +77,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'internal_name' => null,
         'campaign_hash' => null,
+        'send_date' => null,
+        'group' => null,
+        'channel' => null,
+        'type' => null,
         'sender' => null
     ];
 
@@ -84,6 +92,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     protected static array $openAPINullables = [
         'internal_name' => false,
 		'campaign_hash' => false,
+		'send_date' => false,
+		'group' => false,
+		'channel' => false,
+		'type' => false,
 		'sender' => false
     ];
 
@@ -175,6 +187,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'internal_name' => 'internal_name',
         'campaign_hash' => 'campaign_hash',
+        'send_date' => 'send_date',
+        'group' => 'group',
+        'channel' => 'channel',
+        'type' => 'type',
         'sender' => 'sender'
     ];
 
@@ -186,6 +202,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'internal_name' => 'setInternalName',
         'campaign_hash' => 'setCampaignHash',
+        'send_date' => 'setSendDate',
+        'group' => 'setGroup',
+        'channel' => 'setChannel',
+        'type' => 'setType',
         'sender' => 'setSender'
     ];
 
@@ -197,6 +217,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'internal_name' => 'getInternalName',
         'campaign_hash' => 'getCampaignHash',
+        'send_date' => 'getSendDate',
+        'group' => 'getGroup',
+        'channel' => 'getChannel',
+        'type' => 'getType',
         'sender' => 'getSender'
     ];
 
@@ -259,6 +283,10 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
     {
         $this->setIfExists('internal_name', $data ?? [], null);
         $this->setIfExists('campaign_hash', $data ?? [], null);
+        $this->setIfExists('send_date', $data ?? [], null);
+        $this->setIfExists('group', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('sender', $data ?? [], null);
     }
 
@@ -367,6 +395,122 @@ class EmailUnsubscriptionsCampaignFields implements ModelInterface, ArrayAccess,
         }
 
         $this->container['campaign_hash'] = $campaign_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_date
+     *
+     * @return bool|null
+     */
+    public function getSendDate()
+    {
+        return $this->container['send_date'];
+    }
+
+    /**
+     * Sets send_date
+     *
+     * @param bool|null $send_date True to include the send date of the campaign, false otherwise
+     *
+     * @return self
+     */
+    public function setSendDate($send_date)
+    {
+
+        if (is_null($send_date)) {
+            throw new \InvalidArgumentException('non-nullable send_date cannot be null');
+        }
+
+        $this->container['send_date'] = $send_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return bool|null
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param bool|null $group True to include the group of the campaign, false otherwise
+     *
+     * @return self
+     */
+    public function setGroup($group)
+    {
+
+        if (is_null($group)) {
+            throw new \InvalidArgumentException('non-nullable group cannot be null');
+        }
+
+        $this->container['group'] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return bool|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param bool|null $channel True to include the channel of the campaign, false otherwise
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return bool|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param bool|null $type True to include the type of the campaign, false otherwise
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+
+        $this->container['type'] = $type;
 
         return $this;
     }

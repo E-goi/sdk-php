@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **contacts** | [**\EgoiClient\EgoiModel\ContactBulk[]**](ContactBulk.md) | Array of contacts to import |
 **force_empty** | **bool** | If &#39;true&#39; accepts empty values and erases those fields | [optional] [default to false]
 **notify** | **int[]** | Array of IDs of the users to notify | [optional]
-**callback_url** | **string** | Url to receive the report | [optional]
+**callback_url** | **string** | Url to receive the report &lt;a href&#x3D;&#39;/usecases/callbacks/#import-collection-of-contacts&#39; target&#x3D;&#39;_blank&#39;&gt;[Go to callback documentation]&lt;/a&gt; | [optional]
 **file** | [**\EgoiClient\EgoiModel\ImportBulkFileRequestSchemaFile**](ImportBulkFileRequestSchemaFile.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

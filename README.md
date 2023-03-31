@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.1.4RC1
+#### 1.1.5RC1
 ## Installation & Usage
 
 ### Requirements
@@ -88,10 +88,10 @@ Class | Method | HTTP request | Description
 *AdvancedReportsApi* | [**generateEmailClicksByContactReport**](docs/Api/AdvancedReportsApi.md#generateemailclicksbycontactreport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
 *AdvancedReportsApi* | [**generateEmailClicksByUrlReport**](docs/Api/AdvancedReportsApi.md#generateemailclicksbyurlreport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
 *AdvancedReportsApi* | [**generateEmailEventsReport**](docs/Api/AdvancedReportsApi.md#generateemaileventsreport) | **POST** /reports/advanced/email-events | Generate email events report
-*AdvancedReportsApi* | [**generateEmailSmsReport**](docs/Api/AdvancedReportsApi.md#generateemailsmsreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
 *AdvancedReportsApi* | [**generateEmailUnsubscriptionsReport**](docs/Api/AdvancedReportsApi.md#generateemailunsubscriptionsreport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report
 *AdvancedReportsApi* | [**generateFormAnswersReport**](docs/Api/AdvancedReportsApi.md#generateformanswersreport) | **POST** /reports/advanced/form-answers | Generate form answers report
 *AdvancedReportsApi* | [**generateSendsReport**](docs/Api/AdvancedReportsApi.md#generatesendsreport) | **POST** /reports/advanced/sends | Generate sends report
+*AdvancedReportsApi* | [**generateSmsBouncesReport**](docs/Api/AdvancedReportsApi.md#generatesmsbouncesreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
 *AdvancedReportsApi* | [**generateSmsEventsReport**](docs/Api/AdvancedReportsApi.md#generatesmseventsreport) | **POST** /reports/advanced/sms-events | Generate SMS events report
 *AdvancedReportsApi* | [**generateSubscriptionsReport**](docs/Api/AdvancedReportsApi.md#generatesubscriptionsreport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
 *AdvancedReportsApi* | [**generateUnsubscriptionsReport**](docs/Api/AdvancedReportsApi.md#generateunsubscriptionsreport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
@@ -393,10 +393,16 @@ Class | Method | HTTP request | Description
 - [Contact1](docs/Model/Contact1.md)
 - [Contact2](docs/Model/Contact2.md)
 - [ContactActivity](docs/Model/ContactActivity.md)
+- [ContactActivityAbstractActionsWithAutomations](docs/Model/ContactActivityAbstractActionsWithAutomations.md)
+- [ContactActivityAbstractActionsWithCampaign](docs/Model/ContactActivityAbstractActionsWithCampaign.md)
 - [ContactActivityAbstractActionsWithData](docs/Model/ContactActivityAbstractActionsWithData.md)
+- [ContactActivityAbstractActionsWithTags](docs/Model/ContactActivityAbstractActionsWithTags.md)
 - [ContactActivityClick](docs/Model/ContactActivityClick.md)
 - [ContactActivityClickAllOf](docs/Model/ContactActivityClickAllOf.md)
 - [ContactActivityClickAllOfActionData](docs/Model/ContactActivityClickAllOfActionData.md)
+- [ContactAutomationsActivity](docs/Model/ContactAutomationsActivity.md)
+- [ContactAutomationsActivityAllOf](docs/Model/ContactAutomationsActivityAllOf.md)
+- [ContactAutomationsActivityAllOfActionData](docs/Model/ContactAutomationsActivityAllOfActionData.md)
 - [ContactBaseExtra](docs/Model/ContactBaseExtra.md)
 - [ContactBaseExtraBulk](docs/Model/ContactBaseExtraBulk.md)
 - [ContactBaseExtraFull](docs/Model/ContactBaseExtraFull.md)
@@ -427,6 +433,9 @@ Class | Method | HTTP request | Description
 - [ContactBulkFileAllOf1](docs/Model/ContactBulkFileAllOf1.md)
 - [ContactBulkFileAllOf2](docs/Model/ContactBulkFileAllOf2.md)
 - [ContactBulkFileAllOf3](docs/Model/ContactBulkFileAllOf3.md)
+- [ContactCampaignActivity](docs/Model/ContactCampaignActivity.md)
+- [ContactCampaignActivityAllOf](docs/Model/ContactCampaignActivityAllOf.md)
+- [ContactCampaignActivityAllOfActionData](docs/Model/ContactCampaignActivityAllOfActionData.md)
 - [ContactCollection](docs/Model/ContactCollection.md)
 - [ContactExportRequest](docs/Model/ContactExportRequest.md)
 - [ContactExtraFieldCellphone](docs/Model/ContactExtraFieldCellphone.md)
@@ -453,6 +462,9 @@ Class | Method | HTTP request | Description
 - [ContactSearchResponse](docs/Model/ContactSearchResponse.md)
 - [ContactStatusFieldsBulkSchema](docs/Model/ContactStatusFieldsBulkSchema.md)
 - [ContactStatusFieldsSchema](docs/Model/ContactStatusFieldsSchema.md)
+- [ContactTagActivity](docs/Model/ContactTagActivity.md)
+- [ContactTagActivityAllOf](docs/Model/ContactTagActivityAllOf.md)
+- [ContactTagActivityAllOfActionData](docs/Model/ContactTagActivityAllOfActionData.md)
 - [ContactTags](docs/Model/ContactTags.md)
 - [ContactTagsBulk](docs/Model/ContactTagsBulk.md)
 - [ContactsActionUpdateContactsSchema](docs/Model/ContactsActionUpdateContactsSchema.md)
@@ -535,6 +547,7 @@ Class | Method | HTTP request | Description
 - [EnableTransactionalConflict](docs/Model/EnableTransactionalConflict.md)
 - [EnableTransactionalConflictsErrors](docs/Model/EnableTransactionalConflictsErrors.md)
 - [ExportContactsWebhookData](docs/Model/ExportContactsWebhookData.md)
+- [ExportReportWebhookData](docs/Model/ExportReportWebhookData.md)
 - [Field](docs/Model/Field.md)
 - [FieldCollection](docs/Model/FieldCollection.md)
 - [FieldInUse](docs/Model/FieldInUse.md)
@@ -588,6 +601,7 @@ Class | Method | HTTP request | Description
 - [ImportBulkFileRequestSchema](docs/Model/ImportBulkFileRequestSchema.md)
 - [ImportBulkFileRequestSchemaFile](docs/Model/ImportBulkFileRequestSchemaFile.md)
 - [ImportBulkRequest](docs/Model/ImportBulkRequest.md)
+- [ImportContactsWebhookData](docs/Model/ImportContactsWebhookData.md)
 - [ImportOrdersBulkBulkRequest](docs/Model/ImportOrdersBulkBulkRequest.md)
 - [ImportOrdersBulkBulkRequestItems](docs/Model/ImportOrdersBulkBulkRequestItems.md)
 - [InternalServerError](docs/Model/InternalServerError.md)
@@ -847,5 +861,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `3.0.0`
-    - Package version: `1.1.4RC1`
+    - Package version: `1.1.5RC1`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

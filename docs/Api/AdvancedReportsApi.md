@@ -8,10 +8,10 @@ All URIs are relative to https://api.egoiapp.com, except if the operation define
 | [**generateEmailClicksByContactReport()**](AdvancedReportsApi.md#generateEmailClicksByContactReport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report |
 | [**generateEmailClicksByUrlReport()**](AdvancedReportsApi.md#generateEmailClicksByUrlReport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report |
 | [**generateEmailEventsReport()**](AdvancedReportsApi.md#generateEmailEventsReport) | **POST** /reports/advanced/email-events | Generate email events report |
-| [**generateEmailSmsReport()**](AdvancedReportsApi.md#generateEmailSmsReport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report |
 | [**generateEmailUnsubscriptionsReport()**](AdvancedReportsApi.md#generateEmailUnsubscriptionsReport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report |
 | [**generateFormAnswersReport()**](AdvancedReportsApi.md#generateFormAnswersReport) | **POST** /reports/advanced/form-answers | Generate form answers report |
 | [**generateSendsReport()**](AdvancedReportsApi.md#generateSendsReport) | **POST** /reports/advanced/sends | Generate sends report |
+| [**generateSmsBouncesReport()**](AdvancedReportsApi.md#generateSmsBouncesReport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report |
 | [**generateSmsEventsReport()**](AdvancedReportsApi.md#generateSmsEventsReport) | **POST** /reports/advanced/sms-events | Generate SMS events report |
 | [**generateSubscriptionsReport()**](AdvancedReportsApi.md#generateSubscriptionsReport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report |
 | [**generateUnsubscriptionsReport()**](AdvancedReportsApi.md#generateUnsubscriptionsReport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report |
@@ -266,68 +266,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `generateEmailSmsReport()`
-
-```php
-generateEmailSmsReport($generate_sms_bounces_report): \EgoiClient\EgoiModel\AcceptedResponse
-```
-
-Generate SMS bounces report
-
-Generates a new SMS bounces report
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Apikey
-$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
-
-
-$apiInstance = new EgoiClient\Api\AdvancedReportsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$generate_sms_bounces_report = new \EgoiClient\EgoiModel\GenerateSmsBouncesReport(); // \EgoiClient\EgoiModel\GenerateSmsBouncesReport | Parameters for the SMS bounces report
-
-try {
-    $result = $apiInstance->generateEmailSmsReport($generate_sms_bounces_report);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AdvancedReportsApi->generateEmailSmsReport: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **generate_sms_bounces_report** | [**\EgoiClient\EgoiModel\GenerateSmsBouncesReport**](../Model/GenerateSmsBouncesReport.md)| Parameters for the SMS bounces report | |
-
-### Return type
-
-[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
-
-### Authorization
-
-[Apikey](../../README.md#Apikey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `generateEmailUnsubscriptionsReport()`
 
 ```php
@@ -496,6 +434,68 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **generate_sends_report** | [**\EgoiClient\EgoiModel\GenerateSendsReport**](../Model/GenerateSendsReport.md)| Parameters for the sends report | |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `generateSmsBouncesReport()`
+
+```php
+generateSmsBouncesReport($generate_sms_bounces_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
+
+Generate SMS bounces report
+
+Generates a new SMS bounces report
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\AdvancedReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_sms_bounces_report = new \EgoiClient\EgoiModel\GenerateSmsBouncesReport(); // \EgoiClient\EgoiModel\GenerateSmsBouncesReport | Parameters for the SMS bounces report
+
+try {
+    $result = $apiInstance->generateSmsBouncesReport($generate_sms_bounces_report);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdvancedReportsApi->generateSmsBouncesReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_sms_bounces_report** | [**\EgoiClient\EgoiModel\GenerateSmsBouncesReport**](../Model/GenerateSmsBouncesReport.md)| Parameters for the SMS bounces report | |
 
 ### Return type
 

@@ -17,7 +17,7 @@ createWebhook($webhook): \EgoiClient\EgoiModel\Webhook
 
 Create new webhook
 
-Create a new webhook
+Create a new webhook <a href='/usecases/webhooks/' target='_blank'>[Go to webhooks documentation]</a>
 
 ### Example
 
@@ -140,7 +140,7 @@ getAllWebhooks($offset, $limit): \EgoiClient\EgoiModel\ListCollection1
 
 Get all webhooks
 
-Returns all webhooks
+Returns all webhooks <a href='/usecases/webhooks/' target='_blank'>[Go to webhooks documentation]</a>
 
 ### Example
 
