@@ -340,7 +340,7 @@ try {
 ## `getAllFields()`
 
 ```php
-getAllFields($list_id, $offset, $limit): \EgoiClient\EgoiModel\FieldCollection
+getAllFields($list_id, $offset, $limit): \EgoiClient\EgoiModel\ComplexField[]
 ```
 
 Get all fields
@@ -388,7 +388,7 @@ try {
 
 ### Return type
 
-[**\EgoiClient\EgoiModel\FieldCollection**](../Model/FieldCollection.md)
+[**\EgoiClient\EgoiModel\ComplexField[]**](../Model/ComplexField.md)
 
 ### Authorization
 

@@ -2330,7 +2330,7 @@ class FieldsApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \EgoiClient\EgoiModel\FieldCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
+     * @return \EgoiClient\EgoiModel\ComplexField[]|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable
      */
     public function getAllFields($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
@@ -2350,7 +2350,7 @@ class FieldsApi
      *
      * @throws \EgoiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \EgoiClient\EgoiModel\FieldCollection|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EgoiClient\EgoiModel\ComplexField[]|\EgoiClient\EgoiModel\Unauthorized|\EgoiClient\EgoiModel\Forbidden|\EgoiClient\EgoiModel\UnprocessableEntity|\EgoiClient\EgoiModel\TooManyRequests|\EgoiClient\EgoiModel\InternalServerError|\EgoiClient\EgoiModel\ServiceUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllFieldsWithHttpInfo($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
@@ -2393,17 +2393,17 @@ class FieldsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\EgoiClient\EgoiModel\FieldCollection' === '\SplFileObject') {
+                    if ('\EgoiClient\EgoiModel\ComplexField[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EgoiClient\EgoiModel\FieldCollection' !== 'string') {
+                        if ('\EgoiClient\EgoiModel\ComplexField[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\FieldCollection', []),
+                        ObjectSerializer::deserialize($content, '\EgoiClient\EgoiModel\ComplexField[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2499,7 +2499,7 @@ class FieldsApi
                     ];
             }
 
-            $returnType = '\EgoiClient\EgoiModel\FieldCollection';
+            $returnType = '\EgoiClient\EgoiModel\ComplexField[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2520,7 +2520,7 @@ class FieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EgoiClient\EgoiModel\FieldCollection',
+                        '\EgoiClient\EgoiModel\ComplexField[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2616,7 +2616,7 @@ class FieldsApi
      */
     public function getAllFieldsAsyncWithHttpInfo($list_id, $offset = null, $limit = 10, string $contentType = self::contentTypes['getAllFields'][0])
     {
-        $returnType = '\EgoiClient\EgoiModel\FieldCollection';
+        $returnType = '\EgoiClient\EgoiModel\ComplexField[]';
         $request = $this->getAllFieldsRequest($list_id, $offset, $limit, $contentType);
 
         return $this->client
