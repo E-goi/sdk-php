@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.1.6RC1
+#### 1.1.9RC1
 ## Installation & Usage
 
 ### Requirements
@@ -67,13 +67,13 @@ $apiInstance = new EgoiClient\Api\AdvancedReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_email_bounces_report = new \EgoiClient\EgoiModel\GenerateEmailBouncesReport(); // \EgoiClient\EgoiModel\GenerateEmailBouncesReport | Parameters for the email bounces report
+$generate_by_model_report = new \EgoiClient\EgoiModel\GenerateByModelReport(); // \EgoiClient\EgoiModel\GenerateByModelReport | Parameters for the report by model Id
 
 try {
-    $result = $apiInstance->generateEmailBouncesReport($generate_email_bounces_report);
+    $result = $apiInstance->generateByModelReport($generate_by_model_report);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdvancedReportsApi->generateEmailBouncesReport: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvancedReportsApi->generateByModelReport: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -84,6 +84,8 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdvancedReportsApi* | [**generateByModelReport**](docs/Api/AdvancedReportsApi.md#generatebymodelreport) | **POST** /reports/advanced/model | Generate report by model
+*AdvancedReportsApi* | [**generateContactActivityReport**](docs/Api/AdvancedReportsApi.md#generatecontactactivityreport) | **POST** /reports/advanced/contact-activity | Generate contact activity report
 *AdvancedReportsApi* | [**generateEmailBouncesReport**](docs/Api/AdvancedReportsApi.md#generateemailbouncesreport) | **POST** /reports/advanced/email-bounces | Generate email bounces report
 *AdvancedReportsApi* | [**generateEmailClicksByContactReport**](docs/Api/AdvancedReportsApi.md#generateemailclicksbycontactreport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
 *AdvancedReportsApi* | [**generateEmailClicksByUrlReport**](docs/Api/AdvancedReportsApi.md#generateemailclicksbyurlreport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
@@ -96,7 +98,9 @@ Class | Method | HTTP request | Description
 *AdvancedReportsApi* | [**generateSubscriptionsReport**](docs/Api/AdvancedReportsApi.md#generatesubscriptionsreport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
 *AdvancedReportsApi* | [**generateUnsubscriptionsReport**](docs/Api/AdvancedReportsApi.md#generateunsubscriptionsreport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
 *AdvancedReportsApi* | [**getAllAdvancedReports**](docs/Api/AdvancedReportsApi.md#getalladvancedreports) | **GET** /reports/advanced | Get all advanced reports
+*AdvancedReportsApi* | [**getAllAdvancedReportsModels**](docs/Api/AdvancedReportsApi.md#getalladvancedreportsmodels) | **GET** /reports/advanced/models | Get all advanced reports models
 *AutomationsApi* | [**deleteAutomation**](docs/Api/AutomationsApi.md#deleteautomation) | **DELETE** /automations/{automation_id} | Remove automation
+*AutomationsApi* | [**getAllActions**](docs/Api/AutomationsApi.md#getallactions) | **GET** /automations/{automation_id}/actions | Get all actions from given automation
 *AutomationsApi* | [**getAllAutomations**](docs/Api/AutomationsApi.md#getallautomations) | **GET** /automations | Get all automations
 *CNamesApi* | [**createCName**](docs/Api/CNamesApi.md#createcname) | **POST** /cnames | Create cname
 *CNamesApi* | [**getAllCNames**](docs/Api/CNamesApi.md#getallcnames) | **GET** /cnames | Get All CNames
@@ -127,6 +131,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**getContact**](docs/Api/ContactsApi.md#getcontact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 *ContactsApi* | [**patchContact**](docs/Api/ContactsApi.md#patchcontact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
 *ContactsApi* | [**searchContacts**](docs/Api/ContactsApi.md#searchcontacts) | **GET** /contacts/search | Search contact
+*ContactsApi* | [**updateContactByField**](docs/Api/ContactsApi.md#updatecontactbyfield) | **POST** /lists/{list_id}/contacts/by-field | Updates a contact by field
 *EcommerceApi* | [**createCart**](docs/Api/EcommerceApi.md#createcart) | **POST** /{domain}/carts | Create cart
 *EcommerceApi* | [**createCatalog**](docs/Api/EcommerceApi.md#createcatalog) | **POST** /catalogs | Create new catalog
 *EcommerceApi* | [**createOrder**](docs/Api/EcommerceApi.md#createorder) | **POST** /{domain}/orders | Create order
@@ -136,9 +141,9 @@ Class | Method | HTTP request | Description
 *EcommerceApi* | [**getAllCatalogs**](docs/Api/EcommerceApi.md#getallcatalogs) | **GET** /catalogs | Get all catalogs
 *EcommerceApi* | [**getAllProducts**](docs/Api/EcommerceApi.md#getallproducts) | **GET** /catalogs/{catalog_id}/products | Get all products
 *EcommerceApi* | [**getProduct**](docs/Api/EcommerceApi.md#getproduct) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product
+*EcommerceApi* | [**importOrdersBulk**](docs/Api/EcommerceApi.md#importordersbulk) | **POST** /lists/{list_id}/orders | Orders import bulk request
 *EcommerceApi* | [**importProducts**](docs/Api/EcommerceApi.md#importproducts) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products
 *EcommerceApi* | [**updateProduct**](docs/Api/EcommerceApi.md#updateproduct) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product
-*EcommerceActivityApi* | [**importOrdersBulk**](docs/Api/EcommerceActivityApi.md#importordersbulk) | **POST** /lists/{list_id}/orders | Orders import bulk request
 *EmailApi* | [**actionEnableEmailRss**](docs/Api/EmailApi.md#actionenableemailrss) | **POST** /campaigns/email/rss/{campaign_hash}/actions/enable | Enables a rss email campaign
 *EmailApi* | [**actionSendEmail**](docs/Api/EmailApi.md#actionsendemail) | **POST** /campaigns/email/{campaign_hash}/actions/send | Send email message
 *EmailApi* | [**createEmailCampaign**](docs/Api/EmailApi.md#createemailcampaign) | **POST** /campaigns/email | Create new email campaign
@@ -156,6 +161,7 @@ Class | Method | HTTP request | Description
 *ListsApi* | [**createList**](docs/Api/ListsApi.md#createlist) | **POST** /lists | Create new list
 *ListsApi* | [**deleteList**](docs/Api/ListsApi.md#deletelist) | **DELETE** /lists/{list_id} | Remove list
 *ListsApi* | [**getAllLists**](docs/Api/ListsApi.md#getalllists) | **GET** /lists | Get all lists
+*ListsApi* | [**getList**](docs/Api/ListsApi.md#getlist) | **GET** /lists/{list_id} | Get list
 *ListsApi* | [**updateList**](docs/Api/ListsApi.md#updatelist) | **PATCH** /lists/{list_id} | Update a specific list
 *MyAccountApi* | [**enableTe**](docs/Api/MyAccountApi.md#enablete) | **POST** /my-account/actions/enable-te | Enable Track&amp;Engage
 *MyAccountApi* | [**enableTransactional**](docs/Api/MyAccountApi.md#enabletransactional) | **POST** /my-account/actions/enable-transactional | Enable Transactional
@@ -174,6 +180,7 @@ Class | Method | HTTP request | Description
 *PushApi* | [**registerPushEvent**](docs/Api/PushApi.md#registerpushevent) | **POST** /push/apps/{app_id}/event | Registers an event from the push notification.
 *PushApi* | [**registerPushToken**](docs/Api/PushApi.md#registerpushtoken) | **POST** /push/apps/{app_id}/token | Registers a Firebase token
 *ReportsApi* | [**getEmailReport**](docs/Api/ReportsApi.md#getemailreport) | **GET** /reports/email/{campaign_hash} | Get email report
+*ReportsApi* | [**getPushReport**](docs/Api/ReportsApi.md#getpushreport) | **GET** /reports/push/{campaign_hash} | Get push report
 *ReportsApi* | [**getSMSReport**](docs/Api/ReportsApi.md#getsmsreport) | **GET** /reports/sms/{campaign_hash} | Get sms report
 *ReportsApi* | [**getVoiceReport**](docs/Api/ReportsApi.md#getvoicereport) | **GET** /reports/voice/{campaign_hash} | Get voice report
 *ReportsApi* | [**getWebPushReport**](docs/Api/ReportsApi.md#getwebpushreport) | **GET** /reports/web-push/{campaign_hash} | Get webpush report
@@ -241,6 +248,8 @@ Class | Method | HTTP request | Description
 - [ActivityCollection](docs/Model/ActivityCollection.md)
 - [AdvancedReport](docs/Model/AdvancedReport.md)
 - [AdvancedReportCampaignsObject](docs/Model/AdvancedReportCampaignsObject.md)
+- [AdvancedReportContactActivityColumns](docs/Model/AdvancedReportContactActivityColumns.md)
+- [AdvancedReportContactActivityOptions](docs/Model/AdvancedReportContactActivityOptions.md)
 - [AdvancedReportEmailBouncesColumns](docs/Model/AdvancedReportEmailBouncesColumns.md)
 - [AdvancedReportEmailBouncesOptions](docs/Model/AdvancedReportEmailBouncesOptions.md)
 - [AdvancedReportEmailClicksByContactColumns](docs/Model/AdvancedReportEmailClicksByContactColumns.md)
@@ -253,6 +262,7 @@ Class | Method | HTTP request | Description
 - [AdvancedReportEmailUnsubscriptionsOptions](docs/Model/AdvancedReportEmailUnsubscriptionsOptions.md)
 - [AdvancedReportFormsInner](docs/Model/AdvancedReportFormsInner.md)
 - [AdvancedReportListExtraFieldsInner](docs/Model/AdvancedReportListExtraFieldsInner.md)
+- [AdvancedReportModels](docs/Model/AdvancedReportModels.md)
 - [AdvancedReportRange](docs/Model/AdvancedReportRange.md)
 - [AdvancedReportSendsColumns](docs/Model/AdvancedReportSendsColumns.md)
 - [AdvancedReportSendsOptions](docs/Model/AdvancedReportSendsOptions.md)
@@ -265,18 +275,23 @@ Class | Method | HTTP request | Description
 - [AdvancedReportUnsubscriptionsColumns](docs/Model/AdvancedReportUnsubscriptionsColumns.md)
 - [AdvancedReportUnsubscriptionsOptions](docs/Model/AdvancedReportUnsubscriptionsOptions.md)
 - [AdvancedReportsCollection](docs/Model/AdvancedReportsCollection.md)
+- [AdvancedReportsModelsCollection](docs/Model/AdvancedReportsModelsCollection.md)
 - [AlphanumericCellphoneSender](docs/Model/AlphanumericCellphoneSender.md)
 - [AlphanumericCellphoneSenderPost](docs/Model/AlphanumericCellphoneSenderPost.md)
 - [AlphanumericCellphoneSenderPostAllOf](docs/Model/AlphanumericCellphoneSenderPostAllOf.md)
 - [AppStructure](docs/Model/AppStructure.md)
 - [AppStructureList](docs/Model/AppStructureList.md)
 - [AttachByContacts](docs/Model/AttachByContacts.md)
+- [AttachByFieldId](docs/Model/AttachByFieldId.md)
 - [AttachBySegment](docs/Model/AttachBySegment.md)
 - [AttachTagRequest](docs/Model/AttachTagRequest.md)
 - [AttachTagResponse](docs/Model/AttachTagResponse.md)
 - [AutomaticSegment](docs/Model/AutomaticSegment.md)
 - [AutomaticSegmentAllOf](docs/Model/AutomaticSegmentAllOf.md)
 - [Automation](docs/Model/Automation.md)
+- [AutomationActions](docs/Model/AutomationActions.md)
+- [AutomationActionsAllOf](docs/Model/AutomationActionsAllOf.md)
+- [AutomationActionsCollection](docs/Model/AutomationActionsCollection.md)
 - [AutomationAllOf](docs/Model/AutomationAllOf.md)
 - [AutomationCollection](docs/Model/AutomationCollection.md)
 - [AutomationPost](docs/Model/AutomationPost.md)
@@ -363,12 +378,6 @@ Class | Method | HTTP request | Description
 - [CnameExists](docs/Model/CnameExists.md)
 - [CnameExistsErrors](docs/Model/CnameExistsErrors.md)
 - [ComplexContact](docs/Model/ComplexContact.md)
-- [ComplexContactAllOf](docs/Model/ComplexContactAllOf.md)
-- [ComplexContactAllOfEmailStats](docs/Model/ComplexContactAllOfEmailStats.md)
-- [ComplexContactAllOfPushStats](docs/Model/ComplexContactAllOfPushStats.md)
-- [ComplexContactAllOfSmsStats](docs/Model/ComplexContactAllOfSmsStats.md)
-- [ComplexContactAllOfVoiceStats](docs/Model/ComplexContactAllOfVoiceStats.md)
-- [ComplexContactAllOfWebpushStats](docs/Model/ComplexContactAllOfWebpushStats.md)
 - [ComplexField](docs/Model/ComplexField.md)
 - [ComplexFieldAllOf](docs/Model/ComplexFieldAllOf.md)
 - [ComplexList](docs/Model/ComplexList.md)
@@ -397,9 +406,13 @@ Class | Method | HTTP request | Description
 - [ContactActivityAbstractActionsWithCampaign](docs/Model/ContactActivityAbstractActionsWithCampaign.md)
 - [ContactActivityAbstractActionsWithData](docs/Model/ContactActivityAbstractActionsWithData.md)
 - [ContactActivityAbstractActionsWithTags](docs/Model/ContactActivityAbstractActionsWithTags.md)
+- [ContactActivityActivitiesFields](docs/Model/ContactActivityActivitiesFields.md)
 - [ContactActivityClick](docs/Model/ContactActivityClick.md)
 - [ContactActivityClickAllOf](docs/Model/ContactActivityClickAllOf.md)
 - [ContactActivityClickAllOfActionData](docs/Model/ContactActivityClickAllOfActionData.md)
+- [ContactAdvertisingPost](docs/Model/ContactAdvertisingPost.md)
+- [ContactAdvertisingPostSchema](docs/Model/ContactAdvertisingPostSchema.md)
+- [ContactAdvertisingPostSchemaAdvertising](docs/Model/ContactAdvertisingPostSchemaAdvertising.md)
 - [ContactAutomationsActivity](docs/Model/ContactAutomationsActivity.md)
 - [ContactAutomationsActivityAllOf](docs/Model/ContactAutomationsActivityAllOf.md)
 - [ContactAutomationsActivityAllOfActionData](docs/Model/ContactAutomationsActivityAllOfActionData.md)
@@ -419,6 +432,7 @@ Class | Method | HTTP request | Description
 - [ContactBaseStatusExtraBulk](docs/Model/ContactBaseStatusExtraBulk.md)
 - [ContactBaseStatusExtraNoRemoved](docs/Model/ContactBaseStatusExtraNoRemoved.md)
 - [ContactBaseWithStatusFieldsBulkSchema](docs/Model/ContactBaseWithStatusFieldsBulkSchema.md)
+- [ContactBaseWithStatusFieldsBulkSchemaBase](docs/Model/ContactBaseWithStatusFieldsBulkSchemaBase.md)
 - [ContactBaseWithStatusFieldsNoTokensSchema](docs/Model/ContactBaseWithStatusFieldsNoTokensSchema.md)
 - [ContactBaseWithStatusFieldsNoTokensSchemaBase](docs/Model/ContactBaseWithStatusFieldsNoTokensSchemaBase.md)
 - [ContactBaseWithStatusFieldsSchema](docs/Model/ContactBaseWithStatusFieldsSchema.md)
@@ -433,10 +447,13 @@ Class | Method | HTTP request | Description
 - [ContactBulkFileAllOf1](docs/Model/ContactBulkFileAllOf1.md)
 - [ContactBulkFileAllOf2](docs/Model/ContactBulkFileAllOf2.md)
 - [ContactBulkFileAllOf3](docs/Model/ContactBulkFileAllOf3.md)
+- [ContactByFieldFieldsPostSchema](docs/Model/ContactByFieldFieldsPostSchema.md)
+- [ContactByFieldFieldsPostSchemaCompareField](docs/Model/ContactByFieldFieldsPostSchemaCompareField.md)
 - [ContactCampaignActivity](docs/Model/ContactCampaignActivity.md)
 - [ContactCampaignActivityAllOf](docs/Model/ContactCampaignActivityAllOf.md)
 - [ContactCampaignActivityAllOfActionData](docs/Model/ContactCampaignActivityAllOfActionData.md)
 - [ContactCollection](docs/Model/ContactCollection.md)
+- [ContactCompareFieldPost](docs/Model/ContactCompareFieldPost.md)
 - [ContactExportRequest](docs/Model/ContactExportRequest.md)
 - [ContactExtraFieldCellphone](docs/Model/ContactExtraFieldCellphone.md)
 - [ContactExtraFieldCellphoneBulk](docs/Model/ContactExtraFieldCellphoneBulk.md)
@@ -452,6 +469,7 @@ Class | Method | HTTP request | Description
 - [ContactExtraFieldsBulk](docs/Model/ContactExtraFieldsBulk.md)
 - [ContactExtraFieldsBulkSchema](docs/Model/ContactExtraFieldsBulkSchema.md)
 - [ContactExtraFieldsSchema](docs/Model/ContactExtraFieldsSchema.md)
+- [ContactFieldIdBaseExtraPost](docs/Model/ContactFieldIdBaseExtraPost.md)
 - [ContactFieldMappingFileBulkSchema](docs/Model/ContactFieldMappingFileBulkSchema.md)
 - [ContactForgetRequest](docs/Model/ContactForgetRequest.md)
 - [ContactInsideBase](docs/Model/ContactInsideBase.md)
@@ -459,7 +477,20 @@ Class | Method | HTTP request | Description
 - [ContactInsideBasePost](docs/Model/ContactInsideBasePost.md)
 - [ContactInsideBaseWithId](docs/Model/ContactInsideBaseWithId.md)
 - [ContactOtherActivity](docs/Model/ContactOtherActivity.md)
+- [ContactReferrerPost](docs/Model/ContactReferrerPost.md)
+- [ContactReferrerPostSchema](docs/Model/ContactReferrerPostSchema.md)
+- [ContactReferrerPostSchemaReferrer](docs/Model/ContactReferrerPostSchemaReferrer.md)
 - [ContactSearchResponse](docs/Model/ContactSearchResponse.md)
+- [ContactStats](docs/Model/ContactStats.md)
+- [ContactStatsEmailStats](docs/Model/ContactStatsEmailStats.md)
+- [ContactStatsPushStats](docs/Model/ContactStatsPushStats.md)
+- [ContactStatsSmsStats](docs/Model/ContactStatsSmsStats.md)
+- [ContactStatsTrafficStats](docs/Model/ContactStatsTrafficStats.md)
+- [ContactStatsTrafficStatsAdvertising](docs/Model/ContactStatsTrafficStatsAdvertising.md)
+- [ContactStatsTrafficStatsReferrer](docs/Model/ContactStatsTrafficStatsReferrer.md)
+- [ContactStatsTrafficStatsUtm](docs/Model/ContactStatsTrafficStatsUtm.md)
+- [ContactStatsVoiceStats](docs/Model/ContactStatsVoiceStats.md)
+- [ContactStatsWebpushStats](docs/Model/ContactStatsWebpushStats.md)
 - [ContactStatusFieldsBulkSchema](docs/Model/ContactStatusFieldsBulkSchema.md)
 - [ContactStatusFieldsSchema](docs/Model/ContactStatusFieldsSchema.md)
 - [ContactTagActivity](docs/Model/ContactTagActivity.md)
@@ -467,6 +498,10 @@ Class | Method | HTTP request | Description
 - [ContactTagActivityAllOfActionData](docs/Model/ContactTagActivityAllOfActionData.md)
 - [ContactTags](docs/Model/ContactTags.md)
 - [ContactTagsBulk](docs/Model/ContactTagsBulk.md)
+- [ContactUtmPost](docs/Model/ContactUtmPost.md)
+- [ContactUtmPostSchema](docs/Model/ContactUtmPostSchema.md)
+- [ContactUtmPostSchemaUtm](docs/Model/ContactUtmPostSchemaUtm.md)
+- [ContactUtmReferrerAdvertisingPost](docs/Model/ContactUtmReferrerAdvertisingPost.md)
 - [ContactsActionUpdateContactsSchema](docs/Model/ContactsActionUpdateContactsSchema.md)
 - [ContentVoice](docs/Model/ContentVoice.md)
 - [ContentVoiceAudio](docs/Model/ContentVoiceAudio.md)
@@ -490,6 +525,7 @@ Class | Method | HTTP request | Description
 - [DeleteSegmentsConflictsErrors](docs/Model/DeleteSegmentsConflictsErrors.md)
 - [DeleteSuppressionListConflictsErrors](docs/Model/DeleteSuppressionListConflictsErrors.md)
 - [DetachByContacts](docs/Model/DetachByContacts.md)
+- [DetachByFieldId](docs/Model/DetachByFieldId.md)
 - [DetachBySegment](docs/Model/DetachBySegment.md)
 - [DetachTagRequest](docs/Model/DetachTagRequest.md)
 - [Domain](docs/Model/Domain.md)
@@ -560,6 +596,8 @@ Class | Method | HTTP request | Description
 - [GeneralInfo](docs/Model/GeneralInfo.md)
 - [GeneralInfoAllOf](docs/Model/GeneralInfoAllOf.md)
 - [GeneralInfoAllOfGeneralInfo](docs/Model/GeneralInfoAllOfGeneralInfo.md)
+- [GenerateByModelReport](docs/Model/GenerateByModelReport.md)
+- [GenerateContactActivityReport](docs/Model/GenerateContactActivityReport.md)
 - [GenerateEmailBouncesReport](docs/Model/GenerateEmailBouncesReport.md)
 - [GenerateEmailClicksByContactReport](docs/Model/GenerateEmailClicksByContactReport.md)
 - [GenerateEmailClicksByUrlReport](docs/Model/GenerateEmailClicksByUrlReport.md)
@@ -677,7 +715,6 @@ Class | Method | HTTP request | Description
 - [ProductCollection](docs/Model/ProductCollection.md)
 - [ProductCustomAttributes](docs/Model/ProductCustomAttributes.md)
 - [ProductPatchRequest](docs/Model/ProductPatchRequest.md)
-- [ProductPatchRequestRelatedProducts](docs/Model/ProductPatchRequestRelatedProducts.md)
 - [ProductPostRequest](docs/Model/ProductPostRequest.md)
 - [PushCampaignPatchRequest](docs/Model/PushCampaignPatchRequest.md)
 - [PushCampaignPatchRequestContent](docs/Model/PushCampaignPatchRequestContent.md)
@@ -692,12 +729,12 @@ Class | Method | HTTP request | Description
 - [PushNotificationSoundSchemaNone](docs/Model/PushNotificationSoundSchemaNone.md)
 - [PushNotificationSoundSchemaUrl](docs/Model/PushNotificationSoundSchemaUrl.md)
 - [PushReport](docs/Model/PushReport.md)
-- [PushReportAllOf](docs/Model/PushReportAllOf.md)
+- [PushReportOperatingSystemsInner](docs/Model/PushReportOperatingSystemsInner.md)
+- [PushReportOperatingSystemsInnerAllOf](docs/Model/PushReportOperatingSystemsInnerAllOf.md)
 - [PushResponse](docs/Model/PushResponse.md)
+- [PushStats](docs/Model/PushStats.md)
 - [PushToken](docs/Model/PushToken.md)
 - [PushTokenTwoStepsData](docs/Model/PushTokenTwoStepsData.md)
-- [PushVersions](docs/Model/PushVersions.md)
-- [PushVersionsVersionsInner](docs/Model/PushVersionsVersionsInner.md)
 - [RemoveRequest](docs/Model/RemoveRequest.md)
 - [RemoveResponse](docs/Model/RemoveResponse.md)
 - [RemoveResponseErrors](docs/Model/RemoveResponseErrors.md)
@@ -859,6 +896,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `3.0.0`
-    - Package version: `1.1.6RC1`
+- API version: `V3`
+    - Package version: `1.1.9RC1`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

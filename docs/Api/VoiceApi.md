@@ -38,7 +38,7 @@ $apiInstance = new EgoiClient\Api\VoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $campaign_voice_send_request = {"schedule_date":"2019-04-01 12:30:23","list_id":1,"segments":{"type":"none"},"notify":[0],"destination_field":"cellphone","unique_contacts_only":true,"limit_contacts":{"type":"percent","value":10},"limit_hour":{"hour_start":"01:00","hour_end":"04:00"},"limit_speed":1}; // \EgoiClient\EgoiModel\CampaignVoiceSendRequest | Parameters for the 'send voice' action
 
 try {
@@ -53,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **campaign_voice_send_request** | [**\EgoiClient\EgoiModel\CampaignVoiceSendRequest**](../Model/CampaignVoiceSendRequest.md)| Parameters for the &#39;send voice&#39; action | |
 
 ### Return type
@@ -164,7 +164,7 @@ $apiInstance = new EgoiClient\Api\VoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $voice_patch_campaign = new \EgoiClient\EgoiModel\VoicePatchCampaign(); // \EgoiClient\EgoiModel\VoicePatchCampaign | Parameters for the Voice Campaign
 
 try {
@@ -179,7 +179,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **voice_patch_campaign** | [**\EgoiClient\EgoiModel\VoicePatchCampaign**](../Model/VoicePatchCampaign.md)| Parameters for the Voice Campaign | |
 
 ### Return type

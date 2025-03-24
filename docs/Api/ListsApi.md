@@ -7,6 +7,7 @@ All URIs are relative to https://api.egoiapp.com, except if the operation define
 | [**createList()**](ListsApi.md#createList) | **POST** /lists | Create new list |
 | [**deleteList()**](ListsApi.md#deleteList) | **DELETE** /lists/{list_id} | Remove list |
 | [**getAllLists()**](ListsApi.md#getAllLists) | **GET** /lists | Get all lists |
+| [**getList()**](ListsApi.md#getList) | **GET** /lists/{list_id} | Get list |
 | [**updateList()**](ListsApi.md#updateList) | **PATCH** /lists/{list_id} | Update a specific list |
 
 
@@ -199,6 +200,68 @@ try {
 ### Return type
 
 [**\EgoiClient\EgoiModel\ListCollection**](../Model/ListCollection.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getList()`
+
+```php
+getList($list_id): \EgoiClient\EgoiModel\ComplexList
+```
+
+Get list
+
+Returns list information given its ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ListsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+
+try {
+    $result = $apiInstance->getList($list_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ListsApi->getList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the List | |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\ComplexList**](../Model/ComplexList.md)
 
 ### Authorization
 

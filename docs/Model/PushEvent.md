@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **os** | **string** | The OS of the device. |
 **contact** | **string** | The UID of the contact. |
 **message_hash** | **string** | The hash of the campaign related to the notification. |
+**mailing_id** | **int** | The id of the campaign operation related to the notification. | [optional]
 **event** | **string** | The event to register (open, canceled). |
 **device_id** | **int** | The E-goi&#39;s ID of the device. |
 

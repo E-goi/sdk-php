@@ -38,7 +38,7 @@ $apiInstance = new EgoiClient\Api\SmsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $campaign_sms_send_request = new \EgoiClient\EgoiModel\CampaignSmsSendRequest(); // \EgoiClient\EgoiModel\CampaignSmsSendRequest | Parameters for the 'send sms' action
 
 try {
@@ -53,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **campaign_sms_send_request** | [**\EgoiClient\EgoiModel\CampaignSmsSendRequest**](../Model/CampaignSmsSendRequest.md)| Parameters for the &#39;send sms&#39; action | |
 
 ### Return type
@@ -164,7 +164,7 @@ $apiInstance = new EgoiClient\Api\SmsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $sms_campaign_patch_request = new \EgoiClient\EgoiModel\SmsCampaignPatchRequest(); // \EgoiClient\EgoiModel\SmsCampaignPatchRequest | Parameters for the Sms Campaign
 
 try {
@@ -179,7 +179,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **sms_campaign_patch_request** | [**\EgoiClient\EgoiModel\SmsCampaignPatchRequest**](../Model/SmsCampaignPatchRequest.md)| Parameters for the Sms Campaign | |
 
 ### Return type

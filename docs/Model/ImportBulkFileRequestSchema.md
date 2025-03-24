@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mode** | **string** | Add new contacts only (&#39;add&#39;) or add and replace existing ones (&#39;update&#39;) |
-**compare_field** | **string** | Field ID which will be mapped for comparison to prevent duplicates) |
+**mode** | **string** | Add new contacts only (&#39;add&#39;), add and replace existing ones (&#39;update&#39;) or only replace existing ones (&#39;update_only&#39;) |
+**compare_field** | **string** | Field ID which will be mapped for comparison to prevent duplicates. Field must be set as unique in E-goi. |
 **file** | [**\EgoiClient\EgoiModel\ImportBulkFileRequestSchemaFile**](ImportBulkFileRequestSchemaFile.md) |  |
 **force_empty** | **bool** | If &#39;true&#39; accepts empty values and erases those fields | [optional] [default to false]
 **notify** | **int[]** | Array of IDs of the users to notify | [optional]

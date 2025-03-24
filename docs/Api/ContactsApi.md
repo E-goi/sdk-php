@@ -21,6 +21,7 @@ All URIs are relative to https://api.egoiapp.com, except if the operation define
 | [**getContact()**](ContactsApi.md#getContact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact |
 | [**patchContact()**](ContactsApi.md#patchContact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact |
 | [**searchContacts()**](ContactsApi.md#searchContacts) | **GET** /contacts/search | Search contact |
+| [**updateContactByField()**](ContactsApi.md#updateContactByField) | **POST** /lists/{list_id}/contacts/by-field | Updates a contact by field |
 
 
 ## `actionActivateContacts()`
@@ -1147,6 +1148,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateContactByField()`
+
+```php
+updateContactByField($list_id, $contact_field_id_base_extra_post): \EgoiClient\EgoiModel\CreateContactResponse
+```
+
+Updates a contact by field
+
+Updates a contact by field, wich must be unique in list
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the list where the contact belongs
+$contact_field_id_base_extra_post = new \EgoiClient\EgoiModel\ContactFieldIdBaseExtraPost(); // \EgoiClient\EgoiModel\ContactFieldIdBaseExtraPost | Parameters for the Contact Update by Field Id
+
+try {
+    $result = $apiInstance->updateContactByField($list_id, $contact_field_id_base_extra_post);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->updateContactByField: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the list where the contact belongs | |
+| **contact_field_id_base_extra_post** | [**\EgoiClient\EgoiModel\ContactFieldIdBaseExtraPost**](../Model/ContactFieldIdBaseExtraPost.md)| Parameters for the Contact Update by Field Id | |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\CreateContactResponse**](../Model/CreateContactResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

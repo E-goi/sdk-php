@@ -42,7 +42,7 @@ $apiInstance = new EgoiClient\Api\PushApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $campaign_push_send_request = new \EgoiClient\EgoiModel\CampaignPushSendRequest(); // \EgoiClient\EgoiModel\CampaignPushSendRequest | Parameters for the 'send push' action
 
 try {
@@ -57,7 +57,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **campaign_push_send_request** | [**\EgoiClient\EgoiModel\CampaignPushSendRequest**](../Model/CampaignPushSendRequest.md)| Parameters for the &#39;send push&#39; action | |
 
 ### Return type
@@ -292,7 +292,7 @@ $apiInstance = new EgoiClient\Api\PushApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $push_campaign_patch_request = new \EgoiClient\EgoiModel\PushCampaignPatchRequest(); // \EgoiClient\EgoiModel\PushCampaignPatchRequest | Parameters for the push campaign
 
 try {
@@ -307,7 +307,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **push_campaign_patch_request** | [**\EgoiClient\EgoiModel\PushCampaignPatchRequest**](../Model/PushCampaignPatchRequest.md)| Parameters for the push campaign | |
 
 ### Return type

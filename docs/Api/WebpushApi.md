@@ -42,7 +42,7 @@ $apiInstance = new EgoiClient\Api\WebpushApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 
 try {
     $result = $apiInstance->actionEnableWebPushRss($campaign_hash);
@@ -56,7 +56,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 
 ### Return type
 
@@ -104,7 +104,7 @@ $apiInstance = new EgoiClient\Api\WebpushApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $campaign_web_push_send_request = new \EgoiClient\EgoiModel\CampaignWebPushSendRequest(); // \EgoiClient\EgoiModel\CampaignWebPushSendRequest | Parameters for the 'send web-push' action
 
 try {
@@ -119,7 +119,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **campaign_web_push_send_request** | [**\EgoiClient\EgoiModel\CampaignWebPushSendRequest**](../Model/CampaignWebPushSendRequest.md)| Parameters for the &#39;send web-push&#39; action | |
 
 ### Return type
@@ -424,7 +424,7 @@ $apiInstance = new EgoiClient\Api\WebpushApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $web_push_patch_campaign = new \EgoiClient\EgoiModel\WebPushPatchCampaign(); // \EgoiClient\EgoiModel\WebPushPatchCampaign | Parameters for the Webpush Campaign
 
 try {
@@ -439,7 +439,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **web_push_patch_campaign** | [**\EgoiClient\EgoiModel\WebPushPatchCampaign**](../Model/WebPushPatchCampaign.md)| Parameters for the Webpush Campaign | |
 
 ### Return type

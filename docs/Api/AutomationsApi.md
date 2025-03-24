@@ -5,6 +5,7 @@ All URIs are relative to https://api.egoiapp.com, except if the operation define
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**deleteAutomation()**](AutomationsApi.md#deleteAutomation) | **DELETE** /automations/{automation_id} | Remove automation |
+| [**getAllActions()**](AutomationsApi.md#getAllActions) | **GET** /automations/{automation_id}/actions | Get all actions from given automation |
 | [**getAllAutomations()**](AutomationsApi.md#getAllAutomations) | **GET** /automations | Get all automations |
 
 
@@ -55,6 +56,72 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAllActions()`
+
+```php
+getAllActions($automation_id, $offset, $limit): \EgoiClient\EgoiModel\AutomationActionsCollection
+```
+
+Get all actions from given automation
+
+Returns all actions
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\AutomationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$automation_id = 56; // int | Reference attribute to automation id
+$offset = 56; // int | Element offset (starting at zero for the first element)
+$limit = 10; // int | Number of items to return
+
+try {
+    $result = $apiInstance->getAllActions($automation_id, $offset, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationsApi->getAllActions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **int**| Reference attribute to automation id | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AutomationActionsCollection**](../Model/AutomationActionsCollection.md)
 
 ### Authorization
 

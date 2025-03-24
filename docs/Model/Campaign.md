@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
 **campaign_hash** | **string** |  | [optional] [readonly]
 **status** | **string** | Status of the campaign | [optional]
 **thumbnail** | **string** | Thumbnail of the campaign | [optional]
@@ -18,5 +19,7 @@ Name | Type | Description | Notes
 **start_date** | **\DateTime** |  | [optional]
 **end_date** | **\DateTime** |  | [optional]
 **schedule_date** | [**\EgoiClient\EgoiModel\CampaignScheduleDate**](CampaignScheduleDate.md) |  | [optional]
+**processed_messages** | **int** | Total number of processed messages | [optional]
+**automation_id** | **int** | The automation id of the campaign | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

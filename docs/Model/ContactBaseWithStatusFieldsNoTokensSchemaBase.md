@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **language** | [**\EgoiClient\EgoiModel\Language**](Language.md) |  | [optional]
 **email** | **string** | Email of the contact | [optional]
 **email_status** | **string** | Email channel status | [optional]
-**cellphone** | **string** | Cellphone of the contact | [optional]
+**cellphone** | **string** | Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional]
 **cellphone_status** | **string** | Cellphone channel status | [optional]
-**phone** | **string** | Phone of the contact | [optional]
+**phone** | **string** | Phone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional]
 **phone_status** | **string** | Phone channel status | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

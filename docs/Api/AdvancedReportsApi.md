@@ -4,6 +4,8 @@ All URIs are relative to https://api.egoiapp.com, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**generateByModelReport()**](AdvancedReportsApi.md#generateByModelReport) | **POST** /reports/advanced/model | Generate report by model |
+| [**generateContactActivityReport()**](AdvancedReportsApi.md#generateContactActivityReport) | **POST** /reports/advanced/contact-activity | Generate contact activity report |
 | [**generateEmailBouncesReport()**](AdvancedReportsApi.md#generateEmailBouncesReport) | **POST** /reports/advanced/email-bounces | Generate email bounces report |
 | [**generateEmailClicksByContactReport()**](AdvancedReportsApi.md#generateEmailClicksByContactReport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report |
 | [**generateEmailClicksByUrlReport()**](AdvancedReportsApi.md#generateEmailClicksByUrlReport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report |
@@ -16,7 +18,132 @@ All URIs are relative to https://api.egoiapp.com, except if the operation define
 | [**generateSubscriptionsReport()**](AdvancedReportsApi.md#generateSubscriptionsReport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report |
 | [**generateUnsubscriptionsReport()**](AdvancedReportsApi.md#generateUnsubscriptionsReport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report |
 | [**getAllAdvancedReports()**](AdvancedReportsApi.md#getAllAdvancedReports) | **GET** /reports/advanced | Get all advanced reports |
+| [**getAllAdvancedReportsModels()**](AdvancedReportsApi.md#getAllAdvancedReportsModels) | **GET** /reports/advanced/models | Get all advanced reports models |
 
+
+## `generateByModelReport()`
+
+```php
+generateByModelReport($generate_by_model_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
+
+Generate report by model
+
+Generates a new report by model Id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\AdvancedReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_by_model_report = new \EgoiClient\EgoiModel\GenerateByModelReport(); // \EgoiClient\EgoiModel\GenerateByModelReport | Parameters for the report by model Id
+
+try {
+    $result = $apiInstance->generateByModelReport($generate_by_model_report);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdvancedReportsApi->generateByModelReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_by_model_report** | [**\EgoiClient\EgoiModel\GenerateByModelReport**](../Model/GenerateByModelReport.md)| Parameters for the report by model Id | |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `generateContactActivityReport()`
+
+```php
+generateContactActivityReport($generate_contact_activity_report): \EgoiClient\EgoiModel\AcceptedResponse
+```
+
+Generate contact activity report
+
+Generates a new contact activity report
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\AdvancedReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generate_contact_activity_report = new \EgoiClient\EgoiModel\GenerateContactActivityReport(); // \EgoiClient\EgoiModel\GenerateContactActivityReport | Parameters for the contact activity report
+
+try {
+    $result = $apiInstance->generateContactActivityReport($generate_contact_activity_report);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdvancedReportsApi->generateContactActivityReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **generate_contact_activity_report** | [**\EgoiClient\EgoiModel\GenerateContactActivityReport**](../Model/GenerateContactActivityReport.md)| Parameters for the contact activity report | |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AcceptedResponse**](../Model/AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `generateEmailBouncesReport()`
 
@@ -762,6 +889,76 @@ try {
 ### Return type
 
 [**\EgoiClient\EgoiModel\AdvancedReportsCollection**](../Model/AdvancedReportsCollection.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAllAdvancedReportsModels()`
+
+```php
+getAllAdvancedReportsModels($title, $offset, $limit, $order, $order_by): \EgoiClient\EgoiModel\AdvancedReportsModelsCollection
+```
+
+Get all advanced reports models
+
+Returns all advanced reports
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = EgoiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new EgoiClient\Api\AdvancedReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$title = 'title_example'; // string | Advanced report model title
+$offset = 56; // int | Element offset (starting at zero for the first element)
+$limit = 10; // int | Number of items to return
+$order = 'desc'; // string | Type of order
+$order_by = 'model_id'; // string | Reference attribute to order the advanced reports
+
+try {
+    $result = $apiInstance->getAllAdvancedReportsModels($title, $offset, $limit, $order, $order_by);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdvancedReportsApi->getAllAdvancedReportsModels: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **title** | **string**| Advanced report model title | [optional] |
+| **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
+| **order_by** | **string**| Reference attribute to order the advanced reports | [optional] [default to &#39;model_id&#39;] |
+
+### Return type
+
+[**\EgoiClient\EgoiModel\AdvancedReportsModelsCollection**](../Model/AdvancedReportsModelsCollection.md)
 
 ### Authorization
 

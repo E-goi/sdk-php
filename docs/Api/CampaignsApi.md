@@ -37,7 +37,7 @@ $apiInstance = new EgoiClient\Api\CampaignsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 
 try {
     $apiInstance->deleteCampaigns($campaign_hash);
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 
 ### Return type
 
@@ -116,7 +116,7 @@ $end_date_max = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End D
 $schedule_date_min = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Schedule Date initial
 $schedule_date_max = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Schedule Date finish
 $offset = 56; // int | Element offset (starting at zero for the first element)
-$limit = 10; // int | Number of items to return
+$limit = 100; // int | Number of items to return
 $order = 'desc'; // string | Type of order
 $order_by = 'created'; // string | Reference attribute to order campaigns
 
@@ -150,7 +150,7 @@ try {
 | **schedule_date_min** | **\DateTime**| Schedule Date initial | [optional] |
 | **schedule_date_max** | **\DateTime**| Schedule Date finish | [optional] |
 | **offset** | **int**| Element offset (starting at zero for the first element) | [optional] |
-| **limit** | **int**| Number of items to return | [optional] [default to 10] |
+| **limit** | **int**| Number of items to return | [optional] [default to 100] |
 | **order** | **string**| Type of order | [optional] [default to &#39;desc&#39;] |
 | **order_by** | **string**| Reference attribute to order campaigns | [optional] [default to &#39;created&#39;] |
 

@@ -40,7 +40,7 @@ $apiInstance = new EgoiClient\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 
 try {
     $result = $apiInstance->actionEnableEmailRss($campaign_hash);
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 
 ### Return type
 
@@ -102,7 +102,7 @@ $apiInstance = new EgoiClient\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $campaign_email_send_request = new \EgoiClient\EgoiModel\CampaignEmailSendRequest(); // \EgoiClient\EgoiModel\CampaignEmailSendRequest | Parameters for the 'send email' action
 
 try {
@@ -117,7 +117,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **campaign_email_send_request** | [**\EgoiClient\EgoiModel\CampaignEmailSendRequest**](../Model/CampaignEmailSendRequest.md)| Parameters for the &#39;send email&#39; action | |
 
 ### Return type
@@ -290,7 +290,7 @@ $apiInstance = new EgoiClient\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_hash = 'campaign_hash_example'; // string | ID of the Campaign
+$campaign_hash = 'campaign_hash_example'; // string | Hash of the Campaign
 $email_campaign_patch = new \EgoiClient\EgoiModel\EmailCampaignPatch(); // \EgoiClient\EgoiModel\EmailCampaignPatch | Parameters for the Email Campaign
 
 try {
@@ -305,7 +305,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_hash** | **string**| ID of the Campaign | |
+| **campaign_hash** | **string**| Hash of the Campaign | |
 | **email_campaign_patch** | [**\EgoiClient\EgoiModel\EmailCampaignPatch**](../Model/EmailCampaignPatch.md)| Parameters for the Email Campaign | |
 
 ### Return type

@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **birth_date** | **\DateTime** | Birth date of the contact | [optional]
 **language** | [**\EgoiClient\EgoiModel\Language**](Language.md) |  | [optional]
 **email** | **string** | Email of the contact | [optional]
-**cellphone** | **string** | Cellphone of the contact | [optional]
-**phone** | **string** | Phone of the contact | [optional]
+**cellphone** | **string** | Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional]
+**phone** | **string** | Phone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional]
 **push_token_android** | [**\EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner[]**](ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner.md) | Android push token of the contact | [optional]
 **push_token_ios** | [**\EgoiClient\EgoiModel\ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner[]**](ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner.md) | IOS push token of the contact | [optional]
 

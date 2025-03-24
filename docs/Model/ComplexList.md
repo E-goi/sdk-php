@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**language** | [**\EgoiClient\EgoiModel\Language**](Language.md) |  |
+**default_language** | [**\EgoiClient\EgoiModel\Language**](Language.md) |  | [optional]
+**available_languages** | **string[]** | Array of available languages | [optional]
 **stats** | [**\EgoiClient\EgoiModel\ComplexListAllOfStats**](ComplexListAllOfStats.md) |  | [optional]
 **list_id** | **int** |  | [optional] [readonly]
 **internal_name** | **string** | Internal name of the list | [optional]
