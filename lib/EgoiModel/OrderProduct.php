@@ -1,6 +1,6 @@
 <?php
 /**
- * ImportOrdersBulkBulkRequest
+ * OrderProduct
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \EgoiClient\ObjectSerializer;
 
 /**
- * ImportOrdersBulkBulkRequest Class Doc Comment
+ * OrderProduct Class Doc Comment
  *
  * @category Class
- * @description Order data
+ * @description Order Product schema
  * @package  EgoiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ImportOrdersBulkBulkRequest';
+    protected static $openAPIModelName = 'OrderProduct';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_id' => 'string',
-        'order_status' => 'string',
-        'contact_id' => 'string',
-        'revenue' => 'float',
-        'store_url' => 'string',
-        'date' => '\DateTime',
-        'items' => '\EgoiClient\EgoiModel\ImportOrdersBulkBulkRequestItems[]'
+        'product_identifier' => 'string',
+        'catalog_id' => 'int',
+        'name' => 'string',
+        'description' => 'string',
+        'sku' => 'string',
+        'upc' => 'string',
+        'ean' => 'string',
+        'gtin' => 'string',
+        'mpn' => 'string',
+        'link' => 'string',
+        'image_link' => 'string',
+        'price' => 'float',
+        'sale_price' => 'float',
+        'brand' => 'string',
+        'quantity' => 'float',
+        'categories' => 'string[]',
+        'related_products' => 'string[]',
+        'custom_attributes' => '\EgoiClient\EgoiModel\ProductCustomAttributes[]'
     ];
 
     /**
@@ -75,13 +86,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'order_id' => null,
-        'order_status' => null,
-        'contact_id' => null,
-        'revenue' => null,
-        'store_url' => null,
-        'date' => null,
-        'items' => null
+        'product_identifier' => null,
+        'catalog_id' => null,
+        'name' => null,
+        'description' => null,
+        'sku' => null,
+        'upc' => null,
+        'ean' => null,
+        'gtin' => null,
+        'mpn' => null,
+        'link' => null,
+        'image_link' => null,
+        'price' => 'double',
+        'sale_price' => 'double',
+        'brand' => null,
+        'quantity' => 'double',
+        'categories' => null,
+        'related_products' => null,
+        'custom_attributes' => null
     ];
 
     /**
@@ -90,13 +112,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order_id' => false,
-		'order_status' => false,
-		'contact_id' => false,
-		'revenue' => false,
-		'store_url' => false,
-		'date' => false,
-		'items' => false
+        'product_identifier' => false,
+		'catalog_id' => false,
+		'name' => false,
+		'description' => false,
+		'sku' => false,
+		'upc' => false,
+		'ean' => false,
+		'gtin' => false,
+		'mpn' => false,
+		'link' => false,
+		'image_link' => false,
+		'price' => false,
+		'sale_price' => false,
+		'brand' => false,
+		'quantity' => false,
+		'categories' => false,
+		'related_products' => false,
+		'custom_attributes' => false
     ];
 
     /**
@@ -185,13 +218,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_id' => 'order_id',
-        'order_status' => 'order_status',
-        'contact_id' => 'contact_id',
-        'revenue' => 'revenue',
-        'store_url' => 'store_url',
-        'date' => 'date',
-        'items' => 'items'
+        'product_identifier' => 'product_identifier',
+        'catalog_id' => 'catalog_id',
+        'name' => 'name',
+        'description' => 'description',
+        'sku' => 'sku',
+        'upc' => 'upc',
+        'ean' => 'ean',
+        'gtin' => 'gtin',
+        'mpn' => 'mpn',
+        'link' => 'link',
+        'image_link' => 'image_link',
+        'price' => 'price',
+        'sale_price' => 'sale_price',
+        'brand' => 'brand',
+        'quantity' => 'quantity',
+        'categories' => 'categories',
+        'related_products' => 'related_products',
+        'custom_attributes' => 'custom_attributes'
     ];
 
     /**
@@ -200,13 +244,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'order_id' => 'setOrderId',
-        'order_status' => 'setOrderStatus',
-        'contact_id' => 'setContactId',
-        'revenue' => 'setRevenue',
-        'store_url' => 'setStoreUrl',
-        'date' => 'setDate',
-        'items' => 'setItems'
+        'product_identifier' => 'setProductIdentifier',
+        'catalog_id' => 'setCatalogId',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'sku' => 'setSku',
+        'upc' => 'setUpc',
+        'ean' => 'setEan',
+        'gtin' => 'setGtin',
+        'mpn' => 'setMpn',
+        'link' => 'setLink',
+        'image_link' => 'setImageLink',
+        'price' => 'setPrice',
+        'sale_price' => 'setSalePrice',
+        'brand' => 'setBrand',
+        'quantity' => 'setQuantity',
+        'categories' => 'setCategories',
+        'related_products' => 'setRelatedProducts',
+        'custom_attributes' => 'setCustomAttributes'
     ];
 
     /**
@@ -215,13 +270,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'order_id' => 'getOrderId',
-        'order_status' => 'getOrderStatus',
-        'contact_id' => 'getContactId',
-        'revenue' => 'getRevenue',
-        'store_url' => 'getStoreUrl',
-        'date' => 'getDate',
-        'items' => 'getItems'
+        'product_identifier' => 'getProductIdentifier',
+        'catalog_id' => 'getCatalogId',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'sku' => 'getSku',
+        'upc' => 'getUpc',
+        'ean' => 'getEan',
+        'gtin' => 'getGtin',
+        'mpn' => 'getMpn',
+        'link' => 'getLink',
+        'image_link' => 'getImageLink',
+        'price' => 'getPrice',
+        'sale_price' => 'getSalePrice',
+        'brand' => 'getBrand',
+        'quantity' => 'getQuantity',
+        'categories' => 'getCategories',
+        'related_products' => 'getRelatedProducts',
+        'custom_attributes' => 'getCustomAttributes'
     ];
 
     /**
@@ -265,27 +331,6 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
-    public const ORDER_STATUS_CREATED = 'created';
-    public const ORDER_STATUS_PENDING = 'pending';
-    public const ORDER_STATUS_CANCELED = 'canceled';
-    public const ORDER_STATUS_COMPLETED = 'completed';
-    public const ORDER_STATUS_UNKNOWN = 'unknown';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOrderStatusAllowableValues()
-    {
-        return [
-            self::ORDER_STATUS_CREATED,
-            self::ORDER_STATUS_PENDING,
-            self::ORDER_STATUS_CANCELED,
-            self::ORDER_STATUS_COMPLETED,
-            self::ORDER_STATUS_UNKNOWN,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -302,13 +347,24 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('order_id', $data ?? [], null);
-        $this->setIfExists('order_status', $data ?? [], 'unknown');
-        $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('revenue', $data ?? [], null);
-        $this->setIfExists('store_url', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('product_identifier', $data ?? [], null);
+        $this->setIfExists('catalog_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('sku', $data ?? [], null);
+        $this->setIfExists('upc', $data ?? [], null);
+        $this->setIfExists('ean', $data ?? [], null);
+        $this->setIfExists('gtin', $data ?? [], null);
+        $this->setIfExists('mpn', $data ?? [], null);
+        $this->setIfExists('link', $data ?? [], null);
+        $this->setIfExists('image_link', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], 0);
+        $this->setIfExists('sale_price', $data ?? [], 0);
+        $this->setIfExists('brand', $data ?? [], null);
+        $this->setIfExists('quantity', $data ?? [], 0);
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('related_products', $data ?? [], null);
+        $this->setIfExists('custom_attributes', $data ?? [], null);
     }
 
     /**
@@ -338,37 +394,14 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['order_id'] === null) {
-            $invalidProperties[] = "'order_id' can't be null";
-        }
-        $allowedValues = $this->getOrderStatusAllowableValues();
-        if (!is_null($this->container['order_status']) && !in_array($this->container['order_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'order_status', must be one of '%s'",
-                $this->container['order_status'],
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['product_identifier']) && !preg_match("/[a-zA-Z0-9\\_\\-.]/", $this->container['product_identifier'])) {
+            $invalidProperties[] = "invalid value for 'product_identifier', must be conform to the pattern /[a-zA-Z0-9\\_\\-.]/.";
         }
 
-        if ($this->container['contact_id'] === null) {
-            $invalidProperties[] = "'contact_id' can't be null";
-        }
-        if ($this->container['revenue'] === null) {
-            $invalidProperties[] = "'revenue' can't be null";
-        }
-        if (($this->container['revenue'] < 0)) {
-            $invalidProperties[] = "invalid value for 'revenue', must be bigger than or equal to 0.";
+        if (!is_null($this->container['catalog_id']) && ($this->container['catalog_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'catalog_id', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['store_url'] === null) {
-            $invalidProperties[] = "'store_url' can't be null";
-        }
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -385,219 +418,533 @@ class ImportOrdersBulkBulkRequest implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets order_id
-     *
-     * @return string
-     */
-    public function getOrderId()
-    {
-        return $this->container['order_id'];
-    }
-
-    /**
-     * Sets order_id
-     *
-     * @param string $order_id Ecommerce order id
-     *
-     * @return self
-     */
-    public function setOrderId($order_id)
-    {
-
-        if (is_null($order_id)) {
-            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
-        }
-
-        $this->container['order_id'] = $order_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_status
+     * Gets product_identifier
      *
      * @return string|null
      */
-    public function getOrderStatus()
+    public function getProductIdentifier()
     {
-        return $this->container['order_status'];
+        return $this->container['product_identifier'];
     }
 
     /**
-     * Sets order_status
+     * Sets product_identifier
      *
-     * @param string|null $order_status Status of the order
+     * @param string|null $product_identifier The ID of the product in your store
      *
      * @return self
      */
-    public function setOrderStatus($order_status)
+    public function setProductIdentifier($product_identifier)
     {
-        $allowedValues = $this->getOrderStatusAllowableValues();
-        if (!is_null($order_status) && !in_array($order_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'order_status', must be one of '%s'",
-                    $order_status,
-                    implode("', '", $allowedValues)
-                )
-            );
+
+        if (!is_null($product_identifier) && (!preg_match("/[a-zA-Z0-9\\_\\-.]/", $product_identifier))) {
+            throw new \InvalidArgumentException("invalid value for \$product_identifier when calling OrderProduct., must conform to the pattern /[a-zA-Z0-9\\_\\-.]/.");
         }
 
-        if (is_null($order_status)) {
-            throw new \InvalidArgumentException('non-nullable order_status cannot be null');
+
+        if (is_null($product_identifier)) {
+            throw new \InvalidArgumentException('non-nullable product_identifier cannot be null');
         }
 
-        $this->container['order_status'] = $order_status;
+        $this->container['product_identifier'] = $product_identifier;
 
         return $this;
     }
 
     /**
-     * Gets contact_id
+     * Gets catalog_id
      *
-     * @return string
+     * @return int|null
      */
-    public function getContactId()
+    public function getCatalogId()
     {
-        return $this->container['contact_id'];
+        return $this->container['catalog_id'];
     }
 
     /**
-     * Sets contact_id
+     * Sets catalog_id
      *
-     * @param string $contact_id Contact ID is any non-empty unique string identifying the user (such as an email address or e-goi uid)
+     * @param int|null $catalog_id catalog_id
      *
      * @return self
      */
-    public function setContactId($contact_id)
+    public function setCatalogId($catalog_id)
     {
 
-        if (is_null($contact_id)) {
-            throw new \InvalidArgumentException('non-nullable contact_id cannot be null');
+        if (!is_null($catalog_id) && ($catalog_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $catalog_id when calling OrderProduct., must be bigger than or equal to 1.');
         }
 
-        $this->container['contact_id'] = $contact_id;
+
+        if (is_null($catalog_id)) {
+            throw new \InvalidArgumentException('non-nullable catalog_id cannot be null');
+        }
+
+        $this->container['catalog_id'] = $catalog_id;
 
         return $this;
     }
 
     /**
-     * Gets revenue
+     * Gets name
      *
-     * @return float
+     * @return string|null
      */
-    public function getRevenue()
+    public function getName()
     {
-        return $this->container['revenue'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets revenue
+     * Sets name
      *
-     * @param float $revenue Ecommerce order revenue. Must be greater than 0.
+     * @param string|null $name Name of the product
      *
      * @return self
      */
-    public function setRevenue($revenue)
+    public function setName($name)
     {
 
-        if (($revenue < 0)) {
-            throw new \InvalidArgumentException('invalid value for $revenue when calling ImportOrdersBulkBulkRequest., must be bigger than or equal to 0.');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
 
-
-        if (is_null($revenue)) {
-            throw new \InvalidArgumentException('non-nullable revenue cannot be null');
-        }
-
-        $this->container['revenue'] = $revenue;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets store_url
+     * Gets description
      *
-     * @return string
+     * @return string|null
      */
-    public function getStoreUrl()
+    public function getDescription()
     {
-        return $this->container['store_url'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets store_url
+     * Sets description
      *
-     * @param string $store_url Ecommerce store url
+     * @param string|null $description Description of the product
      *
      * @return self
      */
-    public function setStoreUrl($store_url)
+    public function setDescription($description)
     {
 
-        if (is_null($store_url)) {
-            throw new \InvalidArgumentException('non-nullable store_url cannot be null');
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
 
-        $this->container['store_url'] = $store_url;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets date
+     * Gets sku
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getDate()
+    public function getSku()
     {
-        return $this->container['date'];
+        return $this->container['sku'];
     }
 
     /**
-     * Sets date
+     * Sets sku
      *
-     * @param \DateTime $date Ecommerce order date (For technical reasons, all orders synchronized will have the date of synchronization.)
+     * @param string|null $sku Stock Keeping Unit
      *
      * @return self
      */
-    public function setDate($date)
+    public function setSku($sku)
     {
 
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        if (is_null($sku)) {
+            throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
 
-        $this->container['date'] = $date;
+        $this->container['sku'] = $sku;
 
         return $this;
     }
 
     /**
-     * Gets items
+     * Gets upc
      *
-     * @return \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequestItems[]
+     * @return string|null
      */
-    public function getItems()
+    public function getUpc()
     {
-        return $this->container['items'];
+        return $this->container['upc'];
     }
 
     /**
-     * Sets items
+     * Sets upc
      *
-     * @param \EgoiClient\EgoiModel\ImportOrdersBulkBulkRequestItems[] $items Array of ordered products
+     * @param string|null $upc Universal Product Code
      *
      * @return self
      */
-    public function setItems($items)
+    public function setUpc($upc)
     {
 
-        if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        if (is_null($upc)) {
+            throw new \InvalidArgumentException('non-nullable upc cannot be null');
         }
 
-        $this->container['items'] = $items;
+        $this->container['upc'] = $upc;
+
+        return $this;
+    }
+
+    /**
+     * Gets ean
+     *
+     * @return string|null
+     */
+    public function getEan()
+    {
+        return $this->container['ean'];
+    }
+
+    /**
+     * Sets ean
+     *
+     * @param string|null $ean European Article Numbering
+     *
+     * @return self
+     */
+    public function setEan($ean)
+    {
+
+        if (is_null($ean)) {
+            throw new \InvalidArgumentException('non-nullable ean cannot be null');
+        }
+
+        $this->container['ean'] = $ean;
+
+        return $this;
+    }
+
+    /**
+     * Gets gtin
+     *
+     * @return string|null
+     */
+    public function getGtin()
+    {
+        return $this->container['gtin'];
+    }
+
+    /**
+     * Sets gtin
+     *
+     * @param string|null $gtin Global Trade Item Number
+     *
+     * @return self
+     */
+    public function setGtin($gtin)
+    {
+
+        if (is_null($gtin)) {
+            throw new \InvalidArgumentException('non-nullable gtin cannot be null');
+        }
+
+        $this->container['gtin'] = $gtin;
+
+        return $this;
+    }
+
+    /**
+     * Gets mpn
+     *
+     * @return string|null
+     */
+    public function getMpn()
+    {
+        return $this->container['mpn'];
+    }
+
+    /**
+     * Sets mpn
+     *
+     * @param string|null $mpn Manufacturer Part Number
+     *
+     * @return self
+     */
+    public function setMpn($mpn)
+    {
+
+        if (is_null($mpn)) {
+            throw new \InvalidArgumentException('non-nullable mpn cannot be null');
+        }
+
+        $this->container['mpn'] = $mpn;
+
+        return $this;
+    }
+
+    /**
+     * Gets link
+     *
+     * @return string|null
+     */
+    public function getLink()
+    {
+        return $this->container['link'];
+    }
+
+    /**
+     * Sets link
+     *
+     * @param string|null $link Link for the product
+     *
+     * @return self
+     */
+    public function setLink($link)
+    {
+
+        if (is_null($link)) {
+            throw new \InvalidArgumentException('non-nullable link cannot be null');
+        }
+
+        $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_link
+     *
+     * @return string|null
+     */
+    public function getImageLink()
+    {
+        return $this->container['image_link'];
+    }
+
+    /**
+     * Sets image_link
+     *
+     * @param string|null $image_link Link for the product image
+     *
+     * @return self
+     */
+    public function setImageLink($image_link)
+    {
+
+        if (is_null($image_link)) {
+            throw new \InvalidArgumentException('non-nullable image_link cannot be null');
+        }
+
+        $this->container['image_link'] = $image_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return float|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param float|null $price Price of the product
+     *
+     * @return self
+     */
+    public function setPrice($price)
+    {
+
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
+        }
+
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets sale_price
+     *
+     * @return float|null
+     */
+    public function getSalePrice()
+    {
+        return $this->container['sale_price'];
+    }
+
+    /**
+     * Sets sale_price
+     *
+     * @param float|null $sale_price Sale price of the product
+     *
+     * @return self
+     */
+    public function setSalePrice($sale_price)
+    {
+
+        if (is_null($sale_price)) {
+            throw new \InvalidArgumentException('non-nullable sale_price cannot be null');
+        }
+
+        $this->container['sale_price'] = $sale_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand
+     *
+     * @return string|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param string|null $brand Brand of the product
+     *
+     * @return self
+     */
+    public function setBrand($brand)
+    {
+
+        if (is_null($brand)) {
+            throw new \InvalidArgumentException('non-nullable brand cannot be null');
+        }
+
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity
+     *
+     * @return float|null
+     */
+    public function getQuantity()
+    {
+        return $this->container['quantity'];
+    }
+
+    /**
+     * Sets quantity
+     *
+     * @param float|null $quantity Quantity of the product
+     *
+     * @return self
+     */
+    public function setQuantity($quantity)
+    {
+
+        if (is_null($quantity)) {
+            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+        }
+
+        $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return string[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param string[]|null $categories Array of product categories, using the character '>' as delimiter for the breadcrumb syntax
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+
+        if (is_null($categories)) {
+            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+        }
+
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets related_products
+     *
+     * @return string[]|null
+     */
+    public function getRelatedProducts()
+    {
+        return $this->container['related_products'];
+    }
+
+    /**
+     * Sets related_products
+     *
+     * @param string[]|null $related_products Related products, array of 'product_identifier'
+     *
+     * @return self
+     */
+    public function setRelatedProducts($related_products)
+    {
+
+        if (is_null($related_products)) {
+            throw new \InvalidArgumentException('non-nullable related_products cannot be null');
+        }
+
+        $this->container['related_products'] = $related_products;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_attributes
+     *
+     * @return \EgoiClient\EgoiModel\ProductCustomAttributes[]|null
+     */
+    public function getCustomAttributes()
+    {
+        return $this->container['custom_attributes'];
+    }
+
+    /**
+     * Sets custom_attributes
+     *
+     * @param \EgoiClient\EgoiModel\ProductCustomAttributes[]|null $custom_attributes Custom attributes
+     *
+     * @return self
+     */
+    public function setCustomAttributes($custom_attributes)
+    {
+
+        if (is_null($custom_attributes)) {
+            throw new \InvalidArgumentException('non-nullable custom_attributes cannot be null');
+        }
+
+        $this->container['custom_attributes'] = $custom_attributes;
 
         return $this;
     }

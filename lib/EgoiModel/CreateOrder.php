@@ -61,8 +61,10 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_total' => 'float',
         'order_id' => 'string',
         'cart_id' => 'string',
+        'order_date' => '\DateTime',
+        'order_status' => 'string',
         'contact' => '\EgoiClient\EgoiModel\Contact1',
-        'products' => '\EgoiClient\EgoiModel\Product[]'
+        'products' => '\EgoiClient\EgoiModel\OrderProduct[]'
     ];
 
     /**
@@ -76,6 +78,8 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_total' => 'double',
         'order_id' => null,
         'cart_id' => null,
+        'order_date' => 'date-time',
+        'order_status' => null,
         'contact' => null,
         'products' => null
     ];
@@ -89,6 +93,8 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_total' => false,
 		'order_id' => false,
 		'cart_id' => false,
+		'order_date' => false,
+		'order_status' => false,
 		'contact' => false,
 		'products' => false
     ];
@@ -182,6 +188,8 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_total' => 'order_total',
         'order_id' => 'order_id',
         'cart_id' => 'cart_id',
+        'order_date' => 'order_date',
+        'order_status' => 'order_status',
         'contact' => 'contact',
         'products' => 'products'
     ];
@@ -195,6 +203,8 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_total' => 'setOrderTotal',
         'order_id' => 'setOrderId',
         'cart_id' => 'setCartId',
+        'order_date' => 'setOrderDate',
+        'order_status' => 'setOrderStatus',
         'contact' => 'setContact',
         'products' => 'setProducts'
     ];
@@ -208,6 +218,8 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_total' => 'getOrderTotal',
         'order_id' => 'getOrderId',
         'cart_id' => 'getCartId',
+        'order_date' => 'getOrderDate',
+        'order_status' => 'getOrderStatus',
         'contact' => 'getContact',
         'products' => 'getProducts'
     ];
@@ -253,6 +265,27 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const ORDER_STATUS_CREATED = 'created';
+    public const ORDER_STATUS_PENDING = 'pending';
+    public const ORDER_STATUS_CANCELED = 'canceled';
+    public const ORDER_STATUS_COMPLETED = 'completed';
+    public const ORDER_STATUS_UNKNOWN = 'unknown';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOrderStatusAllowableValues()
+    {
+        return [
+            self::ORDER_STATUS_CREATED,
+            self::ORDER_STATUS_PENDING,
+            self::ORDER_STATUS_CANCELED,
+            self::ORDER_STATUS_COMPLETED,
+            self::ORDER_STATUS_UNKNOWN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -272,6 +305,8 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('order_total', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
         $this->setIfExists('cart_id', $data ?? [], null);
+        $this->setIfExists('order_date', $data ?? [], null);
+        $this->setIfExists('order_status', $data ?? [], 'unknown');
         $this->setIfExists('contact', $data ?? [], null);
         $this->setIfExists('products', $data ?? [], null);
     }
@@ -306,6 +341,15 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['order_id'] === null) {
             $invalidProperties[] = "'order_id' can't be null";
         }
+        $allowedValues = $this->getOrderStatusAllowableValues();
+        if (!is_null($this->container['order_status']) && !in_array($this->container['order_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'order_status', must be one of '%s'",
+                $this->container['order_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -409,6 +453,74 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets order_date
+     *
+     * @return \DateTime|null
+     */
+    public function getOrderDate()
+    {
+        return $this->container['order_date'];
+    }
+
+    /**
+     * Sets order_date
+     *
+     * @param \DateTime|null $order_date Date and hour of the order
+     *
+     * @return self
+     */
+    public function setOrderDate($order_date)
+    {
+
+        if (is_null($order_date)) {
+            throw new \InvalidArgumentException('non-nullable order_date cannot be null');
+        }
+
+        $this->container['order_date'] = $order_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_status
+     *
+     * @return string|null
+     */
+    public function getOrderStatus()
+    {
+        return $this->container['order_status'];
+    }
+
+    /**
+     * Sets order_status
+     *
+     * @param string|null $order_status Status of the order
+     *
+     * @return self
+     */
+    public function setOrderStatus($order_status)
+    {
+        $allowedValues = $this->getOrderStatusAllowableValues();
+        if (!is_null($order_status) && !in_array($order_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'order_status', must be one of '%s'",
+                    $order_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($order_status)) {
+            throw new \InvalidArgumentException('non-nullable order_status cannot be null');
+        }
+
+        $this->container['order_status'] = $order_status;
+
+        return $this;
+    }
+
+    /**
      * Gets contact
      *
      * @return \EgoiClient\EgoiModel\Contact1|null
@@ -440,7 +552,7 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets products
      *
-     * @return \EgoiClient\EgoiModel\Product[]|null
+     * @return \EgoiClient\EgoiModel\OrderProduct[]|null
      */
     public function getProducts()
     {
@@ -450,7 +562,7 @@ class CreateOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets products
      *
-     * @param \EgoiClient\EgoiModel\Product[]|null $products List of products
+     * @param \EgoiClient\EgoiModel\OrderProduct[]|null $products List of products
      *
      * @return self
      */

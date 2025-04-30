@@ -1,6 +1,6 @@
 <?php
 /**
- * ImportOrdersBulkBulkRequestTest
+ * OrderProductTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace EgoiClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ImportOrdersBulkBulkRequestTest Class Doc Comment
+ * OrderProductTest Class Doc Comment
  *
  * @category    Class
- * @description Order data
+ * @description Order Product schema
  * @package     EgoiClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ImportOrdersBulkBulkRequestTest extends TestCase
+class OrderProductTest extends TestCase
 {
 
     /**
@@ -71,72 +71,171 @@ class ImportOrdersBulkBulkRequestTest extends TestCase
     }
 
     /**
-     * Test "ImportOrdersBulkBulkRequest"
+     * Test "OrderProduct"
      */
-    public function testImportOrdersBulkBulkRequest()
+    public function testOrderProduct()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "order_id"
+     * Test attribute "product_identifier"
      */
-    public function testPropertyOrderId()
+    public function testPropertyProductIdentifier()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "order_status"
+     * Test attribute "catalog_id"
      */
-    public function testPropertyOrderStatus()
+    public function testPropertyCatalogId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "contact_id"
+     * Test attribute "name"
      */
-    public function testPropertyContactId()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "revenue"
+     * Test attribute "description"
      */
-    public function testPropertyRevenue()
+    public function testPropertyDescription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "store_url"
+     * Test attribute "sku"
      */
-    public function testPropertyStoreUrl()
+    public function testPropertySku()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "date"
+     * Test attribute "upc"
      */
-    public function testPropertyDate()
+    public function testPropertyUpc()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "items"
+     * Test attribute "ean"
      */
-    public function testPropertyItems()
+    public function testPropertyEan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gtin"
+     */
+    public function testPropertyGtin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "mpn"
+     */
+    public function testPropertyMpn()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "link"
+     */
+    public function testPropertyLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "image_link"
+     */
+    public function testPropertyImageLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "price"
+     */
+    public function testPropertyPrice()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sale_price"
+     */
+    public function testPropertySalePrice()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "brand"
+     */
+    public function testPropertyBrand()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "quantity"
+     */
+    public function testPropertyQuantity()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "categories"
+     */
+    public function testPropertyCategories()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "related_products"
+     */
+    public function testPropertyRelatedProducts()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "custom_attributes"
+     */
+    public function testPropertyCustomAttributes()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

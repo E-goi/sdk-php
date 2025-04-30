@@ -107,6 +107,24 @@ class CreateOrderTest extends TestCase
     }
 
     /**
+     * Test attribute "order_date"
+     */
+    public function testPropertyOrderDate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "order_status"
+     */
+    public function testPropertyOrderStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "contact"
      */
     public function testPropertyContact()
